@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-base text-main font-body antialiased">
+  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
+      <a href="#" class="flex items-center gap-3">
+        <img src="images/logo.png" alt="Miracle Wealth" class="h-12 w-auto md:h-14 lg:h-16" />
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="conact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="tel:7972053045" class="btn-secondary">Ph#</a>
+        <a href="conact.html" class="btn-primary">Schedule a Call</a>
+      </div>
+
+      <button id="mobileMenuBtn"
+        class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-100 lg:hidden"
+        aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu hidden border-t border-zinc-800 lg:hidden">
+      <nav class="mx-auto max-w-7xl space-y-3 px-6 py-5 text-sm">
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="services.html" class="mobile-link">Services</a>
+        <a href="conact.html" class="mobile-link">Contact</a>
+        <div class="flex gap-2 pt-2">
+          <a href="tel:7972053045" class="btn-secondary inline-flex">Ph#</a>
+          <a href="conact.html" class="btn-primary inline-flex">Schedule a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-44 lg:px-8 lg:pb-28 lg:pt-52">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start">
+        <div class="lg:col-span-5 lg:order-1" data-reveal>
+          <div class="hero-media-wrap">
+            <img src="images/pic.png" alt="Swapnil Asati" class="hero-media" />
+            <div class="hero-media-meta">
+              <div class="hero-stars" aria-label="5 star trusted support">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+              </div>
+              <p class="hero-name">Swapnil Asati</p>
+              <p class="hero-role">Financial Planning Support</p>
+            </div>
+            <span class="hero-badge">Trusted Financial Support</span>
+          </div>
+        </div>
+
+        <div class="max-w-3xl lg:col-span-7 lg:order-2" data-reveal>
+          <h1 class="font-heading text-4xl leading-tight md:text-5xl lg:text-6xl">Smarter Financial Decisions.
+            Simplified.</h1>
+          <div class="mt-5 h-px w-40 gradient-line"></div>
+          <p class="mt-6 max-w-2xl text-lg text-zinc-300">
+            Miracle Wealth combines smart insurance solutions with disciplined wealth management for Doctors, HNIs, and
+            modern families.
+            From high-value maternity and health insurance to long-term investment planning, we protect what matters and
+            grow what counts.
+            Our expertise in claims, risk management, and portfolio strategy ensures clarity at every stage of your
+            financial journey.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="conact.html" class="btn-primary">Schedule a Call</a>
+            <a href="services.html" class="btn-secondary">Explore Services</a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3 text-sm">
+            <span class="chip"><span class="chip-check">✓</span>Goal-based planning support</span>
+            <span class="chip"><span class="chip-check">✓</span>Disciplined approach</span>
+            <span class="chip"><span class="chip-check">✓</span>Clear communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="light-section bg-section px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-2xl" data-reveal>
+          <h2 class="font-heading text-3xl md:text-4xl">Services</h2>
+          <p class="mt-4 text-zinc-300">Thoughtfully structured solutions that protect your present, strengthen
+            long-term discipline, and support meaningful financial progress.</p>
+        </div>
+
+        <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="service-card" data-reveal>
+            <div class="service-mark"><ion-icon name="medkit-outline"></ion-icon></div>
+            <h3>Maternity Health Insurance</h3>
+            <p>India’s most cost-effective maternity cover is here, offering up to ₹1.25 lakh for delivery expenses with
+              dedicated newborn protection with minimal premium.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-mark"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+            <h3>Comprehensive Health Insurance</h3>
+            <p>High-coverage health plans with Day-1 protection for pre-existing conditions and competitive premiums
+              across all age groups.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-mark"><ion-icon name="umbrella-outline"></ion-icon></div>
+            <h3>Term Insurance</h3>
+            <p>Pure protection plans designed to deliver maximum financial security for your family at the lowest
+              possible cost.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-mark"><ion-icon name="trending-up-outline"></ion-icon></div>
+            <h3>Wealth Management for Doctors &amp; HNIs</h3>
+            <p>Personalised wealth strategies built around long-term growth, risk management, and structured financial
+              planning for high-earning professionals.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-mark"><ion-icon name="time-outline"></ion-icon></div>
+            <h3>Retirement Planning</h3>
+            <p>Goal-based retirement solutions for traditional and early retirement, ensuring lifelong income,
+              stability, and financial independence.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-mark"><ion-icon name="cash-outline"></ion-icon></div>
+            <h3>Loan Against Mutual Funds (LAMF)</h3>
+            <p>Access liquidity at industry-leading low interest rates without selling your investments – so your wealth
+              continues to compound.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-choose" class="why-dark px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl" data-reveal>
+          <span class="why-tag">Why Choose Us</span>
+          <h2 class="mt-6 font-heading text-3xl md:text-5xl">What Makes Us Different</h2>
+          <p class="mt-6 text-lg leading-relaxed text-zinc-300">
+            At Miracle Wealth, we focus on outcomes over noise. Our approach combines practical protection planning,
+            disciplined wealth structuring, and clear communication so every decision stays connected to your real-life
+            goals.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+          <article class="why-item" data-reveal>
+            <ion-icon name="ribbon-outline"></ion-icon>
+            <h3>Domain Expertise</h3>
+            <p>Deep experience across insurance, risk conversations, and long-term financial structuring.</p>
+          </article>
+          <article class="why-item" data-reveal>
+            <ion-icon name="layers-outline"></ion-icon>
+            <h3>Exclusive Solutions</h3>
+            <p>Thoughtful, cost-aware solutions designed around your goals, not one-size-fits-all templates.</p>
+          </article>
+          <article class="why-item" data-reveal>
+            <ion-icon name="people-outline"></ion-icon>
+            <h3>Client First</h3>
+            <p>Consistent support, transparent guidance, and disciplined execution at every stage.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="light-section bg-section px-6 py-20 lg:px-8">
+      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
+        <div data-reveal>
+          <h2 class="font-heading text-3xl md:text-4xl">Independent Financial Guidance</h2>
+          <p class="mt-6 text-zinc-300">
+            Miracle Wealth supports individuals and families with structured financial planning support, product
+            distribution, and education-focused conversations to help align decisions with life goals.
+          </p>
+          <ul class="mt-6 space-y-3 text-zinc-200">
+            <li class="flex items-start gap-3"><ion-icon class="about-tick"
+                name="checkmark-circle-outline"></ion-icon><span>Goal-driven planning framework for short and long-term
+                priorities</span></li>
+            <li class="flex items-start gap-3"><ion-icon class="about-tick"
+                name="checkmark-circle-outline"></ion-icon><span>Clear explanations of options across mutual fund and
+                insurance offerings</span></li>
+            <li class="flex items-start gap-3"><ion-icon class="about-tick"
+                name="checkmark-circle-outline"></ion-icon><span>Supportive check-ins to maintain consistency and
+                discipline</span></li>
+            <li class="flex items-start gap-3"><ion-icon class="about-tick"
+                name="checkmark-circle-outline"></ion-icon><span>Practical investor education for informed
+                decision-making</span></li>
+          </ul>
+        </div>
+
+        <div data-reveal>
+          <div class="about-visual-wrap rounded-2xl border border-zinc-800 p-6">
+            <svg viewBox="0 0 520 360" class="h-auto w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="24" y="28" width="472" height="304" rx="34" fill="#0F1118" stroke="url(#stroke)"
+                stroke-width="1.4" />
+              <rect x="66" y="66" width="408" height="16" rx="8" fill="#1A1D2A" />
+              <rect x="66" y="96" width="288" height="12" rx="6" fill="#171A25" />
+              <rect x="66" y="118" width="240" height="12" rx="6" fill="#171A25" />
+              <circle cx="132" cy="184" r="56" fill="#151826" />
+              <circle cx="132" cy="184" r="48" stroke="url(#stroke)" stroke-width="2" opacity="0.8" />
+              <path d="M82 260C112 228 147 282 179 251C211 219 247 259 279 230C309 202 351 210 390 176"
+                stroke="url(#stroke)" stroke-width="4" stroke-linecap="round" />
+              <rect x="244" y="162" width="192" height="18" rx="9" fill="#1B1E2C" />
+              <rect x="244" y="188" width="154" height="14" rx="7" fill="#171A25" />
+              <rect x="244" y="210" width="132" height="14" rx="7" fill="#171A25" />
+              <defs>
+                <linearGradient id="stroke" x1="52" y1="40" x2="370" y2="250" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6C40D1" />
+                  <stop offset="0.52" stop-color="#D64A9A" />
+                  <stop offset="1" stop-color="#E58D2E" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="light-section bg-section px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto max-w-4xl text-center" data-reveal>
+          <span class="process-tag">Our Methodology</span>
+          <h2 class="mt-6 font-heading text-3xl md:text-5xl">How We Build Your Wealth</h2>
+          <p class="mx-auto mt-6 max-w-3xl text-zinc-300">
+            A structured 4-step process designed to eliminate guesswork and align your finances strictly with your life
+            goals.
+          </p>
+        </div>
+
+        <div class="process-grid mt-14 grid gap-8 md:grid-cols-4">
+          <article class="process-step" data-reveal>
+            <div class="process-node">
+              <span class="step-index">1</span>
+              <ion-icon name="search-outline"></ion-icon>
+            </div>
+            <h3>Discovery</h3>
+            <p>Deep dive into your current financial health, liabilities, and aspirations.</p>
+          </article>
+          <article class="process-step" data-reveal>
+            <div class="process-node">
+              <span class="step-index">2</span>
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+            </div>
+            <h3>Risk Mitigation</h3>
+            <p>Securing your baseline with optimal life and health insurance covers.</p>
+          </article>
+          <article class="process-step" data-reveal>
+            <div class="process-node">
+              <span class="step-index">3</span>
+              <ion-icon name="analytics-outline"></ion-icon>
+            </div>
+            <h3>Strategic Allocation</h3>
+            <p>Structuring investments across mutual funds and equities for growth.</p>
+          </article>
+          <article class="process-step" data-reveal>
+            <div class="process-node">
+              <span class="step-index">4</span>
+              <ion-icon name="sync-outline"></ion-icon>
+            </div>
+            <h3>Active Review</h3>
+            <p>Continuous monitoring and rebalancing to stay on track over the years.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="instagram" class="light-section px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
+          <div>
+            <h2 class="font-heading text-3xl md:text-4xl">Insights &amp; Updates</h2>
+            <p class="mt-3 text-zinc-300">From Simplify With Swapnil</p>
+          </div>
+          <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" rel="noopener"
+            class="btn-secondary">Visit Instagram</a>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DSUMRp2DBNp/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          </blockquote>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DSwY58pDKcm/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          </blockquote>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DSeNjGFDNjE/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          </blockquote>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DSH0PSHjBQM/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          </blockquote>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DRFHs3VDM0n/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          </blockquote>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DR_7U9ADKjL/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="light-section bg-section testimonial-texture px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-2xl" data-reveal>
+          <h2 class="font-heading text-3xl md:text-4xl">What People Say</h2>
+        </div>
+
+        <div class="mt-10" data-reveal>
+          <div class="overflow-hidden rounded-2xl border border-zinc-800 bg-card">
+            <div id="testimonialTrack" class="flex transition-transform duration-500 ease-out">
+              <article class="testimonial-card testimonial-slide">
+                <div class="stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon
+                    name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                <p>“The process gave me structure and helped me stop making random financial decisions.”</p>
+                <h3>Rohit M.</h3>
+                <span>Working Professional</span>
+              </article>
+              <article class="testimonial-card testimonial-slide">
+                <div class="stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon
+                    name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                <p>“Clear communication and regular follow-ups made it easier to stay disciplined with my goals.”</p>
+                <h3>Neha S.</h3>
+                <span>Entrepreneur</span>
+              </article>
+              <article class="testimonial-card testimonial-slide">
+                <div class="stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon
+                    name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                <p>“I appreciated the practical explanations and the focus on long-term consistency.”</p>
+                <h3>Aditya R.</h3>
+                <span>Business Owner</span>
+              </article>
+              <article class="testimonial-card testimonial-slide">
+                <div class="stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon
+                    name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                <p>“Very smooth onboarding and clear walkthroughs. It feels organized and practical.”</p>
+                <h3>Priya K.</h3>
+                <span>Consultant</span>
+              </article>
+              <article class="testimonial-card testimonial-slide">
+                <div class="stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon
+                    name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                <p>“The ongoing review support helps me stay consistent instead of reacting emotionally.”</p>
+                <h3>Sameer T.</h3>
+                <span>Senior Manager</span>
+              </article>
+              <article class="testimonial-card testimonial-slide">
+                <div class="stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon
+                    name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                <p>“I now understand what I’m doing with my money, and that clarity is the biggest win.”</p>
+                <h3>Megha P.</h3>
+                <span>Creative Professional</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex gap-2" id="testimonialDots" aria-label="Testimonial slides"></div>
+            <div class="flex gap-2">
+              <button id="prevTestimonial" class="slider-btn" aria-label="Previous testimonial">Prev</button>
+              <button id="nextTestimonial" class="slider-btn" aria-label="Next testimonial">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="light-section px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 bg-card px-6 py-6 md:px-8" data-reveal>
+        <div class="flex flex-col items-start justify-between gap-5 md:flex-row md:items-center">
+          <div class="max-w-3xl">
+            <h2 class="font-heading text-2xl md:text-3xl">Ready to Secure Your Future?</h2>
+            <p class="mt-2 text-zinc-300">
+              Take the right step today with expert guidance &amp; get personalised insurance and wealth solutions
+              designed for your life goals.
+            </p>
+          </div>
+          <a href="#" class="btn-primary inline-flex">Enquire Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-dark border-t border-zinc-800 px-6 py-12 lg:px-8">
+    <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-10 w-auto" />
+          <p class="mt-5 max-w-md text-sm text-zinc-300">
+            Financial planning support, distribution services, and disciplined long-term execution tailored to your life
+            goals.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
+            <a href="conact.html" class="social-pill"><ion-icon name="calendar-outline"></ion-icon>Schedule a Call</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="font-semibold text-zinc-100">Quick Links</h4>
+          <ul class="mt-4 space-y-2 text-sm text-zinc-300">
+            <li><a class="footer-link" href="#hero">Home</a></li>
+            <li><a class="footer-link" href="about.html">About</a></li>
+            <li><a class="footer-link" href="services.html">Services</a></li>
+            <li><a class="footer-link" href="#process">Process</a></li>
+            <li><a class="footer-link" href="conact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="font-semibold text-zinc-100">Connect</h4>
+          <p class="mt-4 text-sm text-zinc-300">Email: hello@miraclewealth.in</p>
+          <p class="text-sm text-zinc-300">Location: Mumbai, India</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm text-zinc-300">
+            <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" rel="noopener"
+              class="social-pill"><ion-icon name="logo-instagram"></ion-icon>Instagram</a>
+            <a href="#" class="social-pill"><ion-icon name="logo-linkedin"></ion-icon>LinkedIn</a>
+            <a href="#" class="social-pill"><ion-icon name="logo-youtube"></ion-icon>YouTube</a>
+          </div>
+          <a href="#" class="mt-4 inline-block text-sm text-zinc-400 hover:text-zinc-200">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center">
+        <p class="md:col-span-9 text-xs leading-relaxed text-zinc-300">
+          Miracle Wealth is not a SEBI-registered investment advisor. We provide distribution and facilitation services.
+          Investments in market instruments are subject to market risks.
+        </p>
+        <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/917972053045" target="_blank" rel="noopener" class="whatsapp-float"
+    aria-label="Chat on WhatsApp">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+  <script>
+    const header = document.getElementById("header");
+    const hero = document.getElementById("hero");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+
+    const onScroll = () => {
+      const threshold = Math.max(120, hero.offsetHeight - header.offsetHeight - 40);
+      if (window.scrollY > threshold) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+
+    mobileMenuBtn.addEventListener("click", () => {
+      const isHidden = mobileMenu.classList.contains("hidden");
+      mobileMenu.classList.toggle("hidden");
+      mobileMenuBtn.setAttribute("aria-expanded", String(isHidden));
+    });
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const track = document.getElementById("testimonialTrack");
+    const slides = Array.from(track.children);
+    const prevBtn = document.getElementById("prevTestimonial");
+    const nextBtn = document.getElementById("nextTestimonial");
+    const dotsContainer = document.getElementById("testimonialDots");
+    let current = 0;
+    let dots = [];
+    let autoTimer;
+
+    const visibleCount = () => (window.innerWidth >= 1280 ? 4 : window.innerWidth >= 768 ? 2 : 1);
+    const maxIndex = () => Math.max(0, slides.length - visibleCount());
+
+    const buildDots = () => {
+      dotsContainer.innerHTML = "";
+      const total = maxIndex() + 1;
+      dots = Array.from({ length: total }).map((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "dot";
+        dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+        dot.addEventListener("click", () => {
+          current = i;
+          updateSlider();
+          resetAuto();
+        });
+        dotsContainer.appendChild(dot);
+        return dot;
+      });
+    };
+
+    const updateSlider = () => {
+      const visible = visibleCount();
+      track.style.setProperty("--visible-cards", String(visible));
+      current = Math.min(current, maxIndex());
+      track.style.transform = `translateX(-${current * (100 / visible)}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+    };
+
+    const startAuto = () => {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        current = current >= maxIndex() ? 0 : current + 1;
+        updateSlider();
+      }, 3500);
+    };
+
+    const resetAuto = () => {
+      clearInterval(autoTimer);
+      startAuto();
+    };
+
+    prevBtn.addEventListener("click", () => {
+      current = current <= 0 ? maxIndex() : current - 1;
+      updateSlider();
+      resetAuto();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      current = current >= maxIndex() ? 0 : current + 1;
+      updateSlider();
+      resetAuto();
+    });
+
+    track.addEventListener("mouseenter", () => clearInterval(autoTimer));
+    track.addEventListener("mouseleave", () => startAuto());
+    window.addEventListener("resize", () => {
+      buildDots();
+      updateSlider();
+    });
+
+    buildDots();
+    updateSlider();
+    startAuto();
+
+    const revealEls = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -5% 0px" }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  </script>
+</body>
+
+</html>
