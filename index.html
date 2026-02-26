@@ -31,7 +31,7 @@
   <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
       <a href="#" class="flex items-center gap-3">
-        <img src="images/logo.png" alt="Miracle Wealth" class="h-12 w-auto md:h-14 lg:h-16" />
+        <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto md:h-20 lg:h-24" />
       </a>
 
       <nav class="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
@@ -42,7 +42,7 @@
       </nav>
 
       <div class="hidden items-center gap-3 lg:flex">
-        <a href="tel:7972053045" class="btn-secondary">Ph#</a>
+        <a href="tel:7972053045" class="btn-secondary">7972053045</a>
         <a href="conact.html" class="btn-primary">Schedule a Call</a>
       </div>
 
@@ -55,26 +55,35 @@
       </button>
     </div>
 
-    <div id="mobileMenu" class="mobile-menu hidden border-t border-zinc-800 lg:hidden">
-      <nav class="mx-auto max-w-7xl space-y-3 px-6 py-5 text-sm">
-        <a href="#hero" class="mobile-link">Home</a>
-        <a href="about.html" class="mobile-link">About</a>
-        <a href="services.html" class="mobile-link">Services</a>
-        <a href="conact.html" class="mobile-link">Contact</a>
-        <div class="flex gap-2 pt-2">
-          <a href="tel:7972053045" class="btn-secondary inline-flex">Ph#</a>
-          <a href="conact.html" class="btn-primary inline-flex">Schedule a Call</a>
+    <div id="mobileMenu"
+      class="mobile-menu hidden absolute top-full left-0 w-full border-t border-zinc-800 shadow-2xl lg:hidden">
+      <nav class="mx-auto flex max-w-7xl flex-col space-y-4 px-6 py-6 text-base">
+        <a href="#hero" class="mobile-link block font-medium">Home</a>
+        <a href="about.html" class="mobile-link block font-medium">About</a>
+        <a href="services.html" class="mobile-link block font-medium">Services</a>
+        <a href="conact.html" class="mobile-link block font-medium">Contact</a>
+        <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
+          <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
+          <a href="conact.html" class="btn-primary text-center">Schedule a Call</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-44 lg:px-8 lg:pb-28 lg:pt-52">
+    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-24 lg:px-8 lg:pb-28 lg:pt-52">
       <div class="hero-grid"></div>
       <div class="hero-orb hero-orb-1"></div>
-      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start flex-col-reverse">
-        <div class="order-2 lg:order-1 lg:col-span-5" data-reveal>
+
+      <!-- Mobile Heading (visible only on mobile/tablet) -->
+      <div class="mx-auto mb-10 max-w-3xl lg:hidden" data-reveal>
+        <h1 class="font-heading text-4xl leading-tight md:text-5xl">Smarter Financial Decisions.
+          Simplified.</h1>
+        <div class="mt-5 h-px w-40 gradient-line"></div>
+      </div>
+
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start">
+        <div class="lg:col-span-5 lg:order-1" data-reveal>
           <div class="hero-media-wrap">
             <img src="images/pic.png" alt="Swapnil Asati" class="hero-media" />
             <div class="hero-media-meta">
@@ -92,11 +101,15 @@
           </div>
         </div>
 
-        <div class="order-1 lg:order-2 max-w-3xl lg:col-span-7" data-reveal>
-          <h1 class="font-heading text-4xl leading-tight md:text-5xl lg:text-6xl">Smarter Financial Decisions.
-            Simplified.</h1>
-          <div class="mt-5 h-px w-40 gradient-line"></div>
-          <p class="mt-6 max-w-2xl text-lg text-zinc-300">
+        <div class="max-w-3xl lg:col-span-7 lg:order-2" data-reveal>
+          <!-- Desktop Heading (visible only on desktop) -->
+          <div class="hidden lg:block">
+            <h1 class="font-heading text-4xl leading-tight md:text-5xl lg:text-6xl">Smarter Financial Decisions.
+              Simplified.</h1>
+            <div class="mt-5 h-px w-40 gradient-line"></div>
+          </div>
+
+          <p class="lg:mt-6 max-w-2xl text-lg text-zinc-300">
             Miracle Wealth combines smart insurance solutions with disciplined wealth management for Doctors, HNIs, and
             modern families.
             From high-value maternity and health insurance to long-term investment planning, we protect what matters and
