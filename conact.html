@@ -43,7 +43,7 @@
 
       <div class="hidden items-center gap-3 lg:flex">
         <a href="tel:7972053045" class="btn-secondary">7972053045</a>
-        <a href="conact.html" class="btn-primary">Schedule a Call</a>
+        <a href="#" class="btn-primary">Book a Call</a>
       </div>
 
       <button id="mobileMenuBtn"
@@ -64,7 +64,7 @@
         <a href="conact.html" class="mobile-link block font-medium">Contact</a>
         <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
           <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
-          <a href="conact.html" class="btn-primary text-center">Schedule a Call</a>
+          <a href="#" class="btn-primary text-center">Book a Call</a>
         </div>
       </nav>
     </div>
@@ -128,22 +128,31 @@
                   class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500"
                   placeholder="Enter your phone" />
               </div>
-              <div class="md:col-span-2">
+              <div>
                 <label class="mb-1 block text-sm text-zinc-300" for="email">Email</label>
                 <input id="email" name="email" type="email"
                   class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500"
                   placeholder="Enter your email" />
               </div>
+              <div>
+                <label class="mb-1 block text-sm text-zinc-300" for="city">City</label>
+                <input id="city" name="city" type="text"
+                  class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500"
+                  placeholder="Enter your city" />
+              </div>
               <div class="md:col-span-2">
                 <label class="mb-1 block text-sm text-zinc-300" for="service">Interested Service</label>
                 <select id="service" name="service"
                   class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500">
-                  <option>Maternity Health Insurance</option>
-                  <option>Comprehensive Health Insurance</option>
-                  <option>Term Insurance</option>
-                  <option>Wealth Management for Doctors & HNIs</option>
-                  <option>Retirement Planning</option>
-                  <option>Loan Against Mutual Funds (LAMF)</option>
+                  <option value="" disabled selected>Select a Service</option>
+                  <option value="Wealth Management for Doctors & HNIs">Wealth Management for Doctors &amp; HNIs</option>
+                  <option value="Retirement Planning">Retirement Planning</option>
+                  <option value="Loan Against Mutual Funds">Loan Against Mutual Funds</option>
+                  <option value="Maternity Health Insurance">Maternity Health Insurance</option>
+                  <option value="Comprehensive Health Insurance">Comprehensive Health Insurance</option>
+                  <option value="Term Insurance">Term Insurance</option>
+                  <option value="Claim Settlement Assistance">Claim Settlement Assistance</option>
+                  <option value="Others">Others</option>
                 </select>
               </div>
               <div class="md:col-span-2">
@@ -173,7 +182,7 @@
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
             <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
-            <a href="conact.html" class="social-pill"><ion-icon name="calendar-outline"></ion-icon>Schedule a Call</a>
+            <a href="#" class="social-pill"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
           </div>
         </div>
 
@@ -189,8 +198,9 @@
 
         <div class="md:col-span-4">
           <h4 class="font-semibold text-zinc-100">Connect</h4>
-          <p class="mt-4 text-sm text-zinc-300">Email: hello@miraclewealth.in</p>
-          <p class="text-sm text-zinc-300">Location: Mumbai, India</p>
+          <p class="mt-4 text-sm text-zinc-300">Email: miraclewealth.in@gmail.com</p>
+          <p class="text-sm text-zinc-300">Location: Ensaara Metropark, Pipla-Kharsoli Road, Pipla, Nagpur, Maharashtra,
+            India – 440034</p>
           <div class="mt-4 flex flex-wrap gap-2 text-sm text-zinc-300">
             <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" rel="noopener"
               class="social-pill"><ion-icon name="logo-instagram"></ion-icon>Instagram</a>
@@ -205,8 +215,9 @@
 
       <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center">
         <p class="md:col-span-9 text-xs leading-relaxed text-zinc-300">
-          Miracle Wealth is not a SEBI-registered investment advisor. We provide distribution and facilitation services.
-          Investments in market instruments are subject to market risks.
+          We are not a SEBI-registered investment advisor. We facilitate mutual funds (as per AMFI guidelines) &amp;
+          insurance distribution services (as per IRDAI guidelines). Investments in mutual funds are subject to market
+          risks, please read all scheme related documents carefully before investing.
         </p>
         <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
       </div>
