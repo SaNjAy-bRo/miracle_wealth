@@ -50,8 +50,13 @@
       <button id="mobileMenuBtn"
         class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-100 lg:hidden"
         aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="menuIconOpen" class="h-5 w-5 transition-transform duration-300" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menuIconClose" class="h-5 w-5 hidden transition-transform duration-300 rotate-90" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
@@ -73,7 +78,7 @@
   </header>
 
   <main>
-    <section id="hero" class="hero-dark relative px-6 pb-20 pt-24 lg:px-8 lg:pb-28 lg:pt-52">
+    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-24 lg:px-8 lg:pb-28 lg:pt-52">
       <div class="hero-grid"></div>
       <div class="hero-orb hero-orb-1"></div>
 
@@ -620,6 +625,8 @@
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileLinks = mobileMenu.querySelectorAll("a");
+    const menuIconOpen = document.getElementById("menuIconOpen");
+    const menuIconClose = document.getElementById("menuIconClose");
 
     const onScroll = () => {
       const threshold = Math.max(120, hero.offsetHeight - header.offsetHeight - 40);
@@ -629,16 +636,32 @@
     onScroll();
     window.addEventListener("scroll", onScroll);
 
-    mobileMenuBtn.addEventListener("click", () => {
+    const toggleMenu = (forceClose = false) => {
       const isHidden = mobileMenu.classList.contains("hidden");
-      mobileMenu.classList.toggle("hidden");
-      mobileMenuBtn.setAttribute("aria-expanded", String(isHidden));
-    });
-    mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      if (forceClose && isHidden) return;
+
+      const willBeHidden = forceClose ? true : !isHidden;
+
+      if (willBeHidden) {
         mobileMenu.classList.add("hidden");
         mobileMenuBtn.setAttribute("aria-expanded", "false");
-      });
+        menuIconClose.classList.add("hidden", "rotate-90");
+        menuIconClose.classList.remove("rotate-0");
+        menuIconOpen.classList.remove("hidden");
+        menuIconOpen.classList.add("rotate-0");
+      } else {
+        mobileMenu.classList.remove("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        menuIconOpen.classList.add("hidden");
+        menuIconOpen.classList.remove("rotate-0");
+        menuIconClose.classList.remove("hidden", "rotate-90");
+        menuIconClose.classList.add("rotate-0");
+      }
+    };
+
+    mobileMenuBtn.addEventListener("click", () => toggleMenu());
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => toggleMenu(true));
     });
 
     const track = document.getElementById("testimonialTrack");

@@ -13,6 +13,12 @@
   --line-gradient: linear-gradient(90deg, rgba(108, 64, 209, 0.52), rgba(214, 74, 154, 0.44), rgba(229, 141, 46, 0.34));
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }
