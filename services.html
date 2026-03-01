@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-base text-main font-body antialiased">
+<body class="bg-base text-main font-body antialiased overflow-x-hidden">
   <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
       <a href="index.html" class="flex items-center gap-3">
@@ -38,6 +38,7 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="services.html" class="nav-link">Services</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
         <a href="conact.html" class="nav-link">Contact</a>
       </nav>
 
@@ -61,6 +62,7 @@
         <a href="index.html" class="mobile-link block font-medium">Home</a>
         <a href="about.html" class="mobile-link block font-medium">About</a>
         <a href="services.html" class="mobile-link block font-medium">Services</a>
+        <a href="calculators.html" class="mobile-link block font-medium">Calculators</a>
         <a href="conact.html" class="mobile-link block font-medium">Contact</a>
         <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
           <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
@@ -183,7 +185,63 @@
       </div>
     </section>
 
-    <section id="testimonials" class="light-section bg-section testimonial-texture px-6 py-20 lg:px-8">
+    <section id="maternity-insurance" class="light-section bg-section px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12" data-reveal>
+          <div class="max-w-2xl">
+            <span class="why-tag mb-4 inline-block">Exclusive Offering</span>
+            <h2 class="font-heading text-3xl md:text-4xl text-purple-700">Cost-Effective Maternity Cover</h2>
+            <p class="mt-4 text-zinc-300 text-lg">
+              Secure your family's future with India's most comprehensive and affordable maternity health insurance
+              plan, designed specifically for modern families and young professionals.
+            </p>
+          </div>
+          <div>
+            <a href="documents/Maternity_Insurance_Brochure.pdf" download
+              class="btn-primary inline-flex items-center gap-2">
+              <ion-icon name="download-outline" class="text-xl"></ion-icon> Download Brochure
+            </a>
+          </div>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-10 text-center" data-reveal>
+          <div class="rounded-2xl border border-purple-800/30 bg-purple-900/10 p-6">
+            <div
+              class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 text-purple-700 mb-4">
+              <ion-icon name="cash-outline" class="text-3xl"></ion-icon>
+            </div>
+            <div class="font-heading text-2xl font-bold text-white mb-1">₹1.25 Lakhs</div>
+            <p class="text-zinc-400 text-sm">Cover for Delivery Expenses</p>
+          </div>
+          <div class="rounded-2xl border border-purple-800/30 bg-purple-900/10 p-6">
+            <div
+              class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 text-purple-700 mb-4">
+              <ion-icon name="happy-outline" class="text-3xl"></ion-icon>
+            </div>
+            <div class="font-heading text-2xl font-bold text-white mb-1">Newborn Cover</div>
+            <p class="text-zinc-400 text-sm">Dedicated Baby Protection</p>
+          </div>
+          <div class="rounded-2xl border border-purple-800/30 bg-purple-900/10 p-6">
+            <div
+              class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 text-purple-700 mb-4">
+              <ion-icon name="globe-outline" class="text-3xl"></ion-icon>
+            </div>
+            <div class="font-heading text-2xl font-bold text-white mb-1">Up to ₹2 Cr</div>
+            <p class="text-zinc-400 text-sm">Global Health Cover</p>
+          </div>
+          <div class="rounded-2xl border border-purple-800/30 bg-purple-900/10 p-6">
+            <div
+              class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 text-purple-700 mb-4">
+              <ion-icon name="wallet-outline" class="text-3xl"></ion-icon>
+            </div>
+            <div class="font-heading text-2xl font-bold text-white mb-1">Minimal EMI</div>
+            <p class="text-zinc-400 text-sm">Highly Cost-Effective Premium</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="why-dark testimonial-texture px-6 py-20 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl" data-reveal>
           <h2 class="font-heading text-3xl md:text-4xl">What People Say</h2>
@@ -271,18 +329,35 @@
         </div>
       </div>
     </section>
+
+    <!-- Insurance Partners Section -->
+    <section class="light-section bg-section border-t border-gray-200 px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-5xl text-center" data-reveal>
+        <span class="why-tag mb-4 inline-block text-gray-900 border-gray-300 !bg-white">Trusted Names</span>
+        <h2 class="font-heading text-2xl md:text-3xl text-gray-900">Our Insurance Partners</h2>
+        <p class="mt-2 mb-10 text-gray-600">We work with the best in the industry to secure your health and life.</p>
+
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+          <img src="images/partners/Care.jpg" alt="Care Health Insurance"
+            class="h-14 lg:h-20 w-auto grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 object-contain mix-blend-multiply" />
+          <img src="images/partners/ICICI Lombard.png" alt="ICICI Lombard"
+            class="h-14 lg:h-20 w-auto grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 object-contain mix-blend-multiply" />
+          <img src="images/partners/Magma.jpg" alt="Magma HDI"
+            class="h-14 lg:h-20 w-auto grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 object-contain mix-blend-multiply" />
+          <img src="images/partners/Niva.png" alt="Niva Bupa"
+            class="h-14 lg:h-20 w-auto grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 object-contain mix-blend-multiply" />
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer-dark border-t border-zinc-800 px-6 py-12 lg:px-8">
     <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8">
       <div class="grid gap-10 md:grid-cols-12">
         <div class="md:col-span-5">
-          <img src="images/logo.png" alt="Miracle Wealth" class="h-10 w-auto" />
-          <p class="mt-5 max-w-md text-sm text-zinc-300">
-            Financial planning support, distribution services, and disciplined long-term execution tailored to your life
-            goals.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto mb-6" />
+
+          <div class="mt-6 flex flex-col gap-3 items-start">
             <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
             <a href="#" class="social-pill"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
           </div>
@@ -294,6 +369,7 @@
             <li><a class="footer-link" href="index.html">Home</a></li>
             <li><a class="footer-link" href="about.html">About</a></li>
             <li><a class="footer-link" href="services.html">Services</a></li>
+            <li><a class="footer-link" href="calculators.html">Calculators</a></li>
             <li><a class="footer-link" href="conact.html">Contact</a></li>
           </ul>
         </div>
@@ -311,7 +387,8 @@
             <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" rel="noopener"
               class="social-pill"><ion-icon name="logo-youtube"></ion-icon>YouTube</a>
           </div>
-          <a href="#" class="mt-4 inline-block text-sm text-zinc-400 hover:text-zinc-200">Privacy Policy</a>
+          <a href="privacy-policy.html" class="mt-4 inline-block text-sm text-zinc-400 hover:text-zinc-200">Privacy
+            Policy</a>
         </div>
       </div>
 

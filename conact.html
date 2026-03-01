@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-base text-main font-body antialiased">
+<body class="bg-base text-main font-body antialiased overflow-x-hidden">
   <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
       <a href="index.html" class="flex items-center gap-3">
@@ -38,6 +38,7 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="services.html" class="nav-link">Services</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
         <a href="conact.html" class="nav-link">Contact</a>
       </nav>
 
@@ -61,6 +62,7 @@
         <a href="index.html" class="mobile-link block font-medium">Home</a>
         <a href="about.html" class="mobile-link block font-medium">About</a>
         <a href="services.html" class="mobile-link block font-medium">Services</a>
+        <a href="calculators.html" class="mobile-link block font-medium">Calculators</a>
         <a href="conact.html" class="mobile-link block font-medium">Contact</a>
         <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
           <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
@@ -175,12 +177,9 @@
     <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8">
       <div class="grid gap-10 md:grid-cols-12">
         <div class="md:col-span-5">
-          <img src="images/logo.png" alt="Miracle Wealth" class="h-10 w-auto" />
-          <p class="mt-5 max-w-md text-sm text-zinc-300">
-            Financial planning support, distribution services, and disciplined long-term execution tailored to your life
-            goals.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto mb-6" />
+
+          <div class="mt-6 flex flex-col gap-3 items-start">
             <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
             <a href="#" class="social-pill"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
           </div>
@@ -192,6 +191,7 @@
             <li><a class="footer-link" href="index.html">Home</a></li>
             <li><a class="footer-link" href="about.html">About</a></li>
             <li><a class="footer-link" href="services.html">Services</a></li>
+            <li><a class="footer-link" href="calculators.html">Calculators</a></li>
             <li><a class="footer-link" href="conact.html">Contact</a></li>
           </ul>
         </div>
@@ -209,7 +209,8 @@
             <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" rel="noopener"
               class="social-pill"><ion-icon name="logo-youtube"></ion-icon>YouTube</a>
           </div>
-          <a href="#" class="mt-4 inline-block text-sm text-zinc-400 hover:text-zinc-200">Privacy Policy</a>
+          <a href="privacy-policy.html" class="mt-4 inline-block text-sm text-zinc-400 hover:text-zinc-200">Privacy
+            Policy</a>
         </div>
       </div>
 
