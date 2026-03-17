@@ -1,0 +1,442 @@
+1. SIP Calculator Embed Code 
+<div id="mw-sip-calculator" style="max-width: 500px; margin: 20px auto; padding: 25px; border-radius: 
+12px; background: #f9f9f9; box-shadow: 0 4px 15px rgba(0,0,0,0.1); font-family: 'Inter', sans-serif; color: 
+#333;"> 
+    <h2 style="text-align: center; color: #1a73e8; margin-bottom: 20px;">SIP Calculator</h2> 
+     
+    <div style="margin-bottom: 15px;"> 
+        <label>Monthly Investment (₹)</label> 
+        <input type="number" id="monthly-amt" value="5000" style="width: 100%; padding: 10px; margin-top: 
+5px; border: 1px solid #ddd; border-radius: 6px;"> 
+    </div> 
+     
+    <div style="margin-bottom: 15px;"> 
+        <label>Expected Return Rate (% p.a)</label> 
+        <input type="number" id="return-rate" value="12" style="width: 100%; padding: 10px; margin-top: 5px; 
+border: 1px solid #ddd; border-radius: 6px;"> 
+    </div> 
+     
+    <div style="margin-bottom: 20px;"> 
+        <label>Time Period (Years)</label> 
+        <input type="number" id="years" value="10" style="width: 100%; padding: 10px; margin-top: 5px; 
+border: 1px solid #ddd; border-radius: 6px;"> 
+    </div> 
+     
+    <button onclick="calculateSIP()" style="width: 100%; padding: 12px; background: #1a73e8; color: white; 
+border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s;">Calculate 
+Now</button> 
+     
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid #eee;"> 
+     
+    <div style="display: ﬂex; justify-content: space-between; margin-bottom: 10px;"> 
+        <span>Invested Amount:</span> 
+        <span id="invested-display" style="font-weight: bold;">₹0</span> 
+    </div> 
+    <div style="display: ﬂex; justify-content: space-between; margin-bottom: 10px;"> 
+        <span>Estimated Returns:</span> 
+        <span id="returns-display" style="font-weight: bold; color: #2ecc71;">₹0</span> 
+    </div> 
+    <div style="display: ﬂex; justify-content: space-between; font-size: 1.2em; border-top: 1px solid #ddd; 
+padding-top: 10px;"> 
+        <span>Total Value:</span> 
+        <span id="total-display" style="font-weight: bold; color: #1a73e8;">₹0</span> 
+    </div> 
+</div> 
+ 
+<script> 
+function calculateSIP() { 
+    let P = parseFloat(document.getElementById('monthly-amt').value); 
+    let annualRate = parseFloat(document.getElementById('return-rate').value); 
+    let n = parseFloat(document.getElementById('years').value) * 12; 
+    let i = (annualRate / 100) / 12; 
+ 
+    // Formula: M = P × ({[1 + i]^n – 1} / i) × (1 + i) 
+
+    let totalValue = P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i); 
+    let investedAmt = P * n; 
+    let estReturns = totalValue - investedAmt; 
+ 
+    document.getElementById('invested-display').innerText = "₹" + 
+Math.round(investedAmt).toLocaleString('en-IN'); 
+    document.getElementById('returns-display').innerText = "₹" + Math.round(estReturns).toLocaleString('en-
+IN'); 
+    document.getElementById('total-display').innerText = "₹" + Math.round(totalValue).toLocaleString('en-
+IN'); 
+} 
+// Run on load 
+calculateSIP(); 
+</script> 
+ 
+ 
+ 
+ 
+ 
+
+2. Step-Up SIP Calculator Embed Code 
+<div id="mw-stepup-calculator" style="max-width: 550px; margin: 20px auto; padding: 30px; border-radius: 
+16px; background: #ƯƯƯ; box-shadow: 0 10px 30px rgba(0,0,0,0.08); font-family: 'Segoe UI', Roboto, sans-
+serif; color: #2d3436; border: 1px solid #eee;"> 
+    <h2 style="text-align: center; color: #0984e3; margin-top: 0; margin-bottom: 25px; font-size: 24px;">Step-
+Up SIP Calculator</h2> 
+     
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;"> 
+        <div style="margin-bottom: 15px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Monthly SIP (₹)</label> 
+            <input type="number" id="base-sip" value="10000" style="width: 100%; padding: 12px; margin-top: 
+5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box;"> 
+        </div> 
+         
+        <div style="margin-bottom: 15px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Annual Step-Up (%)</label> 
+            <input type="number" id="step-up-pct" value="10" style="width: 100%; padding: 12px; margin-top: 
+5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box;"> 
+        </div> 
+    </div> 
+ 
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;"> 
+        <div style="margin-bottom: 15px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Expected Returns (% p.a)</label> 
+            <input type="number" id="roi" value="12" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box;"> 
+        </div> 
+         
+        <div style="margin-bottom: 20px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Tenure (Years)</label> 
+            <input type="number" id="period" value="15" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box;"> 
+        </div> 
+    </div> 
+     
+    <button onclick="calculateStepUp()" style="width: 100%; padding: 15px; background: #0984e3; color: 
+white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 
+0.3s ease; box-shadow: 0 4px 12px rgba(9, 132, 227, 0.2);">Calculate Future Wealth</button> 
+     
+    <div style="margin-top: 30px; background: #f1f2f6; padding: 20px; border-radius: 12px;"> 
+        <div style="display: ﬂex; justify-content: space-between; margin-bottom: 12px; font-size: 15px;"> 
+            <span>Total Invested:</span> 
+            <span id="total-inv" style="font-weight: 700;">₹0</span> 
+        </div> 
+        <div style="display: ﬂex; justify-content: space-between; margin-bottom: 12px; font-size: 15px;"> 
+            <span>Wealth Gained:</span> 
+            <span id="wealth-gain" style="font-weight: 700; color: #00b894;">₹0</span> 
+        </div> 
+        <div style="display: ﬂex; justify-content: space-between; font-size: 18px; border-top: 2px solid #dfe6e9; 
+padding-top: 15px; margin-top: 10px;"> 
+            <span style="font-weight: 600;">Maturity Value:</span> 
+            <span id="ﬁnal-value" style="font-weight: 800; color: #0984e3;">₹0</span> 
+        </div> 
+
+    </div> 
+</div> 
+ 
+<script> 
+function calculateStepUp() { 
+    let monthlySip = parseFloat(document.getElementById('base-sip').value); 
+    let stepUpRate = parseFloat(document.getElementById('step-up-pct').value) / 100; 
+    let annualRoi = parseFloat(document.getElementById('roi').value) / 100; 
+    let years = parseInt(document.getElementById('period').value); 
+     
+    let totalInvested = 0; 
+    let totalValue = 0; 
+    let monthlyRoi = annualRoi / 12; 
+ 
+    for (let year = 1; year <= years; year++) { 
+        let currentYearSip = monthlySip * Math.pow(1 + stepUpRate, year - 1); 
+        for (let month = 1; month <= 12; month++) { 
+            totalInvested += currentYearSip; 
+            // Compounding each month's contribution until the end of the total tenure 
+            let remainingMonths = (years * 12) - ((year - 1) * 12 + month) + 1; 
+            totalValue += currentYearSip * Math.pow(1 + monthlyRoi, remainingMonths); 
+        } 
+    } 
+ 
+    document.getElementById('total-inv').innerText = "₹" + Math.round(totalInvested).toLocaleString('en-IN'); 
+    document.getElementById('wealth-gain').innerText = "₹" + Math.round(totalValue - 
+totalInvested).toLocaleString('en-IN'); 
+    document.getElementById('ﬁnal-value').innerText = "₹" + Math.round(totalValue).toLocaleString('en-IN'); 
+} 
+calculateStepUp(); // Initialize 
+</script> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+3. Lump-Sum Calculator Embed Code 
+<div id="mw-lumpsum-calculator" style="max-width: 500px; margin: 20px auto; padding: 30px; border-
+radius: 16px; background: #ƯƯƯ; box-shadow: 0 10px 30px rgba(0,0,0,0.08); font-family: 'Segoe UI', Roboto, 
+sans-serif; color: #2d3436; border: 1px solid #eee;"> 
+    <h2 style="text-align: center; color: #0984e3; margin-top: 0; margin-bottom: 25px; font-size: 
+24px;">Lumpsum Calculator</h2> 
+     
+    <div style="margin-bottom: 20px;"> 
+        <label style="font-size: 14px; font-weight: 600;">Total Investment (₹)</label> 
+        <input type="number" id="principal" value="100000" style="width: 100%; padding: 12px; margin-top: 
+5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+    </div> 
+ 
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;"> 
+        <div style="margin-bottom: 20px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Expected Returns (% p.a)</label> 
+            <input type="number" id="lumpsum-roi" value="12" style="width: 100%; padding: 12px; margin-top: 
+5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+        </div> 
+         
+        <div style="margin-bottom: 20px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Time Period (Years)</label> 
+            <input type="number" id="lumpsum-period" value="10" style="width: 100%; padding: 12px; margin-
+top: 5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+        </div> 
+    </div> 
+     
+    <button onclick="calculateLumpsum()" style="width: 100%; padding: 15px; background: #0984e3; color: 
+white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 
+0.3s ease; box-shadow: 0 4px 12px rgba(9, 132, 227, 0.2);">Calculate Maturity Value</button> 
+     
+    <div style="margin-top: 30px; background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px 
+solid #0984e3;"> 
+        <div style="display: ﬂex; justify-content: space-between; margin-bottom: 12px; font-size: 15px;"> 
+            <span>Invest 
+ 
+ 
+ 
+ 
+ 
+
+4. SWP Calculator Embed Code 
+<div id="mw-swp-calculator" style="max-width: 550px; margin: 20px auto; padding: 30px; border-radius: 16px; 
+background: #ƯƯƯ; box-shadow: 0 10px 30px rgba(0,0,0,0.08); font-family: 'Segoe UI', Roboto, sans-serif; color: 
+#2d3436; border: 1px solid #eee;"> 
+    <h2 style="text-align: center; color: #0984e3; margin-top: 0; margin-bottom: 25px; font-size: 24px;">SWP 
+Calculator</h2> 
+     
+    <div style="margin-bottom: 20px;"> 
+        <label style="font-size: 14px; font-weight: 600;">Total Investment (₹)</label> 
+        <input type="number" id="swp-total-inv" value="5000000" style="width: 100%; padding: 12px; margin-top: 
+5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+    </div> 
+ 
+    <div style="margin-bottom: 20px;"> 
+        <label style="font-size: 14px; font-weight: 600;">Monthly Withdrawal (₹)</label> 
+        <input type="number" id="swp-withdraw" value="30000" style="width: 100%; padding: 12px; margin-top: 
+5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+    </div> 
+ 
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;"> 
+        <div style="margin-bottom: 20px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Expected Returns (% p.a)</label> 
+            <input type="number" id="swp-roi" value="10" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+        </div> 
+         
+        <div style="margin-bottom: 20px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Tenure (Years)</label> 
+            <input type="number" id="swp-period" value="15" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+        </div> 
+    </div> 
+     
+    <button onclick="calculateSWP()" style="width: 100%; padding: 15px; background: #0984e3; color: white; 
+border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; 
+box-shadow: 0 4px 12px rgba(9, 132, 227, 0.2);">Calculate Final Balance</button> 
+     
+
+    <div style="margin-top: 30px; background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid 
+#00b894;"> 
+        <div style="display: ﬂex; justify-content: space-between; margin-bottom: 12px; font-size: 15px;"> 
+            <span>Total Withdrawn:</span> 
+            <span id="swp-total-withdrawn" style="font-weight: 700;">₹0</span> 
+        </div> 
+        <div style="display: ﬂex; justify-content: space-between; margin-bottom: 12px; font-size: 15px;"> 
+            <span>Final Value:</span> 
+            <span id="swp-ﬁnal-val" style="font-weight: 700; color: #0984e3;">₹0</span> 
+        </div> 
+        <div style="display: ﬂex; justify-content: space-between; font-size: 18px; border-top: 1px solid #dfe6e9; 
+padding-top: 15px; margin-top: 10px;"> 
+            <span style="font-weight: 600;">Total Value Gained:</span> 
+            <span id="swp-total-beneﬁt" style="font-weight: 800; color: #00b894;">₹0</span> 
+        </div> 
+    </div> 
+</div> 
+ 
+<script> 
+function calculateSWP() { 
+    let principal = parseFloat(document.getElementById('swp-total-inv').value); 
+    let withdrawal = parseFloat(document.getElementById('swp-withdraw').value); 
+    let annualRate = parseFloat(document.getElementById('swp-roi').value) / 100; 
+    let years = parseFloat(document.getElementById('swp-period').value); 
+     
+    let months = years * 12; 
+    let monthlyRate = annualRate / 12; 
+ 
+    // Formula: FV = P(1+i)^n - W[((1+i)^n - 1) / i] 
+    let futureValue = principal * Math.pow(1 + monthlyRate, months) - (withdrawal * (Math.pow(1 + monthlyRate, 
+months) - 1) / monthlyRate); 
+     
+    let totalWithdrawn = withdrawal * months; 
+     
+    if (futureValue < 0) futureValue = 0; // Handle corpus depletion 
+
+ 
+    document.getElementById('swp-total-withdrawn').innerText = "₹" + 
+Math.round(totalWithdrawn).toLocaleString('en-IN'); 
+    document.getElementById('swp-ﬁnal-val').innerText = "₹" + Math.round(futureValue).toLocaleString('en-IN'); 
+    document.getElementById('swp-total-beneﬁt').innerText = "₹" + Math.round(futureValue + 
+totalWithdrawn).toLocaleString('en-IN'); 
+} 
+calculateSWP(); 
+</script> 
+ 
+ 
+ 
+ 
+
+5. Inﬂation-Deﬂation Calculator Embed Code 
+<div id="mw-inﬂation-calculator" style="max-width: 550px; margin: 20px auto; padding: 30px; border-
+radius: 16px; background: #ƯƯƯ; box-shadow: 0 10px 30px rgba(0,0,0,0.08); font-family: 'Segoe UI', 
+Roboto, sans-serif; color: #2d3436; border: 1px solid #eee;"> 
+    <h2 style="text-align: center; color: #0984e3; margin-top: 0; margin-bottom: 25px; font-size: 
+24px;">Inﬂation & Purchasing Power Calculator</h2> 
+     
+    <div style="margin-bottom: 20px;"> 
+        <label style="font-size: 14px; font-weight: 600;">Current Amount / Expense (₹)</label> 
+        <input type="number" id="inf-amount" value="100000" style="width: 100%; padding: 12px; margin-
+top: 5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+    </div> 
+ 
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;"> 
+        <div style="margin-bottom: 20px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Annual Inﬂation Rate (%)</label> 
+            <input type="number" id="inf-rate" value="6" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+        </div> 
+         
+        <div style="margin-bottom: 20px;"> 
+            <label style="font-size: 14px; font-weight: 600;">Time Period (Years)</label> 
+            <input type="number" id="inf-period" value="10" style="width: 100%; padding: 12px; margin-top: 
+5px; border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+        </div> 
+    </div> 
+     
+    <button onclick="calculateInﬂation()" style="width: 100%; padding: 15px; background: #0984e3; 
+color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; 
+transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(9, 132, 227, 0.2);">Check Impact of 
+Inﬂation</button> 
+     
+    <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr; gap: 15px;"> 
+        <div style="background: #Ưf5f5; padding: 15px; border-radius: 12px; border-left: 5px solid 
+#Ư7675;"> 
+            <div style="font-size: 13px; color: #636e72; margin-bottom: 5px;">Future Cost (What ₹<span 
+class="curr-amt-label">1,00,000</span> will cost):</div> 
+            <div id="future-cost" style="font-size: 20px; font-weight: 800; color: #d63031;">₹0</div> 
+        </div> 
+ 
+        <div style="background: #f1f2f6; padding: 15px; border-radius: 12px; border-left: 5px solid 
+#636e72;"> 
+            <div style="font-size: 13px; color: #636e72; margin-bottom: 5px;">Purchasing Power (Value of 
+₹<span class="curr-amt-label">1,00,000</span> in future):</div> 
+            <div id="purchasing-power" style="font-size: 20px; font-weight: 800; color: #2d3436;">₹0</div> 
+        </div> 
+    </div> 
+</div> 
+ 
+<script> 
+function calculateInﬂation() { 
+    let amount = parseFloat(document.getElementById('inf-amount').value); 
+    let rate = parseFloat(document.getElementById('inf-rate').value) / 100; 
+
+    let years = parseFloat(document.getElementById('inf-period').value); 
+     
+    // Formula for Future Cost (Inﬂation): FV = PV * (1 + r)^n 
+    let futureCost = amount * Math.pow((1 + rate), years); 
+     
+    // Formula for Purchasing Power (Deﬂation EƯect): PV = FV / (1 + r)^n 
+    let powerValue = amount / Math.pow((1 + rate), years); 
+ 
+    // Update labels 
+    let labels = document.getElementsByClassName('curr-amt-label'); 
+    for(let i=0; i<labels.length; i++) { 
+        labels[i].innerText = amount.toLocaleString('en-IN'); 
+    } 
+ 
+    document.getElementById('future-cost').innerText = "₹" + Math.round(futureCost).toLocaleString('en-
+IN'); 
+    document.getElementById('purchasing-power').innerText = "₹" + 
+Math.round(powerValue).toLocaleString('en-IN'); 
+} 
+calculateInﬂation(); // Initialize on load 
+</script> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+6. CAGR Calculator Embed Code 
+<div id="mw-cagr-calculator" style="max-width: 500px; margin: 20px auto; padding: 30px; border-radius: 16px; 
+background: #ƯƯƯ; box-shadow: 0 10px 30px rgba(0,0,0,0.08); font-family: 'Segoe UI', Roboto, sans-serif; color: 
+#2d3436; border: 1px solid #eee;"> 
+    <h2 style="text-align: center; color: #0984e3; margin-top: 0; margin-bottom: 25px; font-size: 24px;">CAGR 
+Calculator</h2> 
+     
+    <div style="margin-bottom: 20px;"> 
+        <label style="font-size: 14px; font-weight: 600;">Initial Investment (₹)</label> 
+        <input type="number" id="cagr-initial" value="100000" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+    </div> 
+ 
+    <div style="margin-bottom: 20px;"> 
+        <label style="font-size: 14px; font-weight: 600;">Final Value (₹)</label> 
+        <input type="number" id="cagr-ﬁnal" value="250000" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+    </div> 
+ 
+    <div style="margin-bottom: 25px;"> 
+        <label style="font-size: 14px; font-weight: 600;">Duration (Years)</label> 
+        <input type="number" id="cagr-years" value="5" style="width: 100%; padding: 12px; margin-top: 5px; 
+border: 1.5px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; font-size: 16px;"> 
+    </div> 
+     
+    <button onclick="calculateCAGR()" style="width: 100%; padding: 15px; background: #0984e3; color: white; 
+border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; 
+box-shadow: 0 4px 12px rgba(9, 132, 227, 0.2);">Calculate Annual Growth</button> 
+     
+    <div style="margin-top: 30px; background: #f1f2f6; padding: 25px; border-radius: 12px; text-align: center;"> 
+        <div style="font-size: 14px; color: #636e72; margin-bottom: 5px;">Your Compound Annual Growth Rate 
+is:</div> 
+        <div id="cagr-result" style="font-size: 32px; font-weight: 800; color: #09 

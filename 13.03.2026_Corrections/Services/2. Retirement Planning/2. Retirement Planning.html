@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirement Planning | Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #C8922A;
+      --gold-light:  #E8B84B;
+      --gold-pale:   #FDF6E7;
+      --purple:      #5B3EBE;
+      --purple-light:#7C5CBF;
+      --pink:        #D6407A;
+      --cream:       #FDFAF5;
+      --warm-bg:     #FBF6EE;
+      --card-bg:     #FFFFFF;
+      --border:      #EDE6D6;
+      --text-dark:   #1A1506;
+      --text-mid:    #4A3F28;
+      --text-soft:   #9C8C6E;
+      --lavender-bg: #F2EEF9;
+      --gradient-hero: linear-gradient(135deg, #FBF6EE 0%, #FDF0E0 40%, #F5EEFF 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.65; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(253,250,245,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+    }
+    .nav-logo-wrap { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo-img { height: 36px; width: 36px; border-radius: 50%; object-fit: cover; }
+    .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--purple); font-weight: 700; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta {
+      background: var(--purple); color: #fff; border: none; border-radius: 8px;
+      padding: 0.55rem 1.4rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--purple-light); transform: translateY(-1px); }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { padding: 0.75rem 5%; font-size: 0.8rem; color: var(--text-soft); background: var(--warm-bg); border-bottom: 1px solid var(--border); }
+    .breadcrumb a { color: var(--purple); text-decoration: none; }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 4.5rem 5%; }
+    section.alt { background: var(--warm-bg); }
+    section.lavender { background: var(--lavender-bg); }
+    .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--text-dark); line-height: 1.15; margin-bottom: 0.8rem; }
+    .section-title .accent { color: var(--purple); }
+    .section-title .accent-gold { color: var(--gold); }
+    .section-sub { font-size: 0.98rem; color: var(--text-mid); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.7; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--gradient-hero);
+      padding: 5.5rem 5% 4.5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,146,42,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 680px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(200,146,42,0.12); border: 1px solid rgba(200,146,42,0.35);
+      color: var(--gold); border-radius: 50px; padding: 0.35rem 1rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 700; line-height: 1.1; color: var(--text-dark); margin-bottom: 1.2rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--purple); }
+    .hero h1 .gold { color: var(--gold); }
+    .hero-sub { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 2rem; max-width: 560px; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--purple); color: #fff; border: none; border-radius: 10px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--purple-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,62,190,0.28); }
+    .btn-secondary {
+      background: transparent; color: var(--gold);
+      border: 1.5px solid var(--gold); border-radius: 10px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-secondary:hover { background: rgba(200,146,42,0.08); }
+    .hero-stat-row {
+      display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2.5rem;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .hero-stat strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--purple); }
+    .hero-stat span { font-size: 0.8rem; color: var(--text-soft); }
+
+    /* ── BLUNDERS ── */
+    .blunders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 0.5rem; }
+    .blunder-card {
+      background: var(--card-bg); border-radius: 16px;
+      border: 1.5px solid var(--border); padding: 1.5rem 1.6rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .blunder-card::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(180deg, #E8B84B, #D6407A);
+    }
+    .blunder-card:hover { border-color: var(--gold); box-shadow: 0 6px 24px rgba(200,146,42,0.12); transform: translateY(-2px); }
+    .blunder-num {
+      min-width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-pale); color: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; flex-shrink: 0;
+    }
+    .blunder-card h4 { font-size: 0.97rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .blunder-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.55; }
+    .blunder-full { grid-column: 1 / -1; }
+    .blunder-quote {
+      margin-top: 1.8rem; grid-column: 1/-1;
+      background: linear-gradient(135deg, var(--gold-pale), #F9EEFF);
+      border-left: 4px solid var(--gold); border-radius: 12px;
+      padding: 1.2rem 1.5rem; font-size: 1rem; color: var(--text-mid);
+      font-style: italic;
+    }
+
+    /* ── STUCK SECTION ── */
+    .stuck-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .stuck-card {
+      background: var(--card-bg); border-radius: 18px; padding: 2rem 1.5rem;
+      text-align: center; border: 1px solid var(--border);
+      transition: all 0.22s; position: relative; overflow: hidden;
+    }
+    .stuck-card:hover { box-shadow: 0 8px 32px rgba(91,62,190,0.1); transform: translateY(-3px); }
+    .stuck-icon { font-size: 2.2rem; margin-bottom: 0.9rem; display: block; }
+    .stuck-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.6rem; }
+    .stuck-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.6; }
+    .stuck-badge {
+      display: inline-block; margin-bottom: 0.8rem; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+    .badge-red { background: #FEE2E2; color: #DC2626; }
+    .badge-orange { background: #FEF3C7; color: #D97706; }
+    .badge-purple { background: var(--lavender-bg); color: var(--purple); }
+    .answer-box {
+      margin-top: 2rem; background: linear-gradient(135deg, var(--lavender-bg), var(--gold-pale));
+      border-radius: 14px; padding: 1.3rem 1.6rem;
+      border-left: 4px solid var(--purple); font-size: 0.95rem; color: var(--text-mid);
+    }
+
+    /* ── RETIREES WANT ── */
+    .wants-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+    .want-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.8rem;
+      border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1.2rem;
+      transition: all 0.2s;
+    }
+    .want-card:hover { box-shadow: 0 6px 24px rgba(200,146,42,0.1); border-color: var(--gold); }
+    .want-icon-box {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      background: var(--gold-pale); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    }
+    .want-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .want-card p { font-size: 0.87rem; color: var(--text-mid); }
+
+    /* ── FRAMEWORK (4 steps) ── */
+    .framework-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .framework-steps::before {
+      content: ''; position: absolute; top: 32px; left: 8%; right: 8%; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--purple), var(--pink));
+      z-index: 0;
+    }
+    .step-item { text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+    .step-dot {
+      width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1.2rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; box-shadow: 0 4px 16px rgba(200,146,42,0.3);
+      border: 3px solid var(--card-bg);
+    }
+    .step-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .step-item p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; }
+    .framework-note {
+      margin-top: 2.5rem; background: var(--card-bg); border-radius: 12px;
+      padding: 1.2rem 1.6rem; border-left: 4px solid var(--gold);
+      font-size: 0.95rem; color: var(--text-mid); font-style: italic;
+      box-shadow: 0 2px 12px rgba(200,146,42,0.08);
+    }
+
+    .futures-scenario-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+      font-weight: 700; color: var(--gold);
+      background: rgba(200,146,42,0.09);
+      border: 1.5px solid rgba(200,146,42,0.3);
+      border-radius: 10px; display: inline-block;
+      padding: 0.6rem 1.4rem; margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── THREE FUTURES (comparison) ── */
+    .futures-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .future-card {
+      background: var(--card-bg); border-radius: 18px; padding: 1.8rem;
+      border: 1.5px solid var(--border); transition: all 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .future-card:hover { transform: translateY(-3px); }
+    .future-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    }
+    .future-card.bad::before { background: linear-gradient(90deg, #EF4444, #F97316); }
+    .future-card.mid::before { background: linear-gradient(90deg, #F59E0B, #FBBF24); }
+    .future-card.good::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+    .future-card.good { border-color: rgba(91,62,190,0.3); background: linear-gradient(180deg, #FDFCFF, #fff); }
+    .future-case { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .future-card.bad .future-case { color: #EF4444; }
+    .future-card.mid .future-case { color: #D97706; }
+    .future-card.good .future-case { color: var(--purple); }
+    .future-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+    .future-point { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.85rem; color: var(--text-mid); margin-bottom: 0.55rem; line-height: 1.5; }
+    .future-point .dot { flex-shrink: 0; margin-top: 0.3rem; width: 8px; height: 8px; border-radius: 50%; }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+    .futures-footer {
+      margin-top: 1.5rem; background: linear-gradient(135deg, var(--lavender-bg), var(--gold-pale));
+      border-radius: 12px; padding: 1.1rem 1.4rem;
+      font-size: 0.92rem; color: var(--text-mid); border-left: 4px solid var(--purple);
+    }
+
+    /* ── MISTAKES TABLE ── */
+    .table-scroll { overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: #fff; }
+    thead th { padding: 1rem 1.2rem; font-size: 0.85rem; font-weight: 600; text-align: left; }
+    tbody tr { background: var(--card-bg); border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:hover { background: var(--gold-pale); }
+    tbody tr:nth-child(even) { background: #FAFAF7; }
+    tbody tr:nth-child(even):hover { background: var(--gold-pale); }
+    tbody td { padding: 0.9rem 1.2rem; font-size: 0.85rem; color: var(--text-dark); }
+    tbody td:first-child { font-weight: 500; color: var(--text-mid); font-size: 0.82rem; }
+    .tag-red { display: inline-block; background: #FEE2E2; color: #DC2626; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem; font-weight: 600; }
+    .tag-green { display: inline-block; background: #D1FAE5; color: #065F46; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem; font-weight: 600; }
+    .tag-amber { display: inline-block; background: #FEF3C7; color: #92400E; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem; font-weight: 600; }
+
+    /* ── WHY US ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .why-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.6rem;
+      border: 1px solid var(--border); transition: all 0.22s;
+    }
+    .why-card:hover { border-color: var(--purple); box-shadow: 0 6px 24px rgba(91,62,190,0.1); transform: translateY(-2px); }
+    .why-emoji { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+    .why-card h4 { font-size: 0.97rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: linear-gradient(135deg, #1A1506 0%, #2D1F5E 50%, #5B3EBE 100%);
+      padding: 5.5rem 5%; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,146,42,0.2) 0%, transparent 70%);
+    }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .cta-section h2 .gold { color: var(--gold-light); }
+    .cta-section p { font-size: 1rem; opacity: 0.82; margin-bottom: 2.2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--text-dark);
+      border: none; border-radius: 10px; padding: 0.95rem 2.5rem;
+      font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none;
+      display: inline-block; transition: all 0.22s; box-shadow: 0 6px 24px rgba(200,146,42,0.4);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,146,42,0.5); }
+    .cta-trust {
+      margin-top: 1.8rem; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+    }
+    .trust-item { font-size: 0.82rem; opacity: 0.7; display: flex; align-items: center; gap: 0.4rem; }
+
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      background: #0F0D04; color: #6B6050;
+      text-align: center; padding: 1.2rem 5%;
+      font-size: 0.78rem; line-height: 1.6;
+    }
+    .footer-note a { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .framework-steps { grid-template-columns: repeat(2,1fr); gap: 2rem; }
+      .framework-steps::before { display: none; }
+      .futures-grid, .stuck-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .blunders-grid, .wants-grid, .why-grid { grid-template-columns: 1fr; }
+      .blunder-full { grid-column: 1; }
+      .hero-stat-row { gap: 1.2rem; }
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner > * { animation: fadeUp 0.65s ease both; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.2s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.3s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <img src="images/logo.png" alt="Miracle Wealth" class="nav-logo-img" />
+    <span class="nav-logo-text">Miracle Wealth</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="calculators.html">Calculators</a></li>
+    <li><a href="conact.html">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/917972053045" class="nav-cta" target="_blank">Enquire Now</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a> › <a href="services.html">Services</a> › Retirement Planning
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Your Retirement Corpus<br>Deserves More Than<br><span class="gold">An FD</span></h1>
+    <p class="hero-sub">You've spent 30+ years building your wealth. Now let it work as hard for you. We help retirees turn their PF, gratuity, and savings into structured, <em>inflation-proof monthly income</em> — with clarity, security, and zero sleepless nights.</p>
+    <div class="hero-actions">
+      <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary" target="_blank">Book a Free Strategy Call</a>
+      <a href="#framework" class="btn-secondary">See Our Framework</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <strong>300+</strong>
+        <span>Families Advised</span>
+      </div>
+      <div class="hero-stat">
+        <strong>500+</strong>
+        <span>1:1 Consultations</span>
+      </div>
+      <div class="hero-stat">
+        <strong>5+ Yrs</strong>
+        <span>Wealth Management</span>
+      </div>
+      <div class="hero-stat">
+        <strong>9-Digit</strong>
+        <span>AUM Managed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIGGEST BLUNDERS -->
+<section class="alt">
+  <div class="section-eyebrow">⚠️ Wake-Up Call</div>
+  <h2 class="section-title"><span class="accent">5 Biggest Blunders</span> Retirees Make</h2>
+  <p class="section-sub">Most retirement plans quietly erode wealth — not through bad luck, but through avoidable mistakes. Do any of these sound familiar?</p>
+
+  <div class="blunders-grid">
+    <div class="blunder-card">
+      <div class="blunder-num">1</div>
+      <div>
+        <h4>Relying Entirely on Fixed Deposits</h4>
+        <p>FD returns of 6–7% barely beat inflation. After tax, your real return is often negative — your corpus is quietly shrinking every year.</p>
+      </div>
+    </div>
+    <div class="blunder-card">
+      <div class="blunder-num">2</div>
+      <div>
+        <h4>Treating Life Insurance as an Investment</h4>
+        <p>Traditional LIC-style plans return 4–7% with high lock-ins and surrender costs. Your money deserves better than a 30-year trap.</p>
+      </div>
+    </div>
+    <div class="blunder-card">
+      <div class="blunder-num">3</div>
+      <div>
+        <h4>Randomly Investing in Mutual Funds</h4>
+        <p>Owning 15+ funds with no strategy isn't diversification — it's chaos. Cluttered portfolios underperform and create zero alignment with your income goals.</p>
+      </div>
+    </div>
+    <div class="blunder-card">
+      <div class="blunder-num">4</div>
+      <div>
+        <h4>Ignoring How Long Your Corpus Must Last</h4>
+        <p>Retirement at 60 could mean 25–30 more years of expenses. Most plans don't account for longevity, leaving families financially exposed in their 80s.</p>
+      </div>
+    </div>
+    <div class="blunder-card blunder-full">
+      <div class="blunder-num">5</div>
+      <div>
+        <h4>Random Advise</h4>
+        <p>Well-meaning relatives, local agents, or social media tips are not retirement strategies. Mis-sold products and uninformed decisions are the #1 source of wealth destruction in retirement.</p>
+      </div>
+    </div>
+    <div class="blunder-quote">
+      💡 The best time to plan your retirement was years ago. <strong>The second-best time is today.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON WEALTH MISTAKES TABLE -->
+<section class="lavender">
+  <div class="section-eyebrow">Financial Mistakes — Silently Eroding Your Corpus</div>
+  <h2 class="section-title">The Most <span class="accent">Common Wealth Mistakes</span></h2>
+  <p class="section-sub">See exactly how different investment choices affect your ₹1 Crore over 10 years. The numbers don't lie.</p>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Common Mistake</th>
+          <th>Returns</th>
+          <th>Inflation</th>
+          <th>Real Return</th>
+          <th>Financial Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Keeping Money Idle in Bank</td>
+          <td>2–3%</td>
+          <td>6–7%</td>
+          <td><span class="tag-red">-3% to -4%</span></td>
+          <td>₹1 Cr loses ₹30–40L of value in 10 years</td>
+        </tr>
+        <tr>
+          <td>Over-Dependence on FDs, PPFs, SSC</td>
+          <td>6–7.5%</td>
+          <td>6–7%</td>
+          <td><span class="tag-amber">0–0.5%</span></td>
+          <td>₹1 Cr grows by only ₹0–5L + Early withdrawal penalties</td>
+        </tr>
+        <tr>
+          <td>Relying on Real Estate Rentals</td>
+          <td>2–3%</td>
+          <td>6–7%</td>
+          <td><span class="tag-red">-3% to -4%</span></td>
+          <td>Illiquidity + Maintenance + High taxes on both sides</td>
+        </tr>
+        <tr>
+          <td>Insurance as 'Investment'</td>
+          <td>4–7%</td>
+          <td>6–7%</td>
+          <td><span class="tag-amber">0–2%</span></td>
+          <td>₹1 Cr loses up to ₹3L + High lock-in + Surrender costs</td>
+        </tr>
+        <tr>
+          <td>Cluttered Mutual Fund Portfolios</td>
+          <td>6–10%</td>
+          <td>6–7%</td>
+          <td><span class="tag-amber">0–3%</span></td>
+          <td>Under-performance + No alignment + Missed opportunities</td>
+        </tr>
+        <tr>
+          <td>Random Stock Investments</td>
+          <td>Highly Uncertain</td>
+          <td>6–7%</td>
+          <td><span class="tag-red">Often Negative</span></td>
+          <td>Wealth destruction from tip-based investing + No exit discipline</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:1.2rem; font-size:0.87rem; color:var(--text-soft); font-style:italic; border-left:3px solid var(--gold); padding-left:1rem;">
+    The line between wealth erosion and peaceful retirement is a structured plan that keeps your money working for you.
+  </div>
+</section>
+
+<!-- WHERE ARE RETIREES STUCK -->
+<section class="lavender">
+  <div class="section-eyebrow">The Retirement Dilemma</div>
+  <h2 class="section-title">Where Are <span class="accent">Retirees Stuck?</span></h2>
+  <p class="section-sub">Most retirees fall into one of three traps — none of which are working in their favour.</p>
+
+  <div class="stuck-grid">
+    <div class="stuck-card">
+      <span class="stuck-badge badge-amber">Too Conservative</span>
+      <span class="stuck-icon">📌</span>
+      <h3>Playing It Too Safe</h3>
+      <p>Money feels "safe" parked in FDs and savings accounts — but inflation silently erodes purchasing power every year. Safe today, poor tomorrow.</p>
+    </div>
+    <div class="stuck-card">
+      <span class="stuck-badge badge-red">Too Aggressive</span>
+      <span class="stuck-icon">📌</span>
+      <h3>Chasing High Returns</h3>
+      <p>Random stocks and high-risk funds promise big returns but deliver sleepless nights. One market correction can wipe years of savings — there's no salary to recover from.</p>
+    </div>
+    <div class="stuck-card">
+      <span class="stuck-badge badge-purple">Too Scattered</span>
+      <span class="stuck-icon">📌</span>
+      <h3>Wealth With No Direction</h3>
+      <p>Money spread across FDs, LIC policies, properties, and mutual funds with no clear income plan. Plenty of assets — but no idea how to turn them into monthly cash flow.</p>
+    </div>
+  </div>
+  <div class="answer-box">
+    👉 <strong>The answer?</strong> A balanced, structured retirement plan that protects your corpus, provides steady inflation-adjusted income, and grows your wealth — all at the same time.
+  </div>
+</section>
+
+<!-- WHAT RETIREES REALLY WANT -->
+<section>
+  <div class="section-eyebrow">What Truly Matters</div>
+  <h2 class="section-title">What <span class="accent-gold">Retirees Really Want</span></h2>
+  <p class="section-sub">Beyond the numbers, every retiree deserves these four essentials. Our Golden Years Framework is built to deliver exactly this.</p>
+
+  <div class="wants-grid">
+    <div class="want-card">
+      <div class="want-icon-box">🧘</div>
+      <div>
+        <h4>Peace of Mind</h4>
+        <p>No sleepless nights over money. A structured plan means you know exactly what's coming in, every month, for life.</p>
+      </div>
+    </div>
+    <div class="want-card">
+      <div class="want-icon-box">💰</div>
+      <div>
+        <h4>Predictable Income</h4>
+        <p>Reliable monthly cashflows that rise with inflation — so your lifestyle today is affordable 20 years from now too.</p>
+      </div>
+    </div>
+    <div class="want-card">
+      <div class="want-icon-box">🏡</div>
+      <div>
+        <h4>Family Security</h4>
+        <p>Medical emergencies, legacy planning, and protection against financial fraud — so your family's future is fully covered.</p>
+      </div>
+    </div>
+    <div class="want-card">
+      <div class="want-icon-box">✈️</div>
+      <div>
+        <h4>Fulfilling Your Dreams</h4>
+        <p>Travel, hobbies, charity, special family moments. Retirement should be the reward for a lifetime of hard work — not a period of financial anxiety.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FRAMEWORK -->
+<section class="alt" id="framework">
+  <div class="section-eyebrow">Our Proprietary Approach</div>
+  <h2 class="section-title">The <span class="accent-gold">Golden Years</span> Wealth Framework</h2>
+  <p class="section-sub">A step-by-step, proven roadmap to turn your hard-earned savings into a lifetime of peace, security, and steady income.</p>
+
+  <div class="framework-steps">
+    <div class="step-item">
+      <div class="step-dot">🔍</div>
+      <h4>Assess</h4>
+      <p>Deep-dive into your corpus, pensions, investments, loans, expenses & insurance to get a complete financial picture.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">🎯</div>
+      <h4>Align</h4>
+      <p>Link every rupee to a life goal. Eliminate non-aligned products. Safeguard wealth with right risk covers and contingency reserves.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">⚡</div>
+      <h4>Streamline</h4>
+      <p>Implement income plans (SWPs, annuities, debt & opportunistic allocation) for steady, sustainable monthly cashflows.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">🔄</div>
+      <h4>Revisit</h4>
+      <p>Track progress, rebalance the portfolio, and ensure your money lasts as long as you do — with regular structured reviews.</p>
+    </div>
+  </div>
+  <div class="framework-note">
+    "Turning your hard-earned savings into a lifetime of peace, security, and steady income."
+  </div>
+</section>
+
+<!-- THREE FUTURES -->
+<section class="lavender">
+  <div class="section-eyebrow">Real Numbers. Real Outcomes.</div>
+  <h2 class="section-title">One Corpus. <span class="accent">Three Futures.</span></h2>
+  <p class="futures-scenario-line">₹1 Crore &nbsp;—&nbsp; 30-Year Horizon &nbsp;—&nbsp; 6% Inflation &nbsp;—&nbsp; ₹5L Annual Withdrawals</p>
+  <p class="section-sub" style="margin-top:0.8rem;">Which path will your retirement take? The difference between comfort and crisis is the strategy — not the corpus size.</p>
+
+  <div class="futures-grid">
+    <div class="future-card bad">
+      <div class="future-case">Case 1 — Danger Zone</div>
+      <h4>Bank FDs / PPFs (7% returns)</h4>
+      <div class="future-point"><span class="dot dot-green"></span><span>Withdrawals rise with inflation (₹42k → ₹70k in 10 yrs)</span></div>
+      <div class="future-point"><span class="dot dot-red"></span><span>Corpus exhausts in ~23 years</span></div>
+      <div class="future-point"><span class="dot dot-red"></span><span>Interest rates trend downward — income stops while life continues</span></div>
+      <div style="margin-top:1rem; background:#FEF2F2; border-radius:8px; padding:0.7rem; font-size:0.82rem; color:#991B1B;">
+        ⚠️ You outlive your money
+      </div>
+    </div>
+
+    <div class="future-card mid">
+      <div class="future-case">Case 2 — Slow Erosion</div>
+      <h4>Life Insurance Pension Plans</h4>
+      <div class="future-point"><span class="dot dot-green"></span><span>₹42,000/month pension (fixed for life)</span></div>
+      <div class="future-point"><span class="dot dot-yellow"></span><span>No inflation adjustment — real value collapses:</span></div>
+      <div style="margin: 0.5rem 0 0.5rem 1.2rem; font-size:0.82rem; color:var(--text-mid); line-height:1.8;">
+        10 yrs: ₹23,453 &nbsp;|&nbsp; 20 yrs: ₹13,095 &nbsp;|&nbsp; 30 yrs: ₹7,312
+      </div>
+      <div class="future-point"><span class="dot dot-yellow"></span><span>Looks safe, but purchasing power collapses over time</span></div>
+      <div style="margin-top:1rem; background:#FFFBEB; border-radius:8px; padding:0.7rem; font-size:0.82rem; color:#92400E;">
+        ⚠️ You survive but can't afford your lifestyle
+      </div>
+    </div>
+
+    <div class="future-card good">
+      <div class="future-case">Case 3 — The Right Way ✦</div>
+      <h4>Strategic Mutual Fund Allocation</h4>
+      <div class="future-point"><span class="dot dot-green"></span><span>Withdrawals rise with inflation (₹42k → ₹2.27L in 30 yrs)</span></div>
+      <div class="future-point"><span class="dot dot-green"></span><span>Total withdrawn over 30 years: <strong>₹3.98 Crore</strong></span></div>
+      <div class="future-point"><span class="dot dot-green"></span><span>Corpus still left after 30 years: <strong>₹2.03 Crore</strong></span></div>
+      <div class="future-point"><span class="dot dot-green"></span><span>Income + growth + inflation safety — all at once</span></div>
+      <div style="margin-top:1rem; background:#EDE9FE; border-radius:8px; padding:0.7rem; font-size:0.82rem; color:#4C1D95;">
+        ✅ Your money outlives you — and leaves a legacy
+      </div>
+    </div>
+  </div>
+
+  <div class="futures-footer">
+    👉 <strong>Takeaway:</strong> FDs exhaust, pensions shrink — but a structured mutual fund plan sustains income, grows wealth, and leaves a legacy. <em>This is what we build for you.</em>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="alt">
+  <div class="section-eyebrow">Because We're Not Here to Sell — We're Here to Solve</div>
+  <h2 class="section-title">Why Clients <span class="accent">Choose Miracle Wealth</span></h2>
+  <p class="section-sub">From humble beginnings to a growing legacy — clients value the clarity, confidence, and peace of mind that comes with structured, protected, growth-aligned wealth.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-emoji">🌱</span>
+      <h4>Humble Beginnings, Proven Results</h4>
+      <p>From a rooftop storeroom to a 9-digit AUM advisory — built on trust, relentless hard work, and client-first execution.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-emoji">🎓</span>
+      <h4>Strong Academic & Professional Foundation</h4>
+      <p>B.Tech + MBA (Finance) | IRDAI Certified | AMFI Registered | Ex-NISM Certified Research Analyst. Knowledge that translates into results.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-emoji">📊</span>
+      <h4>Research-Driven, Goal-Linked Investing</h4>
+      <p>300+ clients served | 9-digit AUM | 5+ years experience. No tips, no trends — only disciplined, structured planning.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-emoji">🛡️</span>
+      <h4>Insurance & Risk Expertise</h4>
+      <p>Ex-partner advisory board member (Magma GIC) | 99% success in complex health insurance claims | Deep protection expertise.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-emoji">🤝</span>
+      <h4>Transparent, Personalised Service</h4>
+      <p>Simple, jargon-free communication. Tailored plans aligned to your lifestyle. Regular reviews and handholding at every life stage.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-emoji">📱</span>
+      <h4>Content Creator & Financial Educator</h4>
+      <p>Actively simplifying finance on social media — making complex money decisions accessible and actionable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Your <span class="gold">Golden Years</span> Deserve<br>A Golden Plan</h2>
+  <p>Let's have a structured, no-pressure conversation about your retirement corpus and build a plan that works for you — for life.</p>
+  <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-gold" target="_blank">Book Your Free Strategy Call</a>
+  <div class="cta-trust">
+    <span class="trust-item">✦ 300+ Families Advised</span>
+    <span class="trust-item">✦ 5-Star Google Rated</span>
+    <span class="trust-item">✦ AMFI & IRDAI Registered</span>
+    <span class="trust-item">✦ No Obligation, No Pressure</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-note">
+  Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor & an IRDAI-registered insurance intermediary. Investments in mutual funds are subject to market risks. Please read all scheme-related documents carefully before investing. | © 2026 Miracle Wealth. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Scroll reveal for all cards
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    var targets = document.querySelectorAll(
+      '.blunder-card, .stuck-card, .want-card, .step-item, .future-card, .why-card'
+    );
+    targets.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+      observer.observe(el);
+    });
+  });
+</script>
+</body>
+</html>

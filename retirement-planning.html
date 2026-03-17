@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirement Planning | Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["Cormorant Garamond", "serif"],
+            body: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .font-garamond { font-family: 'Cormorant Garamond', serif; }
+    .text-gold { color: #f59e0b; }
+    .bg-dark-section { background-color: #050505; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+
+<body class="bg-base text-main font-body antialiased overflow-x-hidden">
+  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto md:h-20 lg:h-24" />
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="conact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="tel:7972053045" class="btn-secondary">7972053045</a>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary" target="_blank">Book a Call</a>
+      </div>
+
+      <button id="mobileMenuBtn"
+        class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-100 lg:hidden"
+        aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIconOpen" class="h-5 w-5 transition-transform duration-300" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menuIconClose" class="h-5 w-5 hidden transition-transform duration-300 rotate-90" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu"
+      class="mobile-menu hidden absolute top-full left-0 w-full border-t border-zinc-800 shadow-2xl lg:hidden">
+      <nav class="mx-auto flex max-w-7xl flex-col space-y-4 px-6 py-6 text-base">
+        <a href="index.html" class="mobile-link block font-medium">Home</a>
+        <a href="about.html" class="mobile-link block font-medium">About</a>
+        <a href="services.html" class="mobile-link block font-medium">Services</a>
+        <a href="calculators.html" class="mobile-link block font-medium">Calculators</a>
+        <a href="conact.html" class="mobile-link block font-medium">Contact</a>
+        <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
+          <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary text-center" target="_blank">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-52">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="mx-auto max-w-7xl" data-reveal>
+        <span class="why-tag mb-6 inline-block">Retirement Planning</span>
+        <h1 class="font-heading text-5xl leading-tight md:text-6xl lg:text-7xl">Your Retirement Corpus <br>Deserves More Than <span class="text-gold">An FD</span></h1>
+        <p class="mt-8 max-w-3xl text-lg text-zinc-300 leading-relaxed">
+          You've spent 30+ years building your wealth. Now let it work as hard for you. We help retirees turn their PF, gratuity, and savings into structured, <strong>inflation-proof monthly income</strong> — with clarity, security, and zero sleepless nights.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary" target="_blank">Book a Free Strategy Call</a>
+          <a href="#framework" class="btn-secondary">See Our Framework</a>
+        </div>
+        
+        <div class="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-zinc-800 pt-10">
+          <div>
+            <div class="font-heading text-4xl text-purple-400">300+</div>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider mt-1">Families Advised</p>
+          </div>
+          <div>
+            <div class="font-heading text-4xl text-purple-400">500+</div>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider mt-1">1:1 Consultations</p>
+          </div>
+          <div>
+            <div class="font-heading text-4xl text-purple-400">5+ Yrs</div>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider mt-1">Experience</p>
+          </div>
+          <div>
+            <div class="font-heading text-4xl text-purple-400">9-Digit</div>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider mt-1">AUM Managed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIGGEST BLUNDERS -->
+    <section class="why-dark px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl" data-reveal>
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">⚠️ Wake-Up Call</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">5 Biggest Blunders <br><span class="text-purple-400">Retirees Make</span></h2>
+          <p class="mt-6 text-lg text-zinc-300">Most retirement plans quietly erode wealth — not through bad luck, but through avoidable mistakes. Do any of these sound familiar?</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          <div class="glass-card rounded-2xl p-8 relative overflow-hidden group" data-reveal>
+            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-pink-500"></div>
+            <div class="flex gap-6 items-start">
+              <div class="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center font-heading text-xl text-gold shrink-0">1</div>
+              <div>
+                <h4 class="text-white text-xl font-semibold mb-3">Relying Entirely on Fixed Deposits</h4>
+                <p class="text-zinc-300 leading-relaxed">FD returns of 6–7% barely beat inflation. After tax, your real return is often negative — your corpus is quietly shrinking every year.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-8 relative overflow-hidden group" data-reveal>
+            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-pink-500"></div>
+            <div class="flex gap-6 items-start">
+              <div class="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center font-heading text-xl text-gold shrink-0">2</div>
+              <div>
+                <h4 class="text-white text-xl font-semibold mb-3">Treating Life Insurance as an Investment</h4>
+                <p class="text-zinc-300 leading-relaxed">Traditional LIC-style plans return 4–7% with high lock-ins and surrender costs. Your money deserves better than a 30-year trap.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-8 relative overflow-hidden group" data-reveal>
+            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-pink-500"></div>
+            <div class="flex gap-6 items-start">
+              <div class="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center font-heading text-xl text-gold shrink-0">3</div>
+              <div>
+                <h4 class="text-white text-xl font-semibold mb-3">Randomly Investing in Mutual Funds</h4>
+                <p class="text-zinc-300 leading-relaxed">Owning 15+ funds with no strategy isn't diversification — it's chaos. Cluttered portfolios underperform and create zero alignment with your income goals.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-8 relative overflow-hidden group" data-reveal>
+            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-pink-500"></div>
+            <div class="flex gap-6 items-start">
+              <div class="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center font-heading text-xl text-gold shrink-0">4</div>
+              <div>
+                <h4 class="text-white text-xl font-semibold mb-3">Ignoring How Long Your Corpus Must Last</h4>
+                <p class="text-zinc-300 leading-relaxed">Retirement at 60 could mean 25–30 more years of expenses. Most plans don't account for longevity, leaving families financially exposed in their 80s.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-8 relative overflow-hidden group md:col-span-2" data-reveal>
+            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-pink-500"></div>
+            <div class="flex gap-6 items-start">
+              <div class="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center font-heading text-xl text-gold shrink-0">5</div>
+              <div>
+                <h4 class="text-white text-xl font-semibold mb-3">Random Advise</h4>
+                <p class="text-zinc-300 leading-relaxed">Well-meaning relatives, local agents, or social media tips are not retirement strategies. Mis-sold products and uninformed decisions are the #1 source of wealth destruction in retirement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-purple-900/20 to-gold/10 border border-purple-500/20" data-reveal>
+          <p class="text-zinc-200 text-lg italic flex items-center gap-3">
+            <span class="text-2xl">💡</span>
+            The best time to plan your retirement was years ago. <strong class="text-white ml-1">The second-best time is today.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISTAKES TABLE -->
+    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-800">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12" data-reveal>
+          <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">Financial Education</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">The Most <span class="text-gold">Common Wealth Mistakes</span></h2>
+          <p class="mt-6 text-zinc-400">See exactly how different investment choices affect your ₹1 Crore over 10 years. The numbers don't lie.</p>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-zinc-800 shadow-2xl" data-reveal>
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-zinc-900/50">
+                <th class="px-6 py-4 text-zinc-100 font-semibold border-b border-zinc-800">Common Mistake</th>
+                <th class="px-6 py-4 text-zinc-100 font-semibold border-b border-zinc-800">Returns</th>
+                <th class="px-6 py-4 text-zinc-100 font-semibold border-b border-zinc-800">Inflation</th>
+                <th class="px-6 py-4 text-zinc-100 font-semibold border-b border-zinc-800">Real Return</th>
+                <th class="px-6 py-4 text-zinc-100 font-semibold border-b border-zinc-800">Financial Impact</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800 bg-zinc-950/30">
+              <tr class="hover:bg-zinc-900/40 transition-colors">
+                <td class="px-6 py-4 text-zinc-300">Keeping Money Idle in Bank</td>
+                <td class="px-6 py-4 text-zinc-300">2–3%</td>
+                <td class="px-6 py-4 text-zinc-400">6–7%</td>
+                <td class="px-6 py-4"><span class="px-3 py-1 bg-red-900/20 text-red-400 rounded-md text-sm font-medium border border-red-900/30">-3% to -4%</span></td>
+                <td class="px-6 py-4 text-zinc-400 text-sm">₹1 Cr loses ₹30–40L of value in 10 years</td>
+              </tr>
+              <tr class="hover:bg-zinc-900/40 transition-colors">
+                <td class="px-6 py-4 text-zinc-300">Over-Dependence on FDs, PPFs, SSC</td>
+                <td class="px-6 py-4 text-zinc-400">6–7.5%</td>
+                <td class="px-6 py-4 text-zinc-400">6–7%</td>
+                <td class="px-6 py-4"><span class="px-3 py-1 bg-yellow-900/20 text-yellow-500 rounded-md text-sm font-medium border border-yellow-900/30">0–0.5%</span></td>
+                <td class="px-6 py-4 text-zinc-400 text-sm">₹1 Cr grows by only ₹0–5L + penalties</td>
+              </tr>
+              <tr class="hover:bg-zinc-900/40 transition-colors">
+                <td class="px-6 py-4 text-zinc-300">Relying on Real Estate Rentals</td>
+                <td class="px-6 py-4 text-zinc-300">2–3%</td>
+                <td class="px-6 py-4 text-zinc-400">6–7%</td>
+                <td class="px-6 py-4"><span class="px-3 py-1 bg-red-900/20 text-red-400 rounded-md text-sm font-medium border border-red-900/30">-3% to -4%</span></td>
+                <td class="px-6 py-4 text-zinc-400 text-sm">Illiquidity + Maintenance + High taxes</td>
+              </tr>
+              <tr class="hover:bg-zinc-900/40 transition-colors">
+                <td class="px-6 py-4 text-zinc-300">Insurance as 'Investment'</td>
+                <td class="px-6 py-4 text-zinc-400">4–7%</td>
+                <td class="px-6 py-4 text-zinc-400">6–7%</td>
+                <td class="px-6 py-4"><span class="px-3 py-1 bg-yellow-900/20 text-yellow-500 rounded-md text-sm font-medium border border-yellow-900/30">0–2%</span></td>
+                <td class="px-6 py-4 text-zinc-400 text-sm">High lock-in + Surrender costs</td>
+              </tr>
+              <tr class="hover:bg-zinc-900/40 transition-colors">
+                <td class="px-6 py-4 text-zinc-300">Cluttered Mutual Fund Portfolios</td>
+                <td class="px-6 py-4 text-zinc-400">6–10%</td>
+                <td class="px-6 py-4 text-zinc-400">6–7%</td>
+                <td class="px-6 py-4"><span class="px-3 py-1 bg-yellow-900/20 text-yellow-500 rounded-md text-sm font-medium border border-yellow-900/30">0–3%</span></td>
+                <td class="px-6 py-4 text-zinc-400 text-sm">Under-performance + No alignment</td>
+              </tr>
+              <tr class="hover:bg-zinc-900/40 transition-colors">
+                <td class="px-6 py-4 text-zinc-300">Random Stock Investments</td>
+                <td class="px-6 py-4 text-zinc-400">Uncertain</td>
+                <td class="px-6 py-4 text-zinc-400">6–7%</td>
+                <td class="px-6 py-4"><span class="px-3 py-1 bg-red-900/20 text-red-400 rounded-md text-sm font-medium border border-red-900/30">Often Negative</span></td>
+                <td class="px-6 py-4 text-zinc-400 text-sm">No exit discipline + High volatility</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-6 border-l-2 border-gold pl-6 py-2" data-reveal>
+          <p class="text-zinc-400 italic font-medium leading-relaxed">The line between wealth erosion and peaceful retirement is a structured plan that keeps your money working for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHERE RETIREES STUCK -->
+    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12" data-reveal>
+          <span class="text-purple-600 font-semibold tracking-widest uppercase text-sm">The Retirement Dilemma</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-zinc-900">Where Are <span class="text-purple-600 italic">Retirees Stuck?</span></h2>
+          <p class="mt-6 text-zinc-600">Most retirees fall into one of three traps — none of which are working in their favour.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white border border-zinc-200 shadow-sm rounded-3xl p-10 text-center flex flex-col items-center group hover:shadow-md transition-shadow" data-reveal>
+            <span class="px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full text-xs font-bold border border-yellow-200 uppercase tracking-widest mb-6">Too Conservative</span>
+            <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">📌</div>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-4 font-medium">Playing It Too Safe</h3>
+            <p class="text-zinc-600 leading-relaxed text-sm">Money feels "safe" parked in FDs and savings accounts — but inflation silently erodes purchasing power every year. Safe today, poor tomorrow.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm rounded-3xl p-10 text-center flex flex-col items-center group hover:shadow-md transition-shadow" data-reveal>
+            <span class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-bold border border-red-200 uppercase tracking-widest mb-6">Too Aggressive</span>
+            <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">📌</div>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-4 font-medium">Chasing High Returns</h3>
+            <p class="text-zinc-600 leading-relaxed text-sm">Random stocks and high-risk funds promise big returns but deliver sleepless nights. One market correction can wipe years of savings.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm rounded-3xl p-10 text-center flex flex-col items-center group hover:shadow-md transition-shadow" data-reveal>
+            <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-bold border border-purple-200 uppercase tracking-widest mb-6">Too Scattered</span>
+            <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">📌</div>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-4 font-medium">Wealth With No Direction</h3>
+            <p class="text-zinc-600 leading-relaxed text-sm">Money spread across FDs, LIC policies, and mutual funds with no clear plan. Plenty of assets — but no idea how to turn them into cash flow.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-white border border-zinc-200 shadow-sm rounded-2xl p-8 border-l-4 border-l-purple-500" data-reveal>
+          <p class="text-zinc-600 text-lg">
+            👉 <strong class="text-zinc-900">The answer?</strong> A balanced, structured retirement plan that protects your corpus, provides steady inflation-adjusted income, and grows your wealth — all at the same time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT RETIREES REALLY WANT -->
+    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12" data-reveal>
+          <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">What Truly Matters</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">What <span class="text-purple-400 italic">Retirees Really Want</span></h2>
+          <p class="mt-6 text-zinc-400 text-lg">Beyond the numbers, every retiree deserves these four essentials. Our Golden Years Framework is built to deliver exactly this.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <div class="flex gap-6 items-start glass-card p-8 rounded-2xl group transition-all duration-300 border-l-4 border-l-purple-500 shadow-sm hover:shadow-md hover:bg-purple-900/10" data-reveal>
+            <div class="w-16 h-16 rounded-2xl bg-purple-900/20 border border-purple-500/20 flex items-center justify-center text-3xl shrink-0">🧘</div>
+            <div>
+              <h4 class="font-heading text-2xl text-white mb-2 font-medium">Peace of Mind</h4>
+              <p class="text-zinc-400 leading-relaxed text-sm">No sleepless nights over money. A structured plan means you know exactly what's coming in, every month, for life.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start glass-card p-8 rounded-2xl group transition-all duration-300 border-l-4 border-l-purple-500 shadow-sm hover:shadow-md hover:bg-purple-900/10" data-reveal>
+            <div class="w-16 h-16 rounded-2xl bg-purple-900/20 border border-purple-500/20 flex items-center justify-center text-3xl shrink-0">💰</div>
+            <div>
+              <h4 class="font-heading text-2xl text-white mb-2 font-medium">Predictable Income</h4>
+              <p class="text-zinc-400 leading-relaxed text-sm">Reliable monthly cashflows that rise with inflation — so your lifestyle today is affordable 20 years from now too.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start glass-card p-8 rounded-2xl group transition-all duration-300 border-l-4 border-l-purple-500 shadow-sm hover:shadow-md hover:bg-purple-900/10" data-reveal>
+            <div class="w-16 h-16 rounded-2xl bg-purple-900/20 border border-purple-500/20 flex items-center justify-center text-3xl shrink-0">🏡</div>
+            <div>
+              <h4 class="font-heading text-2xl text-white mb-2 font-medium">Family Security</h4>
+              <p class="text-zinc-400 leading-relaxed text-sm">Medical emergencies, legacy planning, and protection against financial fraud — so your family's future is fully covered.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start glass-card p-8 rounded-2xl group transition-all duration-300 border-l-4 border-l-purple-500 shadow-sm hover:shadow-md hover:bg-purple-900/10" data-reveal>
+            <div class="w-16 h-16 rounded-2xl bg-purple-900/20 border border-purple-500/20 flex items-center justify-center text-3xl shrink-0">✈️</div>
+            <div>
+              <h4 class="font-heading text-2xl text-white mb-2 font-medium">Fulfilling Your Dreams</h4>
+              <p class="text-zinc-400 leading-relaxed text-sm">Travel, hobbies, charity, special family moments. Retirement should be the reward for a lifetime of hard work — not anxiety.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE FRAMEWORK -->
+    <section id="framework" class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
+          <span class="why-tag mb-6">Our Proprietary Approach</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-white">The <span class="text-gold">Golden Years</span> Wealth Framework</h2>
+          <p class="mt-6 text-lg text-zinc-300">A step-by-step, proven roadmap to turn your hard-earned savings into a lifetime of peace, security, and steady income.</p>
+        </div>
+
+        <div class="relative grid gap-12 md:grid-cols-4 lg:gap-8">
+          <!-- Connector Line (Desktop) -->
+          <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-px bg-gradient-to-r from-gold via-purple-500 to-pink-500 z-0"></div>
+          
+          <div class="relative z-10 text-center" data-reveal>
+            <div class="w-20 h-20 rounded-full bg-zinc-900 border-4 border-zinc-800 flex items-center justify-center text-3xl shadow-2xl mx-auto mb-6 bg-gradient-to-br from-gold/20 to-purple-900/20">🔍</div>
+            <h4 class="font-heading text-2xl text-white mb-4">Assess</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">Deep-dive into your corpus, pensions, investments, expenses & insurance for a complete picture.</p>
+          </div>
+          <div class="relative z-10 text-center" data-reveal>
+            <div class="w-20 h-20 rounded-full bg-zinc-900 border-4 border-zinc-800 flex items-center justify-center text-3xl shadow-2xl mx-auto mb-6 bg-gradient-to-br from-gold/20 to-purple-900/20">🎯</div>
+            <h4 class="font-heading text-2xl text-white mb-4">Align</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">Link every rupee to a goal. Safeguard wealth with right risk covers and contingency reserves.</p>
+          </div>
+          <div class="relative z-10 text-center" data-reveal>
+            <div class="w-20 h-20 rounded-full bg-zinc-900 border-4 border-zinc-800 flex items-center justify-center text-3xl shadow-2xl mx-auto mb-6 bg-gradient-to-br from-gold/20 to-purple-900/20">⚡</div>
+            <h4 class="font-heading text-2xl text-white mb-4">Streamline</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">Implement SWPs and annuities for steady, sustainable, inflation-adjusted monthly cashflows.</p>
+          </div>
+          <div class="relative z-10 text-center" data-reveal>
+            <div class="w-20 h-20 rounded-full bg-zinc-900 border-4 border-zinc-800 flex items-center justify-center text-3xl shadow-2xl mx-auto mb-6 bg-gradient-to-br from-gold/20 to-purple-900/20">🔄</div>
+            <h4 class="font-heading text-2xl text-white mb-4">Revisit</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">Track progress, rebalance the portfolio, and ensure your money lasts as long as you do.</p>
+          </div>
+        </div>
+
+        <div class="mt-20 glass-card rounded-2xl p-8 max-w-3xl mx-auto border-l-4 border-gold shadow-gold/5" data-reveal>
+          <p class="text-zinc-200 text-xl font-heading italic text-center text-gold">
+            "Turning your hard-earned savings into a lifetime of peace, security, and steady income."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE FUTURES -->
+    <section class="bg-dark-section px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mb-12" data-reveal>
+          <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">Real Numbers. Real Outcomes.</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">One Corpus. <span class="text-gold">Three Futures.</span></h2>
+          <div class="mt-8 p-4 bg-zinc-900/50 border border-zinc-800 rounded-xl inline-block">
+            <p class="text-gold font-heading text-lg tracking-tight">₹1 Crore &nbsp;—&nbsp; 30-Year Horizon &nbsp;—&nbsp; 6% Inflation &nbsp;—&nbsp; ₹5L Annual Withdrawals</p>
+          </div>
+          <p class="mt-6 text-zinc-400 text-lg max-w-3xl">Which path will your retirement take? The difference between comfort and crisis is the strategy — not the corpus size.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <!-- Case 1 -->
+          <div class="glass-card rounded-3xl p-8 relative overflow-hidden flex flex-col group" data-reveal>
+            <div class="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
+            <span class="text-red-500 font-bold uppercase text-xs tracking-widest mb-4">Case 1 — Danger Zone</span>
+            <h4 class="font-heading text-2xl text-white mb-6 underline decoration-red-600/30">Bank FDs / PPFs <span class="block text-sm font-body text-zinc-400">(7% returns)</span></h4>
+            <ul class="space-y-4 flex-grow">
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                Withdrawals rise with inflation (₹42k → ₹70k in 10 yrs)
+              </li>
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-red-600 shrink-0 mt-1.5"></span>
+                Corpus exhausts in ~23 years
+              </li>
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-red-600 shrink-0 mt-1.5"></span>
+                Interest rates trend downward — income stops while life continues
+              </li>
+            </ul>
+            <div class="mt-8 p-4 bg-red-900/20 rounded-xl border border-red-900/30">
+              <p class="text-red-400 text-sm font-semibold">⚠️ You outlive your money</p>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="glass-card rounded-3xl p-8 relative overflow-hidden flex flex-col group" data-reveal>
+            <div class="absolute top-0 left-0 w-full h-1 bg-yellow-600"></div>
+            <span class="text-yellow-500 font-bold uppercase text-xs tracking-widest mb-4">Case 2 — Slow Erosion</span>
+            <h4 class="font-heading text-2xl text-white mb-6 underline decoration-yellow-600/30">Life Insurance Pension Plans <span class="block text-sm font-body text-zinc-400">(Fixed pension)</span></h4>
+            <ul class="space-y-4 flex-grow">
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                ₹42,000/month pension (fixed for life)
+              </li>
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-yellow-600 shrink-0 mt-1.5"></span>
+                No inflation adjustment — real value collapses:
+                <span class="block text-xs mt-2 text-zinc-500">10 yrs: ₹23,453 | 20 yrs: ₹13,095 | 30 yrs: ₹7,312</span>
+              </li>
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-yellow-600 shrink-0 mt-1.5"></span>
+                Looks safe, but purchasing power collapses over time
+              </li>
+            </ul>
+            <div class="mt-8 p-4 bg-yellow-900/20 rounded-xl border border-yellow-900/30">
+              <p class="text-yellow-500 text-sm font-semibold">⚠️ Survival but no lifestyle</p>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="glass-card rounded-3xl p-8 relative overflow-hidden flex flex-col group scale-105 border-purple-500/50 shadow-purple-500/10 shadow-2xl z-10" data-reveal>
+            <div class="absolute top-0 left-0 w-full h-1 bg-purple-500"></div>
+            <span class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-4">Case 3 — The Right Way ✦</span>
+            <h4 class="font-heading text-2xl text-white mb-6 underline decoration-purple-500/30">Strategic Mutual Fund Allocation <span class="block text-sm font-body text-zinc-400">(Proprietary model)</span></h4>
+            <ul class="space-y-4 flex-grow">
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                Withdrawals rise with inflation (₹42k → ₹2.27L in 30 yrs)
+              </li>
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                Total withdrawn over 30 years: <strong class="text-white">₹3.98 Crore</strong>
+              </li>
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                Corpus still left after 30 years: <strong class="text-white">₹2.03 Crore</strong>
+              </li>
+              <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span class="w-2 h-2 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                Income + growth + inflation safety — all at once
+              </li>
+            </ul>
+            <div class="mt-8 p-4 bg-purple-900/30 rounded-xl border border-purple-900/40 shadow-inner">
+              <p class="text-purple-300 text-sm font-semibold">✅ Legacies and Lifestyle secured</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 glass-card rounded-2xl p-8 border-l-4 border-purple-500" data-reveal>
+          <p class="text-zinc-200 text-lg italic">
+            👉 <strong class="text-white">Takeaway:</strong> FDs exhaust, pensions shrink — but a structured mutual fund plan sustains income, grows wealth, and leaves a legacy. <span class="text-purple-400 font-semibold">This is what we build for you.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CLIENTS CHOOSE US -->
+    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
+          <span class="text-purple-600 font-semibold tracking-widest uppercase text-sm mb-6 inline-block">Why Miracle Wealth</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-zinc-900">Why Clients <span class="text-purple-600 italic">Choose Us</span></h2>
+          <p class="mt-6 text-lg text-zinc-600">From humble beginnings to a 9-digit AUM advisory — built on trust, relentless hard work, and client-first execution.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-all" data-reveal>
+            <div class="text-3xl mb-4 group-hover:scale-125 transition-transform inline-block">🌱</div>
+            <h4 class="text-zinc-900 text-lg font-semibold mb-3 tracking-tight">Humble Beginnings, Proven Results</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed">From a rooftop storeroom to a 9-digit AUM advisory — built on trust and client-first execution.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-all" data-reveal>
+            <div class="text-3xl mb-4 group-hover:scale-125 transition-transform inline-block">🎓</div>
+            <h4 class="text-zinc-900 text-lg font-semibold mb-3 tracking-tight">Strong Professional Foundation</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed">B.Tech + MBA (Finance) | IRDAI Certified | AMFI Registered | NISM Certified Research Analyst.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-all" data-reveal>
+            <div class="text-3xl mb-4 group-hover:scale-125 transition-transform inline-block">📊</div>
+            <h4 class="text-zinc-900 text-lg font-semibold mb-3 tracking-tight">Research-Driven Investing</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed">300+ clients served | 9-digit AUM | 5+ years experience. No tips, no trends — only discipline.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-all" data-reveal>
+            <div class="text-3xl mb-4 group-hover:scale-125 transition-transform inline-block">🛡️</div>
+            <h4 class="text-zinc-900 text-lg font-semibold mb-3 tracking-tight">Insurance & Risk Expertise</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed">99% success in complex health insurance claims | Deep protection expertise and advisory experience.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-all" data-reveal>
+            <div class="text-3xl mb-4 group-hover:scale-125 transition-transform inline-block">🤝</div>
+            <h4 class="text-zinc-900 text-lg font-semibold mb-3 tracking-tight">Personalised Service</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed">Simple, jargon-free communication. Tailored plans aligned to your lifestyle. Regular reviews.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-all" data-reveal>
+            <div class="text-3xl mb-4 group-hover:scale-125 transition-transform inline-block">📱</div>
+            <h4 class="text-zinc-900 text-lg font-semibold mb-3 tracking-tight">Financial Educator</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed">Actively simplifying finance on social media — making complex money decisions accessible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="relative overflow-hidden px-6 py-24 lg:px-8 bg-[#050505]">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-900/10 blur-[120px] rounded-full"></div>
+      <div class="mx-auto max-w-4xl text-center relative z-10" data-reveal>
+        <h2 class="font-heading text-5xl md:text-6xl text-white mb-8">Your <span class="text-gold">Golden Years</span> Deserve <br>A Golden Plan</h2>
+        <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          Let's have a structured, no-pressure conversation about your retirement corpus and build a plan that works for you — for life.
+        </p>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary px-12 py-5 text-lg" target="_blank">Book Your Free Strategy Call</a>
+        
+        <div class="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-6">
+          <span class="flex items-center gap-2 text-zinc-400 text-sm font-medium tracking-wide">
+            <ion-icon name="sparkles" class="text-gold"></ion-icon> 300+ FAMILIES ADVISED
+          </span>
+          <span class="flex items-center gap-2 text-zinc-400 text-sm font-medium tracking-wide">
+            <ion-icon name="star" class="text-gold"></ion-icon> 5-STAR GOOGLE RATED
+          </span>
+          <span class="flex items-center gap-2 text-zinc-400 text-sm font-medium tracking-wide">
+            <ion-icon name="checkmark-circle" class="text-gold"></ion-icon> AMFI & IRDAI REGISTERED
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-dark border-t border-zinc-900 px-6 py-12 lg:px-8">
+    <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto mb-6" />
+
+          <div class="mt-6 flex flex-col gap-3 items-start">
+            <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
+            <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="social-pill" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="font-semibold text-zinc-100">Quick Links</h4>
+          <ul class="mt-4 space-y-2 text-sm text-zinc-300">
+            <li><a class="footer-link" href="index.html">Home</a></li>
+            <li><a class="footer-link" href="about.html">About</a></li>
+            <li><a class="footer-link" href="services.html">Services</a></li>
+            <li><a class="footer-link" href="calculators.html">Calculators</a></li>
+            <li><a class="footer-link" href="conact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="font-semibold text-zinc-100">Connect</h4>
+          <p class="mt-4 text-sm text-zinc-300">Email: miraclewealth.in@gmail.com</p>
+          <p class="text-sm text-zinc-300">Location: Ensaara Metropark, Pipla-Kharsoli Road, Nagpur, 440034</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm text-zinc-300">
+            <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" rel="noopener"
+              class="social-pill"><ion-icon name="logo-instagram"></ion-icon>Instagram</a>
+            <a href="https://www.linkedin.com/in/swapnil-asati/" target="_blank" rel="noopener"
+              class="social-pill"><ion-icon name="logo-linkedin"></ion-icon>LinkedIn</a>
+            <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" rel="noopener"
+              class="social-pill"><ion-icon name="logo-youtube"></ion-icon>YouTube</a>
+          </div>
+          <a href="privacy-policy.html" class="mt-4 inline-block text-sm text-zinc-400 hover:text-zinc-200">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center">
+        <p class="md:col-span-9 text-xs leading-relaxed text-zinc-400">
+          We are not a SEBI-registered investment advisor. Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully.
+        </p>
+        <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/917972053045" target="_blank" rel="noopener" class="whatsapp-float"
+    aria-label="Chat on WhatsApp">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+  <script>
+    const header = document.getElementById("header");
+    const hero = document.getElementById("hero");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    const menuIconOpen = document.getElementById("menuIconOpen");
+    const menuIconClose = document.getElementById("menuIconClose");
+
+    const onScroll = () => {
+      if (window.scrollY > 50) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+
+    const toggleMenu = (forceClose = false) => {
+      const isHidden = mobileMenu.classList.contains("hidden");
+      if (forceClose && isHidden) return;
+      const willBeHidden = forceClose ? true : !isHidden;
+      if (willBeHidden) {
+        mobileMenu.classList.add("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        menuIconClose.classList.add("hidden", "rotate-90");
+        menuIconOpen.classList.remove("hidden");
+      } else {
+        mobileMenu.classList.remove("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        menuIconOpen.classList.add("hidden");
+        menuIconClose.classList.remove("hidden", "rotate-90");
+      }
+    };
+    mobileMenuBtn.addEventListener("click", () => toggleMenu());
+    mobileLinks.forEach((link) => link.addEventListener("click", () => toggleMenu(true)));
+
+    const revealEls = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach((el) => io.observe(el));
+  </script>
+</body>
+
+</html>

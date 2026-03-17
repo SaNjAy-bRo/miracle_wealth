@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maternity Health Insurance | Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #5B3EBE;
+      --purple-light: #7C5CBF;
+      --pink: #E05C8A;
+      --pink-soft: #F5A7C3;
+      --cream: #FAF7F4;
+      --lavender-bg: #F2EEF9;
+      --card-bg: #FFFFFF;
+      --text-dark: #1C1B2E;
+      --text-mid: #4A4565;
+      --text-soft: #7E7A99;
+      --border: #E8E2F5;
+      --gradient-hero: linear-gradient(135deg, #F2EEF9 0%, #FDE8F0 60%, #EDE8FD 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.65;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,247,244,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--purple); font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta {
+      background: var(--purple); color: #fff; border: none; border-radius: 8px;
+      padding: 0.55rem 1.4rem; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--purple-light); transform: translateY(-1px); }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      padding: 0.8rem 5%;
+      font-size: 0.82rem; color: var(--text-soft);
+    }
+    .breadcrumb a { color: var(--purple); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--gradient-hero);
+      padding: 5rem 5% 4rem;
+      text-align: left;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(91,62,190,0.1); border: 1px solid rgba(91,62,190,0.25);
+      color: var(--purple); border-radius: 50px; padding: 0.35rem 0.9rem;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; line-height: 1.2;
+      color: var(--text-dark); margin-bottom: 1rem;
+    }
+    .hero h1 .accent { color: var(--purple); }
+    .hero h1 .accent-pink { color: var(--pink); }
+    .hero-sub { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 2rem; max-width: 480px; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--purple); color: #fff; border: none; border-radius: 10px;
+      padding: 0.85rem 2rem; font-size: 1rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--purple-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,62,190,0.3); }
+    .btn-secondary {
+      background: transparent; color: var(--purple);
+      border: 1.5px solid var(--purple); border-radius: 10px;
+      padding: 0.85rem 2rem; font-size: 1rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-secondary:hover { background: var(--lavender-bg); }
+
+    /* hero stats card removed */
+
+    /* ─── SECTIONS ─── */
+    section { padding: 4.5rem 5%; }
+    section:nth-child(even) { background: var(--lavender-bg); }
+
+    .section-label {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--pink); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem;
+    }
+    .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 580px; margin-bottom: 2.5rem; }
+
+    /* ─── WHY SECTION ─── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .why-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.8rem;
+      border: 1px solid var(--border); transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .why-card:hover { box-shadow: 0 8px 32px rgba(91,62,190,0.12); transform: translateY(-3px); }
+    .why-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--lavender-bg); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1rem;
+    }
+    .why-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.88rem; color: var(--text-mid); }
+
+    /* ─── COVERAGE ─── */
+    .coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .coverage-col h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--text-dark); margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .coverage-col h3 span { font-size: 1.4rem; }
+    .coverage-item {
+      background: var(--card-bg); border-radius: 14px; padding: 1.2rem 1.4rem;
+      border-left: 4px solid var(--purple); margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(91,62,190,0.06);
+    }
+    .coverage-item.pink { border-left-color: var(--pink); }
+    .coverage-item h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; }
+    .coverage-item p { font-size: 0.85rem; color: var(--text-mid); }
+
+    /* ─── WAITING PERIOD VISUAL ─── */
+    .wait-visual {
+      background: var(--card-bg); border-radius: 24px; padding: 2.5rem 2rem;
+      box-shadow: 0 4px 32px rgba(91,62,190,0.09); margin-top: 2rem;
+    }
+    .wait-track {
+      display: flex; align-items: stretch; gap: 0; margin: 2rem 0 1.5rem; position: relative;
+    }
+    .wait-seg {
+      flex: 1; display: flex; flex-direction: column; align-items: center; position: relative;
+    }
+    .wait-seg-bar {
+      width: 100%; height: 14px; border-radius: 0; margin-bottom: 0.6rem;
+    }
+    .wait-seg:first-child .wait-seg-bar { border-radius: 8px 0 0 8px; }
+    .wait-seg:last-child .wait-seg-bar { border-radius: 0 8px 8px 0; }
+    .bar-purchase { background: #E8E2F5; }
+    .bar-wait { background: linear-gradient(90deg, #C4B0F5, #A78BFA); }
+    .bar-pregnancy { background: linear-gradient(90deg, #F9A8D4, #F472B6); }
+    .bar-covered { background: linear-gradient(90deg, #6EE7B7, #34D399); }
+
+    .wait-milestone {
+      position: absolute; top: -38px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 4px; white-space: nowrap;
+    }
+    .milestone-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; border: 3px solid var(--card-bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .icon-purple { background: var(--purple); }
+    .icon-pink   { background: var(--pink); }
+    .icon-green  { background: #10B981; }
+
+    .wait-track-wrap { padding-top: 48px; }
+
+    .wait-labels { display: flex; margin-top: 0.5rem; }
+    .wait-label-seg {
+      flex: 1; text-align: center; font-size: 0.72rem; color: var(--text-soft);
+      font-weight: 500; padding: 0 4px;
+    }
+    .wait-label-seg strong { display: block; font-size: 0.8rem; color: var(--text-mid); font-weight: 600; }
+
+    .wait-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.8rem;
+    }
+    .wait-card {
+      border-radius: 14px; padding: 1.2rem; text-align: center;
+      border: 1.5px solid var(--border);
+    }
+    .wait-card .wc-month {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
+      display: block; margin-bottom: 0.25rem;
+    }
+    .wait-card .wc-title { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .wait-card .wc-desc { font-size: 0.78rem; color: var(--text-soft); }
+    .wc-purple { border-color: rgba(91,62,190,0.3); background: #F5F2FF; }
+    .wc-purple .wc-month { color: var(--purple); }
+    .wc-pink { border-color: rgba(224,92,138,0.3); background: #FFF0F5; }
+    .wc-pink .wc-month { color: var(--pink); }
+    .wc-green { border-color: rgba(16,185,129,0.3); background: #F0FDF8; }
+    .wc-green .wc-month { color: #10B981; }
+
+    .wait-formula {
+      margin-top: 1.5rem; background: var(--lavender-bg); border-radius: 12px;
+      padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .formula-part {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem;
+    }
+    .formula-pill {
+      background: var(--purple); color: #fff; border-radius: 20px;
+      padding: 0.25rem 0.75rem; font-size: 0.8rem; font-weight: 600;
+    }
+    .formula-pill.pink { background: var(--pink); }
+    .formula-pill.green { background: #10B981; }
+    .formula-eq { font-size: 1.2rem; color: var(--text-soft); font-weight: 300; }
+    .formula-result {
+      font-size: 0.9rem; font-weight: 700; color: #10B981;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* ─── HEALTH COVER ─── */
+    .health-cover-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .hc-card {
+      background: var(--card-bg); border-radius: 14px; padding: 1.3rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      border: 1px solid var(--border); transition: border-color 0.2s;
+    }
+    .hc-card:hover { border-color: var(--purple); }
+    .hc-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .hc-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .hc-card p { font-size: 0.83rem; color: var(--text-mid); }
+    .hc-highlight {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: #fff; border-radius: 14px; padding: 1.2rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .hc-highlight span { font-size: 0.92rem; opacity: 0.9; }
+    .hc-highlight strong { font-size: 1rem; }
+
+    /* ─── BENEFITS ─── */
+    .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .benefit-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.8rem;
+      border: 1px solid var(--border); position: relative; overflow: hidden;
+    }
+    .benefit-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+    }
+    .benefit-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--lavender-bg); color: var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;
+    }
+    .benefit-card h4 { font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .benefit-card p { font-size: 0.87rem; color: var(--text-mid); }
+
+    /* ─── COMPARISON TABLE ─── */
+    .table-wrapper { overflow-x: auto; }
+    table {
+      width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(91,62,190,0.1);
+    }
+    thead tr { background: var(--purple); color: #fff; }
+    thead th { padding: 1rem 1.2rem; font-size: 0.9rem; font-weight: 600; text-align: center; }
+    thead th:first-child { text-align: left; }
+    tbody tr { background: var(--card-bg); border-bottom: 1px solid var(--border); }
+    tbody tr:nth-child(even) { background: #FAFAFE; }
+    tbody td { padding: 0.95rem 1.2rem; font-size: 0.9rem; color: var(--text-dark); text-align: center; font-weight: 600; }
+    tbody td:first-child { text-align: left; font-weight: 500; color: var(--text-mid); }
+    .text-green { color: #22A85A; }
+    .text-red { color: #E05C5C; }
+    tfoot tr { background: linear-gradient(135deg, #F0EBFF, #FDE8F0); }
+    tfoot td { padding: 1rem 1.2rem; font-size: 0.95rem; font-weight: 700; color: var(--purple); text-align: center; }
+    tfoot td:first-child { text-align: left; }
+
+    /* ─── WHO SHOULD ─── */
+    .who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .who-card {
+      background: var(--card-bg); border-radius: 14px; padding: 1.4rem;
+      display: flex; align-items: flex-start; gap: 1rem; border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .who-card:hover { border-color: var(--purple); box-shadow: 0 6px 20px rgba(91,62,190,0.1); }
+    .who-num {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.95rem;
+    }
+    .who-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; }
+    .who-card p { font-size: 0.85rem; color: var(--text-mid); }
+
+    /* ─── FAQ ─── */
+    .faq-list { display: flex; flex-direction: column; gap: 1rem; }
+    .faq-item {
+      background: var(--card-bg); border-radius: 14px; border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.95rem; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--text-dark); transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--lavender-bg); }
+    .faq-q .chevron { font-size: 1.1rem; color: var(--purple); transition: transform 0.25s; }
+    .faq-a {
+      overflow: hidden;
+      font-size: 0.9rem; color: var(--text-mid);
+    }
+    .faq-a-inner { padding: 0 1.5rem 1.2rem; }
+    .faq-item.open .chevron { transform: rotate(180deg); }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--purple) 0%, #8B5CF6 50%, var(--pink) 100%);
+      padding: 5rem 5%; text-align: center; color: #fff;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 1rem;
+    }
+    .cta-section p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 2rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff; color: var(--purple); border: none; border-radius: 10px;
+      padding: 0.9rem 2.2rem; font-size: 1rem; font-weight: 700; cursor: pointer;
+      text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-white:hover { background: #F0EBFF; transform: translateY(-2px); }
+    .btn-outline-white {
+      background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 10px; padding: 0.9rem 2.2rem; font-size: 1rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+
+    /* ─── FOOTER NOTE ─── */
+    .footer-note {
+      background: var(--text-dark); color: var(--text-soft);
+      text-align: center; padding: 1.2rem 5%;
+      font-size: 0.78rem; line-height: 1.6;
+    }
+    .footer-note a { color: var(--pink-soft); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero { padding: 3rem 5%; }
+      .why-grid, .coverage-grid, .health-cover-grid,
+      .benefits-grid, .who-grid, .wait-cards { grid-template-columns: 1fr; }
+      .hc-highlight { flex-direction: column; }
+      .wait-formula { flex-direction: column; gap: 0.5rem; }
+      .wait-track-wrap { display: none; }
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero > * { animation: fadeUp 0.6s ease both; }
+    .hero > *:nth-child(2) { animation-delay: 0.15s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Miracle Wealth</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="calculators.html">Calculators</a></li>
+    <li><a href="conact.html">Contact</a></li>
+  </ul>
+  <a href="https://forms.gle/WauZ688qLfyyDZVy7" class="nav-cta" target="_blank">Enquire Now</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a> &rsaquo; <a href="services.html">Services</a> &rsaquo; Maternity Health Insurance
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">🌸 India's Most Affordable Health Insurance With Delivery Cover</div>
+    <h1>Protect <span class="accent-pink">New Beginnings</span>,<br>Without <span class="accent">Breaking the Bank</span></h1>
+    <p class="hero-sub">A plan designed for growing families — covering delivery, complications, and baby care from day one. Save up to ₹2.5 Lakhs across two deliveries.</p>
+    <div class="hero-actions">
+      <a href="https://forms.gle/WauZ688qLfyyDZVy7" class="btn-primary" target="_blank">Enquire Now</a>
+      <a href="#coverage" class="btn-secondary">See Coverage</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section>
+  <div class="section-label">The Reality</div>
+  <h2 class="section-title">Why Every Couple Needs This</h2>
+  <p class="section-sub">Medical inflation is outpacing savings. Planning ahead isn't optional — it's essential.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">📈</div>
+      <h3>14% Medical Inflation</h3>
+      <p>Annual treatment costs rise 14% — your hospital bill next year is already more expensive than today.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏥</div>
+      <h3>₹1–2L Delivery Costs</h3>
+      <p>Average hospital expenses for a delivery in a private hospital range between ₹1 and ₹2 lakhs in India.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <h3>₹2.5L in Total Savings</h3>
+      <p>With 2 deliveries and 2 newborn covers fully paid by the insurer, your out-of-pocket cost becomes zero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE SECTION -->
+<section id="coverage">
+  <div class="section-label">What's Covered</div>
+  <h2 class="section-title">Delivery & Newborn Protection</h2>
+  <p class="section-sub">Purpose-built maternity coverage for India's growing families — comprehensive, clear, and reliable.</p>
+  <div class="coverage-grid">
+    <div class="coverage-col">
+      <h3><span>🤱</span> Delivery Coverage</h3>
+      <div class="coverage-item">
+        <h4>₹1 Lakh Per Delivery</h4>
+        <p>Total 2 deliveries covered — ₹1L for first delivery and another ₹1L for the second delivery.</p>
+      </div>
+      <div class="coverage-item">
+        <h4>Both Methods Fully Covered</h4>
+        <p>Normal delivery and C-Section both 100% covered under the policy — no sub-limits.</p>
+      </div>
+    </div>
+    <div class="coverage-col">
+      <h3><span>👶</span> Newborn Baby Cover</h3>
+      <div class="coverage-item pink">
+        <h4>Hospitalisation Cover — Up to ₹25,000</h4>
+        <p>Your baby's health is covered from day one with full hospitalisation benefits included in the policy.</p>
+      </div>
+      <div class="coverage-item pink">
+        <h4>1 Year Vaccination Benefits</h4>
+        <p>Vaccination expenses up to ₹5,000 included within the newborn baby cover — no separate add-on needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITING PERIOD EXPLAINER -->
+<section>
+  <div class="section-label">Smart Timing</div>
+  <h2 class="section-title">Wait Only 4 Months — Effectively</h2>
+  <p class="section-sub">The policy has a 12-month waiting period, but your effective wait is just 4 months. Here's the simple math.</p>
+
+  <div class="wait-visual">
+
+    <!-- 3 milestone cards -->
+    <div class="wait-cards">
+      <div class="wait-card wc-purple">
+        <span class="wc-month">Month 0</span>
+        <div class="wc-title">🛒 Buy the Policy</div>
+        <div class="wc-desc">You purchase the maternity plan today. The 12-month waiting period begins.</div>
+      </div>
+      <div class="wait-card wc-pink">
+        <span class="wc-month">Month 4</span>
+        <div class="wc-title">🤰 Conceive / Pregnant</div>
+        <div class="wc-desc">Earliest you can conceive. A healthy pregnancy takes ~9 months from here.</div>
+      </div>
+      <div class="wait-card wc-green">
+        <span class="wc-month">Month 13</span>
+        <div class="wc-title">👶 Delivery — Covered ✓</div>
+        <div class="wc-desc">Delivery happens at Month 13 or later. Your 12-month wait is already complete!</div>
+      </div>
+    </div>
+
+    <!-- Visual bar track -->
+    <div class="wait-track-wrap">
+      <div class="wait-track">
+        <div class="wait-seg" style="flex:0.5;">
+          <div class="wait-milestone" style="left:50%;">
+            <div class="milestone-icon icon-purple">🛒</div>
+          </div>
+          <div class="wait-seg-bar bar-purchase"></div>
+        </div>
+        <div class="wait-seg" style="flex:4;">
+          <div class="wait-seg-bar bar-wait"></div>
+        </div>
+        <div class="wait-seg" style="flex:0.5;">
+          <div class="wait-milestone" style="left:50%;">
+            <div class="milestone-icon icon-pink">🤰</div>
+          </div>
+          <div class="wait-seg-bar bar-pregnancy"></div>
+        </div>
+        <div class="wait-seg" style="flex:9;">
+          <div class="wait-seg-bar bar-pregnancy"></div>
+        </div>
+        <div class="wait-seg" style="flex:0.5;">
+          <div class="wait-milestone" style="left:50%;">
+            <div class="milestone-icon icon-green">👶</div>
+          </div>
+          <div class="wait-seg-bar bar-covered"></div>
+        </div>
+      </div>
+      <div class="wait-labels">
+        <div class="wait-label-seg" style="flex:4.5;"><strong style="color:var(--purple);">← 4 months wait →</strong><br>Before conception</div>
+        <div class="wait-label-seg" style="flex:9.5;"><strong style="color:var(--pink);">← 9 months pregnancy →</strong><br>Natural gestation</div>
+        <div class="wait-label-seg" style="flex:0.5;"></div>
+      </div>
+    </div>
+
+    <!-- Formula -->
+    <div class="wait-formula">
+      <div class="formula-part">
+        <span class="formula-pill">4 months</span>
+        <span style="font-size:0.85rem; color:var(--text-soft);">wait before conception</span>
+      </div>
+      <span class="formula-eq">+</span>
+      <div class="formula-part">
+        <span class="formula-pill pink">9 months</span>
+        <span style="font-size:0.85rem; color:var(--text-soft);">pregnancy</span>
+      </div>
+      <span class="formula-eq">=</span>
+      <div class="formula-part">
+        <span class="formula-pill green">13 months</span>
+        <span style="font-size:0.85rem; color:var(--text-soft);">to delivery</span>
+      </div>
+      <span class="formula-eq">→</span>
+      <div class="formula-result">✅ 12-month wait complete. Fully covered.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPREHENSIVE HEALTH COVER -->
+<section>
+  <div class="section-label">Beyond Maternity</div>
+  <h2 class="section-title">Comprehensive Health Cover: ₹10 Lac</h2>
+  <p class="section-sub">This isn't just a maternity plan — it's a full-featured health shield for your entire family.</p>
+  <div class="health-cover-grid">
+    <div class="hc-card">
+      <div class="hc-icon">🏨</div>
+      <div>
+        <h4>Any Room Category</h4>
+        <p>Including suites, with ICU/ICCU cover up to sum insured — no room rent capping.</p>
+      </div>
+    </div>
+    <div class="hc-card">
+      <div class="hc-icon">❤️</div>
+      <div>
+        <h4>Organ Donor Expenses</h4>
+        <p>Organ donor expenses are covered up to sum insured.</p>
+      </div>
+    </div>
+    <div class="hc-card">
+      <div class="hc-icon">🔄</div>
+      <div>
+        <h4>Recharge Benefit</h4>
+        <p>Unlimited times up to sum insured for all illness.</p>
+      </div>
+    </div>
+    <div class="hc-card">
+      <div class="hc-icon">🎁</div>
+      <div>
+        <h4>Guaranteed Bonus</h4>
+        <p>100% per year up to 500% of sum insured, irrespective of claims.</p>
+      </div>
+    </div>
+    <div class="hc-highlight">
+      <span>✅ <strong>Zero Co-Payments & Sub-limits</strong></span>
+      <span>✅ <strong>541 Day Care Procedures</strong></span>
+      <span>✅ <strong>All India Coverage</strong></span>
+    </div>
+    <div style="grid-column:1/-1; text-align:center; padding-top:0.5rem;">
+      <span style="font-size:0.9rem; color:var(--text-soft);">Want to know all features in detail? </span>
+      <a href="https://forms.gle/WauZ688qLfyyDZVy7" target="_blank" style="color:var(--purple); font-weight:600; font-size:0.9rem; text-decoration:none; border-bottom:1.5px solid var(--purple);">Enquire Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="section-label">The Numbers</div>
+  <h2 class="section-title">How Much You Actually Save</h2>
+  <p class="section-sub">A simple side-by-side comparison of what this plan saves you over two pregnancies.</p>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Claim Scenario</th>
+          <th>Health Insurance With Delivery Cover 😍</th>
+          <th>Health Insurance Without Delivery Cover 😰</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1st Delivery Bill: ₹1 Lakh</td>
+          <td class="text-green">Insurer pays ₹1 Lakh</td>
+          <td class="text-red">You pay ₹1 Lakh</td>
+        </tr>
+        <tr>
+          <td>1st Newborn Baby Bill: ₹25,000</td>
+          <td class="text-green">Insurer pays ₹25,000</td>
+          <td class="text-red">You pay ₹25,000</td>
+        </tr>
+        <tr>
+          <td>2nd Delivery Bill: ₹1 Lakh</td>
+          <td class="text-green">Insurer pays ₹1 Lakh</td>
+          <td class="text-red">You pay ₹1 Lakh</td>
+        </tr>
+        <tr>
+          <td>2nd Newborn Baby Bill: ₹25,000</td>
+          <td class="text-green">Insurer pays ₹25,000</td>
+          <td class="text-red">You pay ₹25,000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>💰 Your Total Savings</td>
+          <td style="color:#22A85A; font-size:1.1rem;">₹2,50,000</td>
+          <td style="color:#E05C5C;">Zero</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- WHO SHOULD OPT -->
+<section>
+  <div class="section-label">Is This For You?</div>
+  <h2 class="section-title">Who Should Get This Now?</h2>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-num">1</div>
+      <div>
+        <h4>Newly Married Couples</h4>
+        <p>Starting your journey together? This is the smartest first financial protection move you can make.</p>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-num">2</div>
+      <div>
+        <h4>Planning Pregnancy in 4–24 Months</h4>
+        <p>The ideal window to buy — gives you the 4-month buffer before conception to be fully covered.</p>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-num">3</div>
+      <div>
+        <h4>Insufficient Corporate Cover</h4>
+        <p>Employer health insurance often excludes or underfunds maternity. This fills that critical gap.</p>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-num">4</div>
+      <div>
+        <h4>Believers in Planned Parenthood</h4>
+        <p>Financial shocks shouldn't come with life's happiest moments. Plan it right — save on premiums, secure your future.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-label">Got Questions?</div>
+  <h2 class="section-title">Your Questions Answered</h2>
+  <div class="faq-list" id="faq">
+
+    <div class="faq-item">
+      <div class="faq-q">Can I buy this policy if I'm already pregnant?
+        <span class="chevron">▾</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">Yes! But this delivery won't be covered. Your next delivery will be fully covered.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I continue this policy after my deliveries are done?
+        <span class="chevron">▾</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">Absolutely, this maternity health insurance policy comes with a lifetime renewability feature.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I buy this policy on EMI?
+        <span class="chevron">▾</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p style="margin-bottom:0.7rem;">Yes. There are 3 options available —</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; padding:0;">
+            <li style="display:flex; align-items:center; gap:0.7rem;"><span style="background:var(--lavender-bg); color:var(--purple); border-radius:6px; padding:0.2rem 0.7rem; font-size:0.78rem; font-weight:700; white-space:nowrap;">1</span> Through insurance company</li>
+            <li style="display:flex; align-items:center; gap:0.7rem;"><span style="background:var(--lavender-bg); color:var(--purple); border-radius:6px; padding:0.2rem 0.7rem; font-size:0.78rem; font-weight:700; white-space:nowrap;">2</span> Through your credit/debit cards</li>
+            <li style="display:flex; align-items:center; gap:0.7rem;"><span style="background:var(--lavender-bg); color:var(--purple); border-radius:6px; padding:0.2rem 0.7rem; font-size:0.78rem; font-weight:700; white-space:nowrap;">3</span> Through 'Loan Against Mutual Funds' <em style="color:var(--pink); font-weight:600;">(cheapest)</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Insure Today & Save Lacs On Delivery Hospital Bills Tomorrow</h2>
+  <p>Premiums are personalised. WhatsApp us for a free, no-obligation quote.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/917972053045" class="btn-white" target="_blank">WhatsApp for Free Quote</a>
+  </div>
+</section>
+
+<!-- FOOTER NOTE -->
+<div class="footer-note">
+  Insurance is underwritten by Magma General Insurance Co. Ltd. Policy is subject to terms, conditions, and exclusions as per the policy wording. Mr. Swapnil Asati is an IRDAI-registered insurance intermediary. | © 2026 Miracle Wealth. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a>
+</div>
+
+<script>
+  // FAQ accordion — robust implementation
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // Set all answers to collapsed on load
+    document.querySelectorAll('.faq-a').forEach(function(ans) {
+      ans.style.maxHeight = '0';
+      ans.style.overflow = 'hidden';
+      ans.style.transition = 'max-height 0.35s ease';
+    });
+
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.style.cursor = 'pointer';
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('open');
+          var a = i.querySelector('.faq-a');
+          if (a) a.style.maxHeight = '0';
+        });
+
+        // Open clicked if it wasn't already open
+        if (!isOpen) {
+          item.classList.add('open');
+          var ans = item.querySelector('.faq-a');
+          if (ans) ans.style.maxHeight = ans.scrollHeight + 50 + 'px';
+        }
+      });
+    });
+
+    // Scroll reveal
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.why-card, .coverage-item, .hc-card, .who-card').forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claim Settlement Assistance | Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burg:        #0D1B4A;
+      --burg-mid:    #152363;
+      --burg-light:  #1E3A8A;
+      --amber:       #F05A28;
+      --amber-lt:    #FF7340;
+      --amber-pale:  #EEF3FF;
+      --slate:       #0B1426;
+      --slate-mid:   #172040;
+      --cream:       #F7F9FF;
+      --warm-bg:     #EEF3FF;
+      --card-bg:     #FFFFFF;
+      --border:      #C8D8FF;
+      --text-dark:   #0A1035;
+      --text-mid:    #2C3E6A;
+      --text-soft:   #6B80B8;
+      --green-ok:    #16803C;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.65; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,249,255,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+    }
+    .nav-logo-wrap { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo-img { height: 36px; width: 36px; border-radius: 50%; object-fit: cover; }
+    .nav-logo-text { font-family: 'Bitter', serif; font-size: 1.35rem; color: var(--burg); font-weight: 700; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.875rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--burg); }
+    .nav-cta {
+      background: var(--burg); color: #fff; border: none; border-radius: 8px;
+      padding: 0.55rem 1.4rem; font-size: 0.875rem; font-weight: 700; cursor: pointer;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--burg-light); transform: translateY(-1px); }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { padding: 0.75rem 5%; font-size: 0.8rem; color: var(--text-soft); background: var(--warm-bg); border-bottom: 1px solid var(--border); }
+    .breadcrumb a { color: var(--amber); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--slate);
+      padding: 5.5rem 5% 5rem; position: relative; overflow: hidden; color: #fff;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,27,74,0.95) 0%, rgba(11,20,38,0.85) 55%, rgba(30,58,138,0.75) 100%);
+    }
+    /* Diagonal stripe accent */
+    .hero::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 45%; height: 100%;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent 0px, transparent 18px,
+        rgba(240,90,40,0.05) 18px, rgba(240,90,40,0.05) 20px
+      );
+    }
+    /* Radial glow on top-right */
+    .hero-glow {
+      position: absolute; top: -80px; right: -80px; width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(30,58,138,0.55) 0%, transparent 70%);
+      pointer-events: none; z-index: 1;
+    }
+    .hero-inner { max-width: 720px; position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(240,90,40,0.18); border: 1px solid rgba(240,90,40,0.40);
+      color: var(--amber-lt); border-radius: 4px; padding: 0.3rem 0.9rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 1.6rem;
+    }
+    .hero h1 {
+      font-family: 'Bitter', serif;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.06; margin-bottom: 1.3rem;
+    }
+    .hero h1 .amber { color: var(--amber-lt); }
+    .hero h1 .italic { font-style: italic; }
+    .hero-sub { font-size: 1.02rem; color: rgba(255,255,255,0.74); margin-bottom: 0.9rem; max-width: 580px; line-height: 1.8; }
+    .hero-note {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(22,128,60,0.18); border: 1px solid rgba(22,128,60,0.35);
+      color: #6EE7A0; border-radius: 6px; padding: 0.45rem 1rem;
+      font-size: 0.82rem; font-weight: 700; margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-amber {
+      background: var(--amber); color: var(--slate); border: none; border-radius: 8px;
+      padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: 800; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+      box-shadow: 0 4px 18px rgba(240,90,40,0.40);
+    }
+    .btn-amber:hover { background: var(--amber-lt); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,90,40,0.50); }
+    .btn-wa {
+      background: #25D366; color: #fff; border: none; border-radius: 8px;
+      padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.3);
+    }
+    .btn-wa:hover { background: #20b858; transform: translateY(-2px); }
+    .btn-burg {
+      background: var(--burg); color: #fff; border: none; border-radius: 8px;
+      padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+    }
+    .btn-burg:hover { background: var(--burg-light); transform: translateY(-2px); }
+
+    /* ── SHARED ── */
+    section { padding: 4.5rem 5%; }
+    section.alt { background: var(--warm-bg); }
+    section.amber-soft { background: var(--amber-pale); }
+    section.dark-section { background: var(--slate); color: #fff; }
+    section.burg-section { background: var(--burg); color: #fff; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--burg); margin-bottom: 0.7rem; }
+    .section-eyebrow.lt { color: var(--amber-lt); }
+    .section-title { font-family: 'Bitter', serif; font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.85rem; }
+    .section-title .accent { color: var(--burg); }
+    .section-title .accent-amber { color: var(--amber); }
+    .section-sub { font-size: 0.95rem; color: var(--text-mid); max-width: 640px; margin-bottom: 2.5rem; line-height: 1.75; }
+    .amber-rule { width: 52px; height: 3px; background: linear-gradient(90deg, var(--amber), var(--burg-light)); border-radius: 2px; margin-bottom: 1.5rem; }
+
+    /* ── PROBLEM TYPES ── */
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .problem-card {
+      border-radius: 18px; padding: 2rem 1.6rem; position: relative; overflow: hidden;
+      transition: all 0.25s;
+    }
+    .problem-card.red { background: #FFF1F3; border: 1.5px solid #FFB3C0; }
+    .problem-card.orange { background: #FFF3EF; border: 1.5px solid #FFBDA0; }
+    .problem-card.slate { background: #EEF3FF; border: 1.5px solid #B8CCFF; }
+    .problem-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.1); }
+    .problem-num {
+      font-family: 'Bitter', serif; font-size: 3.5rem; font-weight: 800; line-height: 1;
+      margin-bottom: 0.5rem; opacity: 0.15; position: absolute; top: 1rem; right: 1.2rem;
+    }
+    .problem-card.red .problem-num { color: #C0392B; }
+    .problem-card.orange .problem-num { color: #F05A28; }
+    .problem-card.slate .problem-num { color: #172040; }
+    .problem-tag {
+      display: inline-block; border-radius: 50px; padding: 0.3rem 0.9rem;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .problem-card.red .problem-tag { background: #FFD5DB; color: #8B0000; }
+    .problem-card.orange .problem-tag { background: #FFE0D5; color: #8A2800; }
+    .problem-card.slate .problem-tag { background: #D5E3FF; color: #0D2070; }
+    .problem-card h4 { font-family: 'Bitter', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-dark); line-height: 1.2; }
+    .problem-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.68; }
+
+    /* ── INSURANCE TYPES ── */
+    .types-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+    .type-card {
+      background: var(--card-bg); border-radius: 14px; padding: 1.5rem 1rem;
+      text-align: center; border: 1px solid var(--border); transition: all 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .type-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--burg), var(--amber));
+    }
+    .type-card:hover { box-shadow: 0 6px 24px rgba(13,27,74,0.12); transform: translateY(-2px); border-color: var(--burg); }
+    .type-icon { font-size: 2rem; margin-bottom: 0.7rem; display: block; }
+    .type-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .type-card p { font-size: 0.76rem; color: var(--text-soft); line-height: 1.5; }
+
+    /* ── PROCESS ── */
+    .process-timeline { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
+    .proc-item {
+      display: flex; gap: 2rem; align-items: flex-start; padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border); transition: all 0.2s;
+    }
+    .proc-item:last-child { border-bottom: none; }
+    .proc-item:hover { background: var(--amber-pale); border-radius: 14px; padding: 1.6rem 1rem; margin: 0 -1rem; }
+    .proc-num {
+      width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--burg), var(--burg-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bitter', serif; font-size: 1.1rem; font-weight: 800; color: #fff;
+      box-shadow: 0 4px 14px rgba(13,27,74,0.30);
+    }
+    .proc-content h4 { font-family: 'Bitter', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .proc-content p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.68; }
+
+    /* ── OUTCOME STATS ── */
+    .outcomes-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .outcome-card {
+      flex: 1; min-width: 180px; background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 16px;
+      padding: 1.6rem; text-align: center; transition: all 0.22s;
+    }
+    .outcome-card:hover { background: rgba(255,255,255,0.11); border-color: rgba(240,90,40,0.40); }
+    .outcome-num { font-family: 'Bitter', serif; font-size: 2.5rem; font-weight: 800; color: var(--amber-lt); display: block; margin-bottom: 0.25rem; }
+    .outcome-label { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+    /* ── WHY US CARDS ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .why-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.7rem;
+      border: 1px solid var(--border); transition: all 0.22s; position: relative; overflow: hidden;
+    }
+    .why-card::after {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(180deg, var(--burg), var(--amber));
+      transform: scaleY(0); transform-origin: top; transition: transform 0.3s;
+    }
+    .why-card:hover::after { transform: scaleY(1); }
+    .why-card:hover { box-shadow: 0 8px 30px rgba(13,27,74,0.10); transform: translateY(-2px); }
+    .why-icon { font-size: 1.9rem; margin-bottom: 0.8rem; display: block; }
+    .why-card h4 { font-family: 'Bitter', serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.45rem; }
+    .why-card p { font-size: 0.86rem; color: var(--text-mid); line-height: 1.68; }
+
+    /* ── WARNING BOX ── */
+    .warning-box {
+      background: linear-gradient(135deg, var(--burg), var(--burg-mid));
+      border-radius: 18px; padding: 2rem 2.5rem; color: #fff;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .warning-box .w-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .warning-box h4 { font-family: 'Bitter', serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .warning-box p { font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.68; max-width: 500px; }
+
+    /* ── FAQs ── */
+    .faq-list { max-width: 800px; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card-bg); transition: box-shadow 0.2s; }
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(13,27,74,0.08); }
+    .faq-item.open { border-color: var(--burg); box-shadow: 0 4px 20px rgba(13,27,74,0.12); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 1.15rem 1.4rem; background: none; border: none; cursor: pointer;
+      text-align: left; font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem;
+      font-weight: 700; color: var(--text-dark); transition: color 0.2s;
+    }
+    .faq-item.open .faq-q { color: var(--burg); }
+    .faq-icon { font-size: 1.3rem; color: var(--burg); flex-shrink: 0; transition: transform 0.25s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; padding: 0 1.4rem; }
+    .faq-item.open .faq-a { max-height: 400px; padding: 0 1.4rem 1.2rem; }
+    .faq-a p { font-size: 0.89rem; color: var(--text-mid); line-height: 1.78; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--slate);
+      padding: 5rem 5%; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(13,27,74,0.65) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-section::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--burg-light), var(--amber));
+    }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { font-family: 'Bitter', serif; font-size: clamp(1.9rem, 3.8vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+    .cta-section h2 .hl { color: var(--amber-lt); font-style: italic; }
+    .cta-section p { font-size: 0.98rem; color: rgba(255,255,255,0.7); margin-bottom: 2.2rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+    .cta-buttons { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn-white { background: #fff; color: var(--slate); border: none; border-radius: 8px; padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.22s; }
+    .btn-white:hover { background: var(--amber-pale); transform: translateY(-2px); }
+    .cta-trust { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .trust-item { font-size: 0.79rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 0.4rem; }
+
+    /* ── FOOTER ── */
+    .footer-note { background: #090A0C; color: #4A5060; text-align: center; padding: 1.2rem 5%; font-size: 0.77rem; line-height: 1.65; }
+    .footer-note a { color: var(--amber); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) { .types-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .types-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .types-grid { grid-template-columns: 1fr 1fr; }
+      .outcomes-row { gap: 1rem; }
+      .warning-box { flex-direction: column; gap: 1rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner > * { animation: fadeUp 0.55s ease both; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.18s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.26s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.34s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <img src="images/logo.png" alt="Miracle Wealth" class="nav-logo-img" />
+    <span class="nav-logo-text">Miracle Wealth</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://miraclewealth.vercel.app/conact.html" class="nav-cta">Request Callback</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a> › <a href="services.html">Services</a> › Claim Settlement Assistance
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">⚖️ We Fight for What's Rightfully Yours</div>
+    <h1>Your Claim Was<br><span class="amber italic">Rejected.</span><br>That's Not the End.</h1>
+    <p class="hero-sub">Most policyholders accept 'No' because they don't know they have a right to challenge it. We do — and we fight until you get every rupee you deserve.</p>
+    <div class="hero-note">✅ No Resolution = No Fee. We work for your outcome.</div>
+    <div class="hero-actions">
+      <a href="https://miraclewealth.vercel.app/conact.html" class="btn-amber">📞 Request Callback</a>
+      <a href="https://wa.me/917972053045" class="btn-wa" target="_blank">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM — 3 TYPES -->
+<section>
+  <div class="section-eyebrow">The Problem</div>
+  <h2 class="section-title">Three Ways Policyholders <span class="accent">Lose Money</span> Every Day</h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">Insurers are businesses. Their incentive is to minimise payouts. Without an expert in your corner, you're negotiating alone — against a team of lawyers.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card red">
+      <div class="problem-num">01</div>
+      <span class="problem-tag">Complete Rejection</span>
+      <h4>Your Claim Was Denied Outright</h4>
+      <p>The insurer rejected your claim citing exclusions, policy violations, non-disclosure, or procedural reasons — many of which can be legally challenged and overturned with the right approach.</p>
+    </div>
+    <div class="problem-card orange">
+      <div class="problem-num">02</div>
+      <span class="problem-tag">Short Settlement</span>
+      <h4>You Received Far Less Than You Were Owed</h4>
+      <p>Sub-limits, proportionate deductions, depreciation clauses, co-payments — insurers use these to settle claims at a fraction of the actual loss. You deserved more. We get it for you.</p>
+    </div>
+    <div class="problem-card slate">
+      <div class="problem-num">03</div>
+      <span class="problem-tag">Mis-Sold Policy</span>
+      <h4>The Policy Didn't Cover What You Were Told It Would</h4>
+      <p>An agent sold you a policy with verbal promises that weren't in writing. At claim time, those promises vanished. This is mis-selling — and it's actionable. We help you recover your dues.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE TYPES WE COVER -->
+<section class="alt">
+  <div class="section-eyebrow">Scope of Service</div>
+  <h2 class="section-title">Every Type of Insurance. <span class="accent">Every Type of Claim.</span></h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">Whether your claim involves health, life, vehicle, transit, or property — we have the expertise to challenge, escalate, and resolve.</p>
+
+  <div class="types-grid">
+    <div class="type-card">
+      <span class="type-icon">🏥</span>
+      <h4>Health Insurance</h4>
+      <p>Cashless denials, reimbursement rejections, partial settlements</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🛡️</span>
+      <h4>Term / Life Insurance</h4>
+      <p>Death claim rejections, non-disclosure disputes, nominee claim assistance</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🚢</span>
+      <h4>Transit Insurance</h4>
+      <p>Goods-in-transit damage or loss claims rejected or underpaid by cargo insurers</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🔥</span>
+      <h4>Fire Insurance</h4>
+      <p>Property damage claims denied, under-assessed, or delayed unreasonably</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🚗</span>
+      <h4>Vehicle Insurance</h4>
+      <p>Accident, theft, or total-loss claims rejected or settled below market value</p>
+    </div>
+  </div>
+
+  <!-- Warning box -->
+  <div class="warning-box" style="margin-top:2.5rem;">
+    <div class="w-icon">⏰</div>
+    <div>
+      <h4>Act Before the Window Closes</h4>
+      <p>There is a strict time limit to challenge a claim rejection — typically 1 year from the date of rejection for an Insurance Ombudsman complaint, and 2 years for Consumer Court. Every day of delay weakens your case. If your claim was recently rejected, contact us immediately.</p>
+    </div>
+    <a href="https://miraclewealth.vercel.app/conact.html" class="btn-amber" style="white-space:nowrap; flex-shrink:0;">Act Now →</a>
+  </div>
+</section>
+
+<!-- HOW WE FIGHT FOR YOU -->
+<section>
+  <div class="section-eyebrow">Our Process</div>
+  <h2 class="section-title">How We <span class="accent">Fight for You</span> — Step by Step</h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">We don't just file complaints. We build a watertight case, pursue every escalation channel, and don't stop until your claim is resolved.</p>
+
+  <div class="process-timeline">
+    <div class="proc-item">
+      <div class="proc-num">1</div>
+      <div class="proc-content">
+        <h4>Free Case Review</h4>
+        <p>We review your policy documents, rejection letter, and claim history to assess the strength of your case — completely free of charge, with no obligation.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">2</div>
+      <div class="proc-content">
+        <h4>Root Cause Analysis</h4>
+        <p>We identify exactly why your claim was rejected or underpaid — whether it's a policy interpretation error, procedural flaw, or outright bad faith by the insurer.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">3</div>
+      <div class="proc-content">
+        <h4>Build Your Case</h4>
+        <p>We compile supporting documentation, gather evidence, reference relevant IRDAI circulars and Consumer Court precedents, and draft a strong, legally-informed grievance.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">4</div>
+      <div class="proc-content">
+        <h4>Escalate Through Every Channel</h4>
+        <p>We escalate systematically — first to the insurer's internal grievance team, then to IRDAI's Bima Bharosa portal, then to the Insurance Ombudsman, and if needed, to the Consumer Court or NCDRC.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">5</div>
+      <div class="proc-content">
+        <h4>Resolution & Settlement</h4>
+        <p>We negotiate, represent, and follow through until your claim is resolved — whether through a direct insurer reversal, mediated settlement, or formal ruling in your favour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHEN DO WE CHARGE -->
+<section class="amber-soft">
+  <div class="section-eyebrow">Transparent Pricing</div>
+  <h2 class="section-title">When Do <span class="accent">We Charge?</span></h2>
+  <div class="amber-rule"></div>
+
+  <div style="max-width:780px;">
+    <div style="background:var(--card-bg); border-radius:20px; border:2px solid var(--amber); padding:2.5rem; position:relative; overflow:hidden;">
+      <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg, var(--burg), var(--amber));"></div>
+      <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+        <div style="font-size:3rem; flex-shrink:0;">🤝</div>
+        <div>
+          <h3 style="font-family:'Bitter',serif; font-size:1.45rem; font-weight:800; color:var(--text-dark); margin-bottom:0.75rem; line-height:1.2;">Only When Your Claim Gets Settled. Not Before.</h3>
+          <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.8; margin-bottom:1.2rem;">We — including our partners, if any — charge a <strong>claim success fee</strong> calculated as a percentage of the claim amount that gets successfully settled. If your claim doesn't get resolved, you owe us nothing.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.85rem;">
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">No upfront fee</span>
+            </div>
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">No hidden charges</span>
+            </div>
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">Fee only on success</span>
+            </div>
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">Free initial case review</span>
+            </div>
+          </div>
+          <p style="font-size:0.82rem; color:var(--text-soft); margin-top:1rem; font-style:italic;">Success fee percentage is discussed and agreed transparently before we begin working on your case.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section class="burg-section">
+  <div class="section-eyebrow lt">Our Track Record</div>
+  <h2 class="section-title" style="color:#fff;">Numbers That <span style="color:var(--amber-lt); font-style:italic;">Speak for Themselves</span></h2>
+  <div style="width:52px; height:3px; background:linear-gradient(90deg,var(--amber),rgba(255,255,255,0.4)); border-radius:2px; margin-bottom:2rem;"></div>
+
+  <div class="outcomes-row">
+    <div class="outcome-card">
+      <span class="outcome-num">₹5 Cr+</span>
+      <span class="outcome-label">Total Claim Amount Settled for Clients</span>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-num">99%</span>
+      <span class="outcome-label">Claims Satisfaction Rate Across All Cases</span>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-num">5 ★</span>
+      <span class="outcome-label">Google Rating from PAN India Clients</span>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-num">5+</span>
+      <span class="outcome-label">Years as Insurance Industry Insider</span>
+    </div>
+  </div>
+
+  <div style="margin-top:2.5rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:1.8rem 2rem;">
+    <p style="font-family:'Bitter',serif; font-size:1.2rem; font-weight:700; color:var(--amber-lt); margin-bottom:0.6rem;">"We have successfully reversed decisions that clients had completely given up on."</p>
+    <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); line-height:1.75;">Whether your claim was rejected 6 months ago or 6 days ago — if the legal window is open, there is a path forward. We've challenged insurers, appeared before the Ombudsman, and escalated to consumer courts — and we've won. Bring us your case. Let us tell you what's possible.</p>
+  </div>
+</section>
+
+<!-- WHY MIRACLE WEALTH FOR CLAIMS -->
+<section class="alt">
+  <div class="section-eyebrow">Why Us</div>
+  <h2 class="section-title">Why Miracle Wealth for <span class="accent">Claim Disputes?</span></h2>
+  <div class="amber-rule"></div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🏛️</span>
+      <h4>Industry Insider Advantage</h4>
+      <p>As Ex-Partner Advisory Board Member of Magma General Insurance Ltd, we understand exactly how insurers evaluate, approve, and reject claims — and how to challenge those decisions from the inside out.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">⚖️</span>
+      <h4>Every Legal Channel, Exhausted</h4>
+      <p>IRDAI grievance · Bima Bharosa portal · Insurance Ombudsman · Consumer Forum · NCDRC. We know which channel works fastest for which case type — and we pursue all of them relentlessly.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📋</span>
+      <h4>Watertight Documentation</h4>
+      <p>Most grievances fail due to poor documentation. We build complete, legally-referenced case files that leave insurers with no room to delay or dismiss.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🔄</span>
+      <h4>Post-Rejection Specialists</h4>
+      <p>We don't just help before claims — we specialise in post-rejection recovery. If you've already been turned down, that's exactly where we begin.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤝</span>
+      <h4>We Work for Your Outcome</h4>
+      <p>We are outcome-driven. We don't charge for effort — we work toward your resolution. Your satisfaction is the only metric that matters to us.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📞</span>
+      <h4>Available at Every Step</h4>
+      <p>From the first case review to the final settlement — we are beside you. You'll never be left wondering what's happening with your case.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section>
+  <div class="section-eyebrow">Real Case. Real Win.</div>
+  <h2 class="section-title">When the Insurer Said No — <span class="accent">We Said Yes.</span></h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">This was one of our first cases to go to the Ombudsman, and we're most proud of it — not because of the claim amount, but because of what it represents: relentless pursuit of justice for a genuine, justified claim.</p>
+
+  <div style="max-width:900px;">
+    <!-- Case File Card -->
+    <div style="background:var(--card-bg); border-radius:20px; border:1px solid var(--border); overflow:hidden; box-shadow:0 8px 36px rgba(0,0,0,0.08);">
+
+      <!-- Header bar -->
+      <div style="background:linear-gradient(135deg, var(--slate), var(--slate-mid)); padding:1.4rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div style="font-size:0.7rem; color:rgba(255,255,255,0.5); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Case Study</div>
+          <div style="font-family:'Bitter',serif; font-size:1.3rem; font-weight:800; color:#fff;">Health Insurance · Reimbursement Claim</div>
+        </div>
+        <div style="background:rgba(22,128,60,0.25); border:1px solid rgba(110,231,160,0.4); border-radius:8px; padding:0.5rem 1.1rem; display:flex; align-items:center; gap:0.5rem;">
+          <span style="color:#6EE7A0; font-size:1rem;">⚖️</span>
+          <span style="color:#6EE7A0; font-size:0.82rem; font-weight:800;">OMBUDSMAN AWARD — IN OUR FAVOUR</span>
+        </div>
+      </div>
+
+      <!-- Details grid -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-bottom:1px solid var(--border);">
+        <div style="padding:1.2rem 1.6rem; border-right:1px solid var(--border);">
+          <div style="font-size:0.71rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-soft); margin-bottom:0.3rem;">Patient</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text-dark);">Mr. Neer Asati</div>
+          <div style="font-size:0.8rem; color:var(--text-soft);">Jabalpur, Madhya Pradesh</div>
+        </div>
+        <div style="padding:1.2rem 1.6rem; border-right:1px solid var(--border);">
+          <div style="font-size:0.71rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-soft); margin-bottom:0.3rem;">Admission → Discharge</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text-dark);">10 Sep 2024 → 18 Sep 2024</div>
+          <div style="font-size:0.8rem; color:var(--text-soft);">8-day hospitalisation</div>
+        </div>
+        <div style="padding:1.2rem 1.6rem;">
+          <div style="font-size:0.71rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-soft); margin-bottom:0.3rem;">Diagnosis</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text-dark); line-height:1.35;">Dengue NS-1 Positive / Pancytopenia Hepatitis</div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div style="padding:2rem 2rem 1.2rem;">
+        <div style="display:flex; flex-direction:column; gap:0; position:relative;">
+          <!-- Vertical line -->
+          <div style="position:absolute; left:18px; top:24px; bottom:24px; width:2px; background:linear-gradient(180deg, #EF4444, var(--amber), #16803C); border-radius:2px;"></div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start; padding-bottom:1.5rem;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#FEE2E2; border:2px solid #EF4444; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">❌</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#B91C1C; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">14 November 2024 — Insurer Decision</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem;">Claim Rejected</div>
+              <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:0.7rem 1rem; font-size:0.83rem; color:#7F1D1D; line-height:1.65; font-style:italic;">"Permanent exclusion. Admission primarily for Investigation &amp; Evaluation purpose only. Could have been managed on OPD basis. Code Excl 04."</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start; padding-bottom:1.5rem;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#FEF9C3; border:2px solid var(--amber); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">🔄</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#A04000; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">30 December 2024 — Internal Grievance</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.2rem;">Also Rejected</div>
+              <div style="font-size:0.84rem; color:var(--text-mid); line-height:1.6;">Insurer's internal grievance team upheld the rejection. We were not deterred. We were 100% confident the claim was genuine and justified.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start; padding-bottom:1.5rem;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#EFF6FF; border:2px solid #3B82F6; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">⚖️</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#1D4ED8; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">04 January 2025</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.2rem;">Filed with Insurance Ombudsman</div>
+              <div style="font-size:0.84rem; color:var(--text-mid); line-height:1.6;">We filed a comprehensive case with supporting medical evidence, documentation, and legal precedents. Multiple rounds of hearings and documentation followed over the next several months.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#DCFCE7; border:2px solid #16803C; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">🏆</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#15803D; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">29 September 2025 — Award in Our Favour</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem;">Ombudsman Ruled for the Policyholder. ₹38,000 Awarded.</div>
+              <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:0.7rem 1rem; font-size:0.83rem; color:#14532D; line-height:1.65; font-style:italic; margin-bottom:0.6rem;">"The Forum observed that medical emergencies cannot be ruled out and that the treating doctor is best placed to determine the necessity of admission. In view of the above, the Forum held that repudiation on the ground of admission being only for investigation is not sustainable."</div>
+              <div style="font-size:0.83rem; color:var(--text-mid);">— Insurance Ombudsman Award</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Moral of the story -->
+        <div style="margin-top:2rem; background:linear-gradient(135deg, var(--burg), var(--burg-mid)); border-radius:14px; padding:1.5rem 1.8rem; color:#fff;">
+          <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber-lt); margin-bottom:0.5rem;">Why We Did It</div>
+          <p style="font-family:'Bitter',serif; font-size:1.1rem; font-weight:700; line-height:1.5; margin-bottom:0.5rem;">The claim amount didn't matter. The intent did.</p>
+          <p style="font-size:0.86rem; color:rgba(255,255,255,0.75); line-height:1.75;">₹38,000 is not a large number. But a wrongful rejection is a wrongful rejection — regardless of the amount. We worked with our whole heart because our client deserved justice. Nine months of persistence, documentation, and hearings. Client satisfaction is paramount for us — and always will be.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.4rem; text-align:center;">
+      <a href="https://miraclewealth.vercel.app/conact.html" class="btn-burg" style="display:inline-block;">📞 Share Your Case With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="amber-soft">
+  <div class="section-eyebrow">Quick Answers</div>
+  <h2 class="section-title">Your Questions <span class="accent">Answered</span></h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">Common questions from clients who were told their claim was rejected — and didn't know what to do next.</p>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>My claim was rejected months ago. Is it too late to challenge it?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Not necessarily. You typically have up to 1 year from the date of rejection to file a complaint with the Insurance Ombudsman, and up to 2 years to approach the Consumer Court. However, time is critical — the sooner you contact us, the stronger your case. Share your rejection letter with us and we'll immediately assess whether the window is still open.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>The insurer settled my claim but paid much less than I expected. Can I still challenge it?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Yes. Partial or short settlements are among the most common — and most successfully challenged — claim disputes. If the insurer applied sub-limits, depreciation, or deductions that weren't clearly disclosed to you, or that contradict the policy terms, you have a strong case. We review the settlement calculations and, where applicable, file for the difference.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>My agent told me something was covered but it wasn't in the policy. What can I do?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>This is mis-selling — and it is both an IRDAI violation and actionable before the Consumer Court. If you have any communication with the agent (messages, emails, call recordings), it strengthens your case significantly. Even without direct proof, mis-selling complaints can succeed if the policy terms were clearly misrepresented. Share the details with us and we'll assess your options.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How long does the claim dispute process take?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>It depends on the channel. An internal insurer grievance typically takes 15–30 days. An Insurance Ombudsman complaint is usually resolved within 12 months. Consumer Court proceedings can take up to 24 months depending on complexity. We always begin with the fastest available route and escalate if needed — keeping you informed at every stage.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>What documents do I need to start the process?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>To begin, share your policy document, the claim rejection letter, any supporting bills or reports you had submitted, and any communication with the insurer or agent. Don't worry if you don't have everything — we'll guide you on what's available, what to request from the insurer, and what we can reconstruct from records.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Don't Accept <span class="hl">'No'</span><br>for an Answer.</h2>
+  <p>Your policy was a promise. If that promise was broken — through rejection, underpayment, or mis-selling — you have rights. Let us exercise them for you.</p>
+  <div class="cta-buttons">
+    <a href="https://miraclewealth.vercel.app/conact.html" class="btn-white">📞 Request a Free Case Review</a>
+    <a href="https://wa.me/917972053045" class="btn-wa" target="_blank">💬 WhatsApp Us</a>
+  </div>
+  <div class="cta-trust">
+    <span class="trust-item">✦ Free Initial Review</span>
+    <span class="trust-item">✦ No Spam. No Pressure.</span>
+    <span class="trust-item">✦ IRDAI Registered Advisor</span>
+    <span class="trust-item">✦ 5-Star Google Rated</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-note">
+  Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) &amp; an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms &amp; conditions carefully before concluding a sale. | Claim Settlement Assistance: We do not guarantee 100% case success. We leverage our expertise and pursue every available channel to the best of our ability, but outcomes are subject to the facts of each case, applicable regulations, and the decision of the relevant authority. Success is not guaranteed. | © 2026 Miracle Wealth. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a>
+</div>
+
+<script>
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+document.addEventListener('DOMContentLoaded', function () {
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.problem-card, .type-card, .proc-item, .outcome-card, .why-card, .faq-item').forEach(function (el, i) {
+    el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease ' + (i * 0.05) + 's, transform 0.5s ease ' + (i * 0.05) + 's';
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>

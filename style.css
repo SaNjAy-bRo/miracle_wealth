@@ -132,6 +132,8 @@ h6 {
   box-shadow: 0 10px 24px rgba(108, 64, 209, 0.2);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .btn-primary::before {

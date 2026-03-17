@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maternity Health Insurance | Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["Cormorant Garamond", "serif"],
+            body: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .font-garamond { font-family: 'Cormorant Garamond', serif; }
+    .text-gold { color: #f59e0b; }
+    .bg-dark-section { background-color: #050505; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .pink-gradient-text {
+      background: linear-gradient(135deg, #fb7185, #db2777);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-base text-main font-body antialiased overflow-x-hidden">
+  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto md:h-20 lg:h-24" />
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="conact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="tel:7972053045" class="btn-secondary">7972053045</a>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary" target="_blank">Book a Call</a>
+      </div>
+
+      <button id="mobileMenuBtn"
+        class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-100 lg:hidden"
+        aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIconOpen" class="h-5 w-5 transition-transform duration-300" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menuIconClose" class="h-5 w-5 hidden transition-transform duration-300 rotate-90" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu"
+      class="mobile-menu hidden absolute top-full left-0 w-full border-t border-zinc-800 shadow-2xl lg:hidden">
+      <nav class="mx-auto flex max-w-7xl flex-col space-y-4 px-6 py-6 text-base">
+        <a href="index.html" class="mobile-link block font-medium">Home</a>
+        <a href="about.html" class="mobile-link block font-medium">About</a>
+        <a href="services.html" class="mobile-link block font-medium">Services</a>
+        <a href="calculators.html" class="mobile-link block font-medium">Calculators</a>
+        <a href="conact.html" class="mobile-link block font-medium">Contact</a>
+        <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
+          <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary text-center" target="_blank">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-52">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="mx-auto max-w-7xl" data-reveal>
+        <span class="why-tag mb-6 inline-block bg-pink-900/30 text-pink-400 border-pink-500/30">🌸 India's Most Affordable Maternity Cover</span>
+        <h1 class="font-heading text-5xl leading-tight md:text-6xl lg:text-7xl">Protect <span class="pink-gradient-text">New Beginnings</span>,<br>Without Breaking The Bank</h1>
+        <p class="mt-8 max-w-3xl text-lg text-zinc-300 leading-relaxed">
+          A plan designed specifically for growing families — covering delivery, complications, and baby care from day one. Save up to ₹2.5 Lakhs across two deliveries while securing the best medical care for your child.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="https://forms.gle/WauZ688qLfyyDZVy7" class="btn-primary bg-pink-600 hover:bg-pink-500 border-pink-500 shadow-pink-500/20" target="_blank">Enquire Now</a>
+          <a href="#coverage" class="btn-secondary">See Coverage</a>
+        </div>
+        
+        <div class="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-zinc-800 pt-10">
+          <div>
+            <div class="font-heading text-4xl text-pink-400">₹1 Lakh</div>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Per Delivery</p>
+          </div>
+          <div>
+            <div class="font-heading text-4xl text-pink-400">Day 1</div>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Baby Cover</p>
+          </div>
+          <div>
+            <div class="font-heading text-4xl text-pink-400">ZERO</div>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Co-Payment</p>
+          </div>
+          <div>
+            <div class="font-heading text-4xl text-pink-400">100%</div>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Cashless Claims</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY SECTION -->
+    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12" data-reveal>
+          <span class="text-pink-600 font-semibold tracking-widest uppercase text-sm">The Reality</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-zinc-900 underline decoration-pink-100">Why Every Couple Needs This</h2>
+          <p class="mt-6 text-lg text-zinc-600 leading-relaxed">Medical inflation is outpacing savings. Planning ahead isn't just smart — it's essential for your family's financial stability.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-shadow border-b-2 border-b-pink-400" data-reveal>
+            <div class="w-12 h-12 rounded-xl bg-pink-50 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform text-pink-600">📈</div>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-3 font-medium">14% Medical Inflation</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed">Annual treatment costs rise 14% — your hospital bill next year is already more expensive than today.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-shadow border-b-2 border-b-pink-400" data-reveal>
+            <div class="w-12 h-12 rounded-xl bg-pink-50 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform text-pink-600">🏥</div>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-3 font-medium">₹1–2L Delivery Costs</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed">Average hospital expenses for a delivery in a private hospital range between ₹1 and ₹2 lakhs in India.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-2xl group hover:shadow-md transition-shadow border-b-2 border-b-pink-400" data-reveal>
+            <div class="w-12 h-12 rounded-xl bg-pink-50 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform text-pink-600">🛡️</div>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-3 font-medium">₹2.5L in Total Savings</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed">With 2 deliveries and 2 newborn covers fully paid by the insurer, your out-of-pocket cost becomes zero.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COVERAGE SECTION -->
+    <section id="coverage" class="why-dark px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12" data-reveal>
+          <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">What's Covered</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white underline decoration-purple-500/20">Delivery & Newborn Protection</h2>
+          <p class="mt-6 text-lg text-zinc-300">Purpose-built maternity coverage for India's growing families — comprehensive, clear, and reliable.</p>
+        </div>
+
+        <div class="grid gap-10 md:grid-cols-2">
+          <div class="space-y-6" data-reveal>
+            <h3 class="font-heading text-3xl text-white flex items-center gap-3">🤱 Delivery Coverage</h3>
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-purple-500">
+              <h4 class="text-white font-bold mb-2">₹1 Lakh Per Delivery</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">Total 2 deliveries covered — ₹1L for the first delivery and another ₹1L for the second delivery.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-purple-500">
+              <h4 class="text-white font-bold mb-2">Both Methods Fully Covered</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">Normal delivery and C-Section both 100% covered under the policy — no hidden sub-limits or caps.</p>
+            </div>
+          </div>
+          
+          <div class="space-y-6" data-reveal>
+            <h3 class="font-heading text-3xl text-white flex items-center gap-3">👶 Newborn Baby Cover</h3>
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-pink-500">
+              <h4 class="text-white font-bold mb-2">Hospitalisation — Up to ₹25,000</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">Your baby's health is covered from day one with full hospitalisation benefits included in the policy.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-pink-500">
+              <h4 class="text-white font-bold mb-2">1 Year Vaccination Benefits</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">Vaccination expenses up to ₹5,000 included within the newborn baby cover — no separate add-on needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITING PERIOD EXPLAINER -->
+    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
+          <span class="text-pink-600 font-semibold tracking-widest uppercase text-sm mb-4 inline-block">Smart Timing</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-zinc-900">Wait Only 4 Months — <span class="text-pink-600 italic">Effectively</span></h2>
+          <p class="mt-6 text-lg text-zinc-600">The policy has a 12-month waiting period, but your effective wait is just 4 months. Here's the simple math for growing families.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white border border-zinc-200 shadow-sm rounded-3xl p-10 text-center flex flex-col items-center group hover:shadow-md transition-shadow" data-reveal>
+            <span class="font-heading text-4xl text-purple-600 mb-4 font-bold">Month 0</span>
+            <div class="w-16 h-16 rounded-full bg-purple-50 border border-purple-100 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">🛒</div>
+            <h3 class="font-bold text-zinc-900 mb-2 uppercase tracking-wide">Buy Policy</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed">Purchase your maternity plan today. The 12-month waiting period begins immediately.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm rounded-3xl p-10 text-center flex flex-col items-center group hover:shadow-md transition-shadow" data-reveal>
+            <span class="font-heading text-4xl text-pink-600 mb-4 font-bold">Month 4</span>
+            <div class="w-16 h-16 rounded-full bg-pink-50 border border-pink-100 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">🤰</div>
+            <h3 class="font-bold text-zinc-900 mb-2 uppercase tracking-wide">Conceive</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed">The earliest you should conceive. A healthy pregnancy takes ~9 months from here.</p>
+          </div>
+          <div class="bg-white border border-zinc-200 shadow-sm rounded-3xl p-10 text-center flex flex-col items-center group hover:shadow-md transition-shadow" data-reveal>
+            <span class="font-heading text-4xl text-green-600 mb-4 font-bold">Month 13</span>
+            <div class="w-16 h-16 rounded-full bg-green-50 border border-green-100 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">👶</div>
+            <h3 class="font-bold text-zinc-900 mb-2 uppercase tracking-wide">Covered ✓</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed">Delivery happens at Month 13 or later. Your 12-month waiting period is already complete!</p>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 rounded-3xl bg-white border border-zinc-200 shadow-sm flex flex-wrap items-center justify-center gap-6" data-reveal>
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 bg-purple-100 text-purple-700 border border-purple-200 rounded-md text-xs font-black">4 MONTHS</span>
+            <span class="text-zinc-500 text-xs uppercase font-bold">WAIT</span>
+          </div>
+          <span class="text-zinc-400 text-2xl font-light">+</span>
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 bg-pink-100 text-pink-700 border border-pink-200 rounded-md text-xs font-black">9 MONTHS</span>
+            <span class="text-zinc-500 text-xs uppercase font-bold">PREGNANCY</span>
+          </div>
+          <span class="text-zinc-400 text-2xl font-light">=</span>
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 bg-green-100 text-green-700 border border-green-200 rounded-md text-xs font-black">13 MONTHS</span>
+          </div>
+          <span class="text-2xl ml-4">✅</span>
+          <p class="text-green-600 font-bold text-sm">12-month wait complete. Fully covered.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEALTH COVER DETAILS -->
+    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl" data-reveal>
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">Beyond Maternity</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">Comprehensive Health Cover <br><span class="text-gold">₹10 Lakh</span></h2>
+          <p class="mt-6 text-lg text-zinc-300">This isn't just a maternity plan — it's a full-featured health shield for your entire family's future.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div class="glass-card p-6 rounded-2xl hover:border-purple-500/50 transition-colors" data-reveal>
+            <div class="text-3xl mb-4">🏨</div>
+            <h4 class="text-white font-bold text-sm mb-2 uppercase tracking-tight">Any Room Category</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Including suites, with ICU cover up to sum insured — no room rent capping.</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl hover:border-purple-500/50 transition-colors" data-reveal>
+            <div class="text-3xl mb-4">❤️</div>
+            <h4 class="text-white font-bold text-sm mb-2 uppercase tracking-tight">Organ Donor Cover</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Full organ donor expenses are covered up to the sum insured.</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl hover:border-purple-500/50 transition-colors" data-reveal>
+            <div class="text-3xl mb-4">🔄</div>
+            <h4 class="text-white font-bold text-sm mb-2 uppercase tracking-tight">Unlimited Recharge</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Unlimited recharges up to the sum insured for all subsequent illnesses.</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl hover:border-purple-500/50 transition-colors" data-reveal>
+            <div class="text-3xl mb-4">🎁</div>
+            <h4 class="text-white font-bold text-sm mb-2 uppercase tracking-tight">Guaranteed Bonus</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">100% bonus per year up to 500% of sum insured, even with claims.</p>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 rounded-3xl bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-purple-500/20 flex flex-wrap items-center justify-between gap-6" data-reveal>
+          <div class="space-y-2">
+            <span class="flex items-center gap-2 text-white text-sm font-bold"><ion-icon name="checkmark-circle" class="text-green-400"></ion-icon> ZERO Co-Payments & Sub-limits</span>
+            <span class="flex items-center gap-2 text-white text-sm font-bold"><ion-icon name="checkmark-circle" class="text-green-400"></ion-icon> 541 Day Care Procedures Covered</span>
+          </div>
+          <a href="https://forms.gle/WauZ688qLfyyDZVy7" class="btn-primary py-3 px-8 text-sm" target="_blank">Enquire Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAVINGS TABLE -->
+    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
+          <span class="text-pink-600 font-semibold tracking-widest uppercase text-sm">The Impact</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-zinc-900 underline decoration-pink-100 italic">How Much You Actually Save</h2>
+          <p class="mt-6 text-lg text-zinc-600">A side-by-side comparison of your out-of-pocket costs over two pregnancies.</p>
+        </div>
+
+        <div class="overflow-x-auto rounded-3xl border border-zinc-200 shadow-sm" data-reveal>
+          <table class="w-full text-left border-collapse min-w-[700px] bg-white">
+            <thead>
+              <tr class="bg-zinc-50">
+                <th class="px-6 py-5 text-zinc-900 font-semibold border-b border-zinc-200 uppercase text-xs tracking-widest">Scenario</th>
+                <th class="px-6 py-5 text-green-600 font-bold border-b border-zinc-200 bg-green-50">🌸 WITH OUR PLAN</th>
+                <th class="px-6 py-5 text-red-600 font-semibold border-b border-zinc-200 bg-red-50">😰 WITHOUT MATERNITY COVER</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-100">
+              <tr>
+                <td class="px-6 py-5 text-zinc-700 text-sm font-medium">1st Delivery Bill: ₹1 Lakh</td>
+                <td class="px-6 py-5 bg-green-50/30 text-green-600 text-xs font-bold uppercase tracking-widest">Insurer pays ₹1L</td>
+                <td class="px-6 py-5 bg-red-50/30 text-red-600 text-xs font-bold uppercase tracking-widest">You pay ₹1L</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-5 text-zinc-700 text-sm font-medium">1st Newborn Baby (Hospital + Vax): ₹25k</td>
+                <td class="px-6 py-5 bg-green-50/30 text-green-600 text-xs font-bold uppercase tracking-widest">Insurer pays ₹25k</td>
+                <td class="px-6 py-5 bg-red-50/30 text-red-600 text-xs font-bold uppercase tracking-widest">You pay ₹25k</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-5 text-zinc-700 text-sm font-medium">2nd Delivery Bill: ₹1 Lakh</td>
+                <td class="px-6 py-5 bg-green-50/30 text-green-600 text-xs font-bold uppercase tracking-widest">Insurer pays ₹1L</td>
+                <td class="px-6 py-5 bg-red-50/30 text-red-600 text-xs font-bold uppercase tracking-widest">You pay ₹1L</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-5 text-zinc-700 text-sm font-medium">2nd Newborn Baby (Hospital + Vax): ₹25k</td>
+                <td class="px-6 py-5 bg-green-50/30 text-green-600 text-xs font-bold uppercase tracking-widest">Insurer pays ₹25k</td>
+                <td class="px-6 py-5 bg-red-50/30 text-red-600 text-xs font-bold uppercase tracking-widest">You pay ₹25k</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="bg-zinc-50/80">
+                <td class="px-6 py-6 text-zinc-900 font-bold text-lg uppercase tracking-widest font-heading">💰 Total Savings</td>
+                <td class="px-6 py-6 bg-green-100/50 text-green-700 font-heading text-4xl font-bold">₹2,50,000</td>
+                <td class="px-6 py-6 bg-red-100/50 text-red-700 font-heading text-4xl font-bold">Zero</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO SECTION -->
+    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12" data-reveal>
+          <span class="text-pink-400 font-semibold tracking-widest uppercase text-sm">Target Groups</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white underline decoration-zinc-800">Who Should Get This Now?</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="glass-card p-6 rounded-2xl flex gap-6 hover:border-pink-500/30 transition-colors" data-reveal>
+            <div class="w-12 h-12 rounded-full bg-pink-900/20 border border-pink-500/20 flex items-center justify-center text-pink-400 font-black shrink-0">1</div>
+            <div>
+              <h4 class="text-white font-bold text-sm mb-1 uppercase tracking-tight">Newly Married Couples</h4>
+              <p class="text-zinc-400 text-xs leading-relaxed">Starting your journey together? This is the smartest first financial protection move you can make for your future family.</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl flex gap-6 hover:border-pink-500/30 transition-colors" data-reveal>
+            <div class="w-12 h-12 rounded-full bg-pink-900/20 border border-pink-500/20 flex items-center justify-center text-pink-400 font-black shrink-0">2</div>
+            <div>
+              <h4 class="text-white font-bold text-sm mb-1 uppercase tracking-tight">Planning in 4–24 Months</h4>
+              <p class="text-zinc-400 text-xs leading-relaxed">The ideal window to buy — gives you the necessary buffer before conception to be fully covered at delivery.</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl flex gap-6 hover:border-pink-500/30 transition-colors" data-reveal>
+            <div class="w-12 h-12 rounded-full bg-pink-900/20 border border-pink-500/20 flex items-center justify-center text-pink-400 font-black shrink-0">3</div>
+            <div>
+              <h4 class="text-white font-bold text-sm mb-1 uppercase tracking-tight">Insufficient Corporate Cover</h4>
+              <p class="text-zinc-400 text-xs leading-relaxed">Employer health insurance often excludes or underfunds maternity. This fills that critical gap with comprehensive limits.</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl flex gap-6 hover:border-pink-500/30 transition-colors" data-reveal>
+            <div class="w-12 h-12 rounded-full bg-pink-900/20 border border-pink-500/20 flex items-center justify-center text-pink-400 font-black shrink-0">4</div>
+            <div>
+              <h4 class="text-white font-bold text-sm mb-1 uppercase tracking-tight">Believers in Planning</h4>
+              <p class="text-zinc-400 text-xs leading-relaxed">Financial shocks shouldn't come with life's happiest moments. Plan it right — save on premiums, secure the best care.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mb-12" data-reveal>
+          <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">Questions Answered</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">Quick Answers</h2>
+        </div>
+
+        <div class="grid gap-4 max-w-4xl" data-reveal>
+          <details class="glass-card rounded-xl overflow-hidden group">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              Can I buy this if I'm already pregnant?
+              <ion-icon name="chevron-down-outline" class="text-pink-400 group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-400 text-xs leading-relaxed border-t border-zinc-900">
+              Yes, you can buy the policy. However, <strong>this specific delivery will not be covered</strong> due to the 12-month waiting period. Your next delivery will be fully covered as long as the policy remains active.
+            </div>
+          </details>
+          <details class="glass-card rounded-xl overflow-hidden group">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              Can I continue the policy after my deliveries are done?
+              <ion-icon name="chevron-down-outline" class="text-pink-400 group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-400 text-xs leading-relaxed border-t border-zinc-900">
+              Absolutely. This policy comes with <strong>lifetime renewability</strong>. After your maternity needs are fulfilled, it continues to serve as a comprehensive health insurance plan for your whole family.
+            </div>
+          </details>
+          <details class="glass-card rounded-xl overflow-hidden group">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              Can I buy this policy on EMI?
+              <ion-icon name="chevron-down-outline" class="text-pink-400 group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-400 text-xs leading-relaxed border-t border-zinc-900">
+              Yes, multiple EMI options are available: 1) Directly through the insurance company, 2) Through your credit/debit cards, or 3) Through <strong>'Loan Against Mutual Funds'</strong> (which is often the most cost-effective way).
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="relative overflow-hidden px-6 py-24 lg:px-8 bg-[#050505]">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-pink-900/10 blur-[120px] rounded-full"></div>
+      <div class="mx-auto max-w-4xl text-center relative z-10" data-reveal>
+        <h2 class="font-heading text-5xl md:text-6xl text-white mb-8 underline decoration-pink-500/20">Insure Today & Save Lacs <br>On Delivery Bills Tomorrow</h2>
+        <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          Premiums are personalised based on age and location. WhatsApp us for a free, no-obligation quote or a detailed breakdown.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://wa.me/917972053045" class="btn-primary bg-pink-600 border-pink-500 px-12 py-5 text-lg" target="_blank">WhatsApp For Free Quote</a>
+          <a href="https://forms.gle/WauZ688qLfyyDZVy7" class="btn-secondary px-12 py-5 text-lg" target="_blank">Enquire Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-dark border-t border-zinc-900 px-6 py-12 lg:px-8">
+    <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 text-center md:text-left">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto mb-6 mx-auto md:mx-0" />
+
+          <div class="mt-6 flex flex-col gap-3 items-center md:items-start">
+            <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
+            <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="social-pill" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="font-semibold text-zinc-100">Quick Links</h4>
+          <ul class="mt-4 space-y-2 text-sm text-zinc-300">
+            <li><a class="footer-link" href="index.html">Home</a></li>
+            <li><a class="footer-link" href="about.html">About</a></li>
+            <li><a class="footer-link" href="services.html">Services</a></li>
+            <li><a class="footer-link" href="calculators.html">Calculators</a></li>
+            <li><a class="footer-link" href="conact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="font-semibold text-zinc-100">Connect</h4>
+          <p class="mt-4 text-sm text-zinc-300">miraclewealth.in@gmail.com</p>
+          <p class="text-sm text-zinc-300">Ensaara Metropark, Pipla-Kharsoli Road, Nagpur, 440034</p>
+          <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-2 text-sm text-zinc-300">
+            <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" rel="noopener" class="social-pill"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.linkedin.com/in/swapnil-asati/" target="_blank" rel="noopener" class="social-pill"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" rel="noopener" class="social-pill"><ion-icon name="logo-youtube"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center">
+        <p class="md:col-span-9 text-xs leading-relaxed text-zinc-400">
+          Insurance is underwritten by Magma General Insurance Co. Ltd. Policy is subject to terms, conditions, and exclusions as per the policy wording. Mr. Swapnil Asati is an IRDAI-registered insurance intermediary.
+        </p>
+        <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/917972053045" target="_blank" rel="noopener" class="whatsapp-float">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+  <script>
+    const header = document.getElementById("header");
+    const onScroll = () => {
+      if (window.scrollY > 50) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+
+    const revealEls = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach((el) => io.observe(el));
+  </script>
+</body>
+
+</html>

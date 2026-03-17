@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Term Insurance | Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["Cormorant Garamond", "serif"],
+            body: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .font-garamond { font-family: 'Cormorant Garamond', serif; }
+    .text-gold { color: #f59e0b; }
+    .text-purple { color: #a78bfa; }
+    .bg-dark-section { background-color: #050505; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fbbf24, #d97706);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .purple-gradient-text {
+      background: linear-gradient(135deg, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .myth-card-border { border-left: 4px solid #f59e0b; }
+    .truth-card-border { border-left: 4px solid #a78bfa; }
+  </style>
+</head>
+
+<body class="bg-base text-main font-body antialiased overflow-x-hidden">
+  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto md:h-20 lg:h-24" />
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="conact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="tel:7972053045" class="btn-secondary">7972053045</a>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary" target="_blank">Book a Call</a>
+      </div>
+
+      <button id="mobileMenuBtn"
+        class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-100 lg:hidden"
+        aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIconOpen" class="h-5 w-5 transition-transform duration-300" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menuIconClose" class="h-5 w-5 hidden transition-transform duration-300 rotate-90" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu"
+      class="mobile-menu hidden absolute top-full left-0 w-full border-t border-zinc-800 shadow-2xl lg:hidden">
+      <nav class="mx-auto flex max-w-7xl flex-col space-y-4 px-6 py-6 text-base">
+        <a href="index.html" class="mobile-link block font-medium">Home</a>
+        <a href="about.html" class="mobile-link block font-medium">About</a>
+        <a href="services.html" class="mobile-link block font-medium">Services</a>
+        <a href="calculators.html" class="mobile-link block font-medium">Calculators</a>
+        <a href="conact.html" class="mobile-link block font-medium">Contact</a>
+        <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
+          <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary text-center" target="_blank">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-52">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1 opacity-20"></div>
+      <div class="mx-auto max-w-7xl" data-reveal>
+        <div class="flex flex-wrap items-center gap-4 mb-6">
+          <span class="why-tag inline-block bg-gold/10 text-gold border-gold/20 italic">Shield Your Tomorrow</span>
+          <span class="why-tag inline-block bg-zinc-900 border-zinc-800 text-zinc-400">🛡️ Trusted by 300+ Families</span>
+        </div>
+        <h1 class="font-heading text-5xl leading-tight md:text-6xl lg:text-7xl">Protect What<br><span class="gold-gradient-text italic underline decoration-gold/20">Matters The Most</span></h1>
+        <p class="mt-8 max-w-2xl text-lg text-zinc-300 leading-relaxed">
+          Affordable term insurance plans that protect your loved ones and the wealth you're building. Ensuring that your absence doesn't mean a compromise for your family.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="https://miraclewealth.vercel.app/conact.html" class="btn-primary bg-gold border-gold text-white font-black hover:bg-gold/90 transition-all">📞 Request Callback</a>
+          <a href="https://wa.me/917972053045" class="btn-secondary px-8" target="_blank">💬 WhatsApp Us</a>
+        </div>
+      </div>
+      
+      <!-- BACKGROUND WATERMARK -->
+      <div class="absolute bottom-10 right-0 opacity-[0.03] select-none pointer-events-none hidden lg:block">
+        <span class="font-heading text-[20rem] font-black leading-none uppercase tracking-tighter">SHIELD</span>
+      </div>
+    </section>
+
+    <!-- THE HARD TRUTH -->
+    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl" data-reveal>
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">The Hard Truth</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">Most Families Are One <span class="text-gold italic">Event Away</span> From a Crisis</h2>
+          <div class="mt-6 w-20 h-1 bg-gold rounded-full"></div>
+        </div>
+
+        <div class="mt-16 grid gap-6 md:grid-cols-2">
+          <div class="glass-card p-8 rounded-3xl myth-card-border group hover:bg-zinc-900/40 transition-all" data-reveal>
+            <div class="text-4xl mb-6 group-hover:scale-110 transition-transform">📉</div>
+            <h4 class="font-heading text-2xl text-white mb-4">Your Income Is Your Biggest Asset</h4>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6">If you earn ₹10 lac/year for the next 25 years, your income is worth ₹2.5 crore or more — yet most people insure their car but not their earning potential.</p>
+            <span class="px-3 py-1 bg-zinc-950 text-gold text-[10px] font-black uppercase tracking-widest border border-gold/20 rounded-lg">₹10L/yr × 25 yrs = ₹2.5 Cr+</span>
+          </div>
+
+          <div class="glass-card p-8 rounded-3xl myth-card-border group hover:bg-zinc-900/40 transition-all" data-reveal>
+            <div class="text-4xl mb-6 group-hover:scale-110 transition-transform">🏠</div>
+            <h4 class="font-heading text-2xl text-white mb-4">Loans Don't Disappear With You</h4>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6">Home loans, car loans, personal loans — your liabilities survive you. Without term insurance, your family inherits your debt alongside their grief.</p>
+            <span class="px-3 py-1 bg-zinc-950 text-gold text-[10px] font-black uppercase tracking-widest border border-gold/20 rounded-lg">Avg Indian HH debt: ₹15–40 L</span>
+          </div>
+
+          <div class="glass-card p-8 rounded-3xl truth-card-border group hover:bg-zinc-900/40 transition-all" data-reveal>
+            <div class="text-4xl mb-6 group-hover:scale-110 transition-transform">❌</div>
+            <h4 class="font-heading text-2xl text-white mb-4">"I'm Young & Healthy — Not Yet"</h4>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6">This is the most expensive myth in personal finance. A ₹1 Cr term plan at age 25 costs ₹500–700/month. The same plan at 40 costs 3x more.</p>
+            <span class="px-3 py-1 bg-zinc-950 text-purple-400 text-[10px] font-black uppercase tracking-widest border border-purple-500/20 rounded-lg">Save ₹2–4L via early entry</span>
+          </div>
+
+          <div class="glass-card p-8 rounded-3xl truth-card-border group hover:bg-zinc-900/40 transition-all" data-reveal>
+            <div class="text-4xl mb-6 group-hover:scale-110 transition-transform">🎯</div>
+            <h4 class="font-heading text-2xl text-white mb-4">The Right Time to Buy Is Now</h4>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6">Term insurance premiums lock in at the age you buy. Every year you delay, your premium increases — and a health event can make you uninsurable.</p>
+            <span class="px-3 py-1 bg-zinc-950 text-purple-400 text-[10px] font-black uppercase tracking-widest border border-purple-500/20 rounded-lg">Delay = Higher Premium Forever</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE COVER -->
+    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">The Comprehensive Shield</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-zinc-900 italic underline decoration-gold/10">What a Good Plan <span class="text-gold">Actually Covers</span></h2>
+          <p class="mt-6 text-lg text-zinc-600">A well-chosen term plan is far more than a death benefit. With the right riders, it's a complete income protection shield.</p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">🛡️</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Pure Life Cover</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Tax-free lump-sum payout to your family on death — ensuring immediate financial stability.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">♿</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Disability Shield</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">If permanent disability stops you from earning, the plan pays out to replace your income.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">🏥</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Critical Illness</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Lump sum payout on diagnosis of cancer, heart attack or stroke — regardless of survival.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">💸</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Waiver of Premium</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">If disabled, all future premiums are waived while your cover continues at zero cost.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">📈</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Increasing Cover</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Cover grows automatically with your life stage to match salary growth and inflation.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">👨‍👩‍👧</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Monthly Salary Payout</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Option for family to receive monthly income instead of one lump sum — replicating your salary.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">🌅</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Return of Premium</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">If you outlive the term, get back all premiums paid — making the protection nearly cost-free.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">💊</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Terminal Illness</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Receive a payout upon diagnosis of a terminal condition to fund best medical treatments.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
+            <div class="text-3xl mb-4">🔒</div>
+            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Joint Spouse Cover</h4>
+            <p class="text-zinc-500 text-xs leading-relaxed">Secure both incomes under a single policy — ideal for working couples.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONEST COMPARISON -->
+    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">Honest Advice</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-white">Term Plan vs <span class="gold-gradient-text italic">The Rest</span></h2>
+          <p class="mt-6 text-zinc-300">Don't be sold expensive savings plans when protection is your primary goal.</p>
+        </div>
+
+        <div class="overflow-x-auto rounded-3xl border border-zinc-800" data-reveal>
+          <table class="w-full text-left border-collapse min-w-[700px]">
+            <thead>
+              <tr class="bg-zinc-900/80">
+                <th class="px-6 py-5 text-zinc-400 font-semibold border-b border-zinc-800 text-xs tracking-widest uppercase">Feature</th>
+                <th class="px-6 py-5 text-gold font-bold border-b border-zinc-800 bg-gold/5 italic">⭐ Pure Term Plan</th>
+                <th class="px-6 py-5 text-white font-bold border-b border-zinc-800">ULIP / TULIP</th>
+                <th class="px-6 py-5 text-white font-bold border-b border-zinc-800">Endowment Plan</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-900">
+              <tr>
+                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Primary Purpose</td>
+                <td class="px-6 py-4 text-gold text-xs font-bold bg-gold/5 italic">Pure Life Protection</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">Insurance + Investment</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">Insurance + Savings</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Sum Assured (₹1K/mo)</td>
+                <td class="px-6 py-4 text-green-400 text-sm font-black bg-gold/5">₹1 Crore+</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">₹15–30 Lacs</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">₹1.35 Lacs</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Cost Per Lac</td>
+                <td class="px-6 py-4 text-gold text-xs font-black bg-gold/5">Lowest</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">High</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">Highest</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Maturity Benefit</td>
+                <td class="px-6 py-4 text-zinc-400 bg-gold/5 text-xs italic">ROP Available</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">Market-linked gains</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">Guaranteed + Bonus</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Flexibility</td>
+                <td class="px-6 py-4 text-gold bg-gold/5 text-xs font-bold">Highly Flexible</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">Limited</td>
+                <td class="px-6 py-4 text-zinc-400 text-xs">Very Limited</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-10 p-8 rounded-3xl glass-card border-l-4 border-l-gold" data-reveal>
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">💡</div>
+            <div>
+              <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                <strong>Our honest advice:</strong> Buy a pure term plan for max protection, and invest the premium savings separately in mutual funds. This <strong>"Buy Term + Invest Rest"</strong> strategy almost always wins over long horizons.
+              </p>
+              <a href="https://miraclewealth.vercel.app/conact.html" class="inline-flex items-center gap-2 text-gold font-bold text-sm hover:underline italic">
+                Get a Free Recommendation →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL SERVICE FLOW -->
+    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-20" data-reveal>
+          <span class="text-purple-600 font-semibold tracking-widest uppercase text-sm mb-4 inline-block">The Miracle Wealth Way</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-zinc-900 underline decoration-purple-200">From Query to Settlement</h2>
+          <p class="mt-6 text-lg text-zinc-600 italic">We don't just sell, we advise.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-5 relative">
+          <div class="hidden md:block absolute top-[50px] left-[10%] right-[10%] h-[1px] bg-zinc-300 border-t border-dashed border-zinc-300"></div>
+          
+          <div class="relative flex flex-col items-center text-center group" data-reveal>
+            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-50 group-hover:border-yellow-200 group-hover:text-black transition-all shadow-sm text-zinc-900 group-hover:scale-105">📋</div>
+            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2 font-heading">Understand</h4>
+            <p class="text-zinc-500 text-[10px] leading-relaxed">Free consult on income & liabilities</p>
+          </div>
+          <div class="relative flex flex-col items-center text-center group" data-reveal>
+            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-50 group-hover:border-yellow-200 group-hover:text-black transition-all shadow-sm text-zinc-900 group-hover:scale-105">🔍</div>
+            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2 font-heading">Compare</h4>
+            <p class="text-zinc-500 text-[10px] leading-relaxed">Unbiased view across insurers</p>
+          </div>
+          <div class="relative flex flex-col items-center text-center group" data-reveal>
+            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-50 group-hover:border-yellow-200 group-hover:text-black transition-all shadow-sm text-zinc-900 group-hover:scale-105">📄</div>
+            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2 font-heading">Recommend</h4>
+            <p class="text-zinc-500 text-[10px] leading-relaxed">Sum assured & rider selection</p>
+          </div>
+          <div class="relative flex flex-col items-center text-center group" data-reveal>
+            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-50 group-hover:border-yellow-200 group-hover:text-black transition-all shadow-sm text-zinc-900 group-hover:scale-105">✅</div>
+            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2 font-heading">Enroll</h4>
+            <p class="text-zinc-500 text-[10px] leading-relaxed">Smooth digital onboarding</p>
+          </div>
+          <div class="relative flex flex-col items-center text-center group" data-reveal>
+            <div class="w-16 h-16 rounded-full bg-gold border border-yellow-400 flex items-center justify-center text-2xl mb-6 text-black transition-all shadow-md hover:scale-105">🏥</div>
+            <h4 class="text-yellow-700 font-bold text-xs uppercase tracking-widest mb-2 font-heading">Claim Support</h4>
+            <p class="text-zinc-500 text-[10px] leading-relaxed">End-to-end help for lifetime</p>
+          </div>
+        </div>
+
+        <div class="mt-20 p-10 rounded-3xl bg-white border border-zinc-200 shadow-sm border-l-4 border-l-purple-600" data-reveal>
+          <div class="grid md:grid-cols-4 gap-10 items-center">
+            <div class="md:col-span-3">
+              <span class="px-2 py-0.5 bg-purple-50 text-purple-700 text-[8px] font-black uppercase tracking-[0.2em] rounded border border-purple-200 mb-4 inline-block">Absolute Protection</span>
+              <h3 class="font-heading text-3xl text-zinc-900 italic mb-4">"Claim Rejected? We're In Your Corner."</h3>
+              <p class="text-zinc-600 text-sm leading-relaxed">Most rejections can be challenged. We review your case, write to the authorities, and escalate to the Ombudsman or IRDAI for you — ensuring your family gets their rightful claim.</p>
+            </div>
+            <div class="text-center">
+                <a href="https://wa.me/917972053045" target="_blank" class="btn-primary w-full py-4 rounded-xl bg-purple-600 border-purple-500 text-white font-black hover:bg-purple-700">WHATSAPP NOW</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mb-16" data-reveal>
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">Success Stories</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">Families Who <span class="gold-gradient-text italic">Choose Us</span></h2>
+          <p class="mt-6 text-lg text-zinc-300">Rated 5 stars on Google. Real feedback from families we help daily.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group border-gold/10" data-reveal>
+            <div class="text-gold text-lg mb-4">★★★★★</div>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6 italic">"I had no idea I needed a ₹2 Cr cover until Swapnil sir actually ran the numbers. My previous agent sold me a ₹25L plan that was completely inadequate. Restructured everything at lower premium."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-black">VD</div>
+              <div>
+                <p class="text-white text-xs font-bold font-heading">Vikram Deshmukh</p>
+                <p class="text-zinc-500 text-[10px] uppercase">₹2 Cr Term · Nagpur</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group border-purple-900/30" data-reveal>
+            <div class="text-purple-400 text-lg mb-4">★★★★★</div>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6 italic">"When my father passed, his term claim was processed in under 2 weeks with full assistance. He guided my mother through every step. Having him there was priceless."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-purple-900/30 flex items-center justify-center text-purple-400 font-black">NP</div>
+              <div>
+                <p class="text-white text-xs font-bold font-heading">Neha Paranjpe</p>
+                <p class="text-zinc-500 text-[10px] uppercase">Claim Support · Pune</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group border-gold/10" data-reveal>
+            <div class="text-gold text-lg mb-4">★★★★★</div>
+            <p class="text-zinc-400 text-sm leading-relaxed mb-6 italic">"Compared 6 different plans, explained every clause. Finally picked the best one with CI rider. No pressure, only honest guidance."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-black">SR</div>
+              <div>
+                <p class="text-white text-xs font-bold font-heading">Saurabh Raut</p>
+                <p class="text-zinc-500 text-[10px] uppercase">Term + Rider · Mumbai</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY TRUST -->
+    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="md:col-span-1" data-reveal>
+                <span class="why-tag mb-4">The Miracle Wealth Edge</span>
+                <h2 class="font-heading text-4xl text-white mb-6 underline decoration-gold/20">Why Trust <br>Us?</h2>
+                <div class="w-12 h-1 bg-gold rounded-full mb-8"></div>
+                <p class="text-zinc-500 text-sm leading-relaxed">We're not a call centre. We're a dedicated team of experts in your corner.</p>
+            </div>
+            
+            <div class="md:col-span-2 grid gap-6 sm:grid-cols-2">
+                <div class="glass-card p-6 rounded-2xl border-l-2 border-l-gold" data-reveal>
+                    <div class="text-2xl mb-4">🎓</div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-2 font-heading">Life Insurance Expertise</h4>
+                    <p class="text-zinc-500 text-[10px] leading-relaxed">Years of experience in complex term planning, CI riders, and payout structuring.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border-l-2 border-l-purple-500" data-reveal>
+                    <div class="text-2xl mb-4">🏛️</div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-2 font-heading">IRDAI Registered</h4>
+                    <p class="text-zinc-500 text-[10px] leading-relaxed">Fully compliant and regulated advisory. You are in expert, accredited hands.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border-l-2 border-l-purple-500" data-reveal>
+                    <div class="text-2xl mb-4">📊</div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-2 font-heading">Unbiased Compare</h4>
+                    <p class="text-zinc-500 text-[10px] leading-relaxed">Comparing plans across top insurers for best cover at lowest cost.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border-l-2 border-l-gold" data-reveal>
+                    <div class="text-2xl mb-4">🔄</div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-2 font-heading">Lifetime Help</h4>
+                    <p class="text-zinc-500 text-[10px] leading-relaxed">Relationship starts at purchase. Reviews, add-ons, and settlements for life.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
+          <span class="why-tag">Quick Answers</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white underline decoration-zinc-800">Your Questions Answered</h2>
+        </div>
+
+        <div class="grid gap-4 max-w-4xl mx-auto" data-reveal>
+          <details class="glass-card rounded-xl overflow-hidden group transition-all">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              How much cover do I actually need?
+              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10">
+              Min. 15–20x of annual income is a base. We help you calculate the exact sum accounting for loans, children's goals, and inflation to ensure a true proxy for your income.
+            </div>
+          </details>
+          <details class="glass-card rounded-xl overflow-hidden group transition-all">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              Online vs Advisor — which is better?
+              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10">
+              Online is slightly cheaper, but an advisor ensures accurate medical disclosure (preventing rejection) and is there during claims. The peace of mind for your family is worth it.
+            </div>
+          </details>
+          <details class="glass-card rounded-xl overflow-hidden group transition-all">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              What if my claim gets rejected?
+              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10">
+              We stand apart here. We understand why rejections happen and how to contest them. We assist end-to-end with the Ombudsman or IRDAI to protect your family's rights.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="bg-white px-6 py-20 lg:px-8 border-y border-zinc-100 text-center">
+      <div class="mx-auto max-w-7xl">
+        <span class="text-gold font-bold tracking-widest uppercase text-[10px] mb-4 block select-none">Our Trusted Partners</span>
+        <h2 class="font-heading text-4xl text-zinc-900 mb-4">India's Best Life Insurers</h2>
+        <p class="text-zinc-500 text-sm mb-12 italic">We work with India's most trusted and IRDAI-regulated life insurers.</p>
+        
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <img src="images/partners/term/Bajaj%20Allianz.png" alt="Bajaj Allianz" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
+          <img src="images/partners/term/HDFC%20Life.jpg" alt="HDFC Life" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
+          <img src="images/partners/term/ICICI%20PRU.png" alt="ICICI Pru" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
+          <img src="images/partners/term/Max%20life.jpg" alt="Max Life" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
+          <img src="images/partners/term/pnb%20matlife.jpg" alt="PNB MetLife" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
+          <img src="images/partners/term/Sbi%20Life.png" alt="SBI Life" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
+          <img src="images/partners/term/tata%20AIA.png" alt="Tata AIA" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="relative overflow-hidden px-6 py-24 lg:px-8 bg-[#050505]">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold/5 blur-[120px] rounded-full"></div>
+      <div class="mx-auto max-w-4xl text-center relative z-10" data-reveal>
+        <h2 class="font-heading text-5xl md:text-6xl text-white mb-8 underline decoration-gold/20 italic">Your Family's Future Is <br><span class="text-gold">Non-Negotiable.</span></h2>
+        <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-12">
+          Get a free, personalised term insurance consultation. We'll find the right cover, explain every clause, and stay with you for life.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://miraclewealth.vercel.app/conact.html" class="btn-primary bg-gold border-gold px-12 py-5 text-lg text-white font-black" target="_blank">📞 Request Free Callback</a>
+          <a href="https://wa.me/917972053045" class="btn-secondary px-12 py-5 text-lg" target="_blank" rel="noopener">💬 WhatsApp Miracle Wealth</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-dark border-t border-zinc-900 px-6 py-12 lg:px-8">
+    <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 text-center md:text-left transition-all">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto mb-6 mx-auto md:mx-0" />
+          <div class="mt-6 flex flex-col gap-3 items-center md:items-start text-xs border-zinc-800">
+            <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
+            <a href="mailto:miraclewealth.in@gmail.com" class="social-pill"><ion-icon name="mail-outline"></ion-icon>miraclewealth.in@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="font-semibold text-zinc-100 uppercase tracking-widest text-[10px]">Quick Links</h4>
+          <ul class="mt-4 space-y-2 text-[11px] text-zinc-400">
+            <li><a class="footer-link hover:text-gold" href="index.html">Home</a></li>
+            <li><a class="footer-link hover:text-gold" href="about.html">About</a></li>
+            <li><a class="footer-link hover:text-gold" href="services.html">Services</a></li>
+            <li><a class="footer-link hover:text-gold" href="calculators.html">Calculators</a></li>
+            <li><a class="footer-link hover:text-gold" href="conact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="font-semibold text-zinc-100 uppercase tracking-widest text-[10px]">Office</h4>
+          <p class="mt-4 text-[11px] text-zinc-400 leading-relaxed">Ensaara Metropark, Pipla-Kharsoli Road,<br>Nagpur, 440034</p>
+          <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-2">
+            <a href="https://www.linkedin.com/in/swapnil-asati/" target="_blank" class="social-pill text-lg"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" class="social-pill text-lg"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" class="social-pill text-lg"><ion-icon name="logo-youtube"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid gap-4 border-t border-zinc-900 pt-6 md:grid-cols-12 items-center">
+        <p class="md:col-span-9 text-[9px] text-zinc-500 leading-relaxed">
+          Mr. Swapnil Asati is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Please read all policy documents carefully before purchase.
+        </p>
+        <p class="md:col-span-3 text-[9px] text-zinc-600 md:text-right">© 2026 Miracle Wealth.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/917972053045" target="_blank" class="whatsapp-float transition-all hover:scale-110">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+  <script>
+    const header = document.getElementById("header");
+    const onScroll = () => {
+      if (window.scrollY > 50) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+
+    const revealEls = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach((el) => io.observe(el));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth Management | Miracle Wealth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["Cormorant Garamond", "serif"],
+            body: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .font-garamond { font-family: 'Cormorant Garamond', serif; }
+    .text-gold { color: #f59e0b; }
+    .text-purple { color: #a78bfa; }
+    .bg-dark-section { background-color: #050505; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fbbf24, #d97706);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .purple-gradient-text {
+      background: linear-gradient(135deg, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Custom for Wealth Management */
+    .pillar-card {
+      @apply relative overflow-hidden p-10 rounded-[40px] border-zinc-800 hover:border-purple-500/30 transition-all text-center;
+    }
+  </style>
+</head>
+
+<body class="bg-base text-main font-body antialiased overflow-x-hidden">
+  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto md:h-20 lg:h-24" />
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="conact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="tel:7972053045" class="btn-secondary">7972053045</a>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary" target="_blank">Book a Call</a>
+      </div>
+
+      <button id="mobileMenuBtn"
+        class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-100 lg:hidden"
+        aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIconOpen" class="h-5 w-5 transition-transform duration-300" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menuIconClose" class="h-5 w-5 hidden transition-transform duration-300 rotate-90" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu"
+      class="mobile-menu hidden absolute top-full left-0 w-full border-t border-zinc-800 shadow-2xl lg:hidden">
+      <nav class="mx-auto flex max-w-7xl flex-col space-y-4 px-6 py-6 text-base">
+        <a href="index.html" class="mobile-link block font-medium">Home</a>
+        <a href="about.html" class="mobile-link block font-medium">About</a>
+        <a href="services.html" class="mobile-link block font-medium">Services</a>
+        <a href="calculators.html" class="mobile-link block font-medium">Calculators</a>
+        <a href="conact.html" class="mobile-link block font-medium">Contact</a>
+        <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
+          <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary text-center" target="_blank">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-52">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1 opacity-20"></div>
+      <div class="mx-auto max-w-7xl" data-reveal>
+        <div class="flex flex-wrap items-center gap-4 mb-6 text-xs font-black tracking-[0.2em] uppercase">
+          <span class="why-tag border-purple-500/30 text-purple-400">Premium Advisory</span>
+          <span class="why-tag border-zinc-800 text-zinc-500 italic">Built for HNIs</span>
+        </div>
+        <h1 class="font-heading text-5xl leading-tight md:text-6xl lg:text-7xl max-w-4xl">Build Your <br><span class="purple-gradient-text italic underline decoration-purple-600/20">Generational Wealth</span><br>With Precision.</h1>
+        <p class="mt-8 max-w-2xl text-lg text-zinc-300 leading-relaxed">
+          Customized wealth management solutions designed for HNIs, corporate professionals, and families who seek structured growth without unmanaged risks.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="conact.html" class="btn-primary bg-gold border-gold text-white font-black px-12 py-4">📞 Start Growing</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-secondary px-8 font-bold" target="_blank">💬 Book Discovery Call</a>
+        </div>
+      </div>
+      
+      <!-- BACKGROUND WATERMARK -->
+      <div class="absolute bottom-10 right-0 opacity-[0.03] select-none pointer-events-none hidden lg:block">
+        <span class="font-heading text-[20rem] font-black leading-none uppercase tracking-tighter">WEALTH</span>
+      </div>
+    </section>
+
+    <!-- CORE PILLARS -->
+    <section class="bg-slate-50 px-6 py-24 lg:px-8 border-y border-zinc-200">
+      <div class="mx-auto max-w-7xl">
+        <div class="text-center mb-16" data-reveal>
+          <span class="text-purple-600 font-semibold tracking-widest uppercase text-sm">Three Pillars</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-zinc-900">Our Wealth Management <span class="purple-gradient-text italic">Philosophy</span></h2>
+          <div class="mt-6 w-20 h-1 bg-purple-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-white shadow-sm p-10 rounded-[40px] border border-zinc-100 hover:border-purple-500/30 hover:shadow-xl transition-all text-center group" data-reveal>
+            <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">🛡️</div>
+            <h4 class="font-heading text-3xl text-zinc-900 mb-4">Risk Distribution</h4>
+            <p class="text-sm text-zinc-600 leading-relaxed">We don't just pick funds; we curate a portfolio that distributes risk across asset classes and themes to ensure stability.</p>
+          </div>
+          <div class="bg-white shadow-sm p-10 rounded-[40px] border border-zinc-100 hover:border-purple-500/30 hover:shadow-xl transition-all text-center group" data-reveal>
+            <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">🎯</div>
+            <h4 class="font-heading text-3xl text-zinc-900 mb-4">Goal Centricity</h4>
+            <p class="text-sm text-zinc-600 leading-relaxed">Your returns are means to an end. We map every rupee to a life goal — whether it's inheritance or high-value acquisitions.</p>
+          </div>
+          <div class="bg-white shadow-sm p-10 rounded-[40px] border border-zinc-100 hover:border-purple-500/30 hover:shadow-xl transition-all text-center group" data-reveal>
+            <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">📈</div>
+            <h4 class="font-heading text-3xl text-zinc-900 mb-4">Tactical Refinement</h4>
+            <p class="text-sm text-zinc-600 leading-relaxed">The market moves, and so should your strategy. We provide active rebalancing to capture growth and protect capital.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROCESS -->
+    <section class="bg-dark-section px-6 py-24 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div data-reveal>
+            <span class="why-tag border-purple-500/30 text-purple-400 bg-purple-900/10">Structured Growth</span>
+            <h2 class="mt-6 font-heading text-4xl md:text-5xl text-white mb-6 font-medium">How we build <span class="text-purple-400 underline decoration-purple-900 italic">Your Wealth</span></h2>
+            <p class="text-zinc-400 text-lg leading-relaxed mb-10">Wealth Management is a lifetime process of discovery, implementation, and refinement.</p>
+            
+            <div class="space-y-8">
+              <div class="flex gap-6 group">
+                <div class="w-12 h-12 rounded-full border border-purple-500/30 text-purple-400 flex items-center justify-center font-black shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all">1</div>
+                <div>
+                  <h5 class="text-white font-bold text-lg mb-1">Discovery & Assessment</h5>
+                  <p class="text-xs text-zinc-500 leading-relaxed italic">Understanding risk tolerance and deep-rooted aspirations.</p>
+                </div>
+              </div>
+              <div class="flex gap-6 group">
+                <div class="w-12 h-12 rounded-full border border-purple-500/30 text-purple-400 flex items-center justify-center font-black shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all">2</div>
+                <div>
+                  <h5 class="text-white font-bold text-lg mb-1">Bespoke Strategy Design</h5>
+                  <p class="text-xs text-zinc-500 leading-relaxed italic">Constructing a model using MFs, PMS, AIFs, and more.</p>
+                </div>
+              </div>
+              <div class="flex gap-6 group">
+                <div class="w-12 h-12 rounded-full border border-purple-500/30 text-purple-400 flex items-center justify-center font-black shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all">3</div>
+                <div>
+                  <h5 class="text-white font-bold text-lg mb-1">Execution & Monitoring</h5>
+                  <p class="text-xs text-zinc-500 leading-relaxed italic">Digital onboarding with 24/7 visibility into performance.</p>
+                </div>
+              </div>
+              <div class="flex gap-6 group">
+                <div class="w-12 h-12 rounded-full border border-purple-500/30 text-purple-400 flex items-center justify-center font-black shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all">4</div>
+                <div>
+                  <h5 class="text-white font-bold text-lg mb-1">Periodic Optimization</h5>
+                  <p class="text-xs text-zinc-500 leading-relaxed italic">Regular reviews to ensure alignment with the market.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="relative" data-reveal>
+             <div class="glass-card rounded-[4rem] p-2 shadow-2xl shadow-purple-900/10 border border-purple-500/20">
+                <div class="bg-zinc-950 rounded-[3.8rem] p-10 md:p-14 border border-zinc-900">
+                   <div class="mb-8 text-purple-500 text-4xl font-serif">"</div>
+                   <h4 class="font-heading text-3xl md:text-4xl text-white mb-10 leading-snug font-medium">Wealth is not just about having money; it's about having <span class="text-purple-400 italic underline decoration-purple-900">options.</span></h4>
+                   <div class="flex items-center gap-4 pt-10 border-t border-zinc-900">
+                     <img src="images/swapnil-pfp.png" class="w-16 h-16 rounded-full border border-zinc-800 grayscale hover:grayscale-0 transition-all" alt="Swapnil Asati">
+                     <div>
+                       <div class="font-heading text-xl text-white">Swapnil Asati</div>
+                       <div class="text-[10px] text-zinc-500 uppercase tracking-widest font-black">Founder, Miracle Wealth</div>
+                     </div>
+                   </div>
+                </div>
+             </div>
+             <!-- Floating Background Decoration -->
+             <div class="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-purple-600/20 blur-[100px] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFERINGS -->
+    <section class="bg-dark-section px-6 py-24 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-7xl">
+        <div class="text-center mb-16" data-reveal>
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">Comprehensive Coverage</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white italic">Solutions Beyond <span class="purple-gradient-text not-italic font-bold">Mutual Funds</span></h2>
+          <p class="mt-6 text-zinc-400 text-lg mx-auto max-w-2xl">Access a wide spectrum of investment vehicles for complete capital diversification.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-4">
+           <div class="glass-card p-8 rounded-3xl border-zinc-800 hover:border-purple-500/20 group transition-all" data-reveal>
+             <h4 class="text-white font-bold text-lg mb-2">Equity & Debt MF</h4>
+             <p class="text-[10px] text-zinc-400 leading-relaxed uppercase tracking-widest group-hover:text-purple-400 transition-colors">Active & Passive Strategies</p>
+           </div>
+           <div class="glass-card p-8 rounded-3xl border-zinc-800 hover:border-purple-500/20 group transition-all" data-reveal>
+             <h4 class="text-white font-bold text-lg mb-2">PMS / AIF</h4>
+             <p class="text-[10px] text-zinc-600 leading-relaxed uppercase tracking-widest group-hover:text-purple-400 transition-colors">High-Value Curated Portfolios</p>
+           </div>
+           <div class="glass-card p-8 rounded-3xl border-zinc-800 hover:border-purple-500/20 group transition-all" data-reveal>
+             <h4 class="text-white font-bold text-lg mb-2">Foreign Funds</h4>
+             <p class="text-[10px] text-zinc-600 leading-relaxed uppercase tracking-widest group-hover:text-purple-400 transition-colors">Global Exposure Targets</p>
+           </div>
+           <div class="glass-card p-8 rounded-3xl border-zinc-800 hover:border-purple-500/20 group transition-all" data-reveal>
+             <h4 class="text-white font-bold text-lg mb-2">Goal-Linked Ins</h4>
+             <p class="text-[10px] text-zinc-600 leading-relaxed uppercase tracking-widest group-hover:text-purple-400 transition-colors">Capital Protection & Growth</p>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR MUTUAL FUND PARTNERS -->
+    <section class="bg-white px-6 py-20 lg:px-8 border-y border-zinc-100">
+      <div class="mx-auto max-w-7xl text-center">
+        <span class="text-purple-600 font-bold tracking-widest uppercase text-[10px] mb-8 block select-none">Our Mutual Fund Partners</span>
+        <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500" data-reveal>
+          <img src="images/partners/wealth/ABSL.webp" alt="Aditya Birla Sun Life AMC" class="h-10 md:h-12 object-contain hover:scale-110 transition-transform" />
+          <img src="images/partners/wealth/Abakkus.png" alt="Abakkus Asset Manager" class="h-10 md:h-14 object-contain hover:scale-110 transition-transform" />
+          <img src="images/partners/wealth/Franklin.webp" alt="Franklin Templeton" class="h-10 md:h-12 object-contain hover:scale-110 transition-transform" />
+          <img src="images/partners/wealth/JM.webp" alt="JM Financial" class="h-10 md:h-14 object-contain hover:scale-110 transition-transform" />
+          <img src="images/partners/wealth/Mirae Asset.png" alt="Mirae Asset" class="h-10 md:h-12 object-contain hover:scale-110 transition-transform" />
+          <img src="images/partners/wealth/PGIM.png" alt="PGIM India Mutual Fund" class="h-10 md:h-12 object-contain hover:scale-110 transition-transform" />
+          <img src="images/partners/wealth/hsbc-mutual-fund.png" alt="HSBC Mutual Fund" class="h-10 md:h-12 object-contain hover:scale-110 transition-transform" />
+        </div>
+      </div>
+    </section>
+    <!-- REVIEWS -->
+    <section class="why-dark px-6 py-24 lg:px-8 border-t border-zinc-800">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-4xl mb-16" data-reveal>
+          <span class="why-tag mb-4">Trusted Voice</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-white italic">Rated <span class="gold-gradient-text not-italic font-bold">5 Stars</span> on Google</h2>
+          <p class="mt-6 text-zinc-400 text-lg">Join 300+ families across PAN India who trust our expertise.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group border-zinc-800/50" data-reveal>
+            <div class="flex text-gold text-lg mb-6">★★★★★</div>
+            <p class="text-zinc-400 text-sm italic leading-relaxed mb-8">"Swapnil sir's approach is professional. He explains the why behind every recommendation. Highly recommended for long-term growth."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-purple-900/30 text-purple-400 flex items-center justify-center font-black">AK</div>
+              <div>
+                <p class="text-white text-xs font-bold font-heading">Anirudha Kulkarni</p>
+                <p class="text-zinc-600 text-[10px] uppercase">Wealth Client · Nagpur</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group border-purple-500/10" data-reveal>
+            <div class="flex text-gold text-lg mb-6">★★★★★</div>
+            <p class="text-zinc-400 text-sm italic leading-relaxed mb-8">"Resilient portfolio even in volatility, thanks to tactical rebalancing. Best advisor in the region."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-green-900/30 text-green-400 flex items-center justify-center font-black">RD</div>
+              <div>
+                <p class="text-white text-xs font-bold font-heading">Rahul Deshpande</p>
+                <p class="text-zinc-600 text-[10px] uppercase">HNIs Advisory · Nagpur</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group border-zinc-800/50" data-reveal>
+            <div class="flex text-gold text-lg mb-6">★★★★★</div>
+            <p class="text-zinc-400 text-sm italic leading-relaxed mb-8">"Simplifying finance is what they do best. Transparency is unmatched."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-pink-900/30 text-pink-400 flex items-center justify-center font-black">SJ</div>
+              <div>
+                <p class="text-white text-xs font-bold font-heading">Simran Jain</p>
+                <p class="text-zinc-600 text-[10px] uppercase">Corporate Pro · Mumbai</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="bg-dark-section px-6 py-24 lg:px-8 border-t border-zinc-900">
+      <div class="mx-auto max-w-3xl">
+        <div class="text-center mb-16" data-reveal>
+          <span class="why-tag">Quick Answers</span>
+          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white italic">Your <span class="purple-gradient-text not-italic font-bold underline decoration-zinc-800 underline-offset-8">Questions</span> Answered</h2>
+        </div>
+
+        <div class="grid gap-4" data-reveal>
+          <details class="glass-card rounded-xl overflow-hidden group transition-all">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              What's the difference between a Bank and Miracle Wealth?
+              <ion-icon name="chevron-down-outline" class="text-purple-400 group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-500 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10 mt-4">
+              Banks often push proprietary products. We are independent, goal-focused, and offer a wider spectrum of tailored institutional products with personalized attention.
+            </div>
+          </details>
+          <details class="glass-card rounded-xl overflow-hidden group transition-all">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              How do you charge for your services?
+              <ion-icon name="chevron-down-outline" class="text-purple-400 group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-400 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10 mt-4">
+              As AMFI-registered Mutual Fund Distributors, we typically earn commissions from AMCs for assets managed under our advisory. We maintain full fee transparency.
+            </div>
+          </details>
+          <details class="glass-card rounded-xl overflow-hidden group transition-all">
+            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
+              Do you work with clients outside Nagpur?
+              <ion-icon name="chevron-down-outline" class="text-purple-400 group-open:rotate-180 transition-transform"></ion-icon>
+            </summary>
+            <div class="p-6 pt-0 text-zinc-400 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10 mt-4">
+              Yes. Our ecosystem is fully digital. We serve families across India — Mumbai, Bangalore, and tier-2 cities. Distance is no barrier to premium advisory.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="relative overflow-hidden px-6 py-24 lg:px-8 bg-[#050505]">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-900/10 blur-[120px] rounded-full"></div>
+      <div class="mx-auto max-w-5xl rounded-[3rem] glass-card border-zinc-800 p-12 md:p-16 text-center relative z-10" data-reveal>
+        <span class="text-purple-400 font-black text-xs uppercase tracking-[0.4em] mb-6 block">Elevate Your Future</span>
+        <h2 class="font-heading text-4xl md:text-6xl text-white mb-8 underline decoration-purple-600/20 italic font-medium">Ready to <span class="text-gold not-italic">Simplify</span> Your Wealth?</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400 text-lg mb-12">Don't leave your generations to chance. Coordinate your assets and start growing with intent today.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="conact.html" class="btn-primary bg-gold border-gold text-white font-black px-12 py-5 text-lg">📞 Book Free Discovery Call</a>
+          <a href="https://wa.me/917972053045" class="btn-secondary px-12 py-5 text-lg" target="_blank">💬 WhatsApp Experts</a>
+        </div>
+        <div class="mt-12 flex flex-wrap justify-center gap-8 text-[9px] text-zinc-600 uppercase tracking-widest pt-8 border-t border-zinc-900/50">
+           <span>✦ Professional Advisory</span>
+           <span>✦ Zero Spam. Zero Pressure.</span>
+           <span>✦ AMFI Registered Advisor</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-dark border-t border-zinc-900 px-6 py-12 lg:px-8">
+    <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 text-center md:text-left">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto mb-6 mx-auto md:mx-0" />
+          <div class="mt-6 flex flex-col gap-3 items-center md:items-start text-xs border-zinc-800">
+            <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
+            <a href="mailto:miraclewealth.in@gmail.com" class="social-pill"><ion-icon name="mail-outline"></ion-icon>miraclewealth.in@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="font-semibold text-zinc-100 uppercase tracking-widest text-[10px]">Registry</h4>
+          <ul class="mt-4 space-y-2 text-[11px] text-zinc-400">
+            <li><a class="footer-link hover:text-gold" href="index.html">Home</a></li>
+            <li><a class="footer-link hover:text-gold" href="about.html">About</a></li>
+            <li><a class="footer-link hover:text-gold" href="services.html">Services</a></li>
+            <li><a class="footer-link hover:text-gold" href="calculators.html">Calculators</a></li>
+            <li><a class="footer-link hover:text-gold" href="conact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="font-semibold text-zinc-100 uppercase tracking-widest text-[10px]">Head Office</h4>
+          <p class="mt-4 text-[11px] text-zinc-400 leading-relaxed uppercase tracking-tighter">Ensaara Metropark, Pipla Road, Nagpur, 440034</p>
+          <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-2">
+            <a href="https://www.linkedin.com/in/swapnil-asati/" target="_blank" class="social-pill text-lg"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" class="social-pill text-lg"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" class="social-pill text-lg"><ion-icon name="logo-youtube"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid gap-4 border-t border-zinc-900 pt-6 md:grid-cols-12 items-center">
+        <p class="md:col-span-9 text-[9px] text-zinc-500 leading-relaxed italic">
+          Swapnil Asati is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Mutual fund investments are subject to market risks.
+        </p>
+        <p class="md:col-span-3 text-[9px] text-zinc-600 md:text-right font-black uppercase tracking-widest">© 2026 MIRACLE WEALTH.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/917972053045" target="_blank" class="whatsapp-float transition-all hover:scale-110">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+  <script>
+    const header = document.getElementById("header");
+    const onScroll = () => {
+      if (window.scrollY > 50) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+
+    const revealEls = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach((el) => io.observe(el));
+  </script>
+</body>
+
+</html>
