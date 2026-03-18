@@ -60,54 +60,76 @@
 </head>
 
 <body class="bg-base text-main font-body antialiased overflow-x-hidden">
-  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300">
+  
+  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
       <a href="index.html" class="flex items-center gap-3">
         <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto md:h-20 lg:h-24" />
       </a>
 
       <nav class="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="calculators.html" class="nav-link">Calculators</a>
-        <a href="conact.html" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link font-['Inter']">Home</a>
+        <a href="about.html" class="nav-link font-['Inter']">About</a>
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 cursor-pointer font-['Inter']">Services <ion-icon name="chevron-down-outline"></ion-icon></button>
+          <div class="absolute left-0 top-full mt-2 hidden w-64 flex-col rounded-xl border border-zinc-800 bg-zinc-900 p-2 shadow-xl group-hover:flex">
+            <a href="wealth-management.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Wealth Management</a>
+            <a href="retirement-planning.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Retirement Planning</a>
+            <a href="lamf.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Loan Against Mutual Funds</a>
+            <a href="maternity-insurance-service.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Maternity Health Insurance</a>
+            <a href="comprehensive-health-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Comprehensive Health Insurance</a>
+            <a href="term-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Term Insurance</a>
+            <a href="claim-settlement.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Claim Settlement Assistance</a>
+          </div>
+        </div>
+        <a href="calculators.html" class="nav-link font-['Inter']">Calculators</a>
+        <a href="contact.html" class="nav-link font-['Inter']">Contact</a>
       </nav>
 
       <div class="hidden items-center gap-3 lg:flex">
-        <a href="tel:7972053045" class="btn-secondary">7972053045</a>
-        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary" target="_blank">Book a Call</a>
+        <a href="tel:+917972053045" class="btn-secondary rounded-lg px-4 py-2 border border-zinc-700 font-['Inter']">+91 7972053045</a>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="btn-primary rounded-lg px-4 py-2 bg-purple-600 text-white font-['Inter']" target="_blank">Book a Call</a>
       </div>
 
       <button id="mobileMenuBtn"
         class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-100 lg:hidden"
         aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg id="menuIconOpen" class="h-5 w-5 transition-transform duration-300" fill="none" stroke="currentColor"
-          viewBox="0 0 24 24">
+        <svg id="menuIconOpen" class="h-5 w-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-        <svg id="menuIconClose" class="h-5 w-5 hidden transition-transform duration-300 rotate-90" fill="none"
-          stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="menuIconClose" class="h-5 w-5 hidden transition-transform duration-300 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
 
     <div id="mobileMenu"
-      class="mobile-menu hidden absolute top-full left-0 w-full border-t border-zinc-800 shadow-2xl lg:hidden">
+      class="mobile-menu hidden absolute top-full left-0 w-full border-t border-zinc-800 bg-zinc-900 shadow-2xl lg:hidden">
       <nav class="mx-auto flex max-w-7xl flex-col space-y-4 px-6 py-6 text-base">
-        <a href="index.html" class="mobile-link block font-medium">Home</a>
-        <a href="about.html" class="mobile-link block font-medium">About</a>
-        <a href="services.html" class="mobile-link block font-medium">Services</a>
-        <a href="calculators.html" class="mobile-link block font-medium">Calculators</a>
-        <a href="conact.html" class="mobile-link block font-medium">Contact</a>
-        <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6">
-          <a href="tel:7972053045" class="btn-secondary text-center">7972053045</a>
-          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g-1r6k8rv" class="btn-primary text-center" target="_blank">Book a Call</a>
+        <a href="index.html" class="mobile-link block font-medium font-['Inter'] text-zinc-100">Home</a>
+        <a href="about.html" class="mobile-link block font-medium font-['Inter'] text-zinc-100">About</a>
+        <div class="space-y-3">
+          <div class="font-medium text-zinc-100 font-['Inter']">Services</div>
+          <div class="ml-4 flex flex-col space-y-3 text-sm border-l border-zinc-700 pl-4">
+            <a href="wealth-management.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Wealth Management</a>
+            <a href="retirement-planning.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Retirement Planning</a>
+            <a href="lamf.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Loan Against Mutual Funds</a>
+            <a href="maternity-insurance-service.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Maternity Health Insurance</a>
+            <a href="comprehensive-health-insurance.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Comprehensive Health Insurance</a>
+            <a href="term-insurance.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Term Insurance</a>
+            <a href="claim-settlement.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Claim Settlement Assistance</a>
+          </div>
+        </div>
+        <a href="calculators.html" class="mobile-link block font-medium font-['Inter'] text-zinc-100">Calculators</a>
+        <a href="contact.html" class="mobile-link block font-medium font-['Inter'] text-zinc-100">Contact</a>
+        <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6 font-['Inter']">
+          <a href="tel:+917972053045" class="btn-secondary text-center rounded-lg px-4 py-2 border border-zinc-700 text-zinc-100">+91 7972053045</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="btn-primary text-center rounded-lg px-4 py-2 bg-purple-600 text-white" target="_blank">Book a Call</a>
         </div>
       </nav>
     </div>
   </header>
+
 
   <main>
     <!-- HERO SECTION -->
@@ -127,8 +149,8 @@
           <span>✅ No Resolution = No Fee. We work for your outcome.</span>
         </div>
         <div class="flex flex-wrap gap-4">
-          <a href="https://miraclewealth.vercel.app/conact.html" class="btn-primary bg-gold border-gold text-white font-black px-10">📞 Request Free Review</a>
-          <a href="https://wa.me/917972053045" class="btn-secondary px-8 font-bold" target="_blank">💬 WhatsApp Experts</a>
+          <a href="https://miraclewealth.vercel.app/contact.html" class="btn-primary bg-gold border-gold text-white font-black px-10">📞 Request Free Review</a>
+          <a href="https://wa.me/+917972053045" class="btn-secondary px-8 font-bold" target="_blank">💬 WhatsApp Experts</a>
         </div>
       </div>
     </section>
@@ -213,7 +235,7 @@
             <h4 class="font-heading text-2xl text-white mb-3">Act Before the Window Closes ⏰</h4>
             <p class="text-zinc-400 text-sm leading-relaxed">There is a strict limit to challenge a claim rejection — typically 1 year for Ombudsman and 2 years for Consumer Court. Every day of delay weakens your case.</p>
           </div>
-          <a href="https://miraclewealth.vercel.app/conact.html" class="btn-primary bg-gold border-gold text-white font-black px-12 py-4 shadow-gold/20">ACT NOW →</a>
+          <a href="https://miraclewealth.vercel.app/contact.html" class="btn-primary bg-gold border-gold text-white font-black px-12 py-4 shadow-gold/20">ACT NOW →</a>
         </div>
       </div>
     </section>
@@ -373,7 +395,7 @@
                 <p class="text-zinc-300 text-sm leading-relaxed max-w-3xl mx-auto">
                     ₹38,000 is not a large number. But a wrongful rejection is a wrongful rejection. We worked for nine months because our client deserved justice. Client satisfaction is our only metric.
                 </p>
-                <a href="https://miraclewealth.vercel.app/conact.html" class="mt-8 btn-primary bg-zinc-800 text-white border-zinc-700 font-black px-12 inline-block">SHARE YOUR CASE WITH US</a>
+                <a href="https://miraclewealth.vercel.app/contact.html" class="mt-8 btn-primary bg-zinc-800 text-white border-zinc-700 font-black px-12 inline-block">SHARE YOUR CASE WITH US</a>
             </div>
           </div>
         </div>
@@ -429,62 +451,108 @@
           Your policy was a promise. If that promise was broken through rejection or underpayment — you have rights. Let us exercise them for you.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://miraclewealth.vercel.app/conact.html" class="btn-primary bg-gold border-gold px-12 py-5 text-lg text-white font-black" target="_blank">📞 Free Case Review</a>
-          <a href="https://wa.me/917972053045" class="btn-secondary px-12 py-5 text-lg" target="_blank">💬 WhatsApp Experts</a>
+          <a href="https://miraclewealth.vercel.app/contact.html" class="btn-primary bg-gold border-gold px-12 py-5 text-lg text-white font-black" target="_blank">📞 Free Case Review</a>
+          <a href="https://wa.me/+917972053045" class="btn-secondary px-12 py-5 text-lg" target="_blank">💬 WhatsApp Experts</a>
         </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer-dark border-t border-zinc-900 px-6 py-12 lg:px-8">
-    <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 text-center md:text-left">
+  
+  <footer class="footer-dark border-t border-zinc-800 px-6 py-12 lg:px-8 bg-zinc-900" style="margin-top:0;">
+    <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 bg-zinc-950">
       <div class="grid gap-10 md:grid-cols-12">
-        <div class="md:col-span-5">
-          <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto mb-6 mx-auto md:mx-0" />
-          <div class="mt-6 flex flex-col gap-3 items-center md:items-start text-xs border-zinc-800">
-            <a href="tel:7972053045" class="social-pill"><ion-icon name="call-outline"></ion-icon>7972053045</a>
-            <a href="mailto:miraclewealth.in@gmail.com" class="social-pill"><ion-icon name="mail-outline"></ion-icon>miraclewealth.in@gmail.com</a>
+        <div class="md:col-span-6 lg:col-span-5 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-24 md:h-32 w-auto" />
+          <div class="flex flex-col gap-3 font-['Inter']">
+            <a href="tel:+917972053045" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2"><ion-icon name="call-outline"></ion-icon>+91 7972053045</a>
+            <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
           </div>
         </div>
 
-        <div class="md:col-span-3">
-          <h4 class="font-semibold text-zinc-100 uppercase tracking-widest text-[10px]">Portal</h4>
-          <ul class="mt-4 space-y-2 text-[11px] text-zinc-400">
-            <li><a class="footer-link hover:text-gold" href="index.html">Home</a></li>
-            <li><a class="footer-link hover:text-gold" href="about.html">About Us</a></li>
-            <li><a class="footer-link hover:text-gold" href="services.html">Services</a></li>
-            <li><a class="footer-link hover:text-gold" href="calculators.html">Calculators</a></li>
-            <li><a class="footer-link hover:text-gold" href="conact.html">Contact</a></li>
+        <div class="md:col-span-2 lg:col-span-3 font-['Inter']">
+          <h4 class="font-semibold text-zinc-100">Quick Links</h4>
+          <ul class="mt-4 space-y-2 text-sm text-zinc-300">
+            <li><a class="footer-link hover:text-white" href="index.html">Home</a></li>
+            <li><a class="footer-link hover:text-white" href="about.html">About</a></li>
+            <li><a class="footer-link hover:text-white" href="services.html">Services</a></li>
+            <li><a class="footer-link hover:text-white" href="calculators.html">Calculators</a></li>
+            <li><a class="footer-link hover:text-white" href="contact.html">Contact</a></li>
           </ul>
         </div>
 
-        <div class="md:col-span-4">
-          <h4 class="font-semibold text-zinc-100 uppercase tracking-widest text-[10px]">Headquarters</h4>
-          <p class="mt-4 text-[11px] text-zinc-400 leading-relaxed uppercase tracking-tighter">Ensaara Metropark, Pipla Road, Nagpur, 440034</p>
-          <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-2">
-            <a href="https://www.linkedin.com/in/swapnil-asati/" target="_blank" class="social-pill text-lg"><ion-icon name="logo-linkedin"></ion-icon></a>
-            <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" class="social-pill text-lg"><ion-icon name="logo-instagram"></ion-icon></a>
-            <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" class="social-pill text-lg"><ion-icon name="logo-youtube"></ion-icon></a>
+        <div class="md:col-span-4 lg:col-span-4 font-['Inter']">
+          <h4 class="font-semibold text-zinc-100">Connect</h4>
+          <p class="mt-4 text-sm text-zinc-300">Email: miraclewealth.in@gmail.com</p>
+          <p class="text-sm text-zinc-300">Location: Ensaara Metropark, Pipla-Kharsoli Road, Pipla, Nagpur, Maharashtra, India – 440034</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm text-zinc-300">
+            <a href="https://www.youtube.com/@SimplifyWithSwapnil" target="_blank" rel="noopener" class="social-pill bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2 hover:bg-zinc-700"><ion-icon name="logo-youtube"></ion-icon>YouTube</a>
+            <a href="https://www.instagram.com/simplifywithswapnil/" target="_blank" rel="noopener" class="social-pill bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2 hover:bg-zinc-700"><ion-icon name="logo-instagram"></ion-icon>Instagram</a>
+            <a href="https://www.linkedin.com/in/swapnil-asati/" target="_blank" rel="noopener" class="social-pill bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2 hover:bg-zinc-700"><ion-icon name="logo-linkedin"></ion-icon>LinkedIn</a>
           </div>
+          <a href="privacy-policy.html" class="mt-6 inline-block text-sm text-zinc-400 hover:text-zinc-200">Privacy Policy</a>
         </div>
       </div>
 
-      <div class="mt-12 grid gap-6 border-t border-zinc-900 pt-6 md:grid-cols-12 items-center">
-        <p class="md:col-span-9 text-[9px] text-zinc-500 leading-relaxed italic">
-          Miracle Wealth assist in claim disputes systematically. We do not guarantee 100% case success. Outcomes are subject to facts, regulations, and relevant authorities. Success involves persistent legal/regulatory pursuit.
+      <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center font-['Inter']">
+        <p class="md:col-span-9 text-xs leading-relaxed text-zinc-300">
+          We are not a SEBI-registered investment advisor. We facilitate mutual funds (as per AMFI guidelines) &amp;
+          insurance distribution services (as per IRDAI guidelines). Investments in mutual funds are subject to market
+          risks, please read all scheme related documents carefully before investing.
         </p>
-        <p class="md:col-span-3 text-[9px] text-zinc-600 md:text-right font-black">© 2026 MIRACLE WEALTH.</p>
+        <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/917972053045" target="_blank" class="whatsapp-float transition-all hover:scale-110">
+
+  <a href="https://wa.me/+917972053045" target="_blank" class="whatsapp-float transition-all hover:scale-110">
     <ion-icon name="logo-whatsapp"></ion-icon>
   </a>
 
   <script>
     const header = document.getElementById("header");
+
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    const menuIconOpen = document.getElementById("menuIconOpen");
+    const menuIconClose = document.getElementById("menuIconClose");
+
+    const toggleMenu = (forceClose = false) => {
+      if (!mobileMenu || !mobileMenuBtn) return;
+      const isHidden = mobileMenu.classList.contains("hidden");
+      if (forceClose && isHidden) return;
+
+      const willBeHidden = forceClose ? true : !isHidden;
+
+      if (willBeHidden) {
+        mobileMenu.classList.add("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        if(menuIconClose) menuIconClose.classList.add("hidden", "rotate-90");
+        if(menuIconClose) menuIconClose.classList.remove("rotate-0");
+        if(menuIconOpen) menuIconOpen.classList.remove("hidden");
+        if(menuIconOpen) menuIconOpen.classList.add("rotate-0");
+      } else {
+        mobileMenu.classList.remove("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        if(menuIconOpen) menuIconOpen.classList.add("hidden");
+        if(menuIconOpen) menuIconOpen.classList.remove("rotate-0");
+        if(menuIconClose) menuIconClose.classList.remove("hidden", "rotate-90");
+        if(menuIconClose) menuIconClose.classList.add("rotate-0");
+      }
+    };
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", () => toggleMenu());
+    }
+    if (mobileLinks) {
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", () => toggleMenu(true));
+        });
+    }
+
     const onScroll = () => {
       if (window.scrollY > 50) header.classList.add("header-scrolled");
       else header.classList.remove("header-scrolled");

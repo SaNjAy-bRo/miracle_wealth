@@ -134,6 +134,7 @@ h6 {
   overflow: hidden;
   isolation: isolate;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
 }
 
 .btn-primary::before {
@@ -319,6 +320,7 @@ h6 {
   padding: 1px;
   background: linear-gradient(135deg, rgba(108, 64, 209, 0.42), rgba(214, 74, 154, 0.26), rgba(229, 141, 46, 0.18));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0.58;
@@ -522,6 +524,7 @@ h6 {
   padding: 1px;
   background: linear-gradient(130deg, rgba(108, 64, 209, 0.2), rgba(214, 74, 154, 0.15), rgba(229, 141, 46, 0.12));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0.3;
@@ -777,11 +780,13 @@ h6 {
 }
 
 .testimonial-card {
-  min-width: calc(100% / var(--visible-cards, 1));
+  flex: 0 0 calc(100% / var(--visible-cards, 1));
+  width: calc(100% / var(--visible-cards, 1));
   border: 1px solid #d9dee7;
   border-radius: 0.95rem;
   background: #ffffff;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .stars {
