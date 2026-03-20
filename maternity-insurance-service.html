@@ -56,7 +56,7 @@
         <a href="about.html" class="nav-link font-['Inter']">About</a>
         <div class="relative group">
           <button class="nav-link flex items-center gap-1 cursor-pointer font-['Inter']">Services <ion-icon name="chevron-down-outline"></ion-icon></button>
-          <div class="absolute left-0 top-full mt-2 hidden w-64 flex-col rounded-xl border border-zinc-800 bg-zinc-900 p-2 shadow-xl group-hover:flex">
+          <div class="absolute left-0 top-full hidden w-64 flex-col rounded-xl border border-zinc-800 bg-zinc-900 p-2 pt-2 shadow-xl group-hover:flex">
             <a href="wealth-management.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Wealth Management</a>
             <a href="retirement-planning.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Retirement Planning</a>
             <a href="lamf.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Loan Against Mutual Funds</a>
@@ -365,58 +365,153 @@
         </div>
       </div>
     </section>
-    <!-- REVIEWS -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mb-16" data-reveal>
-          <span class="text-pink-400 font-semibold tracking-widest uppercase text-sm">Case Studies</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">Families We've <span class="gold-gradient-text">Protected</span></h2>
-          <p class="mt-6 text-lg text-zinc-300 leading-relaxed">Rated 5 stars on Google by our PAN India clients who trusted Miracle Wealth with their family's health.</p>
+    <!-- REVIEWS — Trustindex-style Google Widget -->
+    <section class="px-6 py-20 lg:px-8 border-t border-zinc-200" style="background:#f0ebe3;">
+      <div class="mx-auto max-w-7xl" data-reveal>
+
+        <!-- Carousel wrapper -->
+        <div class="relative">
+          <!-- Left Arrow -->
+          <button onclick="document.getElementById('reviewTrack').scrollBy({left:-320,behavior:'smooth'})"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition-colors hidden md:flex">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+
+          <!-- Review Cards Track -->
+          <div id="reviewTrack" class="flex gap-5 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory" style="scrollbar-width:none;-ms-overflow-style:none;">
+            <style>#reviewTrack::-webkit-scrollbar{display:none;}</style>
+
+            <!-- Card 1: Prince Asati -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">PA</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Prince Asati</p>
+                    <p class="text-zinc-500 text-xs">2 months ago</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">I had a wonderful and seamless experience with miracle wealth for my health insurance. I was looking to port to a better plan and Swapnil and team helped us achieving the same. Thanks for being a valuable advisor.</p>
+            </div>
+
+            <!-- Card 2: Shiksha Lilhare -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-rose-600 flex items-center justify-center text-white font-bold text-sm">SL</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Shiksha Lilhare</p>
+                    <p class="text-zinc-500 text-xs">1 month ago</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">Had a great experience with Miracle Wealth. The entire process was smooth, with clear and well structured guidance at every step. Everything was explained in detail, making the experience stress-free and reliable. Highly recommended.</p>
+            </div>
+
+            <!-- Card 3: Kevin Chawla -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center text-white font-bold text-sm">KC</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Kevin Chawla</p>
+                    <p class="text-zinc-500 text-xs">2 months ago</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">I've had a very positive experience with this health insurance provider. Their plans are well-structured, reasonably priced, and easy to understand, which made enrollment and ongoing use straightforward. Customer support has been responsive and knowledgeable...</p>
+              <a href="https://www.google.com/search?q=Miracle+Wealth+Reviews" target="_blank" class="text-blue-600 text-sm font-semibold mt-2 hover:underline">Read more</a>
+            </div>
+
+            <!-- Card 4: Shivam Gupta -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-zinc-500 flex items-center justify-center text-white font-bold text-sm">S</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Shivam Gupta</p>
+                    <p class="text-zinc-500 text-xs">12 Jan 2026</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">My complete experience from start to end was wonderful. It was a seamless experience. Thanks to Swapnil and the team for the support throughout the process.</p>
+            </div>
+
+            <!-- Card 5: Chiraag Punjabi -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm">C</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Chiraag Punjabi</p>
+                    <p class="text-zinc-500 text-xs">11 Jan 2026</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">I took health insurance from Miracle wealth, and the process was seamless from application to getting the policy in place. Swapnil has been an amazing guy, very much approachable. Kudos to the team and their efforts.</p>
+            </div>
+
+            <!-- Card 6: Shreyash Asati -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">SA</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Shreyash Asati</p>
+                    <p class="text-zinc-500 text-xs">24 Jan 2026</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">It's it overwhelming the recommendations and the help he provided is excellent I have been connected with him for over 2 years now and the advice he gives always worked for me so yeah highly recommended</p>
+            </div>
+
+          </div>
+
+          <!-- Right Arrow -->
+          <button onclick="document.getElementById('reviewTrack').scrollBy({left:320,behavior:'smooth'})"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition-colors hidden md:flex">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-pink-500/20" data-reveal>
-            <div class="text-gold text-lg mb-4">★★★★★</div>
-            <p class="text-zinc-300 text-sm leading-relaxed mb-8 italic">"Swapnil sir helped us choose the right plan safely before we planned our family. When the baby arrived, the cashless maternity process at the hospital was completely smooth. We saved ₹1.5 Lacs instantly."</p>
-            <div class="flex items-center gap-3 mt-auto">
-              <div class="w-10 h-10 rounded-full bg-pink-900/10 flex items-center justify-center text-pink-400 font-black">ND</div>
-              <div>
-                <p class="text-white text-xs font-bold font-heading">Neha Deshpande</p>
-                <p class="text-zinc-500 text-[10px] uppercase">Maternity Cover · Nagpur</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group border-pink-500/20" data-reveal>
-            <div class="text-gold text-lg mb-4">★★★★★</div>
-            <p class="text-zinc-300 text-sm leading-relaxed mb-8 italic">"My claim was initially delayed due to a documentation error. Swapnil sir personally took it up, wrote to the company, and got it fully approved within days. That level of support is something you simply cannot get from online portals."</p>
-            <div class="flex items-center gap-3 mt-auto">
-              <div class="w-10 h-10 rounded-full bg-pink-900/10 flex items-center justify-center text-pink-400 font-black">PS</div>
-              <div>
-                <p class="text-white text-xs font-bold font-heading">Priya Shinde</p>
-                <p class="text-zinc-500 text-[10px] uppercase">Claim Support · Mumbai</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-pink-500/20" data-reveal>
-            <div class="text-gold text-lg mb-4">★★★★★</div>
-            <p class="text-zinc-300 text-sm leading-relaxed mb-8 italic">"As someone who had no idea about maternity wait-periods, Swapnil sir made everything crystal clear. He compared 5 policies, explained the fine print, and helped us pick the best one. Absolutely trustworthy."</p>
-            <div class="flex items-center gap-3 mt-auto">
-              <div class="w-10 h-10 rounded-full bg-pink-900/10 flex items-center justify-center text-pink-400 font-black">AM</div>
-              <div>
-                <p class="text-white text-xs font-bold font-heading">Anjali Mohite</p>
-                <p class="text-zinc-500 text-[10px] uppercase">Planned Protect · Pune</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-12 text-center" data-reveal>
-          <a href="https://www.google.com/search?q=Miracle+Wealth+Reviews" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 text-sm hover:bg-zinc-800 transition-colors">
-            <img src="https://www.google.com/favicon.ico" class="w-4 h-4 grayscale opacity-50" alt="Google">
-            View 150+ Reviews on Google
-          </a>
+        <!-- Trustindex-style Rating Footer -->
+        <div class="mt-10 text-center">
+          <p class="text-zinc-600 text-sm">
+            <span class="font-bold text-zinc-800">Google</span> rating score:
+            <span class="font-bold text-zinc-900">5.0</span> of 5, based on
+            <a href="https://www.google.com/search?q=Miracle+Wealth+Reviews" target="_blank" class="font-bold text-blue-600 underline hover:text-blue-700">150+ reviews</a>
+          </p>
         </div>
       </div>
     </section>
@@ -557,9 +652,7 @@
 
       <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center font-['Inter']">
         <p class="md:col-span-9 text-xs leading-relaxed text-zinc-300">
-          We are not a SEBI-registered investment advisor. We facilitate mutual funds (as per AMFI guidelines) &amp;
-          insurance distribution services (as per IRDAI guidelines). Investments in mutual funds are subject to market
-          risks, please read all scheme related documents carefully before investing.
+          Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) &amp; an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms &amp; conditions carefully before concluding a sale. | <a href="privacy-policy.html" class="underline hover:text-zinc-100">Privacy Policy</a>.
         </p>
         <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
       </div>
