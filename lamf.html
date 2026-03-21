@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loan Against Mutual Funds (LAMF) | Miracle Wealth</title>
+  <title>Loan Against Mutual Funds | Miracle Wealth</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,14 +13,6 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            teal: {
-              400: '#2dd4bf',
-              500: '#14b8a6',
-              600: '#0d9488',
-              900: '#134e4a',
-            }
-          },
           fontFamily: {
             heading: ["Cormorant Garamond", "serif"],
             body: ["Inter", "sans-serif"],
@@ -34,21 +26,514 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .font-garamond { font-family: 'Cormorant Garamond', serif; }
-    .text-gold { color: #f59e0b; }
-    .bg-dark-section { background-color: #050505; }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #d97706; 
+      --gold-light:  #fbbf24;
+      --gold-pale:   #fef3c7; 
+      --purple:      #7b5ac8; 
+      --purple-light:#8b5cf6; 
+      --pink:        #d946ef; 
+      --cream:       #f7f8fb; 
+      --warm-bg:     #eef1f5; 
+      --card-bg:     #ffffff; 
+      --border:      #e5e7eb; 
+      --text-dark:   #101218; 
+      --text-mid:    #4b5563; 
+      --text-soft:   #6b7280; 
+      --lavender-bg: #f5f3ff; 
+      --gradient-hero: radial-gradient(circle at right center, rgba(167, 139, 250, 0.12) 0%, #0a0b10 70%);
+      --gradient-primary: linear-gradient(135deg, #7b5ac8 0%, #d64a9a 100%);
     }
-    .teal-gradient-text {
-      background: linear-gradient(135deg, #2dd4bf, #0d9488);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.65; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { padding: 0.75rem 5%; font-size: 0.8rem; color: var(--text-soft); background: var(--warm-bg); border-bottom: 1px solid var(--border); }
+    .breadcrumb a { color: var(--purple); text-decoration: none; }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 4.5rem 5%; }
+    section.alt { background: var(--warm-bg); }
+    section.lavender { background: var(--lavender-bg); }
+    .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--text-dark); line-height: 1.15; margin-bottom: 0.8rem; }
+    .section-title .accent { color: var(--purple); }
+    .section-title .accent-gold { color: var(--gold); }
+    .section-sub { font-size: 0.98rem; color: var(--text-mid); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.7; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--gradient-hero);
+      background-color: #0a0b10;
+      padding: 10.5rem 5% 5.5rem;
+      position: relative; overflow: hidden;
     }
-  </style>
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 900px; position: relative; z-index: 1; text-align: left; }
+    .hero-badge {
+      display: flex; width: max-content; align-items: center; gap: 0.5rem;
+      background: var(--gradient-primary); border: none;
+      color: #ffffff; border-radius: 50px; padding: 0.4rem 1.2rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700; line-height: 1.15; color: #ffffff; margin-bottom: 1.2rem; letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold-light); }
+    .hero h1 .gold { color: var(--gold-light); }
+    .hero-sub { font-size: 1.05rem; color: #9ca3af; margin-bottom: 2rem; max-width: 600px; line-height: 1.75; }
+    .hero-sub em { font-style: normal; font-weight: 700; color: #f3f4f6; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start; }
+    .btn-primary {
+      background: var(--gradient-primary); color: #fff; border: none; border-radius: 50px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,90,200,0.3); }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05); color: #e5e7eb;
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+    .hero-stat-row {
+      display: flex; justify-content: flex-start; gap: 4rem; flex-wrap: wrap; margin-top: 3.5rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08);
+      width: 100%;
+    }
+    .hero-stat strong { display: block; font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 700; color: #d8b4fe; }
+    .hero-stat span { font-size: 0.75rem; color: #9ca3af; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── BLUNDERS ── */
+    .blunders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 0.5rem; }
+    .blunder-card { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      background: var(--card-bg); border-radius: 16px;
+      border: 1.5px solid var(--border); padding: 1.5rem 1.6rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .blunder-card::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(180deg, #E8B84B, #D6407A);
+    }
+    .blunder-card:hover { border-color: var(--gold); box-shadow: 0 6px 24px rgba(200,146,42,0.12); transform: translateY(-2px); }
+    .blunder-num {
+      min-width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-pale); color: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; flex-shrink: 0;
+    }
+    .blunder-card h4 { font-size: 0.97rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .blunder-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.55; }
+    .blunder-full { grid-column: 1 / -1; }
+    .blunder-quote {
+      margin-top: 1.8rem; grid-column: 1/-1;
+      background: linear-gradient(135deg, var(--gold-pale), #F9EEFF);
+      border-left: 4px solid var(--gold); border-radius: 12px;
+      padding: 1.2rem 1.5rem; font-size: 1rem; color: var(--text-mid);
+      font-style: italic;
+    }
+
+    /* ── STUCK SECTION ── */
+    .stuck-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .stuck-card { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      background: var(--card-bg); border-radius: 18px; padding: 2rem 1.5rem;
+      text-align: center; border: 1px solid var(--border);
+      transition: all 0.22s; position: relative; overflow: hidden;
+    }
+    .stuck-card:hover { box-shadow: 0 8px 32px rgba(91,62,190,0.1); transform: translateY(-3px); }
+    .stuck-icon { font-size: 2.2rem; margin-bottom: 0.9rem; display: block; }
+    .stuck-card h3 { font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.6rem; }
+    .stuck-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.6; }
+    .stuck-badge {
+      display: inline-block; margin-bottom: 0.8rem; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+    .badge-red { background: #FEE2E2; color: #DC2626; }
+    .badge-orange { background: #FEF3C7; color: #D97706; }
+    .badge-purple { background: var(--lavender-bg); color: var(--purple); }
+    .answer-box {
+      margin-top: 2rem; background: linear-gradient(135deg, var(--lavender-bg), var(--gold-pale));
+      border-radius: 14px; padding: 1.3rem 1.6rem;
+      border-left: 4px solid var(--purple); font-size: 0.95rem; color: var(--text-mid);
+    }
+
+    /* ── RETIREES WANT ── */
+    .wants-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+    .want-card { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      background: var(--card-bg); border-radius: 16px; padding: 1.8rem;
+      border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1.2rem;
+      transition: all 0.2s;
+    }
+    .want-card:hover { box-shadow: 0 6px 24px rgba(200,146,42,0.1); border-color: var(--gold); }
+    .want-icon-box {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      background: var(--gold-pale); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    }
+    .want-card h4 { font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .want-card p { font-size: 0.87rem; color: var(--text-mid); }
+
+    /* ── FRAMEWORK (4 steps) ── */
+    .framework-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .framework-steps::before {
+      content: ''; position: absolute; top: 32px; left: 8%; right: 8%; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--purple), var(--pink));
+      z-index: 0;
+    }
+    .step-item { text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+    .step-dot {
+      width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1.2rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; box-shadow: 0 4px 16px rgba(200,146,42,0.3);
+      border: 3px solid var(--card-bg);
+    }
+    .step-item h4 { font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .step-item p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; }
+    .framework-note {
+      margin-top: 2.5rem; background: var(--card-bg); border-radius: 12px;
+      padding: 1.2rem 1.6rem; border-left: 4px solid var(--gold);
+      font-size: 0.95rem; color: var(--text-mid); font-style: italic;
+      box-shadow: 0 2px 12px rgba(200,146,42,0.08);
+    }
+
+    .futures-scenario-line {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+      font-weight: 700; color: var(--gold);
+      background: rgba(200,146,42,0.09);
+      border: 1.5px solid rgba(200,146,42,0.3);
+      border-radius: 10px; display: inline-block;
+      padding: 0.6rem 1.4rem; margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── THREE FUTURES (comparison) ── */
+    .futures-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .future-card { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      background: var(--card-bg); border-radius: 18px; padding: 1.8rem;
+      border: 1.5px solid var(--border); transition: all 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .future-card:hover { transform: translateY(-3px); }
+    .future-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    }
+    .future-card.bad::before { background: linear-gradient(90deg, #EF4444, #F97316); }
+    .future-card.mid::before { background: linear-gradient(90deg, #F59E0B, #FBBF24); }
+    .future-card.good::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+    .future-card.good { border-color: rgba(91,62,190,0.3); background: linear-gradient(180deg, #FDFCFF, #fff); }
+    .future-case { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .future-card.bad .future-case { color: #EF4444; }
+    .future-card.mid .future-case { color: #D97706; }
+    .future-card.good .future-case { color: var(--purple); }
+    .future-card h4 { font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+    .future-point { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.85rem; color: var(--text-mid); margin-bottom: 0.55rem; line-height: 1.5; }
+    .future-point .dot { flex-shrink: 0; margin-top: 0.3rem; width: 8px; height: 8px; border-radius: 50%; }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+    .futures-footer {
+      margin-top: 1.5rem; background: linear-gradient(135deg, var(--lavender-bg), var(--gold-pale));
+      border-radius: 12px; padding: 1.1rem 1.4rem;
+      font-size: 0.92rem; color: var(--text-mid); border-left: 4px solid var(--purple);
+    }
+
+    /* ── MISTAKES TABLE ── */
+    .table-scroll { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: #fff; }
+    thead th { padding: 1rem 1.2rem; font-size: 0.85rem; font-weight: 600; text-align: left; }
+    tbody tr { background: var(--card-bg); border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:hover { background: var(--gold-pale); }
+    tbody tr:nth-child(even) { background: #FAFAF7; }
+    tbody tr:nth-child(even):hover { background: var(--gold-pale); }
+    tbody td { padding: 0.9rem 1.2rem; font-size: 0.85rem; color: var(--text-dark); }
+    tbody td:first-child { font-weight: 500; color: var(--text-mid); font-size: 0.82rem; }
+    .tag-red { display: inline-block; background: #FEE2E2; color: #DC2626; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem; font-weight: 600; }
+    .tag-green { display: inline-block; background: #D1FAE5; color: #065F46; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem; font-weight: 600; }
+    .tag-amber { display: inline-block; background: #FEF3C7; color: #92400E; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem; font-weight: 600; }
+
+    /* ── WHY US ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .why-card { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      background: var(--card-bg); border-radius: 16px; padding: 1.6rem;
+      border: 1px solid var(--border); transition: all 0.22s;
+    }
+    .why-card:hover { border-color: var(--purple); box-shadow: 0 6px 24px rgba(91,62,190,0.1); transform: translateY(-2px); }
+    .why-emoji { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+    .why-card h4 { font-size: 0.97rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--gradient-primary);
+      padding: 5.5rem 5%; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,146,42,0.2) 0%, transparent 70%);
+    }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .cta-section h2 .gold { color: var(--gold-light); }
+    .cta-section p { font-size: 1rem; opacity: 0.82; margin-bottom: 2.2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--text-dark);
+      border: none; border-radius: 10px; padding: 0.95rem 2.5rem;
+      font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none;
+      display: inline-block; transition: all 0.22s; box-shadow: 0 6px 24px rgba(200,146,42,0.4);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,146,42,0.5); }
+    .cta-trust {
+      margin-top: 1.8rem; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+    }
+    .trust-item { font-size: 0.82rem; opacity: 0.7; display: flex; align-items: center; gap: 0.4rem; }
+
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      background: #0F0D04; color: #6B6050;
+      text-align: center; padding: 1.2rem 5%;
+      font-size: 0.78rem; line-height: 1.6;
+    }
+    .footer-note a { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .framework-steps { grid-template-columns: repeat(2,1fr); gap: 2rem; }
+      .framework-steps::before { display: none; }
+      .futures-grid, .stuck-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .blunders-grid, .wants-grid, .why-grid { grid-template-columns: 1fr; }
+      .blunder-full { grid-column: 1; }
+      .hero-stat-row { gap: 1.2rem; }
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner > * { animation: fadeUp 0.65s ease both; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.2s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.3s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.4s; }
+  
+/* --- LAMF SPECIFIC CSS --- */
+
+    
+
+    
+
+    
+    
+
+    /* ── BREADCRUMB ── */
+    
+    
+
+    /* ── SHARED ── */
+    
+    
+    
+    
+    
+    .
+    .
+    .
+    .
+    .
+    .
+
+    /* ── PROBLEM SECTION ── */
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .problem-left h3 { font-family: 'Inter', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; }
+    .goal-list { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.2rem; }
+    .goal-item { display: flex; align-items: center; gap: 0.7rem; font-size: 0.9rem; color: var(--text-mid); padding: 0.6rem 0.9rem; background: #fff; border-radius: 10px; border: 1px solid var(--border); }
+    .goal-item .goal-icon { font-size: 1.1rem; }
+    .disruption-box { background: #FEF2F2; border: 1.5px solid #FECACA; border-radius: 14px; padding: 1.2rem 1.4rem; }
+    .disruption-box h4 { color: #DC2626; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .disruption-box p { font-size: 0.87rem; color: #7F1D1D; line-height: 1.6; }
+    .disruption-list { margin-top: 0.6rem; }
+    .disruption-list li { font-size: 0.85rem; color: #991B1B; margin-left: 1rem; margin-bottom: 0.25rem; }
+    .solution-box { background: linear-gradient(135deg, var(--lavender-bg), #E0F2FE); border: 1.5px solid rgba(123,90,200,0.25); border-radius: 14px; padding: 1.5rem; }
+    .solution-box h4 { color: var(--purple); font-family: 'Inter', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .solution-point { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.7rem; font-size: 0.9rem; color: var(--text-mid); }
+    .solution-point .check { color: var(--purple); font-size: 1rem; margin-top: 0.1rem; flex-shrink: 0; }
+
+    /* ── WHAT IS LAMF (key stats) ── */
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+    .stat-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.5rem 1.2rem;
+      text-align: center; border: 1px solid var(--border);
+      transition: all 0.22s; position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
+    .stat-card:hover { box-shadow: 0 6px 24px rgba(123,90,200,0.12); transform: translateY(-2px); }
+    .stat-num { font-family: 'Inter', serif; font-size: 2.2rem; font-weight: 700; color: var(--purple); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.82rem; color: var(--text-mid); font-weight: 500; }
+    .stat-note { font-size: 0.75rem; color: var(--text-soft); margin-top: 0.3rem; }
+
+    /* ── HOW IT WORKS ── */
+    .steps-flow { display: flex; align-items: flex-start; gap: 0; position: relative; margin-bottom: 2rem; }
+    .step-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+    .step-wrap:not(:last-child)::after {
+      content: '→'; position: absolute; top: 22px; right: -12px;
+      color: var(--purple); font-size: 1.2rem; font-weight: 700; z-index: 2;
+    }
+    .step-circle {
+      width: 48px; height: 48px; border-radius: 50%; margin-bottom: 0.9rem;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; box-shadow: 0 4px 14px rgba(123,90,200,0.3);
+    }
+    .step-wrap h4 { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .step-wrap p { font-size: 0.78rem; color: var(--text-mid); line-height: 1.5; max-width: 110px; }
+    .highlight-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem;
+    }
+    .hl-card {
+      background: var(--card-bg); border-radius: 14px; padding: 1.3rem;
+      text-align: center; border: 1px solid var(--border);
+    }
+    .hl-icon { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
+    .hl-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .hl-card p { font-size: 0.82rem; color: var(--text-mid); }
+
+    /* ── USE CASES ── */
+    .usecases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+    .usecase-card {
+      background: var(--card-bg); border-radius: 18px; padding: 1.8rem;
+      border: 1px solid var(--border); display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: all 0.22s; position: relative; overflow: hidden;
+    }
+    .usecase-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple), var(--purple)); }
+    .usecase-card:hover { box-shadow: 0 8px 28px rgba(123,90,200,0.1); transform: translateY(-2px); }
+    .usecase-icon { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; background: var(--lavender-bg); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .usecase-card h4 { font-family: 'Inter', serif; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .usecase-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.6; }
+    .usecase-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+    .tag { display: inline-block; background: var(--lavender-bg); color: var(--purple); border-radius: 20px; padding: 0.18rem 0.65rem; font-size: 0.73rem; font-weight: 600; }
+
+    /* ── COMPARISON TABLE ── */
+    .comp-wrap { overflow-x: auto; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .comp-table { width: 100%; border-collapse: collapse; }
+    .comp-table thead tr { background: var(--text-dark); color: #fff; }
+    .comp-table thead th { padding: 1rem 1.2rem; font-size: 0.85rem; font-weight: 600; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+    .comp-table thead th:first-child { text-align: left; }
+    .comp-table thead th.highlight-col { background: linear-gradient(135deg, var(--purple), #0F766E); }
+    .comp-table tbody tr { background: var(--card-bg); border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    .comp-table tbody tr:hover { background: var(--lavender-bg); }
+    .comp-table tbody tr:nth-child(even) { background: #F8FFFE; }
+    .comp-table tbody tr:nth-child(even):hover { background: var(--lavender-bg); }
+    .comp-table td { padding: 0.85rem 1.2rem; font-size: 0.85rem; color: var(--text-dark); text-align: center; border-right: 1px solid var(--border); }
+    .comp-table td:first-child { text-align: left; font-weight: 600; color: var(--text-mid); }
+    .comp-table td.highlight-col { background: rgba(123,90,200,0.06); font-weight: 600; color: var(--purple); }
+    .tag-best { display: inline-block; background: #D1FAE5; color: #065F46; border-radius: 6px; padding: 0.15rem 0.55rem; font-size: 0.78rem; font-weight: 700; }
+    .tag-bad { display: inline-block; background: #FEE2E2; color: #DC2626; border-radius: 6px; padding: 0.15rem 0.55rem; font-size: 0.78rem; font-weight: 600; }
+    .tag-mid { display: inline-block; background: #FEF3C7; color: #92400E; border-radius: 6px; padding: 0.15rem 0.55rem; font-size: 0.78rem; font-weight: 600; }
+
+    /* ── INTEREST BAR CHART ── */
+    .bar-chart-wrap { background: var(--card-bg); border-radius: 20px; padding: 2rem; border: 1px solid var(--border); margin-bottom: 1rem; }
+    .bar-chart-title { font-family: 'Inter', serif; font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .bar-chart-sub { font-size: 0.82rem; color: var(--text-soft); margin-bottom: 1.5rem; }
+    .bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .bar-label { width: 180px; font-size: 0.82rem; font-weight: 600; color: var(--text-mid); flex-shrink: 0; }
+    .bar-track { flex: 1; height: 36px; background: #F1F5F9; border-radius: 8px; overflow: hidden; position: relative; }
+    .bar-fill { height: 100%; border-radius: 8px; display: flex; align-items: center; padding-right: 0.8rem; justify-content: flex-end; transition: width 1s ease; }
+    .bar-fill span { font-size: 0.82rem; font-weight: 700; color: #fff; white-space: nowrap; }
+    .bar-fill.best { background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
+    .bar-fill.good { background: linear-gradient(90deg, #0891B2, #38BDF8); }
+    .bar-fill.warn { background: linear-gradient(90deg, #F59E0B, #FCD34D); }
+    .bar-fill.bad { background: linear-gradient(90deg, #EF4444, #F87171); }
+    .savings-badges { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 1rem; }
+    .savings-badge { background: linear-gradient(135deg, var(--lavender-bg), #E0F2FE); border: 1px solid rgba(123,90,200,0.2); border-radius: 12px; padding: 1rem 1.3rem; text-align: center; flex: 1; min-width: 160px; }
+    .savings-badge strong { display: block; font-family: 'Inter', serif; font-size: 2rem; font-weight: 700; color: var(--purple); }
+    .savings-badge span { font-size: 0.78rem; color: var(--text-mid); }
+
+    /* ── GROWTH IMPACT ── */
+    .growth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .growth-visual { background: var(--card-bg); border-radius: 20px; padding: 2rem; border: 1px solid var(--border); }
+    .growth-chart-bars { display: flex; align-items: flex-end; justify-content: center; gap: 3rem; height: 160px; margin-bottom: 1rem; }
+    .growth-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .growth-bar { width: 70px; border-radius: 10px 10px 0 0; position: relative; display: flex; align-items: flex-start; justify-content: center; padding-top: 0.4rem; }
+    .growth-bar span { font-size: 0.8rem; font-weight: 700; color: #fff; }
+    .bar-redeemed { height: 60px; background: linear-gradient(180deg, #EF4444, #FCA5A5); }
+    .bar-invested { height: 160px; background: linear-gradient(180deg, var(--purple), var(--purple-light)); }
+    .growth-bar-label { font-size: 0.8rem; color: var(--text-mid); font-weight: 600; text-align: center; }
+    .growth-info h4 { font-family: 'Inter', serif; font-size: 1.6rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
+    .growth-point { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.9rem; font-size: 0.9rem; color: var(--text-mid); padding: 0.9rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); }
+    .growth-point .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 0.3rem; }
+    .growth-point strong { display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .net-gain-box { background: linear-gradient(135deg, var(--lavender-bg), #E0F2FE); border-radius: 14px; padding: 1.2rem; margin-top: 0.5rem; text-align: center; border: 1.5px solid rgba(123,90,200,0.25); }
+    .net-gain-box .big { font-family: 'Inter', serif; font-size: 2.2rem; font-weight: 700; color: var(--purple); }
+    .net-gain-box .label { font-size: 0.85rem; color: var(--text-mid); }
+
+    /* ── LTV TABLE ── */
+    .ltv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .ltv-card { background: var(--card-bg); border-radius: 18px; padding: 1.5rem; border: 1px solid var(--border); }
+    .ltv-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--border); }
+    .ltv-row { display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 0; border-bottom: 1px solid var(--border); }
+    .ltv-row:last-child { border-bottom: none; }
+    .ltv-row .name { font-size: 0.88rem; color: var(--text-mid); font-weight: 500; }
+    .ltv-row .pct { font-weight: 700; font-size: 0.95rem; color: var(--purple); }
+    .ltv-track { flex: 1; height: 6px; background: #E2E8F0; border-radius: 4px; margin: 0 1rem; overflow: hidden; }
+    .ltv-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
+    .charges-list { display: flex; flex-direction: column; gap: 0; }
+    .charge-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+    .charge-row:last-child { border-bottom: none; }
+    .charge-row .charge-name { font-size: 0.87rem; color: var(--text-mid); }
+    .charge-row .charge-val { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); }
+    .charge-row .charge-val.green { color: var(--purple); }
+    .charge-row .charge-val.zero { color: #10B981; }
+
+    /* ── FAQs ── */
+    .faq-list { display: flex; flex-direction: column; gap: 0.8rem; }
+    .faq-item { background: var(--card-bg); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+      padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600;
+      color: var(--text-dark); gap: 1rem;
+    }
+    .faq-q:hover { background: var(--lavender-bg); }
+    .faq-arrow { color: var(--purple); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.3s; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+    .faq-a-inner { padding: 0 1.5rem 1.2rem; font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 0.9rem; }
+    .faq-item.open .faq-arrow { transform: rotate(90deg); }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .steps-flow { flex-wrap: wrap; gap: 1.5rem; }
+      .step-wrap:not(:last-child)::after { display: none; }
+      .growth-grid, .ltv-grid, .problem-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .usecases-grid, .highlight-strip { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-stats { flex-direction: column; }
+      nav { padding: 0 4%; }
+    }
+
+    
+</style>
 </head>
 
 <body class="bg-base text-main font-body antialiased overflow-x-hidden">
@@ -64,14 +549,14 @@
         <a href="about.html" class="nav-link font-['Inter']">About</a>
         <div class="relative group">
           <button class="nav-link flex items-center gap-1 cursor-pointer font-['Inter']">Services <ion-icon name="chevron-down-outline"></ion-icon></button>
-          <div class="absolute left-0 top-full hidden w-64 flex-col rounded-xl border border-zinc-800 bg-zinc-900 p-2 pt-2 shadow-xl group-hover:flex">
-            <a href="wealth-management.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Wealth Management</a>
-            <a href="retirement-planning.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Retirement Planning</a>
-            <a href="lamf.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Loan Against Mutual Funds</a>
-            <a href="maternity-insurance-service.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Maternity Health Insurance</a>
-            <a href="comprehensive-health-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Comprehensive Health Insurance</a>
-            <a href="term-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Term Insurance</a>
-            <a href="claim-settlement.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Claim Settlement Assistance</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">Wealth Management</a>
+            <a href="retirement-planning.html" class="dropdown-link">Retirement Planning</a>
+            <a href="lamf.html" class="dropdown-link">Loan Against Mutual Funds</a>
+            <a href="maternity-insurance-service.html" class="dropdown-link">Maternity Health Insurance</a>
+            <a href="comprehensive-health-insurance.html" class="dropdown-link">Comprehensive Health Insurance</a>
+            <a href="term-insurance.html" class="dropdown-link">Term Insurance</a>
+            <a href="claim-settlement.html" class="dropdown-link">Claim Settlement Assistance</a>
           </div>
         </div>
         <a href="calculators.html" class="nav-link font-['Inter']">Calculators</a>
@@ -103,7 +588,7 @@
         <div class="space-y-3">
           <div class="font-medium text-zinc-100 font-['Inter']">Services</div>
           <div class="ml-4 flex flex-col space-y-3 text-sm border-l border-zinc-700 pl-4">
-            <a href="wealth-management.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Wealth Management</a>
+            <a href="index.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Wealth Management</a>
             <a href="retirement-planning.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Retirement Planning</a>
             <a href="lamf.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Loan Against Mutual Funds</a>
             <a href="maternity-insurance-service.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Maternity Health Insurance</a>
@@ -124,588 +609,550 @@
 
 
   <main>
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-52">
-      <div class="hero-grid"></div>
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="mx-auto max-w-7xl" data-reveal>
-        <span class="why-tag mb-6 inline-block bg-teal-900/30 text-teal-400 border-teal-500/30">💡 The Smarter Way to Access Cash</span>
-        <h1 class="font-heading text-5xl leading-tight md:text-6xl lg:text-7xl">Loan Against<br><span class="teal-gradient-text">Mutual Funds</span></h1>
-        <p class="mt-8 max-w-3xl text-lg text-zinc-300 leading-relaxed">
-          Get instant cash against your mutual fund portfolio — without triggering taxes, without exit loads, and without disrupting your long-term wealth goals. Your investments keep growing while you solve your short-term needs.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a href="https://voltmoney.in/check-loan-eligibility-against-mutual-funds?ref=LNUVGB" class="btn-primary bg-teal-600 hover:bg-teal-500 border-teal-500 shadow-teal-500/20" target="_blank">✦ Check Eligibility</a>
-          <a href="https://wa.me/+917972053045" class="btn-secondary">💬 WhatsApp Experts</a>
+<!-- BREADCRUMB -->
+<div class="breadcrumb" style="display: none;">
+  <a href="index.html">Home</a> › <a href="services.html">Services</a> › Loan Against Mutual Funds
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div style="display: block; clear: both; width: 100%; margin-bottom: 1rem;">
+      <span class="hero-badge" style="margin: 0 !important; display: inline-block !important; position: static !important; transform: none !important;">💡 The Smarter Way to Access Cash</span>
+    </div>
+    <div style="display: block; clear: both; width: 100%;">
+      <h1 style="margin-top: 0 !important;">Loan Against<br><span class="gold">Mutual Funds</span></h1>
+    </div>
+    <p class="hero-sub">Get instant cash against your mutual fund portfolio — without triggering taxes, without exit loads, and without disrupting your long-term wealth goals. Your investments keep growing while you solve your short-term needs.</p>
+    <div class="hero-actions">
+      
+      <a href="https://voltmoney.in/check-loan-eligibility-against-mutual-funds?ref=LNUVGB" class="btn-primary" target="_blank">✦ Check Your Eligibility</a>
+      <a href="https://wa.me/917972053045" class="btn-secondary" target="_blank">💬 Connect on WhatsApp</a>
+    
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- PROBLEM STATEMENT -->
+<section>
+  <div class="section-eyebrow">⚠️ The Hidden Cost of Redemption</div>
+  <h2 class="section-title">Every Time You Redeem, <span class="accent">Your Future Pays the Price</span></h2>
+  <p class="section-sub">We invest in mutual funds to reach life's biggest goals. But when short-term cash needs arise, we break our investments — and silently derail everything we were building.</p>
+
+  <div class="problem-grid" style="grid-template-columns:1fr;">
+    <div class="problem-left">
+      <h3>You invested for these goals…</h3>
+      <div class="goal-list" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.6rem;">
+        <div class="goal-item"><span class="goal-icon">📈</span> Wealth Creation</div>
+        <div class="goal-item"><span class="goal-icon">🌅</span> Early Retirement</div>
+        <div class="goal-item"><span class="goal-icon">🎓</span> Child's Education & Marriage</div>
+        <div class="goal-item"><span class="goal-icon">🏠</span> Dream Home</div>
+        <div class="goal-item"><span class="goal-icon">🏛️</span> Legacy Transfer</div>
+      </div>
+      <div class="disruption-box" style="margin-top:1.2rem;">
+        <h4>🚨 But then life happens…</h4>
+        <p>Short-term cash needs force most investors to redeem mutual fund units — permanently disrupting their financial goals.</p>
+        <ul class="disruption-list">
+          <li>You lose future compounding on redeemed units</li>
+          <li>Exit loads reduce the amount you actually receive</li>
+          <li>LTCG/STCG tax is triggered — an avoidable cost</li>
+          <li>Your long-term goal is now underfunded</li>
+        </ul>
+      </div>
+      <div class="solution-box" style="margin-top:1.2rem;">
+        <h4>✦ There's a Smarter Way</h4>
+        <div class="solution-point"><span class="check">✓</span><span>Pledge your MF units as collateral and get an instant credit line — without redeeming a single unit</span></div>
+        <div class="solution-point"><span class="check">✓</span><span>Your investments continue to grow, dividends keep flowing, and you get the cash you need today</span></div>
+        <div class="solution-point"><span class="check">✓</span><span>Pay interest only on the amount you withdraw — not the full credit limit</span></div>
+        <div class="solution-point"><span class="check">✓</span><span>No LTCG/STCG tax. No exit load. No CIBIL impact. No lengthy paperwork</span></div>
+        <div class="solution-point"><span class="check">✓</span><span>Fully digital. Funds in your account within 2-3 hours</span></div>
+        <div style="margin-top:1rem; padding:0.9rem 1rem; background:rgba(123,90,200,0.08); border-radius:10px; font-size:0.88rem; color:var(--purple); font-weight:600;">
+          💡 "We take care of your short-term needs so your long-term goals don't suffer."
         </div>
-        
-        <div class="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-zinc-800 pt-10">
-          <div>
-            <div class="font-heading text-3xl text-teal-400">9.99%*</div>
-            <p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Starting Interest</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS LAMF + KEY STATS -->
+<section class="alt" id="product">
+  <div class="section-eyebrow">At a Glance</div>
+  <h2 class="section-title">Loan Against <span class="accent">Mutual Funds</span> — Key Numbers</h2>
+  <p class="section-sub">A credit line against your mutual fund portfolio at India's most competitive terms. Facilitated exclusively by Miracle Wealth with its associated partners.</p>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">9.99%</div>
+      <div class="stat-label">Onwards Annual Rate of Interest</div>
+      <div class="stat-note">Via Miracle Wealth · Reducing balance</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">₹590</div>
+      <div class="stat-label">Onwards Processing Fee</div>
+      <div class="stat-note">One-time only · Min. credit limit ₹25K</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">25K–10Cr</div>
+      <div class="stat-label">Credit Limit Range</div>
+      <div class="stat-note">Based on MF portfolio value</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5000+</div>
+      <div class="stat-label">Approved MF Schemes</div>
+      <div class="stat-note">Equity · Debt · Hybrid · Liquid</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--text-dark); margin-bottom:1.5rem; margin-top:1rem;">How It Works — OD-Style Smart Credit</h3>
+  <div class="steps-flow">
+    <div class="step-wrap">
+      <div class="step-circle">📋</div>
+      <h4>Apply</h4>
+      <p>Enter PAN, mobile & email. 100% digital.</p>
+    </div>
+    <div class="step-wrap">
+      <div class="step-circle">✅</div>
+      <h4>Approve</h4>
+      <p>Instantly check your credit limit from MF portfolio.</p>
+    </div>
+    <div class="step-wrap">
+      <div class="step-circle">🔒</div>
+      <h4>Pledge</h4>
+      <p>Select the funds and amount to lien-mark.</p>
+    </div>
+    <div class="step-wrap">
+      <div class="step-circle">💸</div>
+      <h4>Withdraw</h4>
+      <p>Withdraw only what you need, when you need it.</p>
+    </div>
+    <div class="step-wrap">
+      <div class="step-circle">🔄</div>
+      <h4>Repay</h4>
+      <p>Pay interest only on amount used. Repay flexibly.</p>
+    </div>
+  </div>
+
+  <div class="highlight-strip">
+    <div class="hl-card">
+      <span class="hl-icon">📈</span>
+      <h4>No Redemption</h4>
+      <p>Funds stay invested and keep compounding — your wealth journey continues uninterrupted.</p>
+    </div>
+    <div class="hl-card">
+      <span class="hl-icon">⚡</span>
+      <h4>Same-Day Disbursal</h4>
+      <p>Funds credited to your bank account in 2-3 hours. No waiting. No delays.</p>
+    </div>
+    <div class="hl-card">
+      <span class="hl-icon">🛡️</span>
+      <h4>Zero Tax Trigger</h4>
+      <p>No capital gains tax. No exit load. Your money, your timeline — on your terms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="lavender">
+  <div class="section-eyebrow">When Does LAMF Make Sense?</div>
+  <h2 class="section-title">4 Powerful <span class="accent">Use Cases</span></h2>
+  <p class="section-sub">Whether it's an emergency or an opportunity — LAMF is the tool that lets you act without compromising your investments.</p>
+
+  <div class="usecases-grid">
+    <div class="usecase-card">
+      <div class="usecase-icon">🏢</div>
+      <div>
+        <h4>Working Capital Management</h4>
+        <p>Self-employed professionals and businesses often face temporary cash-flow gaps. LAMF provides quick liquidity without selling investments or taking expensive business loans.</p>
+        <div class="usecase-tags">
+          <span class="tag">Small Business</span>
+          <span class="tag">Freelancers</span>
+          <span class="tag">Seasonal Needs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-icon">🎊</div>
+      <div>
+        <h4>Short-Term Expenses</h4>
+        <p>Fund life's important expenses — weddings, medical emergencies, travel, or home renovation — without disturbing your long-term investments.</p>
+        <div class="usecase-tags">
+          <span class="tag">Weddings</span>
+          <span class="tag">Medical Emergencies</span>
+          <span class="tag">Travel</span>
+          <span class="tag">Home Renovation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-icon">📊</div>
+      <div>
+        <h4>Investment &amp; IPO Financing</h4>
+        <p>Seize investment opportunities like IPOs or market dips without selling your existing mutual funds.</p>
+        <div class="usecase-tags">
+          <span class="tag">IPO Financing</span>
+          <span class="tag">Market Dip Buying</span>
+          <span class="tag">HNI Investors</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-icon">🔄</div>
+      <div>
+        <h4>Other Financial Needs</h4>
+        <p>Transfer high-interest loans, pay education fees, or manage urgent expenses with lower-cost liquidity against your investments.</p>
+        <div class="usecase-tags">
+          <span class="tag">Loan Transfer</span>
+          <span class="tag">School/College Fees</span>
+          <span class="tag">Advance Rent</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="section-eyebrow">Side by Side</div>
+  <h2 class="section-title">LAMF vs <span class="accent">Other Borrowing Options</span></h2>
+  <p class="section-sub">The numbers speak for themselves. See why Loan Against Mutual Funds through Miracle Wealth is the most cost-efficient borrowing option available.</p>
+
+  <div class="comp-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="highlight-col">✦ LAMF via Miracle Wealth</th>
+          <th>LAMF (Others)</th>
+          <th>Credit / Debit Cards</th>
+          <th>Personal Loan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Interest Rate</td>
+          <td class="highlight-col"><span class="tag-best">9.99% p.a. onwards</span></td>
+          <td>10.25% p.a. onwards</td>
+          <td><span class="tag-bad">14%–18%</span></td>
+          <td><span class="tag-bad">12–24%</span></td>
+        </tr>
+        <tr>
+          <td>EMI Type</td>
+          <td class="highlight-col"><span class="tag-best">Interest Only</span></td>
+          <td>Interest Only</td>
+          <td><span class="tag-mid">Principal + Interest</span></td>
+          <td><span class="tag-mid">Principal + Interest</span></td>
+        </tr>
+        <tr>
+          <td>Processing Fee</td>
+          <td class="highlight-col"><span class="tag-best">₹590/- onwards</span></td>
+          <td>₹1,180</td>
+          <td><span class="tag-bad">2–3% of Amount</span></td>
+          <td><span class="tag-bad">2–3% of Amount</span></td>
+        </tr>
+        <tr>
+          <td>Foreclosure Charges</td>
+          <td class="highlight-col"><span class="tag-best">₹0</span></td>
+          <td>₹0</td>
+          <td><span class="tag-bad">2–3% of Due Amount</span></td>
+          <td><span class="tag-bad">2–3% of Due Amount</span></td>
+        </tr>
+        <tr>
+          <td>Pre-Payment Charges</td>
+          <td class="highlight-col"><span class="tag-best">₹0</span></td>
+          <td>₹0</td>
+          <td><span class="tag-bad">2–3% of Due Amount</span></td>
+          <td><span class="tag-bad">2–5% of Due Amount</span></td>
+        </tr>
+        <tr>
+          <td>Processing Time</td>
+          <td class="highlight-col"><span class="tag-best">2-3 Hours</span></td>
+          <td>Up to 6 Hours</td>
+          <td><span class="tag-mid">Subject to eligibility</span></td>
+          <td><span class="tag-bad">2–7 Days</span></td>
+        </tr>
+        <tr>
+          <td>Overall Costing</td>
+          <td class="highlight-col"><span class="tag-best">🏆 Lowest</span></td>
+          <td>Low</td>
+          <td><span class="tag-mid">High</span></td>
+          <td><span class="tag-bad">Highest</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- INTEREST BAR CHART -->
+  <div class="bar-chart-wrap" style="margin-top:1.8rem;">
+    <div class="bar-chart-title">Real Numbers: Monthly Interest on ₹2 Lakh Loan</div>
+    <div class="bar-chart-sub">Annual basis · Interest-only comparison</div>
+
+    <div class="bar-row">
+      <div class="bar-label">LAMF via Miracle Wealth</div>
+      <div class="bar-track">
+        <div class="bar-fill best" style="width:52%"><span>₹1,642/mo · ₹19,704/yr</span></div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">LAMF (Others)</div>
+      <div class="bar-track">
+        <div class="bar-fill good" style="width:54%"><span>₹1,685/mo · ₹20,220/yr</span></div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Credit / Debit Cards</div>
+      <div class="bar-track">
+        <div class="bar-fill warn" style="width:79%"><span>₹2,466/mo · ₹29,592/yr</span></div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Personal Loan</div>
+      <div class="bar-track">
+        <div class="bar-fill bad" style="width:100%"><span>₹2,630/mo · ₹31,560/yr</span></div>
+      </div>
+    </div>
+
+    <div class="savings-badges">
+      <div class="savings-badge">
+        <strong style="font-size:2.4rem;">₹10k+</strong>
+        <span>Min. savings vs credit card EMI @ 15% p.a on ₹2L loan</span>
+      </div>
+      <div class="savings-badge">
+        <strong style="font-size:2.4rem;">₹11.8k+</strong>
+        <span>Max. savings vs personal loan @ 16% p.a on ₹2L loan</span>
+      </div>
+      <div class="savings-badge" style="background:linear-gradient(135deg,#EDE9FE,#F5F3FF); border-color:rgba(91,62,190,0.2);">
+        <strong style="color:var(--purple); font-size:2rem;">Additional Savings</strong>
+        <span>When you factor in foreclosure charges, processing fees & hidden costs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH IMPACT -->
+<section >
+  <div class="section-eyebrow">The Real Cost of Redemption</div>
+  <h2 class="section-title">What Happens When You <span class="accent">Don't Redeem</span>?</h2>
+  <p class="section-sub">The power of LAMF isn't just cheaper borrowing — it's the compounding growth you preserve by keeping your investment intact.</p>
+
+  <div class="growth-grid">
+    <div class="growth-visual">
+      <!-- Label pill — always on top, never overlapped -->
+      <div style="text-align:center; margin-bottom:1.2rem; font-size:0.82rem; color:var(--text-soft); font-weight:600; background:var(--purple-pale); border-radius:8px; padding:0.5rem 1rem; width:100%;">
+        ₹10L Investment &nbsp;·&nbsp; 12% p.a. Growth &nbsp;·&nbsp; 10-Year Horizon
+      </div>
+      <!-- Chart: fixed-height track, bars bottom-aligned inside it, labels below -->
+      <div style="display:flex; align-items:flex-end; justify-content:center; gap:3rem; height:140px; margin-bottom:0;">
+        <!-- Redeemed bar -->
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
+          <div style="width:72px; height:42px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#EF4444,#FCA5A5); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <span style="font-size:0.8rem; font-weight:700; color:#fff;">₹10L</span>
           </div>
-          <div>
-            <div class="font-heading text-3xl text-teal-400">2-3 Hrs</div>
-            <p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Funds in Account</p>
-          </div>
-          <div>
-            <div class="font-heading text-3xl text-teal-400">ZERO</div>
-            <p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Redemption / Tax</p>
-          </div>
-          <div>
-            <div class="font-heading text-3xl text-teal-400">5000+</div>
-            <p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Approved Schemes</p>
+        </div>
+        <!-- Invested bar -->
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
+          <div style="width:72px; height:140px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,var(--purple),var(--purple-light)); display:flex; align-items:flex-start; justify-content:center; padding-top:0.4rem; flex-shrink:0;">
+            <span style="font-size:0.8rem; font-weight:700; color:#fff;">₹31L</span>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- PROBLEM STATEMENT -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl" data-reveal>
-          <span class="text-pink-500 font-semibold tracking-widest uppercase text-sm">⚠️ The Hidden Cost of Redemption</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">Every Time You Redeem, <br><span class="text-purple-400">Your Future Pays the Price</span></h2>
-          <p class="mt-6 text-lg text-zinc-300 leading-relaxed">We invest in mutual funds to reach life's biggest goals. But when short-term cash needs arise, we break our investments — and silently derail everything we were building.</p>
+      <!-- Baseline line -->
+      <div style="height:2px; background:var(--border); margin-bottom:0.9rem;"></div>
+      <!-- Labels below bars -->
+      <div style="display:flex; justify-content:center; gap:3rem; margin-bottom:1.2rem;">
+        <div style="width:72px; font-size:0.8rem; color:var(--text-mid); font-weight:600; text-align:center;">
+          If Redeemed<br><span style="color:#EF4444; font-weight:700;">₹10L (flat)</span>
         </div>
-
-        <div class="mt-12 grid gap-10 lg:grid-cols-2">
-          <div data-reveal>
-            <h3 class="font-heading text-2xl text-white mb-6">Invested for these goals...</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="glass-card p-4 rounded-xl border-zinc-800 flex items-center gap-3">
-                <span class="text-xl">📈</span> <span class="text-zinc-300 font-medium">Wealth Creation</span>
-              </div>
-              <div class="glass-card p-4 rounded-xl border-zinc-800 flex items-center gap-3">
-                <span class="text-xl">🌅</span> <span class="text-zinc-300 font-medium">Early Retirement</span>
-              </div>
-              <div class="glass-card p-4 rounded-xl border-zinc-800 flex items-center gap-3">
-                <span class="text-xl">🎓</span> <span class="text-zinc-300 font-medium">Child's Future</span>
-              </div>
-              <div class="glass-card p-4 rounded-xl border-zinc-800 flex items-center gap-3">
-                <span class="text-xl">🏠</span> <span class="text-zinc-300 font-medium">Dream Home</span>
-              </div>
-            </div>
-            
-            <div class="mt-8 p-6 rounded-2xl bg-red-900/10 border border-red-900/20">
-              <h4 class="text-red-400 font-bold mb-3 flex items-center gap-2">🚨 But then life happens...</h4>
-              <p class="text-zinc-300 text-sm leading-relaxed mb-4">Short-term cash needs force most investors to redeem units — permanently disrupting their compounding journey.</p>
-              <ul class="space-y-2">
-                <li class="flex gap-2 text-xs text-zinc-300"><span class="text-red-500">•</span> You lose future compounding on redeemed units</li>
-                <li class="flex gap-2 text-xs text-zinc-300"><span class="text-red-500">•</span> Exit loads reduce the actual amount received</li>
-                <li class="flex gap-2 text-xs text-zinc-300"><span class="text-red-500">•</span> LTCG/STCG tax is triggered unnecessarily</li>
-                <li class="flex gap-2 text-xs text-zinc-300"><span class="text-red-500">•</span> Your long-term goal is now underfunded</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="glass-card p-8 rounded-3xl border-teal-500/20 relative" data-reveal>
-            <div class="absolute -top-1 -right-1 w-20 h-20 bg-teal-500/10 blur-2xl"></div>
-            <h4 class="font-heading text-3xl text-teal-400 mb-6 font-semibold underline decoration-teal-500/30">✦ The Smarter Way</h4>
-            <div class="space-y-6">
-              <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0">✓</div>
-                <p class="text-zinc-300 text-sm leading-relaxed">Pledge your MF units as collateral for an instant credit line — <strong>without redeeming a single unit.</strong></p>
-              </div>
-              <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0">✓</div>
-                <p class="text-zinc-300 text-sm leading-relaxed">Investments continue to grow, dividends keep flowing, and you get the cash you need today.</p>
-              </div>
-              <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0">✓</div>
-                <p class="text-zinc-300 text-sm leading-relaxed">Pay interest <strong>only on the amount you withdraw</strong> — not the full credit limit.</p>
-              </div>
-              <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0">✓</div>
-                <p class="text-zinc-300 text-sm leading-relaxed">No LTCG/STCG tax. No exit load. No lengthy paperwork. 100% Digital.</p>
-              </div>
-            </div>
-            <div class="mt-8 p-4 bg-teal-900/10 border border-teal-900/20 rounded-xl">
-              <p class="text-teal-400 text-sm font-semibold italic text-center">"We take care of your short-term needs so your long-term goals don't suffer."</p>
-            </div>
-          </div>
+        <div style="width:72px; font-size:0.8rem; color:var(--text-mid); font-weight:600; text-align:center;">
+          If Not Redeemed<br><span style="color:var(--purple); font-weight:700;">₹31L</span>
         </div>
       </div>
-    </section>
-
-    <!-- KEY STATS & HOW IT WORKS -->
-    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-3xl mb-12" data-reveal>
-          <span class="text-teal-700 font-semibold tracking-widest uppercase text-sm">Product Features</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-zinc-900 underline decoration-teal-100">LAMF at a Glance</h2>
-          <p class="mt-6 text-zinc-600">A credit line against your mutual fund portfolio at India's most competitive terms — facilitated by Miracle Wealth.</p>
-        </div>
-
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="bg-white rounded-2xl p-8 border-t-2 border-t-teal-500 text-center shadow-sm hover:shadow-md transition-all hover:-translate-y-2 border border-zinc-100" data-reveal>
-            <div class="font-heading text-4xl text-teal-600 mb-2 font-bold">9.99%</div>
-            <p class="text-zinc-900 font-semibold text-sm mb-1 uppercase tracking-tight">Onwards Interest</p>
-            <p class="text-zinc-400 text-xs mt-2">Reducing Balance Method</p>
-          </div>
-          <div class="bg-white rounded-2xl p-8 border-t-2 border-t-teal-500 text-center shadow-sm hover:shadow-md transition-all hover:-translate-y-2 border border-zinc-100" data-reveal>
-            <div class="font-heading text-4xl text-teal-600 mb-2 font-bold">₹590</div>
-            <p class="text-zinc-900 font-semibold text-sm mb-1 uppercase tracking-tight">Processing Fee</p>
-            <p class="text-zinc-400 text-xs mt-2">Starting one-time charge</p>
-          </div>
-          <div class="bg-white rounded-2xl p-8 border-t-2 border-t-teal-500 text-center shadow-sm hover:shadow-md transition-all hover:-translate-y-2 border border-zinc-100" data-reveal>
-            <div class="font-heading text-4xl text-teal-600 mb-2 font-bold">25K–10Cr</div>
-            <p class="text-zinc-900 font-semibold text-sm mb-1 uppercase tracking-tight">Credit Limit</p>
-            <p class="text-zinc-400 text-xs mt-2">Based on Portfolio Value</p>
-          </div>
-          <div class="bg-white rounded-2xl p-8 border-t-2 border-t-teal-500 text-center shadow-sm hover:shadow-md transition-all hover:-translate-y-2 border border-zinc-100" data-reveal>
-            <div class="font-heading text-4xl text-teal-600 mb-2 font-bold">5000+</div>
-            <p class="text-zinc-900 font-semibold text-sm mb-1 uppercase tracking-tight">MF Schemes</p>
-            <p class="text-zinc-400 text-xs mt-2">Across all categories</p>
-          </div>
-        </div>
-
-        <!-- HOW IT WORKS FLOW -->
-        <div class="mt-24" data-reveal>
-          <h3 class="font-heading text-3xl text-zinc-900 text-center mb-16 font-medium">How It Works — <span class="text-teal-600 italic">OD-Style Credit</span></h3>
-          <div class="relative grid md:grid-cols-5 gap-8">
-            <!-- Connector Dots -->
-            <div class="hidden md:block absolute top-6 left-[10%] right-[10%] border-t-2 border-dashed border-teal-100 z-0"></div>
-            
-            <div class="relative z-10 text-center">
-              <div class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center text-white mx-auto mb-4 font-bold shadow-teal-500/20 shadow-lg">📋</div>
-              <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase">Apply</h4>
-              <p class="text-zinc-500 text-xs leading-relaxed">PAN, mobile & email. 100% digital.</p>
-            </div>
-            <div class="relative z-10 text-center">
-              <div class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center text-white mx-auto mb-4 font-bold shadow-teal-500/20 shadow-lg">✅</div>
-              <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase">Approve</h4>
-              <p class="text-zinc-500 text-xs leading-relaxed">Check credit limit instantly.</p>
-            </div>
-            <div class="relative z-10 text-center">
-              <div class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center text-white mx-auto mb-4 font-bold shadow-teal-500/20 shadow-lg">🔒</div>
-              <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase">Pledge</h4>
-              <p class="text-zinc-500 text-xs leading-relaxed">Lien-mark selected funds.</p>
-            </div>
-            <div class="relative z-10 text-center">
-              <div class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center text-white mx-auto mb-4 font-bold shadow-teal-500/20 shadow-lg">💸</div>
-              <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase">Withdraw</h4>
-              <p class="text-zinc-500 text-xs leading-relaxed">Only what you need, when needed.</p>
-            </div>
-            <div class="relative z-10 text-center">
-              <div class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center text-white mx-auto mb-4 font-bold shadow-teal-500/20 shadow-lg">🔄</div>
-              <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase">Repay</h4>
-              <p class="text-zinc-500 text-xs leading-relaxed">Pay interest only on amount used.</p>
-            </div>
-          </div>
-        </div>
+      <div class="net-gain-box">
+        <div class="big">₹27 Lakh</div>
+        <div class="label">Wealth Preserved by Choosing LAMF Over Redemption</div>
       </div>
-    </section>
-
-    <!-- USE CASES -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl" data-reveal>
-          <span class="text-teal-400 font-semibold tracking-widest uppercase text-sm">When Does LAMF Make Sense?</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">4 Powerful <span class="teal-gradient-text">Use Cases</span></h2>
-          <p class="mt-6 text-lg text-zinc-400">Whether it's an emergency or an opportunity — LAMF lets you act without compromising your future.</p>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-2">
-          <div class="glass-card shadow-sm rounded-2xl p-8 flex gap-6 hover:bg-teal-900/10 border-l-4 border-l-teal-500 transition-shadow flex-col h-full" data-reveal>
-            <div class="flex gap-6 mb-4">
-              <div class="w-14 h-14 rounded-xl bg-teal-900/20 border border-teal-500/20 flex items-center justify-center text-3xl shrink-0">🏢</div>
-              <div>
-                <h4 class="font-heading text-2xl text-white mb-2 font-medium">Working Capital Management</h4>
-                <p class="text-zinc-400 text-sm leading-relaxed">Professionals and businesses often face temporary cash-flow gaps. Get quick liquidity without selling units or taking expensive loans.</p>
-              </div>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 flex-grow">
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">Small Business</span>
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">Freelancers</span>
-            </div>
-            <a href="wealth-management.html" class="inline-flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-widest hover:text-teal-300 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="glass-card shadow-sm rounded-2xl p-8 flex gap-6 hover:bg-teal-900/10 border-l-4 border-l-teal-500 transition-shadow flex-col h-full" data-reveal>
-            <div class="flex gap-6 mb-4">
-              <div class="w-14 h-14 rounded-xl bg-teal-900/20 border border-teal-500/20 flex items-center justify-center text-3xl shrink-0">🎊</div>
-              <div>
-                <h4 class="font-heading text-2xl text-white mb-2 font-medium">Short-Term Expenses</h4>
-                <p class="text-zinc-400 text-sm leading-relaxed">Fund life's important expenses — weddings, medical emergencies, travel, or renovation — without disturbing your compounding.</p>
-              </div>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 flex-grow">
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">Medical</span>
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">Weddings</span>
-            </div>
-             <a href="wealth-management.html" class="inline-flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-widest hover:text-teal-300 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="glass-card shadow-sm rounded-2xl p-8 flex gap-6 hover:bg-teal-900/10 border-l-4 border-l-teal-500 transition-shadow flex-col h-full" data-reveal>
-            <div class="flex gap-6 mb-4">
-              <div class="w-14 h-14 rounded-xl bg-teal-900/20 border border-teal-500/20 flex items-center justify-center text-3xl shrink-0">📊</div>
-              <div>
-                <h4 class="font-heading text-2xl text-white mb-2 font-medium">Investment & IPO Financing</h4>
-                <p class="text-zinc-400 text-sm leading-relaxed">Seize investment opportunities like IPOs or market dips without selling your existing gems.</p>
-              </div>
-            </div>
-             <div class="flex flex-wrap gap-2 mb-4 flex-grow">
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">IPOs</span>
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">NFOs</span>
-              </div>
-              <a href="wealth-management.html" class="inline-flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-widest hover:text-teal-300 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="glass-card shadow-sm rounded-2xl p-8 flex gap-6 hover:bg-teal-900/10 border-l-4 border-l-teal-500 transition-shadow flex-col h-full" data-reveal>
-            <div class="flex gap-6 mb-4">
-              <div class="w-14 h-14 rounded-xl bg-teal-900/20 border border-teal-500/20 flex items-center justify-center text-3xl shrink-0">🔄</div>
-              <div>
-                <h4 class="font-heading text-2xl text-white mb-2 font-medium">Other Financial Needs</h4>
-                <p class="text-zinc-400 text-sm leading-relaxed">Transfer high-interest loans, pay fees, or manage urgent expenses with lower-cost liquidity against your units.</p>
-              </div>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 flex-grow">
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">Loan Transfer</span>
-                <span class="px-2 py-0.5 bg-teal-900/30 text-[10px] text-teal-400 border border-teal-500/30 rounded-full font-bold uppercase">Education Fees</span>
-            </div>
-             <a href="wealth-management.html" class="inline-flex items-center gap-2 text-teal-400 font-bold text-xs uppercase tracking-widest hover:text-teal-300 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-        </div>
+      <div style="margin-top:0.8rem; font-size:0.78rem; color:var(--text-soft); text-align:center;">
+        Even after paying 4 years of interest (₹4L), net gain = ₹27L
       </div>
-    </section>
+    </div>
 
-    <!-- COMPARISON TABLE -->
-    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
-          <span class="why-tag mb-4">Side by Side</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-white">LAMF vs <span class="text-teal-400">Other Borrowing Options</span></h2>
-          <p class="mt-6 text-lg text-zinc-300">The numbers speak for themselves. LAMF through Miracle Wealth is India's most cost-efficient borrowing tool.</p>
-        </div>
-
-        <div class="overflow-x-auto rounded-3xl border border-zinc-800" data-reveal>
-          <table class="w-full text-left border-collapse min-w-[800px]">
-            <thead>
-              <tr class="bg-zinc-900/80">
-                <th class="px-6 py-5 text-white font-semibold border-b border-zinc-800">Feature</th>
-                <th class="px-6 py-5 text-teal-400 font-bold border-b border-zinc-800 bg-teal-950/20">✦ MIRACLE WEALTH</th>
-                <th class="px-6 py-5 text-zinc-300 font-semibold border-b border-zinc-800">Other LAMF</th>
-                <th class="px-6 py-5 text-zinc-300 font-semibold border-b border-zinc-800">Credit Cards</th>
-                <th class="px-6 py-5 text-zinc-300 font-semibold border-b border-zinc-800">Personal Loan</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-zinc-800 bg-zinc-950/20">
-              <tr class="hover:bg-zinc-900/30 transition-colors">
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Interest Rate</td>
-                <td class="px-6 py-4 bg-teal-950/10"><span class="px-2 py-1 bg-teal-900/30 text-teal-400 rounded-md text-[10px] font-bold border border-teal-900/30 uppercase tracking-widest">🏆 9.99%*</span></td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">10.25% onwards</td>
-                <td class="px-6 py-4 text-red-500 text-sm">18% - 42%</td>
-                <td class="px-6 py-4 text-red-500 text-sm">12% - 24%</td>
-              </tr>
-              <tr class="hover:bg-zinc-900/30 transition-colors">
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">EMI Type</td>
-                <td class="px-6 py-4 bg-teal-950/10 text-teal-400 text-sm font-bold">Interest Only</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">Interest Only</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">P + I</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">P + I</td>
-              </tr>
-              <tr class="hover:bg-zinc-900/30 transition-colors">
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Processing Fee</td>
-                <td class="px-6 py-4 bg-teal-950/10 text-teal-400 text-sm font-bold">₹590/-</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">₹1,180/-</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">2-3%</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">2-3%</td>
-              </tr>
-              <tr class="hover:bg-zinc-900/30 transition-colors">
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Foreclosure Charges</td>
-                <td class="px-6 py-4 bg-teal-950/10 text-teal-400 text-sm font-bold">₹0</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">₹0</td>
-                <td class="px-6 py-4 text-red-500 text-sm">2% onwards</td>
-                <td class="px-6 py-4 text-red-500 text-sm">3% onwards</td>
-              </tr>
-              <tr class="hover:bg-zinc-900/30 transition-colors">
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Processing Time</td>
-                <td class="px-6 py-4 bg-teal-950/10 text-teal-400 text-sm font-bold">2-3 Hours</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">Up to 6 Hours</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">Instant (at cost)</td>
-                <td class="px-6 py-4 text-zinc-500 text-sm">2-7 Days</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- MONTHLY INTEREST CHART -->
-        <div class="mt-16 glass-card p-10 rounded-3xl" data-reveal>
-          <div class="mb-10 text-center">
-            <h4 class="font-heading text-2xl text-white mb-2 underline decoration-teal-500/30">Monthly Interest on ₹2 Lakh Loan</h4>
-            <p class="text-zinc-500 text-xs uppercase tracking-widest">Real Numbers Comparison (Annual Basis)</p>
-          </div>
-          
-          <div class="space-y-8 max-w-4xl mx-auto">
-            <div class="space-y-2">
-              <div class="flex justify-between text-xs text-zinc-400 font-bold uppercase tracking-tighter">
-                <span>LAMF via Miracle Wealth</span>
-                <span class="text-teal-400">₹1,642/mo · ₹19,704/yr</span>
-              </div>
-              <div class="h-6 bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800">
-                <div class="h-full bg-gradient-to-r from-teal-600 to-teal-400 w-[52%] animate-pulse-slow shadow-lg shadow-teal-500/20"></div>
-              </div>
-            </div>
-            
-            <div class="space-y-2">
-              <div class="flex justify-between text-xs text-zinc-400 font-bold uppercase tracking-tighter">
-                <span>Other LAMF Options</span>
-                <span class="text-zinc-300">₹1,685/mo · ₹20,220/yr</span>
-              </div>
-              <div class="h-6 bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800">
-                <div class="h-full bg-zinc-700 w-[54%]"></div>
-              </div>
-            </div>
-
-            <div class="space-y-2">
-              <div class="flex justify-between text-xs text-zinc-400 font-bold uppercase tracking-tighter">
-                <span>Credit / Debit Cards</span>
-                <span class="text-red-400">₹2,466/mo · ₹29,592/yr</span>
-              </div>
-              <div class="h-6 bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800">
-                <div class="h-full bg-red-900/40 w-[79%] border-r-2 border-red-500"></div>
-              </div>
-            </div>
-
-            <div class="space-y-2">
-              <div class="flex justify-between text-xs text-zinc-400 font-bold uppercase tracking-tighter">
-                <span>Personal Loans</span>
-                <span class="text-red-500">₹2,630/mo · ₹31,560/yr</span>
-              </div>
-              <div class="h-6 bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800">
-                <div class="h-full bg-red-950 w-full border-r-4 border-red-600"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl bg-teal-900/10 border border-teal-900/20 text-center">
-              <div class="font-heading text-4xl text-teal-400 mb-2">₹10,000+</div>
-              <p class="text-zinc-400 text-xs">Min. yearly savings vs Credit Card EMI on ₹2L</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-purple-900/10 border border-purple-900/20 text-center">
-              <div class="font-heading text-4xl text-purple-400 mb-2">₹11,800+</div>
-              <p class="text-zinc-400 text-xs">Max. yearly savings vs Personal Loan on ₹2L</p>
-            </div>
-          </div>
-        </div>
+    <div class="growth-info">
+      <h4>Why Pledging Always Beats Redeeming</h4>
+      <div class="growth-point">
+        <span class="dot" style="background:#EF4444;"></span>
+        <div><strong>If you redeem ₹10L</strong>You lose all future compounding. The ₹10L stays at ₹10L — you gain nothing. Plus you pay exit load and capital gains tax.</div>
       </div>
-    </section>
-
-    <!-- GROWTH IMPACT -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid gap-16 lg:grid-cols-2 items-center">
-          <div data-reveal>
-            <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">Compounding Preservation</span>
-            <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">The Real Cost of <br><span class="text-gold">Redemption</span></h2>
-            <p class="mt-6 text-lg text-zinc-300 leading-relaxed">The power of LAMF isn't just cheaper borrowing — it's the compounding growth you preserve by keeping your units intact.</p>
-            
-            <div class="mt-10 space-y-6">
-              <div class="p-6 glass-card rounded-2xl border-l-4 border-red-500">
-                <h4 class="text-white font-bold mb-2">If You Redeem ₹10L</h4>
-                <p class="text-zinc-400 text-sm leading-relaxed">You lose all future growth. The ₹10L stays ₹10L. Plus you pay exit loads and capital gains tax on retrieval.</p>
-              </div>
-              <div class="p-6 glass-card rounded-2xl border-l-4 border-teal-500">
-                <h4 class="text-white font-bold mb-2">If You Pledge & Borrow</h4>
-                <p class="text-zinc-400 text-sm leading-relaxed">Your ₹10L grows to <strong>₹31L</strong> over 10 years (at 12% p.a.). Even after interest, your net gain is <strong>₹27 Lakh</strong> extra versus redemption.</p>
-              </div>
-            </div>
-            
-            <div class="mt-8 flex justify-center lg:justify-start">
-              <a href="https://voltmoney.in/check-loan-eligibility-against-mutual-funds?ref=LNUVGB" class="btn-primary" target="_blank">Check Your Eligibility →</a>
-            </div>
-          </div>
-
-          <div class="glass-card p-10 rounded-[3rem] border-zinc-800 bg-zinc-950/40" data-reveal>
-            <div class="mb-10 text-center">
-              <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Growth Scenario</span>
-              <p class="text-zinc-400 text-sm mt-3">₹10L MF Portfolio • 12% p.a Growth • 10-Year Horizon</p>
-            </div>
-            
-            <div class="flex items-end justify-center gap-10 h-64 mb-10">
-              <div class="group flex flex-col items-center gap-4">
-                <div class="relative w-20 bg-gradient-to-t from-red-600 to-red-400 rounded-t-xl h-[32%] transition-all group-hover:h-[35%]">
-                  <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-white font-bold text-lg">₹10L</span>
-                </div>
-                <p class="text-zinc-500 text-[10px] uppercase font-bold text-center">If Redeemed Today</p>
-              </div>
-              
-              <div class="group flex flex-col items-center gap-4">
-                <div class="relative w-20 bg-gradient-to-t from-teal-600 to-teal-400 rounded-t-xl h-full transition-all group-hover:brightness-110">
-                  <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-teal-400 font-bold text-lg">₹31L</span>
-                  <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <p class="text-zinc-100 text-[10px] uppercase font-bold text-center">Pledge (Grows 10Y)</p>
-              </div>
-            </div>
-            
-            <div class="pt-8 border-t border-zinc-800 text-center">
-              <div class="text-xs text-zinc-500 uppercase font-black tracking-[0.2em] mb-3">Your Net Benefit</div>
-              <div class="font-heading text-5xl text-teal-400 mb-2">₹27 Lakh</div>
-              <p class="text-zinc-500 text-[10px] leading-relaxed italic">Preserved wealth by choosing LAMF over redemption (after interest adjustment)</p>
-            </div>
-          </div>
-        </div>
+      <div class="growth-point">
+        <span class="dot" style="background:var(--purple);"></span>
+        <div><strong>If you pledge and borrow</strong>Your ₹10L grows to ₹31L over 10 years at 12% p.a. Even after paying 4 years of loan interest (~₹4L), your net gain is <strong>₹27 Lakh</strong></div>
       </div>
-    </section>
-
-    <!-- OUR EXCLUSIVE PARTNERS -->
-    <section class="bg-white px-6 py-20 lg:px-8 border-y border-zinc-100">
-      <div class="mx-auto max-w-7xl text-center">
-        <span class="text-teal-600 font-bold tracking-widest uppercase text-[10px] mb-8 block select-none">Our Exclusive Partners</span>
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-60 grayscale hover:grayscale-0 transition-all duration-500" data-reveal>
-          <img src="images/partners/lamf/Bajaj%20Finance.png" alt="Bajaj Finance" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform" />
-          <img src="images/partners/lamf/CAMS.png" alt="CAMS" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform" />
-          <img src="images/partners/lamf/DigiLocker.jpg" alt="DigiLocker" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform mix-blend-multiply" />
-          <img src="images/partners/lamf/Digio.jpg" alt="Digio" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform mix-blend-multiply" />
-          <img src="images/partners/lamf/KFIN.png" alt="KFIN" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform" />
-          <img src="images/partners/lamf/NSDL.png" alt="NSDL" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform" />
-          <img src="images/partners/lamf/Small%20Case.png" alt="Small Case" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform" />
-          <img src="images/partners/lamf/volt.png" alt="Volt Money" class="h-8 md:h-10 object-contain hover:scale-110 transition-transform" />
-        </div>
+      <div class="growth-point">
+        <span class="dot" style="background:var(--purple);"></span>
+        <div><strong>Zero tax triggered</strong>No LTCG. No STCG. No exit load. The pledge is not a sale — your fund units remain yours throughout.</div>
       </div>
-    </section>
-
-    <!-- LTV DETAILS -->
-    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
-          <span class="why-tag mb-4">Product Specs</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-white">Loan-to-Value (LTV) <span class="text-purple-400">Ratios</span></h2>
-          <p class="mt-6 text-lg text-zinc-300">How much credit can you get? It depends on the risk profile of your funds.</p>
-        </div>
-
-        <div class="max-w-2xl mx-auto glass-card p-10 rounded-3xl" data-reveal>
-          <h4 class="font-heading text-2xl text-white mb-8 text-center underline decoration-zinc-800">Available Limits</h4>
-          <div class="space-y-10">
-            <div class="space-y-3">
-              <div class="flex justify-between items-center text-sm">
-                <span class="text-zinc-100 font-bold uppercase tracking-widest text-[11px]">Liquid Funds</span>
-                <span class="text-teal-400 font-bold">90%</span>
-              </div>
-              <div class="h-3 bg-zinc-900 rounded-full border border-zinc-800 overflow-hidden">
-                <div class="h-full bg-teal-500 w-[90%]"></div>
-              </div>
-            </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center text-sm">
-                <span class="text-zinc-100 font-bold uppercase tracking-widest text-[11px]">Debt Funds</span>
-                <span class="text-teal-400 font-bold">80%</span>
-              </div>
-              <div class="h-3 bg-zinc-900 rounded-full border border-zinc-800 overflow-hidden">
-                <div class="h-full bg-teal-500 w-[80%]"></div>
-              </div>
-            </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center text-sm">
-                <span class="text-zinc-100 font-bold uppercase tracking-widest text-[11px]">Equity / Hybrid Funds</span>
-                <span class="text-teal-400 font-bold">45% - 50%</span>
-              </div>
-              <div class="h-3 bg-zinc-900 rounded-full border border-zinc-800 overflow-hidden">
-                <div class="h-full bg-teal-500 w-[47%]"></div>
-              </div>
-            </div>
-          </div>
-          <div class="mt-12 text-center text-zinc-500 text-[10px] uppercase font-bold tracking-widest space-y-2">
-            <p>5000+ Approved Schemes • Individual, HUF & Corporate</p>
-          </div>
-        </div>
+      <div style="margin-top:1rem;">
+        <a href="https://voltmoney.in/check-loan-eligibility-against-mutual-funds?ref=LNUVGB" class="btn-gold" target="_blank">Check Your Eligibility →</a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- FAQS -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-3xl mb-12" data-reveal>
-          <span class="text-teal-400 font-semibold tracking-widest uppercase text-sm">FAQ</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white underline decoration-zinc-800">Questions Answered</h2>
-          <p class="mt-6 text-zinc-400">Everything you need to know about pledging your mutual funds.</p>
-        </div>
+<!-- PRODUCT DETAILS & CHARGES -->
+<section class="alt">
+  <div class="section-eyebrow">Product Details</div>
+  <h2 class="section-title"><span class="accent">Loan-to-Value Ratios</span></h2>
+  <p class="section-sub">How much credit can you get against your mutual fund portfolio? It depends on the fund type.</p>
 
-        <div class="grid gap-4 max-w-4xl" data-reveal>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              Do I have to pay interest on the entire credit limit?
-              <ion-icon name="chevron-down-outline" class="text-teal-400 group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              No. Interest is calculated daily based only on the loan amount outstanding at the end of each day. If you borrow ₹50,000 out of a ₹5L limit and repay it in 10 days, you pay interest for those 10 days only. Zero usage means zero interest.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              Will my SIPs continue after I pledge my funds?
-              <ion-icon name="chevron-down-outline" class="text-teal-400 group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              Absolutely. Your existing SIPs continue without any disruption. New units purchased via SIP are not automatically pledged — only the units you specifically select for pledging are lien-marked.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              Can I choose which mutual fund units to pledge?
-              <ion-icon name="chevron-down-outline" class="text-teal-400 group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              Yes! You have complete control over which funds and how many units you want to lien-mark. Note: ELSS (locked-in) units cannot be pledged. Dividends from pledged funds still flow to you normally.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              Does borrowing against MF affect my CIBIL score?
-              <ion-icon name="chevron-down-outline" class="text-teal-400 group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              No credit enquiry is made that impacts your CIBIL score when checking eligibility. Approval is based on portfolio value, not just credit score — a major advantage over personal loans.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              What happens if my MF portfolio value drops (margin call)?
-              <ion-icon name="chevron-down-outline" class="text-teal-400 group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              If the market value falls and breaches the LTV ratio, you may be asked to either top-up with additional units, partially repay the balance, or add funds to bring the ratio back within limits.
-            </div>
-          </details>
-        </div>
+  <div style="max-width:520px;">
+    <div class="ltv-card">
+      <h4>📊 Loan-to-Value (LTV) by Fund Type</h4>
+      <div class="ltv-row">
+        <span class="name">Liquid Funds</span>
+        <div class="ltv-track"><div class="ltv-fill" style="width:90%"></div></div>
+        <span class="pct">90%</span>
       </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="relative overflow-hidden px-6 py-24 lg:px-8 bg-[#050505]">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-900/10 blur-[120px] rounded-full"></div>
-      <div class="mx-auto max-w-4xl text-center relative z-10" data-reveal>
-        <h2 class="font-heading text-5xl md:text-6xl text-white mb-8 underline decoration-teal-500/20">Need Cash Now?<br>Keep Your <span class="text-teal-400">Wealth Growing.</span></h2>
-        <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-          Pledge your mutual funds and get an instant credit line at 9.99% p.a. onwards — the smartest, most affordable borrowing option in India.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://voltmoney.in/check-loan-eligibility-against-mutual-funds?ref=LNUVGB" class="btn-primary bg-teal-600 border-teal-500 px-12 py-5 text-lg" target="_blank">✦ Check Eligibility Free</a>
-          <a href="https://wa.me/+917972053045" class="btn-secondary px-12 py-5 text-lg">💬 WhatsApp Experts</a>
-        </div>
-        
-        <div class="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-6">
-          <span class="flex items-center gap-2 text-zinc-500 text-xs font-black tracking-widest">
-            100% DIGITAL PROCESS
-          </span>
-          <span class="flex items-center gap-2 text-zinc-500 text-xs font-black tracking-widest">
-            NO HIDDEN CHARGES
-          </span>
-          <span class="flex items-center gap-2 text-zinc-500 text-xs font-black tracking-widest">
-            AAA-RATED LENDING PARTNERS
-          </span>
-        </div>
+      <div class="ltv-row">
+        <span class="name">Debt Funds</span>
+        <div class="ltv-track"><div class="ltv-fill" style="width:80%"></div></div>
+        <span class="pct">80%</span>
       </div>
-    </section>
-  </main>
+      <div class="ltv-row">
+        <span class="name">Equity Funds</span>
+        <div class="ltv-track"><div class="ltv-fill" style="width:47%"></div></div>
+        <span class="pct">45–50%</span>
+      </div>
+      <div class="ltv-row">
+        <span class="name">Hybrid Funds</span>
+        <div class="ltv-track"><div class="ltv-fill" style="width:47%"></div></div>
+        <span class="pct">45–50%</span>
+      </div>
+      <div style="margin-top:1rem; font-size:0.8rem; color:var(--text-soft); font-style:italic;">
+        5000+ approved MF schemes across all categories. Individual, HUF, and Corporate cases supported.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="lavender">
+  <div class="section-eyebrow">Quick Answers</div>
+  <h2 class="section-title">Your <span class="accent">Questions</span> Answered</h2>
+  <p class="section-sub">Everything you need to know before pledging your mutual funds.</p>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">
+        Do I have to pay interest on the entire credit limit?
+        <span class="faq-arrow">›</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">No. Interest is calculated daily based only on the loan amount outstanding at the end of each day. If you borrow ₹50,000 out of a ₹5L limit and repay it in 10 days, you pay interest for those 10 days only — on ₹50,000 only. If you don't use the credit line at all, zero interest is charged.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        Will my SIPs continue after I pledge my funds?
+        <span class="faq-arrow">›</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">Absolutely. Your existing SIPs continue without any disruption. New units purchased via SIP are not automatically pledged — only the units you specifically select for pledging are lien-marked. Your investment journey continues exactly as before.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        Can I choose which mutual fund units to pledge?
+        <span class="faq-arrow">›</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">Yes! You have complete control over which funds and how many units you want to lien-mark. You can select specific schemes from your portfolio. Note that ELSS and other locked-in units cannot be pledged. Dividends and capital gains from pledged funds continue to flow to you normally.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        How long does lien removal take after repayment?
+        <span class="faq-arrow">›</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">You can request lien removal at any time, as long as there is no pending loan amount against the pledged units. Once you request removal, it is sent to the AMC within 24 hours. AMCs typically take 3–5 working days to process and remove the lien from your statement.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        Does borrowing against MF affect my CIBIL score?
+        <span class="faq-arrow">›</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">No credit enquiry is made that impacts your CIBIL score when you check eligibility. The loan is secured against your MF portfolio, so the approval process is based on your portfolio value, not your credit score. This is one of the key advantages of LAMF over personal loans.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        What happens if my MF portfolio value drops (margin call)?
+        <span class="faq-arrow">›</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">If the market value of your pledged funds falls and the loan-to-value ratio is breached, you may be asked to either top-up with additional units, partially repay the loan, or add funds to bring the ratio back within limits. This is rare for well-diversified portfolios, but good to understand upfront.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Need Cash Now?<br>Keep Your <span class="gold">Investments Growing.</span></h2>
+  <p>Pledge your mutual funds and get an instant credit line at 9.99% p.a. onwards — the smartest, most affordable borrowing option in India.</p>
+  <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+    <a href="https://voltmoney.in/check-loan-eligibility-against-mutual-funds?ref=LNUVGB" class="btn-gold" target="_blank">✦ Check Eligibility — It's Free</a>
+    <a href="https://wa.me/917972053045" class="btn-secondary" target="_blank">💬 WhatsApp Us</a>
+  </div>
+  <div class="cta-trust">
+    <span class="trust-item">✦ 100% Digital Process</span>
+    <span class="trust-item">✦ No Hidden Charges</span>
+    <span class="trust-item">✦ AAA-Rated Lending Partners</span>
+    <span class="trust-item">✦ AMFI Registered Advisor</span>
+  </div>
+</section>
+
+
+</main>
+
+  
+<!-- PARTNERS -->
+<section class="partners-section py-16 bg-white border-t border-zinc-200">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center" data-reveal>
+    <div class="text-[var(--gold,#C8922A)] font-bold tracking-widest text-xs uppercase mb-3">TRUSTED INFRASTRUCTURE</div>
+    <h2 class="font-['Inter'] text-3xl md:text-4xl font-extrabold text-zinc-900 mb-10 tracking-tight">Our Exclusive Partners</h2>
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-80">
+      <img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/Bajaj Finance.png" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+<img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/CAMS.png" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+<img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/DigiLocker.jpg" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+<img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/Digio.jpg" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+<img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/KFIN.png" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+<img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/NSDL.png" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+<img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/Small Case.png" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+<img src="13.03.2026_Corrections/Services/3. LAMF/Our Exclusive Partners/volt.png" alt="Partner" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" />
+    </div>
+  </div>
+</section>
 
   <!-- FOOTER -->
   
   <footer class="footer-dark border-t border-zinc-800 px-6 py-12 lg:px-8 bg-zinc-900" style="margin-top:0;">
     <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 bg-zinc-950">
       <div class="grid gap-10 md:grid-cols-12">
-        <div class="md:col-span-6 lg:col-span-5 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <img src="images/logo.png" alt="Miracle Wealth" class="h-24 md:h-32 w-auto" />
+        <div class="md:col-span-6 lg:col-span-5 flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-32 md:h-44 w-auto object-contain flex-shrink-0" />
           <div class="flex flex-col gap-3 font-['Inter']">
             <a href="tel:+917972053045" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2"><ion-icon name="call-outline"></ion-icon>+91 7972053045</a>
             <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
@@ -736,61 +1183,31 @@
         </div>
       </div>
 
-      <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center font-['Inter']">
-        <p class="md:col-span-9 text-xs leading-relaxed text-zinc-300">
+      <div class="mt-10 border-t border-zinc-800 pt-8 flex flex-col items-center gap-6 font-['Inter']">
+        <p class="text-xs leading-relaxed text-zinc-400 text-center max-w-6xl">
           Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) &amp; an IRDAI-registered insurance intermediary. Investments in mutual funds are subject to market risks. Please read all scheme-related documents carefully before investing.
         </p>
-        <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
+        <div class="w-full pt-2 text-center pb-2">
+          <p class="text-xs text-zinc-500 tracking-wide">&copy; 2026 Miracle Wealth. All rights reserved.</p>
+        </div>
       </div>
     </div>
   </footer>
 
 
-  <a href="https://wa.me/+917972053045" target="_blank" rel="noopener" class="whatsapp-float">
+  <a href="https://wa.me/+917972053045" target="_blank" rel="noopener" class="whatsapp-float"
+    aria-label="Chat on WhatsApp">
     <ion-icon name="logo-whatsapp"></ion-icon>
   </a>
 
   <script>
     const header = document.getElementById("header");
-
+    const hero = document.getElementById("hero");
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileLinks = mobileMenu.querySelectorAll("a");
     const menuIconOpen = document.getElementById("menuIconOpen");
     const menuIconClose = document.getElementById("menuIconClose");
-
-    const toggleMenu = (forceClose = false) => {
-      if (!mobileMenu || !mobileMenuBtn) return;
-      const isHidden = mobileMenu.classList.contains("hidden");
-      if (forceClose && isHidden) return;
-
-      const willBeHidden = forceClose ? true : !isHidden;
-
-      if (willBeHidden) {
-        mobileMenu.classList.add("hidden");
-        mobileMenuBtn.setAttribute("aria-expanded", "false");
-        if(menuIconClose) menuIconClose.classList.add("hidden", "rotate-90");
-        if(menuIconClose) menuIconClose.classList.remove("rotate-0");
-        if(menuIconOpen) menuIconOpen.classList.remove("hidden");
-        if(menuIconOpen) menuIconOpen.classList.add("rotate-0");
-      } else {
-        mobileMenu.classList.remove("hidden");
-        mobileMenuBtn.setAttribute("aria-expanded", "true");
-        if(menuIconOpen) menuIconOpen.classList.add("hidden");
-        if(menuIconOpen) menuIconOpen.classList.remove("rotate-0");
-        if(menuIconClose) menuIconClose.classList.remove("hidden", "rotate-90");
-        if(menuIconClose) menuIconClose.classList.add("rotate-0");
-      }
-    };
-
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener("click", () => toggleMenu());
-    }
-    if (mobileLinks) {
-        mobileLinks.forEach((link) => {
-          link.addEventListener("click", () => toggleMenu(true));
-        });
-    }
 
     const onScroll = () => {
       if (window.scrollY > 50) header.classList.add("header-scrolled");
@@ -798,6 +1215,25 @@
     };
     onScroll();
     window.addEventListener("scroll", onScroll);
+
+    const toggleMenu = (forceClose = false) => {
+      const isHidden = mobileMenu.classList.contains("hidden");
+      if (forceClose && isHidden) return;
+      const willBeHidden = forceClose ? true : !isHidden;
+      if (willBeHidden) {
+        mobileMenu.classList.add("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        menuIconClose.classList.add("hidden", "rotate-90");
+        menuIconOpen.classList.remove("hidden");
+      } else {
+        mobileMenu.classList.remove("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        menuIconOpen.classList.add("hidden");
+        menuIconClose.classList.remove("hidden", "rotate-90");
+      }
+    };
+    mobileMenuBtn.addEventListener("click", () => toggleMenu());
+    mobileLinks.forEach((link) => link.addEventListener("click", () => toggleMenu(true)));
 
     const revealEls = document.querySelectorAll("[data-reveal]");
     const io = new IntersectionObserver((entries) => {
@@ -810,6 +1246,80 @@
     }, { threshold: 0.1 });
     revealEls.forEach((el) => io.observe(el));
   </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Scroll reveal for all cards
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    var targets = document.querySelectorAll(
+      '.blunder-card, .stuck-card, .want-card, .step-item, .future-card, .why-card'
+    );
+    targets.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+      observer.observe(el);
+    });
+  });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // FAQ accordion
+  var faqs = document.querySelectorAll('.faq-item');
+  faqs.forEach(function (item) {
+    item.querySelector('.faq-q').addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      faqs.forEach(function (f) { f.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll reveal
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  var targets = document.querySelectorAll(
+    '.stat-card, .usecase-card, .hl-card, .goal-item, .faq-item, .growth-point, .savings-badge'
+  );
+  targets.forEach(function (el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // Animate bar fills on scroll
+  var barObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var fills = e.target.querySelectorAll('.bar-fill, .ltv-fill');
+        fills.forEach(function (bar) {
+          var target = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(function () { bar.style.width = target; }, 100);
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  var charts = document.querySelectorAll('.bar-chart-wrap, .ltv-card');
+  charts.forEach(function (c) { barObserver.observe(c); });
+});
+</script>
 </body>
 
 </html>

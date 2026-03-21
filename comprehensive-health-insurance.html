@@ -26,31 +26,313 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .font-garamond { font-family: 'Cormorant Garamond', serif; }
-    .text-gold { color: #f59e0b; }
-    .bg-dark-section { background-color: #050505; }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #d97706; 
+      --gold-light:  #fbbf24;
+      --gold-pale:   #fef3c7; 
+      --purple:      #7b5ac8; 
+      --purple-light:#8b5cf6; 
+      --pink:        #d946ef; 
+      --cream:       #f7f8fb; 
+      --warm-bg:     #eef1f5; 
+      --card-bg:     #ffffff; 
+      --border:      #e5e7eb; 
+      --text-dark:   #101218; 
+      --text-mid:    #4b5563; 
+      --text-soft:   #6b7280; 
+      --lavender-bg: #f5f3ff; 
+      --gradient-hero: radial-gradient(circle at right center, rgba(167, 139, 250, 0.12) 0%, #0a0b10 70%);
+      --gradient-primary: linear-gradient(135deg, #7b5ac8 0%, #d64a9a 100%);
+      --navy:        #0D1F3C;
+      --navy-mid:    #1A3055;
     }
-    .coral-gradient-text {
-      background: linear-gradient(135deg, #fb923c, #ea580c);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.65; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { padding: 0.75rem 5%; font-size: 0.8rem; color: var(--text-soft); background: var(--warm-bg); border-bottom: 1px solid var(--border); }
+    .breadcrumb a { color: var(--purple); text-decoration: none; }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 4.5rem 5%; }
+    section.alt { background: var(--warm-bg); }
+    section.lavender { background: var(--lavender-bg); }
+    section.coral-soft { background: var(--gold-pale); }
+    section.navy-section { background: var(--navy); color: #fff; }
+    .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .section-eyebrow.navy { color: var(--navy); }
+    .section-title { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--text-dark); line-height: 1.15; margin-bottom: 0.8rem; }
+    .section-title .accent { color: var(--purple); }
+    .section-title .accent-gold { color: var(--gold); }
+    .section-sub { font-size: 0.98rem; color: var(--text-mid); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.7; }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0a0b10 !important;
+      background-image: radial-gradient(circle at right center, rgba(167, 139, 250, 0.12) 0%, rgba(214, 74, 154, 0.08) 40%, #0a0b10 70%) !important;
+      padding: 10.5rem 5% 7rem;
+      position: relative; overflow: hidden;
+      color: #fff;
     }
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #fbbf24, #d97706);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(214, 74, 154, 0.1) 0%, transparent 70%);
+      pointer-events: none;
     }
-  </style>
+    .hero-inner { max-width: 900px; position: relative; z-index: 1; text-align: left; }
+    .hero-badge {
+      display: flex !important; width: max-content; align-items: center; gap: 0.5rem;
+      background: var(--gradient-primary); border: none;
+      color: #ffffff; border-radius: 50px; padding: 0.4rem 1.2rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 2rem;
+      position: relative !important; z-index: 2;
+    }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700; line-height: 1.15; color: #ffffff; margin-bottom: 1.2rem; letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold-light); }
+    .hero h1 .gold { color: var(--gold-light); }
+    .hero-sub { font-size: 1.05rem; color: #9ca3af; margin-bottom: 2rem; max-width: 600px; line-height: 1.75; }
+    .hero-sub em { font-style: normal; font-weight: 700; color: #f3f4f6; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #fff;
+      border: none; border-radius: 50px; padding: 0.9rem 2.2rem;
+      font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+      box-shadow: 0 6px 20px rgba(224,90,43,0.35);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(224,90,43,0.45); }
+    .btn-wa {
+      background: #25D366; color: #fff; border: none; border-radius: 50px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+    }
+    .btn-wa:hover { transform: translateY(-2px); background: #20b858; }
+    .btn-outline {
+      background: transparent; color: rgba(255,255,255,0.85);
+      border: 1.5px solid rgba(255,255,255,0.3); border-radius: 50px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+    /* USP STRIP */
+    .usp-strip {
+      background: var(--navy); padding: 1.1rem 5%;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0; overflow: hidden;
+    }
+    .usp-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 1.8rem; color: #fff;
+      border-right: 1px solid rgba(255,255,255,0.15); font-size: 0.85rem;
+    }
+    .usp-item:last-child { border-right: none; }
+    .usp-icon { font-size: 1.1rem; }
+    .usp-item strong { color: var(--gold-light); }
+
+    /* ── WHY HEALTH INSURANCE ── */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .why-card {
+      background: var(--card-bg); border-radius: 18px; padding: 1.8rem;
+      border: 1px solid var(--border); position: relative; overflow: hidden;
+      transition: all 0.22s;
+    }
+    .why-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+    .why-card:hover { box-shadow: 0 8px 28px rgba(224,90,43,0.1); transform: translateY(-2px); }
+    .why-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+    .why-card h4 { font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.65; }
+    .stat-highlight { display: inline-block; background: var(--gold-pale); color: var(--gold); border-radius: 8px; padding: 0.2rem 0.65rem; font-size: 0.82rem; font-weight: 700; margin-top: 0.5rem; }
+
+    /* ── WHAT WE COVER ── */
+    .cover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .cover-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.5rem 1.2rem;
+      text-align: center; border: 1px solid var(--border); transition: all 0.2s;
+    }
+    .cover-card:hover { box-shadow: 0 6px 22px rgba(13,31,60,0.08); transform: translateY(-2px); }
+    .cover-card .c-icon { font-size: 2rem; margin-bottom: 0.7rem; display: block; }
+    .cover-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .cover-card p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.5; }
+
+    /* ── PLANS COMPARISON ── */
+    .plans-wrap { overflow-x: auto; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .plans-table { width: 100%; border-collapse: collapse; }
+    .plans-table thead tr { background: var(--navy); color: #fff; }
+    .plans-table thead th { padding: 1rem 1.2rem; font-size: 0.85rem; font-weight: 600; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+    .plans-table thead th:first-child { text-align: left; }
+    .plans-table thead th.rec { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+    .plans-table tbody tr { background: var(--card-bg); border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    .plans-table tbody tr:nth-child(even) { background: #FBF9F5; }
+    .plans-table tbody tr:hover { background: var(--gold-pale); }
+    .plans-table td { padding: 0.85rem 1.2rem; font-size: 0.85rem; color: var(--text-dark); text-align: center; border-right: 1px solid var(--border); }
+    .plans-table td:first-child { text-align: left; font-weight: 600; color: var(--text-mid); }
+    .plans-table td.rec { background: rgba(224,90,43,0.05); font-weight: 600; color: var(--gold); }
+    .check-yes { color: #10B981; font-weight: 700; font-size: 1rem; }
+    .check-no { color: #EF4444; font-size: 1rem; }
+    .check-part { color: #F59E0B; font-size: 0.82rem; }
+
+    /* ── PROCESS STEPS ── */
+    .process-steps { display: flex; align-items: flex-start; gap: 0; }
+    .proc-step { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+    .proc-step:not(:last-child)::after {
+      content: '→'; position: absolute; top: 20px; right: -14px;
+      color: var(--gold); font-size: 1.2rem; font-weight: 700; z-index: 2;
+    }
+    .proc-circle {
+      width: 44px; height: 44px; border-radius: 50%; margin-bottom: 0.9rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 4px 14px rgba(224,90,43,0.3); flex-shrink: 0;
+    }
+    .proc-step h4 { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.25rem; }
+    .proc-step p { font-size: 0.76rem; color: var(--text-mid); line-height: 1.45; max-width: 100px; }
+
+    /* ── PARTNERS ── */
+    .partners-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+    }
+    .partner-logo-wrap {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.2rem 2rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.22s; filter: grayscale(30%);
+    }
+    .partner-logo-wrap:hover { filter: grayscale(0%); box-shadow: 0 6px 20px rgba(13,31,60,0.1); transform: translateY(-2px); }
+    .partner-logo-wrap img { height: 48px; width: auto; object-fit: contain; max-width: 160px; }
+
+    /* ── WHY MIRACLE WEALTH ── */
+    .mw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .mw-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px; padding: 1.5rem; text-align: center; transition: all 0.22s;
+    }
+    .mw-card:hover { background: rgba(255,255,255,0.1); }
+    .mw-card .icon { font-size: 2rem; margin-bottom: 0.7rem; display: block; }
+    .mw-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--gold-light); margin-bottom: 0.4rem; }
+    .mw-card p { font-size: 0.82rem; opacity: 0.75; line-height: 1.55; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #120925 0%, #2A1648 100%);
+      padding: 3rem 5% 4.5rem; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(200, 146, 42, 0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-section::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #120925, #C8922A, #120925);
+    }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; color: #fff; }
+    .cta-section h2 .gold { color: #C8922A; }
+    .cta-section p { font-size: 1rem; opacity: 0.8; margin-bottom: 2.2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn-white { background: #fff; color: var(--navy); border: none; border-radius: 50px; padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.22s; }
+    .btn-white:hover { background: #FFF5EE; transform: translateY(-2px); }
+    .cta-trust { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .trust-item { font-size: 0.8rem; opacity: 0.6; display: flex; align-items: center; gap: 0.4rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .cover-grid { grid-template-columns: repeat(2, 1fr); }
+      .mw-grid { grid-template-columns: 1fr; }
+      .process-steps { flex-wrap: wrap; gap: 1.5rem; }
+      .proc-step:not(:last-child)::after { display: none; }
+    }
+    @media (max-width: 700px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .cover-grid { grid-template-columns: 1fr; }
+      .usp-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; }
+    }
+
+    /* ── FAQs ── */
+    .faq-list { max-width: 800px; display: flex; flex-direction: column; gap: 0.8rem; }
+    .faq-item { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--card-bg); transition: box-shadow 0.2s; }
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(224,90,43,0.08); }
+    .faq-item.open { border-color: var(--gold); box-shadow: 0 4px 20px rgba(224,90,43,0.12); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 1.2rem 1.5rem; background: none; border: none; cursor: pointer;
+      text-align: left; font-family: 'Inter', sans-serif; font-size: 0.97rem;
+      font-weight: 600; color: var(--text-dark); transition: color 0.2s;
+    }
+    .faq-item.open .faq-q { color: var(--gold); }
+    .faq-icon { font-size: 1.4rem; font-weight: 300; color: var(--gold); flex-shrink: 0; transition: transform 0.25s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; padding: 0 1.5rem; }
+    .faq-item.open .faq-a { max-height: 400px; padding: 0 1.5rem 1.3rem; }
+    .faq-a p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner > * { animation: fadeUp 0.6s ease both; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.2s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.3s; }
+  
+    /* ── RETIREMENT-LIKE HERO ── */
+    .hero-dark {
+      background: #111827; padding: 10rem 5% 6rem; position: relative; overflow: hidden;
+    }
+    .hero-dark::before {
+      content: ''; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(123,90,200,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
+    }
+    .hero-dark-inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; text-align: left;
+    }
+    .hero-badge-pink {
+      background: linear-gradient(135deg, #A855F7, #EC4899); color: #fff;
+      font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 2rem;
+      padding: 0.5rem 1.2rem; border-radius: 50px; text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(236,72,153,0.3); display: inline-block;
+    }
+    .hero-dark h1 {
+      font-family: 'Inter', sans-serif; font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 800; color: #f9fafb; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    }
+    .hero-dark h1 .gold { color: #E8B84B; }
+    .hero-dark-sub {
+      font-size: 1.1rem; color: #d1d5db; max-width: 600px; line-height: 1.6; margin-bottom: 2.5rem;
+    }
+    .hero-stat-row {
+      display: flex; justify-content: flex-start; gap: 4rem; flex-wrap: wrap; margin-top: 3.5rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); width: 100%;
+    }
+    .hero-stat strong { display: block; font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 700; color: #d8b4fe; }
+    .hero-stat span { font-size: 0.75rem; color: #9ca3af; letter-spacing: 0.05em; text-transform: uppercase; }
+    .btn-rp-primary {
+      background: linear-gradient(135deg, #A855F7, #EC4899); color: #fff;
+      border: none; border-radius: 50px; padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 700;
+      cursor: pointer; text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-rp-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,90,200,0.3); }
+    .btn-rp-secondary {
+      background: rgba(255, 255, 255, 0.05); color: #e5e7eb;
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-rp-secondary:hover { background: rgba(255,255,255,0.08); }
+</style>
 </head>
 
-<body class="bg-base text-main font-body antialiased overflow-x-hidden">
-  
+<body style="font-family:'Inter',sans-serif; background:var(--cream); color:var(--text-dark); overflow-x:hidden;">
+
   <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
       <a href="index.html" class="flex items-center gap-3">
@@ -62,14 +344,14 @@
         <a href="about.html" class="nav-link font-['Inter']">About</a>
         <div class="relative group">
           <button class="nav-link flex items-center gap-1 cursor-pointer font-['Inter']">Services <ion-icon name="chevron-down-outline"></ion-icon></button>
-          <div class="absolute left-0 top-full hidden w-64 flex-col rounded-xl border border-zinc-800 bg-zinc-900 p-2 pt-2 shadow-xl group-hover:flex">
-            <a href="wealth-management.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Wealth Management</a>
-            <a href="retirement-planning.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Retirement Planning</a>
-            <a href="lamf.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Loan Against Mutual Funds</a>
-            <a href="maternity-insurance-service.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Maternity Health Insurance</a>
-            <a href="comprehensive-health-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Comprehensive Health Insurance</a>
-            <a href="term-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Term Insurance</a>
-            <a href="claim-settlement.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Claim Settlement Assistance</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">Wealth Management</a>
+            <a href="retirement-planning.html" class="dropdown-link">Retirement Planning</a>
+            <a href="lamf.html" class="dropdown-link">Loan Against Mutual Funds</a>
+            <a href="maternity-insurance-service.html" class="dropdown-link">Maternity Health Insurance</a>
+            <a href="comprehensive-health-insurance.html" class="dropdown-link">Comprehensive Health Insurance</a>
+            <a href="term-insurance.html" class="dropdown-link">Term Insurance</a>
+            <a href="claim-settlement.html" class="dropdown-link">Claim Settlement Assistance</a>
           </div>
         </div>
         <a href="calculators.html" class="nav-link font-['Inter']">Calculators</a>
@@ -101,7 +383,7 @@
         <div class="space-y-3">
           <div class="font-medium text-zinc-100 font-['Inter']">Services</div>
           <div class="ml-4 flex flex-col space-y-3 text-sm border-l border-zinc-700 pl-4">
-            <a href="wealth-management.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Wealth Management</a>
+            <a href="index.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Wealth Management</a>
             <a href="retirement-planning.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Retirement Planning</a>
             <a href="lamf.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Loan Against Mutual Funds</a>
             <a href="maternity-insurance-service.html" class="mobile-link font-normal text-zinc-300 font-['Inter']">Maternity Health Insurance</a>
@@ -120,317 +402,426 @@
     </div>
   </header>
 
+<main>
+<!-- BREADCRUMB -->
+<div class="breadcrumb" style="display: none;">
+  <a href="index.html">Home</a> › <a href="services.html">Services</a> › Comprehensive Health Insurance
+</div>
 
-  <main>
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-52">
-      <div class="hero-grid"></div>
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="mx-auto max-w-7xl" data-reveal>
-        <div class="flex flex-wrap items-center gap-4 mb-6">
-          <span class="why-tag inline-block bg-gold/10 text-gold border-gold/20">🛡️ Trusted by 300+ Families</span>
-          <span class="why-tag inline-block bg-purple-900/30 text-purple-400 border-purple-500/30 font-bold">5.0 ★ GOOGLE RATED</span>
-        </div>
-        <h1 class="font-heading text-5xl leading-tight md:text-6xl lg:text-7xl">Health Insurance That<br><span class="gold-gradient-text italic">Actually Works</span><br>When You Need It Most</h1>
-        <p class="mt-8 max-w-3xl text-lg text-zinc-300 leading-relaxed">
-          A medical emergency shouldn't drain your life savings. Get expert-curated health insurance that covers your family completely — with absolute transparency and a dedicated advisor in your corner when it's time to claim.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a href="contact.html" class="btn-primary bg-gold hover:bg-gold/80 border-gold/40 text-white font-bold shadow-gold/20">📞 Request Callback</a>
-          <a href="https://wa.me/+917972053045" class="btn-secondary" target="_blank">💬 WhatsApp Experts</a>
-        </div>
-        
-        <div class="mt-16 flex flex-wrap gap-x-12 gap-y-6 border-t border-zinc-800 pt-10">
-          <div class="flex items-center gap-2">
-            <span class="text-gold text-xl">✅</span>
-            <span class="text-xs text-zinc-400 font-black tracking-widest uppercase">99% Claims Satisfaction</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-gold text-xl">💰</span>
-            <span class="text-xs text-zinc-400 font-black tracking-widest uppercase">₹5 Cr+ Claims Settled</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-gold text-xl">🔄</span>
-            <span class="text-xs text-zinc-400 font-black tracking-widest uppercase">Post-Rejection Support</span>
-          </div>
-        </div>
+<!-- HERO -->
+<section class="hero-dark">
+  <div class="hero-dark-inner">
+    <div style="display: block; clear: both; width: 100%; margin-bottom: 1rem;">
+      <span class="hero-badge-pink" style="margin: 0 !important; display: inline-block !important;">COMPREHENSIVE HEALTH</span>
+    </div>
+    <div style="display: block; clear: both; width: 100%; max-width: 800px;">
+      <h1 style="margin-top: 0 !important;">Health Insurance That<br>Actually Works <span class="gold">When You Need It</span></h1>
+    </div>
+    <p class="hero-dark-sub">A medical emergency shouldn’t drain your life savings. Get expert-curated health insurance that covers your family completely — with someone in your corner when it’s time to claim.</p>
+    <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <a href="contact.html#enquiry" class="btn-rp-primary">📞 Request Callback</a>
+      <a href="https://wa.me/917972053045" class="btn-rp-secondary" target="_blank">💬 WhatsApp Us</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <strong>5-Star</strong>
+        <span>Google Rated</span>
       </div>
-    </section>
-
-    <!-- REALITY CHECK -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl" data-reveal>
-          <span class="text-gold font-semibold tracking-widest uppercase text-sm">The Reality Check</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white">Medical Costs Are Rising Faster <br>Than <span class="text-gold">You Think</span></h2>
-          <p class="mt-6 text-lg text-zinc-300 leading-relaxed">Healthcare in India is getting expensive. Planning your coverage today isn't just a choice — it's a vital financial safeguard.</p>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-2">
-          <div class="glass-card p-8 rounded-3xl border-l-4 border-l-gold group hover:bg-zinc-900/40 transition-all" data-reveal>
-            <div class="flex justify-between items-start mb-6">
-              <span class="text-4xl group-hover:scale-110 transition-transform">📈</span>
-              <span class="px-3 py-1 bg-gold/10 text-gold rounded-full text-[10px] font-black uppercase tracking-widest border border-gold/20">Inflation Alert</span>
-            </div>
-            <h4 class="font-heading text-2xl text-white mb-3">Healthcare Inflation at 14% p.a.</h4>
-            <p class="text-zinc-300 text-sm leading-relaxed mb-4">Medical costs are doubling every 5 years. A treatment costing ₹2L today will cost ₹4L by 2030. Your current cover might not be enough.</p>
-            <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-800 text-center">
-              <p class="text-gold font-bold text-xs">₹2L today → ₹4L in 5 years</p>
-            </div>
-          </div>
-
-          <div class="glass-card p-8 rounded-3xl border-l-4 border-l-gold group hover:bg-zinc-900/40 transition-all" data-reveal>
-            <div class="flex justify-between items-start mb-6">
-              <span class="text-4xl group-hover:scale-110 transition-transform">🏥</span>
-              <span class="px-3 py-1 bg-gold/10 text-gold rounded-full text-[10px] font-black uppercase tracking-widest border border-gold/20">Cost Reality</span>
-            </div>
-            <h4 class="font-heading text-2xl text-white mb-3">Average Hospitalisation Cost</h4>
-            <p class="text-zinc-300 text-sm leading-relaxed mb-4">Routine surgeries, ICU stays, and daycare procedures can easily cross ₹2–4 lakh — costs most families are unprepared for out-of-pocket.</p>
-            <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-800 text-center">
-              <p class="text-gold font-bold text-xs">ICU: ₹15,000–₹40,000/day</p>
-            </div>
-          </div>
-
-          <div class="glass-card p-8 rounded-3xl border-l-4 border-l-purple-500 group hover:bg-zinc-900/40 transition-all" data-reveal>
-            <div class="flex justify-between items-start mb-6">
-              <span class="text-4xl group-hover:scale-110 transition-transform">💸</span>
-              <span class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-purple-500/20 text-xs">The Gap</span>
-            </div>
-            <h4 class="font-heading text-2xl text-white mb-3">Most Policies Leave Critical Gaps</h4>
-            <p class="text-zinc-300 text-sm leading-relaxed mb-4">Sub-limits, co-payments, and proportionate deductions often result in partial claims settlement — leaving families short at the worst possible time.</p>
-            <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-800 text-center">
-              <p class="text-purple-400 font-bold text-xs">31% of claims face partial settlement</p>
-            </div>
-          </div>
-
-          <div class="glass-card p-8 rounded-3xl border-l-4 border-l-purple-500 group hover:bg-zinc-900/40 transition-all" data-reveal>
-            <div class="flex justify-between items-start mb-6">
-              <span class="text-4xl group-hover:scale-110 transition-transform">🎯</span>
-              <span class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-purple-500/20 text-xs">The Solution</span>
-            </div>
-            <h4 class="font-heading text-2xl text-white mb-3">Right Cover = Peace of Mind</h4>
-            <p class="text-zinc-300 text-sm leading-relaxed mb-4">With the right policy and a trusted advisor at your side, you get 100% coverage, cashless hospitalization, and expert claim support — always.</p>
-            <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-800 text-center">
-              <p class="text-purple-400 font-bold text-xs">✅ Miracle Wealth: 99% Satisfaction</p>
-            </div>
-          </div>
-        </div>
+      <div class="hero-stat">
+        <strong>99%</strong>
+        <span>Claims Satisfaction</span>
       </div>
-    </section>
-
-    <!-- WHAT'S COVERED -->
-    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
-          <span class="text-gold font-semibold tracking-widest uppercase text-sm">Coverage Highlights</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-zinc-900 underline decoration-gold/10 italic">Total Health <span class="text-gold">Shield</span></h2>
-          <p class="mt-6 text-lg text-zinc-600">We recommend policies that offer comprehensive, zero-surprise coverage across all major health events.</p>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">🏨</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">In-Patient Hospitalisation</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">Full coverage for room charges, nursing, and doctor fees with zero room-rent sub-limits.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">🔬</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Pre & Post Treatment</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">Tests, medicines, and consultations covered for set periods before and after hospital stay.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">🚑</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Daycare Procedures</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">600+ modern treatments covered without needing a 24-hour hospital admission.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">🎁</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Guaranteed Bonus</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">Automatic Sum Insured growth (100% per year) that doesn't reduce even if you make a claim.</p>
-            <a href="wealth-management.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">💉</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Day 1 PED Cover</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">Conditions like Diabetes/Hypertension covered from day one with specific plan combinations.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">🩺</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Annual Health Check-Up</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">Free comprehensive medical check-ups every policy year for all insured members.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">🌍</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Restoration Benefit</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">Sum insured automatically refills if exhausted — ensuring you're never without cover.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100 flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4">🧤</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Non-Medical Expenses</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed mb-4 flex-grow">Coverage for 68+ consumable items like gloves, masks, and nebulization kits.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="bg-white p-6 rounded-2xl transition-all hover:border-gold/30 hover:shadow-md border border-zinc-100" data-reveal>
-            <div class="text-3xl mb-4">👶</div>
-            <h4 class="text-zinc-900 font-bold text-sm mb-2 uppercase tracking-wide">Maternity & Newborn</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed">Full delivery expenses and newborn baby cover from Day 1 (available in select plans).</p>
-          </div>
-        </div>
+      <div class="hero-stat">
+        <strong>₹5 Cr+</strong>
+        <span>Amount Settled</span>
       </div>
-    </section>
-
-    <!-- PLAN COMPARISON TABLE -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
-          <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">Choose Wisely</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-white underline decoration-zinc-800">Plan Comparison</h2>
-          <p class="mt-6 text-zinc-300">Finding the perfect structure for your family's unique profile.</p>
-        </div>
-
-        <div class="overflow-x-auto rounded-3xl border border-zinc-800" data-reveal>
-          <table class="w-full text-left border-collapse min-w-[750px]">
-            <thead>
-              <tr class="bg-zinc-900/80">
-                <th class="px-6 py-5 text-zinc-400 font-semibold border-b border-zinc-800 text-xs tracking-widest uppercase">Feature</th>
-                <th class="px-6 py-5 text-white font-bold border-b border-zinc-800">Individual Plan</th>
-                <th class="px-6 py-5 text-gold font-bold border-b border-zinc-800 bg-gold/5 italic">⭐ Family Floater</th>
-                <th class="px-6 py-5 text-white font-bold border-b border-zinc-800">Super Top-Up</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-zinc-900">
-              <tr>
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Best For</td>
-                <td class="px-6 py-4 text-zinc-400 text-xs">Single person</td>
-                <td class="px-6 py-4 text-gold text-xs font-bold font-italic bg-gold/5">Entire family under one cover</td>
-                <td class="px-6 py-4 text-zinc-400 text-xs">Boosting existing cover cheaply</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Sum Insured</td>
-                <td class="px-6 py-4 text-zinc-400 text-xs">Per person</td>
-                <td class="px-6 py-4 text-gold text-xs font-bold bg-gold/5">Shared by family</td>
-                <td class="px-6 py-4 text-zinc-400 text-xs">Kicks in after deductible</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Premium</td>
-                <td class="px-6 py-4 text-zinc-400 text-xs">Moderate</td>
-                <td class="px-6 py-4 text-gold text-xs font-bold bg-gold/5">Cost-efficient for families</td>
-                <td class="px-6 py-4 text-zinc-400 text-xs">Very low</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Maternity Cover</td>
-                <td class="px-6 py-4 text-red-500/50 text-center">✗</td>
-                <td class="px-6 py-4 bg-gold/5 text-center text-green-400 font-bold">✓ Available</td>
-                <td class="px-6 py-4 text-red-500/50 text-center">✗</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Restoration</td>
-                <td class="px-6 py-4 text-green-400 text-center text-xs">✓ Most plans</td>
-                <td class="px-6 py-4 bg-gold/5 text-green-400 text-center text-xs">✓ Most plans</td>
-                <td class="px-6 py-4 text-purple-400 text-center text-xs italic">Select plans</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 text-zinc-300 text-sm font-medium">Recommended Cover</td>
-                <td class="px-6 py-4 text-white text-xs font-bold">₹25 Lakh</td>
-                <td class="px-6 py-4 bg-gold/5 text-gold text-sm font-black">₹50 Lakh</td>
-                <td class="px-6 py-4 text-white text-xs font-bold">₹1 Cr</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="mt-10 p-8 rounded-3xl bg-zinc-950 border border-zinc-800 max-w-3xl mx-auto" data-reveal>
-          <div class="flex gap-4 items-start">
-            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">💡</div>
-            <div>
-              <p class="text-zinc-300 text-sm leading-relaxed mb-6">
-                <strong>Not sure which is right for you?</strong> Most families benefit most from a <strong>Family Floater</strong> with a <strong>Super Top-Up</strong> rider. Our advisors will analyse your family's profile and recommend the optimal combination — at no cost.
-              </p>
-              <a href="contact.html" class="inline-flex items-center gap-2 text-gold font-bold text-sm hover:underline">
-                Get a Free Recommendation →
-              </a>
-            </div>
-          </div>
-        </div>
+      <div class="hero-stat">
+        <strong>Ex-Partner</strong>
+        <span>Advisory Board</span>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- PROCESS FLOW -->
-    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mx-auto text-center mb-20" data-reveal>
-          <span class="text-purple-600 font-semibold tracking-widest uppercase text-sm mb-4 inline-block">Our Methodology</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-zinc-900">Full-Cycle <span class="text-purple-600 italic">Advisory</span></h2>
-          <p class="mt-6 text-lg text-zinc-600">Unlike online portals, we're with you from the first enquiry to the final claim deposit.</p>
-        </div>
+<!-- WHY YOU NEED IT -->
+<section>
+  <div class="section-eyebrow">The Reality Check</div>
+  <h2 class="section-title">Medical Costs Are Rising Faster Than <span class="accent-gold">You Think</span></h2>
 
-        <div class="grid gap-12 md:grid-cols-5 relative">
-          <!-- Desktop Connectors -->
-          <div class="hidden md:block absolute top-8 left-[10%] right-[10%] h-[1px] bg-zinc-300 z-0 border-t border-dashed border-zinc-300"></div>
-          
-          <div class="relative z-10 flex flex-col items-center text-center group" data-reveal>
-            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-50 transition-colors group-hover:border-purple-200 shadow-sm text-zinc-900">📋</div>
-            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2">Understand</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed">Free consultation on your profile & needs</p>
-          </div>
-          <div class="relative z-10 flex flex-col items-center text-center group" data-reveal>
-            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-50 transition-colors group-hover:border-purple-200 shadow-sm text-zinc-900">🔍</div>
-            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2">Compare</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed">Unbiased view across multiple insurers</p>
-          </div>
-          <div class="relative z-10 flex flex-col items-center text-center group" data-reveal>
-            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-50 transition-colors group-hover:border-purple-200 shadow-sm text-zinc-900">📄</div>
-            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2">Recommend</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed">Customised plan with right riders</p>
-          </div>
-          <div class="relative z-10 flex flex-col items-center text-center group" data-reveal>
-            <div class="w-16 h-16 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-50 transition-colors group-hover:border-purple-200 shadow-sm text-zinc-900">✅</div>
-            <h4 class="text-zinc-900 font-bold text-xs uppercase tracking-widest mb-2">Enroll</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed">Seamless digital policy issuance</p>
-          </div>
-          <div class="relative z-10 flex flex-col items-center text-center group" data-reveal>
-            <div class="w-16 h-16 rounded-full bg-gold border border-gold-400 flex items-center justify-center text-2xl mb-6 text-black transition-colors shadow-md hover:scale-105">🏥</div>
-            <h4 class="text-gold-700 font-bold text-xs uppercase tracking-widest mb-2 text-yellow-700">Claim Support</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed">End-to-end assistance for lifetime</p>
-          </div>
-        </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">📈</span>
+      <h4>Healthcare Inflation at 14% p.a.</h4>
+      <p>Medical costs are doubling every 5 years. A treatment costing ₹2L today will cost ₹4L by 2030. Insurance is not optional — it's essential planning.</p>
+      <span class="stat-highlight">₹2L today → ₹4L in 5 years</span>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🏥</span>
+      <h4>Average Hospitalisation Cost: ₹1–4 Lakh</h4>
+      <p>Routine surgeries, ICU stays, and daycare procedures can easily cross ₹2–4 lakh — costs most families are not prepared for out-of-pocket.</p>
+      <span class="stat-highlight">ICU: ₹15,000–₹40,000/day</span>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💸</span>
+      <h4>Most Policies Leave Critical Gaps</h4>
+      <p>Sub-limits, co-payments, & proportionate deductions often result in partial claims settlement — leaving families short at the worst possible time.</p>
+      <span class="stat-highlight">31% of claims face partial settlement</span>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🎯</span>
+      <h4>Right Cover = Peace of Mind</h4>
+      <p>With the right policy and a trusted advisor at your side, you get 100% coverage, cashless hospitalization, and expert claim support — always.</p>
+      <span class="stat-highlight" style="font-size:0.88rem; display:block; margin-top:0.6rem;">✅ Miracle Wealth: 99% Claims Satisfaction</span>
+    </div>
+  </div>
+</section>
 
-        <div class="mt-20 bg-white border border-zinc-200 p-10 rounded-3xl border-l-4 border-l-purple-500 shadow-sm" data-reveal>
-          <div class="grid md:grid-cols-3 gap-10 items-center">
-            <div class="md:col-span-2">
-              <span class="px-3 py-1 bg-purple-50 text-purple-700 rounded-md text-[10px] font-black uppercase tracking-widest border border-purple-200 mb-4 inline-block">Post-Rejection Support</span>
-              <h3 class="font-heading text-3xl text-zinc-900 mb-4 italic">"Claim Rejected? We Fight for You."</h3>
-              <p class="text-zinc-600 text-sm leading-relaxed mb-4">Most rejections can be challenged. We review your case and escalate to the top regulated & legal authorities, for you — with you. From IRDAI to the Ombudsman, we don't give up.</p>
-            </div>
-            <div class="text-center">
-              <a href="https://wa.me/+917972053045" class="btn-primary w-full py-4 text-center rounded-xl bg-purple-600 border-purple-500 font-black">WHATSAPP NOW</a>
-            </div>
-          </div>
-        </div>
+<!-- WHAT WE COVER -->
+<section class="alt">
+  <div class="section-eyebrow">Coverage Highlights</div>
+  <h2 class="section-title">What's <span class="accent">Covered</span></h2>
+  <p class="section-sub">We recommend policies that offer comprehensive, zero-surprise coverage across all major health events.</p>
+
+  <div class="cover-grid">
+    <div class="cover-card">
+      <span class="c-icon">🏥</span>
+      <h4>Hospitalisation</h4>
+      <p>In-patient treatment, room charges, nursing, and doctor fees fully covered.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">🔬</span>
+      <h4>Pre & Post Hospitalisation</h4>
+      <p>Diagnostic tests, medicines, and follow-up consultations covered before and after admission.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">🚑</span>
+      <h4>Daycare Procedures</h4>
+      <p>600+ daycare treatments covered without 24-hour admission requirement.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">🎁</span>
+      <h4>Guaranteed Bonus</h4>
+      <p>Get non-reducing bonus 100% per year for up to infinite number of years.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">💉</span>
+      <h4>Day 1 PED Cover</h4>
+      <p>Pre-existing conditions like Diabetes, Asthma, Hypertension, Cholesterol, Obesity & Heart issues are covered from day 1, with optional add-ons.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">🩺</span>
+      <h4>Annual Health Check-Up</h4>
+      <p>Free health check-up for insured members every policy year — prevention first.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">🌍</span>
+      <h4>Restoration Benefit</h4>
+      <p>Sum insured automatically restored after exhaustion — full cover all year round.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">🧤</span>
+      <h4>Non Medical Expenses</h4>
+      <p>68 consumable items such as gloves, diapers, masks, nebulization kit, etc are also covered.</p>
+    </div>
+    <div class="cover-card">
+      <span class="c-icon">👶</span>
+      <h4>Maternity & Newborn Cover</h4>
+      <p>Delivery expenses and newborn baby cover from Day 1, with optional add-ons.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN COMPARISON -->
+<section>
+  <div class="section-eyebrow">Choose Wisely</div>
+  <h2 class="section-title">Individual vs Family Floater vs <span class="accent-gold">Super Top-Up</span></h2>
+  <p class="section-sub">Not sure which plan type suits you? Here's a quick comparison to help you decide.</p>
+
+  <div class="plans-wrap">
+    <table class="plans-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Individual Plan</th>
+          <th class="rec">⭐ Family Floater</th>
+          <th>Super Top-Up</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Best For</td>
+          <td>Single person</td>
+          <td class="rec">Entire family under one cover</td>
+          <td>Boosting existing cover cheaply</td>
+        </tr>
+        <tr>
+          <td>Sum Insured</td>
+          <td>Per person</td>
+          <td class="rec">Shared by family</td>
+          <td>Kicks in after deductible</td>
+        </tr>
+        <tr>
+          <td>Premium</td>
+          <td>Moderate</td>
+          <td class="rec">Cost-efficient for families</td>
+          <td>Very low</td>
+        </tr>
+        <tr>
+          <td>Maternity Cover</td>
+          <td><span class="check-no">✗</span></td>
+          <td class="rec"><span class="check-yes">✓ Available</span></td>
+          <td><span class="check-no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Restoration Benefit</td>
+          <td><span class="check-yes">✓ Most plans</span></td>
+          <td class="rec"><span class="check-yes">✓ Most plans</span></td>
+          <td><span class="check-part">Select plans</span></td>
+        </tr>
+        <tr>
+          <td>Recommended Cover</td>
+          <td>₹25L</td>
+          <td class="rec">₹50L</td>
+          <td>₹1 Cr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:1.5rem; background:var(--gold-pale); border-radius:14px; padding:1.2rem 1.5rem; border-left:4px solid var(--gold); font-size:0.9rem; color:var(--text-mid); max-width:680px;">
+    💡 <strong>Not sure which is right for you?</strong> Most families benefit most from a Family Floater with a Super Top-Up rider. Our advisors will analyse your family's profile and recommend the optimal combination — at no cost.
+    <br><br>
+    <a href="contact.html#enquiry" class="btn-gold" style="font-size:0.85rem; padding:0.6rem 1.5rem; display:inline-block; margin-top:0.2rem;">Get a Free Recommendation →</a>
+  </div>
+</section>
+
+<!-- OUR PROCESS -->
+<section class="alt">
+  <div class="section-eyebrow">How We Work</div>
+  <h2 class="section-title">From Query to <span class="accent-gold">Claim Settlement</span> — We're With You</h2>
+  <p class="section-sub">Unlike online aggregators, we're not just at the point of sale. We're your advisor at every step — before, during, and after a claim.</p>
+
+  <div class="process-steps">
+    <div class="proc-step">
+      <div class="proc-circle">📋</div>
+      <h4>Understand</h4>
+      <p>Free consultation to understand your family's health profile & needs</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-circle">🔍</div>
+      <h4>Compare</h4>
+      <p>Unbiased comparison across multiple insurers for best cover</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-circle">📄</div>
+      <h4>Recommend</h4>
+      <p>Customised plan with right sum insured, riders & terms</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-circle">✅</div>
+      <h4>Enroll</h4>
+      <p>Seamless policy issuance — digital, fast & hassle-free</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-circle">🏥</div>
+      <h4>Claim Support</h4>
+      <p>End-to-end claim assistance — for lifetime</p>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem; background:linear-gradient(135deg,#0D1F3C,#1A3055); border-radius:16px; padding:1.5rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; color:#fff;">
+    <div>
+      <div style="font-size:0.78rem; color:var(--gold-light); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">Post-Rejection Support</div>
+      <div style="font-family:'Inter',sans-serif; font-size:1.2rem; font-weight:700;">Claim Rejected? We Fight for You.</div>
+      <div style="font-size:0.85rem; opacity:0.75; margin-top:0.3rem;">Most rejections can be challenged. We review your case and escalate to the top regulated & legal authorities, for you — with you.</div>
+    </div>
+    <a href="https://wa.me/917972053045" class="btn-gold" target="_blank" style="white-space:nowrap; flex-shrink:0;">WhatsApp Now</a>
+  </div>
+</section>
+
+<!-- WHY MIRACLE WEALTH -->
+<section class="navy-section">
+  <div class="section-eyebrow" style="color:var(--gold-light);">Why Choose Us?</div>
+  <h2 class="section-title" style="color:#fff;">Why Families Trust <span style="color:var(--gold-light);">Miracle Wealth?</span></h2>
+  <p class="section-sub" style="color:rgba(255,255,255,0.7); margin-bottom:2rem;">We're not a call centre. We're a dedicated team of experts who understands your family's health profile and guides you accordingly.</p>
+
+  <div class="mw-grid">
+    <div class="mw-card">
+      <span class="icon">🏛️</span>
+      <h4>Industry Insider Expertise</h4>
+      <p>Ex-Partner Advisory Board Member of Magma General Insurance Ltd. We know how insurers think — and how to work in your favour.</p>
+    </div>
+    <div class="mw-card">
+      <span class="icon">🔄</span>
+      <h4>Post-Rejection Claim Support</h4>
+      <p>Claim rejected? We escalate, challenge, and fight — whether to the insurer, IRDAI, consumer court or ombudsman. We DON'T give up!</p>
+    </div>
+    <div class="mw-card">
+      <span class="icon">📊</span>
+      <h4>Unbiased Multi-Insurer Advice</h4>
+      <p>We compare plans across multiple insurers — recommending what's best for you, not what pays us most.</p>
+    </div>
+    <div class="mw-card">
+      <span class="icon">👨‍👩‍👧</span>
+      <h4>300+ Families Served</h4>
+      <p>From young couples to senior citizens, we've helped 300+ families across India get covered with plans that truly deliver.</p>
+    </div>
+    <div class="mw-card">
+      <span class="icon">📞</span>
+      <h4>Lifetime Advisory Relationship</h4>
+      <p>We're available for renewals, endorsements, add-ons, and policy reviews every year. Your relationship doesn't end at purchase.</p>
+    </div>
+    <div class="mw-card">
+      <span class="icon">🎓</span>
+      <h4>Qualified & IRDAI Registered</h4>
+      <p>We are IRDAI-certified insurance intermediary (& AMFI-registered) with extensive experience. You're in expert, compliant hands.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section>
+  <div class="section-eyebrow">Quick Answers</div>
+  <h2 class="section-title">Your Questions <span class="accent-gold">Answered</span></h2>
+  <p class="section-sub">Common questions we hear from people exploring health insurance for the first time or switching policies.</p>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>What sum insured should I choose for my family?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>A minimum of ₹10–15 lakh is recommended for a family of 4 in a Tier-1 city. Given 14% annual medical inflation, a sum insured that feels adequate today may be grossly insufficient in 5 years. We help you calculate the right cover based on your city, age, and health profile — and include a plan with the highest possible 'No-Claim Bonus' so it grows every year irrespective of claim status.</p>
       </div>
-    </section>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>What is a waiting period, and which conditions have it?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Health insurance policies typically have a 30-day initial waiting period (for all illnesses, not accidents), a 0–3 year waiting period for pre-existing conditions, and a 2-year waiting period for specific illnesses like hernia, cataracts, etc. We help you choose policies with the shortest waiting periods and flag exactly what applies to your health profile before you buy.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Individual policy or a family floater — which is better?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>A family floater pools the sum insured, making it cost-effective for young, healthy families. However, it can run short if multiple members are hospitalised in the same year. For families with senior members or those with pre-existing conditions, separate individual policies may offer better coverage. We analyse both options for your specific situation and recommend what makes financial sense.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>What if my claim gets rejected?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>This is where we stand apart. Being an insider for 5+ years, we understand why exactly insurers reject claims — and how to challenge those decisions. We assist you end-to-end in filing reimbursements & grievances with the insurer, the consumer court, the Insurance Ombudsman, or IRDAI — and have successfully reversed decisions in the past that clients had given up on. You are never alone in a claim dispute, always remember that. <strong>Your satisfaction is paramount to us.</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INSURANCE PARTNERS -->
+<section class="alt">
+  <h2 class="section-title">Our Insurance <span class="accent">Partners</span></h2>
+  <p class="section-sub">We work with India's most trusted and IRDAI-regulated health insurers to find you the best policy at the best price.</p>
+
+  <div class="partners-row">
+    <div class="partner-logo-wrap">
+      <img src="13.03.2026_Corrections/Services/5. Comprehensive Health Insurance/Our Insurance Partners/Care.jpg" alt="Care Health Insurance" />
+    </div>
+    <div class="partner-logo-wrap">
+      <img src="13.03.2026_Corrections/Services/5. Comprehensive Health Insurance/Our Insurance Partners/ICICI Lombard.png" alt="ICICI Lombard" />
+    </div>
+    <div class="partner-logo-wrap">
+      <img src="13.03.2026_Corrections/Services/5. Comprehensive Health Insurance/Our Insurance Partners/Magma.jpg" alt="Magma General Insurance" />
+    </div>
+    <div class="partner-logo-wrap">
+      <img src="13.03.2026_Corrections/Services/5. Comprehensive Health Insurance/Our Insurance Partners/Niva.png" alt="Niva Bupa Health Insurance" />
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:1.5rem; font-size:0.82rem; color:var(--text-soft); font-style:italic;">
+    All insurers are IRDAI-regulated. Policy terms, premiums, and coverage are subject to insurer approval and applicable regulations.
+  </div>
+</section>
 
     <!-- REVIEWS — Trustindex-style Google Widget -->
-    <section class="px-6 py-20 lg:px-8 border-t border-zinc-200" style="background:#f0ebe3;">
-      <div class="mx-auto max-w-7xl" data-reveal>
+    <section class="px-6 pt-20 pb-6 lg:px-8 border-t border-zinc-200" style="background:#f0ebe3;">
+      <div class="mx-auto max-w-7xl">
+
+                <!-- Section Heading -->
+        <div class="text-center mb-10">
+          <p class="section-eyebrow" style="display:inline-block; margin-bottom:1rem; color:var(--gold, #C8922A);">TRUSTED NATIONWIDE</p>
+          <h2 class="section-title" style="text-align:center; font-family:'Inter',sans-serif; margin-bottom:1rem;">Real Families. <span class="accent" style="color:var(--gold, #C8922A);">Genuine Trust.</span></h2>
+          <p class="section-sub" style="margin:0 auto; text-align:center; max-width:600px;">Rated 5.0 ★ on Google by families who secured their financial future with Miracle Wealth.</p>
+        </div>
 
         <!-- Carousel wrapper -->
         <div class="relative">
           <!-- Left Arrow -->
-          <button onclick="document.getElementById('reviewTrackCHI').scrollBy({left:-320,behavior:'smooth'})"
+          <button onclick="document.getElementById('reviewTrackTI').scrollBy({left:-320,behavior:'smooth'})"
             class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition-colors hidden md:flex">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
           </button>
 
           <!-- Review Cards Track -->
-          <div id="reviewTrackCHI" class="flex gap-5 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory" style="scrollbar-width:none;-ms-overflow-style:none;">
-            <style>#reviewTrackCHI::-webkit-scrollbar{display:none;}</style>
+          <div id="reviewTrackTI" class="flex gap-5 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory" style="scrollbar-width:none;-ms-overflow-style:none;">
+            <style>#reviewTrackTI::-webkit-scrollbar{display:none;}
+    /* ── RETIREMENT-LIKE HERO ── */
+    .hero-dark {
+      background: #111827; padding: 10rem 5% 6rem; position: relative; overflow: hidden;
+    }
+    .hero-dark::before {
+      content: ''; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(123,90,200,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
+    }
+    .hero-dark-inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; text-align: left;
+    }
+    .hero-badge-pink {
+      background: linear-gradient(135deg, #A855F7, #EC4899); color: #fff;
+      font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 2rem;
+      padding: 0.5rem 1.2rem; border-radius: 50px; text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(236,72,153,0.3); display: inline-block;
+    }
+    .hero-dark h1 {
+      font-family: 'Inter', sans-serif; font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 800; color: #f9fafb; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    }
+    .hero-dark h1 .gold { color: #E8B84B; }
+    .hero-dark-sub {
+      font-size: 1.1rem; color: #d1d5db; max-width: 600px; line-height: 1.6; margin-bottom: 2.5rem;
+    }
+    .hero-stat-row {
+      display: flex; justify-content: flex-start; gap: 4rem; flex-wrap: wrap; margin-top: 3.5rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); width: 100%;
+    }
+    .hero-stat strong { display: block; font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 700; color: #d8b4fe; }
+    .hero-stat span { font-size: 0.75rem; color: #9ca3af; letter-spacing: 0.05em; text-transform: uppercase; }
+    .btn-rp-primary {
+      background: linear-gradient(135deg, #A855F7, #EC4899); color: #fff;
+      border: none; border-radius: 50px; padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 700;
+      cursor: pointer; text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-rp-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,90,200,0.3); }
+    .btn-rp-secondary {
+      background: rgba(255, 255, 255, 0.05); color: #e5e7eb;
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50px;
+      padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.22s; display: inline-block;
+    }
+    .btn-rp-secondary:hover { background: rgba(255,255,255,0.08); }
+</style>
 
             <!-- Card 1: Prince Asati -->
             <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
@@ -550,134 +941,48 @@
           </div>
 
           <!-- Right Arrow -->
-          <button onclick="document.getElementById('reviewTrackCHI').scrollBy({left:320,behavior:'smooth'})"
+          <button onclick="document.getElementById('reviewTrackTI').scrollBy({left:320,behavior:'smooth'})"
             class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition-colors hidden md:flex">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </button>
         </div>
 
         <!-- Trustindex-style Rating Footer -->
-        <div class="mt-10 text-center">
+        <div class="mt-6 text-center">
           <p class="text-zinc-600 text-sm">
             <span class="font-bold text-zinc-800">Google</span> rating score:
-            <span class="font-bold text-zinc-900">5.0</span> of 5, based on
-            <a href="https://www.google.com/search?q=Miracle+Wealth+Reviews" target="_blank" class="font-bold text-blue-600 underline hover:text-blue-700">150+ reviews</a>
+            <span class="font-bold text-zinc-900">5.0</span> of 5.
+            <a href="https://www.google.com/search?sca_esv=b6c66537db370904&sxsrf=ANbL-n5JOqoC8frhbQGDIkiQd-1YaOW_gQ:1769176800595&kgmid=/g/11ywq0bkdj&q=Miracle+Wealth&shem=bdsle,ptotple,shrtsdl&shndl=30&source=sh/x/loc/uni/m1/1&kgs=c6baea763d23229e&utm_source=bdsle,ptotple,shrtsdl,sh/x/loc/uni/m1/1" target="_blank" class="ml-1 font-bold text-blue-600 underline hover:text-blue-700">Read Google Reviews</a>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- WHY TRUST US -->
-    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
-          <span class="why-tag mb-4">The Miracle Wealth Edge</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-white">Why Families Trust <span class="text-gold">Miracle Wealth?</span></h2>
-          <p class="mt-6 text-lg text-zinc-300 italic">We're not a call centre. We're a dedicated team of experts in your corner.</p>
-        </div>
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Your Family Deserves<br><span class="gold">Complete Protection.</span></h2>
+  <p>Get a free, personalised health insurance consultation. We'll compare top plans, explain the fine print, and help you choose with confidence.</p>
+  <div class="cta-buttons">
+    <a href="contact.html#enquiry" class="btn-white">📞 Request a Free Callback</a>
+    <a href="https://wa.me/917972053045" class="btn-wa" target="_blank">💬 WhatsApp Miracle Wealth</a>
+  </div>
+  <div class="cta-trust">
+    <span class="trust-item">✦ Free Consultation</span>
+    <span class="trust-item">✦ No Spam. No Pressure.</span>
+    <span class="trust-item">✦ IRDAI Registered Advisor</span>
+    <span class="trust-item">✦ 5-Star Google Rated</span>
+  </div>
+</section>
 
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="glass-card p-8 rounded-3xl group hover:border-gold/30 transition-all" data-reveal>
-            <div class="text-3xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">🏛️</div>
-            <h4 class="text-gold font-bold text-sm mb-3 uppercase tracking-widest">Insider Expertise</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed">Ex-Partner Advisory Board member of Magma General Insurance. We know how insurers think and how to leverage it for your benefit.</p>
-          </div>
-          <div class="glass-card p-8 rounded-3xl group hover:border-gold/30 transition-all" data-reveal>
-            <div class="text-3xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">📊</div>
-            <h4 class="text-gold font-bold text-sm mb-3 uppercase tracking-widest">Unbiased Advisory</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed">We compare plans across multiple IRDAI-regulated insurers — recommending what's best for your pocket, not our commission.</p>
-          </div>
-          <div class="glass-card p-8 rounded-3xl group hover:border-gold/30 transition-all" data-reveal>
-            <div class="text-3xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">🔄</div>
-            <h4 class="text-gold font-bold text-sm mb-3 uppercase tracking-widest">Lifetime Relationship</h4>
-            <p class="text-zinc-500 text-xs leading-relaxed">We're available for annual reviews, endorsements, and policy adjustments. Our relationship starts, not ends, with the purchase.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQS -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-reveal>
-          <span class="text-purple-400 font-semibold tracking-widest uppercase text-sm">Quick Answers</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-white underline decoration-zinc-800">Your Questions Answered</h2>
-        </div>
-
-        <div class="grid gap-4 max-w-4xl mx-auto" data-reveal>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              What sum insured should I choose for my family?
-              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              Min. ₹10–15L is recommended for Tier-1 cities. Given 14% inflation, covers today may be insufficient in 5 years. We help you pick plans with high 'No-Claim Bonus' features so your cover grows automatically.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              What are waiting periods?
-              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              Usually 30 days for new illnesses, and 2–4 years for pre-existing ones. We help you choose policies with the shortest waiting periods and flag specifically what applies to you upfront.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              What if my claim gets rejected?
-              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900">
-              This is where we stand apart. We understand exactly why insurers reject claims. We assist end-to-end in filing grievances with the insurer, Ombudsman, or IRDAI. You're never alone in a claim dispute.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- INSURANCE PARTNERS -->
-    <section class="bg-white px-6 py-20 lg:px-8 border-y border-zinc-100 text-center">
-      <div class="mx-auto max-w-7xl">
-        <span class="text-purple-600 font-bold tracking-widest uppercase text-[10px] mb-4 block select-none">Our Trusted Partners</span>
-        <h2 class="font-heading text-4xl text-zinc-900 mb-4">India's Best Health Insurers</h2>
-        <p class="text-zinc-500 text-sm mb-12">We work with India's most reliable and IRDAI-regulated health insurers.</p>
-        
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          <img src="images/partners/health/adithya%20birla.png" alt="Aditya Birla" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform">
-          <img src="images/partners/health/Care%20Health.png" alt="Care Health" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform">
-          <img src="images/partners/health/hdfc%20ergo.png" alt="HDFC Ergo" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform">
-          <img src="images/partners/health/icic%20lombard.png" alt="ICICI Lombard" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
-          <img src="images/partners/health/manipal%20cigna.svg" alt="Manipal Cigna" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform">
-          <img src="images/partners/health/niva%20bupa.png" alt="Niva Bupa" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform">
-          <img src="images/partners/health/Star%20Health.png" alt="Star Health" class="h-8 md:h-12 w-auto hover:scale-110 transition-transform mix-blend-multiply">
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="relative overflow-hidden px-6 py-24 lg:px-8 bg-[#050505]">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold/5 blur-[120px] rounded-full"></div>
-      <div class="mx-auto max-w-4xl text-center relative z-10" data-reveal>
-        <h2 class="font-heading text-5xl md:text-6xl text-white mb-8 underline decoration-gold/20">Your Family Deserves <br><span class="text-gold italic">Complete Protection.</span></h2>
-        <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-          Get a free, personalised health insurance consultation. We'll compare plans, explain the fine print, and help you choose with 100% confidence.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="contact.html" class="btn-primary bg-gold border-gold/40 px-12 py-5 text-lg text-white font-black" target="_blank">📞 Request Free Callback</a>
-          <a href="https://wa.me/+917972053045" class="btn-secondary px-12 py-5 text-lg" target="_blank">💬 WhatsApp Experts</a>
-        </div>
-      </div>
-    </section>
-  </main>
+</main>
 
   <!-- FOOTER -->
   
   <footer class="footer-dark border-t border-zinc-800 px-6 py-12 lg:px-8 bg-zinc-900" style="margin-top:0;">
     <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 bg-zinc-950">
       <div class="grid gap-10 md:grid-cols-12">
-        <div class="md:col-span-6 lg:col-span-5 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <img src="images/logo.png" alt="Miracle Wealth" class="h-24 md:h-32 w-auto" />
+        <div class="md:col-span-6 lg:col-span-5 flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-32 md:h-44 w-auto object-contain flex-shrink-0" />
           <div class="flex flex-col gap-3 font-['Inter']">
             <a href="tel:+917972053045" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2"><ion-icon name="call-outline"></ion-icon>+91 7972053045</a>
             <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
@@ -708,61 +1013,30 @@
         </div>
       </div>
 
-      <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center font-['Inter']">
-        <p class="md:col-span-9 text-xs leading-relaxed text-zinc-300">
-          Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) &amp; an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms &amp; conditions carefully before concluding a sale. | <a href="privacy-policy.html" class="underline hover:text-zinc-100">Privacy Policy</a>.
+      <div class="mt-10 border-t border-zinc-800 pt-8 flex flex-col items-center gap-6 font-['Inter']">
+        <p class="text-xs leading-relaxed text-zinc-400 text-center max-w-6xl">
+          Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) &amp; an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms &amp; conditions carefully before concluding a sale.
         </p>
-        <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
+        <div class="w-full pt-2 text-center pb-2">
+          <p class="text-xs text-zinc-500 tracking-wide">&copy; 2026 Miracle Wealth. All rights reserved.</p>
+        </div>
       </div>
     </div>
   </footer>
 
 
-  <a href="https://wa.me/+917972053045" target="_blank" rel="noopener" class="whatsapp-float">
+  <a href="https://wa.me/+917972053045" target="_blank" rel="noopener" class="whatsapp-float"
+    aria-label="Chat on WhatsApp">
     <ion-icon name="logo-whatsapp"></ion-icon>
   </a>
 
   <script>
     const header = document.getElementById("header");
-
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileLinks = mobileMenu.querySelectorAll("a");
     const menuIconOpen = document.getElementById("menuIconOpen");
     const menuIconClose = document.getElementById("menuIconClose");
-
-    const toggleMenu = (forceClose = false) => {
-      if (!mobileMenu || !mobileMenuBtn) return;
-      const isHidden = mobileMenu.classList.contains("hidden");
-      if (forceClose && isHidden) return;
-
-      const willBeHidden = forceClose ? true : !isHidden;
-
-      if (willBeHidden) {
-        mobileMenu.classList.add("hidden");
-        mobileMenuBtn.setAttribute("aria-expanded", "false");
-        if(menuIconClose) menuIconClose.classList.add("hidden", "rotate-90");
-        if(menuIconClose) menuIconClose.classList.remove("rotate-0");
-        if(menuIconOpen) menuIconOpen.classList.remove("hidden");
-        if(menuIconOpen) menuIconOpen.classList.add("rotate-0");
-      } else {
-        mobileMenu.classList.remove("hidden");
-        mobileMenuBtn.setAttribute("aria-expanded", "true");
-        if(menuIconOpen) menuIconOpen.classList.add("hidden");
-        if(menuIconOpen) menuIconOpen.classList.remove("rotate-0");
-        if(menuIconClose) menuIconClose.classList.remove("hidden", "rotate-90");
-        if(menuIconClose) menuIconClose.classList.add("rotate-0");
-      }
-    };
-
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener("click", () => toggleMenu());
-    }
-    if (mobileLinks) {
-        mobileLinks.forEach((link) => {
-          link.addEventListener("click", () => toggleMenu(true));
-        });
-    }
 
     const onScroll = () => {
       if (window.scrollY > 50) header.classList.add("header-scrolled");
@@ -771,17 +1045,52 @@
     onScroll();
     window.addEventListener("scroll", onScroll);
 
-    const revealEls = document.querySelectorAll("[data-reveal]");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          io.unobserve(entry.target);
-        }
+    const toggleMenu = (forceClose = false) => {
+      const isHidden = mobileMenu.classList.contains("hidden");
+      if (forceClose && isHidden) return;
+      const willBeHidden = forceClose ? true : !isHidden;
+      if (willBeHidden) {
+        mobileMenu.classList.add("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        menuIconClose.classList.add("hidden", "rotate-90");
+        menuIconOpen.classList.remove("hidden");
+      } else {
+        mobileMenu.classList.remove("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        menuIconOpen.classList.add("hidden");
+        menuIconClose.classList.remove("hidden", "rotate-90");
+      }
+    };
+    mobileMenuBtn.addEventListener("click", () => toggleMenu());
+    mobileLinks.forEach((link) => link.addEventListener("click", () => toggleMenu(true)));
+
+    function toggleFaq(btn) {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      var targets = document.querySelectorAll(
+        '.why-card, .cover-card, .review-card, .mw-card, .partner-logo-wrap, .proc-step'
+      );
+      targets.forEach(function (el, i) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease ' + (i * 0.05) + 's, transform 0.5s ease ' + (i * 0.05) + 's';
+        observer.observe(el);
       });
-    }, { threshold: 0.1 });
-    revealEls.forEach((el) => io.observe(el));
+    });
   </script>
 </body>
-
 </html>

@@ -1,67 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claim Settlement Assistance | Miracle Wealth</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script>
-    tailwind = window.tailwind || {};
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            heading: ["Cormorant Garamond", "serif"],
-            body: ["Inter", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .font-garamond { font-family: 'Cormorant Garamond', serif; }
-    .text-gold { color: #f59e0b; }
-    .text-purple { color: #a78bfa; }
-    .text-pink { color: #ec4899; }
-    .bg-dark-section { background-color: #050505; }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C8922A;
+      --gold-light: #E2B64D;
+      --gold-dark: #A67921;
+      --purple: #7b5ac8;
+      --purple-light: #9b7ae0;
+      --cream: #FFFAF3;
+      --warm-bg: #FFF5E6;
+      --card-bg: #FFFFFF;
+      --border: #E8DCC8;
+      --text-dark: #1A1A2E;
+      --text-mid: #4A4A68;
+      --text-soft: #8A8AA0;
+      --green-ok: #16803C;
+      /* Legacy aliases for sections that still reference old vars */
+      --burg: var(--purple);
+      --burg-mid: #6248a8;
+      --burg-light: var(--purple-light);
+      --amber: var(--gold);
+      --amber-lt: var(--gold-light);
+      --amber-pale: var(--warm-bg);
+      --slate: #0a0b10;
+      --slate-mid: #131420;
     }
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #fbbf24, #d97706);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.65; }
+
+    /* NAV — old client styles removed; using Tailwind dark nav from style.css */
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { padding: 0.75rem 5%; font-size: 0.8rem; color: var(--text-soft); background: var(--warm-bg); border-bottom: 1px solid var(--border); }
+    .breadcrumb a { color: var(--amber); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0a0b10 !important;
+      background-image: radial-gradient(circle at right center, rgba(167, 139, 250, 0.12) 0%, rgba(214, 74, 154, 0.08) 40%, #0a0b10 70%) !important;
+      padding: 10.5rem 5% 7rem; position: relative; overflow: hidden; color: #fff;
     }
-    .purple-gradient-text {
-      background: linear-gradient(135deg, #a78bfa, #7c3aed);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at right center, rgba(167, 139, 250, 0.12) 0%, rgba(214, 74, 154, 0.08) 40%, transparent 70%);
     }
-    .case-line {
-      position: absolute;
-      left: 17px;
-      top: 40px;
-      bottom: 40px;
-      width: 1px;
-      background: linear-gradient(to bottom, #ef4444, #f59e0b, #10b981);
+    /* Diagonal stripe accent */
+    .hero::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 45%; height: 100%;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent 0px, transparent 18px,
+        rgba(200,146,42,0.04) 18px, rgba(200,146,42,0.04) 20px
+      );
     }
+    /* Radial glow on top-right */
+    .hero-glow {
+      position: absolute; top: -80px; right: -80px; width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(123,90,200,0.35) 0%, transparent 70%);
+      pointer-events: none; z-index: 1;
+    }
+    .hero-inner { max-width: 900px; position: relative; z-index: 1; text-align: left; }
+    .hero-eyebrow {
+      display: inline-flex !important; align-items: center; gap: 0.5rem;
+      background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.35);
+      color: var(--gold-light); border-radius: 4px; padding: 0.3rem 0.9rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 1.6rem;
+      position: relative !important; z-index: 2;
+    }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700; line-height: 1.15; color: #ffffff; margin-bottom: 1.2rem; letter-spacing: -0.02em;
+    }
+    .hero h1 .amber { color: var(--gold-light); }
+    .hero h1 .italic { font-style: italic; }
+    .hero-sub { font-size: 1.02rem; color: rgba(255,255,255,0.74); margin-bottom: 0.9rem; max-width: 580px; line-height: 1.8; }
+    .hero-note {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(22,128,60,0.18); border: 1px solid rgba(22,128,60,0.35);
+      color: #6EE7A0; border-radius: 6px; padding: 0.45rem 1rem;
+      font-size: 0.82rem; font-weight: 700; margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-amber {
+      background: var(--gold); color: #fff; border: none; border-radius: 8px;
+      padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: 800; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+      box-shadow: 0 4px 18px rgba(200,146,42,0.40);
+    }
+    .btn-amber:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,146,42,0.50); }
+    .btn-wa {
+      background: #25D366; color: #fff; border: none; border-radius: 8px;
+      padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.3);
+    }
+    .btn-wa:hover { background: #20b858; transform: translateY(-2px); }
+    .btn-burg {
+      background: var(--burg); color: #fff; border: none; border-radius: 8px;
+      padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.22s;
+    }
+    .btn-burg:hover { background: var(--burg-light); transform: translateY(-2px); }
+
+    /* ── SHARED ── */
+    section { padding: 4.5rem 5%; }
+    section.alt { background: var(--warm-bg); }
+    section.amber-soft { background: var(--amber-pale); }
+    section.dark-section { background: var(--slate); color: #fff; }
+    section.burg-section { background: var(--burg); color: #fff; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.7rem; }
+    .section-eyebrow.lt { color: var(--gold-light); }
+    .section-title { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.85rem; }
+    .section-title .accent { color: var(--purple); }
+    .section-title .accent-amber { color: var(--gold); }
+    .section-sub { font-size: 0.95rem; color: var(--text-mid); max-width: 640px; margin-bottom: 2.5rem; line-height: 1.75; }
+    .amber-rule { width: 52px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--purple-light)); border-radius: 2px; margin-bottom: 1.5rem; }
+
+    /* ── PROBLEM TYPES ── */
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .problem-card {
+      border-radius: 18px; padding: 2rem 1.6rem; position: relative; overflow: hidden;
+      transition: all 0.25s;
+    }
+    .problem-card.red { background: #FFF1F3; border: 1.5px solid #FFB3C0; }
+    .problem-card.orange { background: #FFF3EF; border: 1.5px solid #FFBDA0; }
+    .problem-card.slate { background: #EEF3FF; border: 1.5px solid #B8CCFF; }
+    .problem-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.1); }
+    .problem-num {
+      font-family: 'Inter', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1;
+      margin-bottom: 0.5rem; opacity: 0.15; position: absolute; top: 1rem; right: 1.2rem;
+    }
+    .problem-card.red .problem-num { color: #C0392B; }
+    .problem-card.orange .problem-num { color: #F05A28; }
+    .problem-card.slate .problem-num { color: #172040; }
+    .problem-tag {
+      display: inline-block; border-radius: 50px; padding: 0.3rem 0.9rem;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .problem-card.red .problem-tag { background: #FFD5DB; color: #8B0000; }
+    .problem-card.orange .problem-tag { background: #FFE0D5; color: #8A2800; }
+    .problem-card.slate .problem-tag { background: #D5E3FF; color: #0D2070; }
+    .problem-card h4 { font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-dark); line-height: 1.2; }
+    .problem-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.68; }
+
+    /* ── INSURANCE TYPES ── */
+    .types-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+    .type-card {
+      background: var(--card-bg); border-radius: 14px; padding: 1.5rem 1rem;
+      text-align: center; border: 1px solid var(--border); transition: all 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .type-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--burg), var(--amber));
+    }
+    .type-card:hover { box-shadow: 0 6px 24px rgba(13,27,74,0.12); transform: translateY(-2px); border-color: var(--burg); }
+    .type-icon { font-size: 2rem; margin-bottom: 0.7rem; display: block; }
+    .type-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .type-card p { font-size: 0.76rem; color: var(--text-soft); line-height: 1.5; }
+
+    /* ── PROCESS ── */
+    .process-timeline { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
+    .proc-item {
+      display: flex; gap: 2rem; align-items: flex-start; padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border); transition: all 0.2s;
+    }
+    .proc-item:last-child { border-bottom: none; }
+    .proc-item:hover { background: var(--amber-pale); border-radius: 14px; padding: 1.6rem 1rem; margin: 0 -1rem; }
+    .proc-num {
+      width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--burg), var(--burg-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff;
+      box-shadow: 0 4px 14px rgba(13,27,74,0.30);
+    }
+    .proc-content h4 { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .proc-content p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.68; }
+
+    /* ── OUTCOME STATS ── */
+    .outcomes-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .outcome-card {
+      flex: 1; min-width: 180px; background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 16px;
+      padding: 1.6rem; text-align: center; transition: all 0.22s;
+    }
+    .outcome-card:hover { background: rgba(255,255,255,0.11); border-color: rgba(240,90,40,0.40); }
+    .outcome-num { font-family: 'Inter', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--amber-lt); display: block; margin-bottom: 0.25rem; }
+    .outcome-label { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+    /* ── WHY US CARDS ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .why-card {
+      background: var(--card-bg); border-radius: 16px; padding: 1.7rem;
+      border: 1px solid var(--border); transition: all 0.22s; position: relative; overflow: hidden;
+    }
+    .why-card::after {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(180deg, var(--burg), var(--amber));
+      transform: scaleY(0); transform-origin: top; transition: transform 0.3s;
+    }
+    .why-card:hover::after { transform: scaleY(1); }
+    .why-card:hover { box-shadow: 0 8px 30px rgba(13,27,74,0.10); transform: translateY(-2px); }
+    .why-icon { font-size: 1.9rem; margin-bottom: 0.8rem; display: block; }
+    .why-card h4 { font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.45rem; }
+    .why-card p { font-size: 0.86rem; color: var(--text-mid); line-height: 1.68; }
+
+    /* ── WARNING BOX ── */
+    .warning-box {
+      background: linear-gradient(135deg, var(--burg), var(--burg-mid));
+      border-radius: 18px; padding: 2rem 2.5rem; color: #fff;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .warning-box .w-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .warning-box h4 { font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .warning-box p { font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.68; max-width: 500px; }
+
+    /* ── FAQs ── */
+    .faq-list { max-width: 800px; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card-bg); transition: box-shadow 0.2s; }
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(13,27,74,0.08); }
+    .faq-item.open { border-color: var(--burg); box-shadow: 0 4px 20px rgba(13,27,74,0.12); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 1.15rem 1.4rem; background: none; border: none; cursor: pointer;
+      text-align: left; font-family: 'Inter', sans-serif; font-size: 0.95rem;
+      font-weight: 700; color: var(--text-dark); transition: color 0.2s;
+    }
+    .faq-item.open .faq-q { color: var(--burg); }
+    .faq-icon { font-size: 1.3rem; color: var(--burg); flex-shrink: 0; transition: transform 0.25s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; padding: 0 1.4rem; }
+    .faq-item.open .faq-a { max-height: 400px; padding: 0 1.4rem 1.2rem; }
+    .faq-a p { font-size: 0.89rem; color: var(--text-mid); line-height: 1.78; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #120925 0%, #2A1648 100%);
+      padding: 5rem 5%; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(200, 146, 42, 0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-section::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #120925, #C8922A, #120925);
+    }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.9rem, 3.8vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+    .cta-section h2 .hl { color: #C8922A; font-style: italic; }
+    .cta-section p { font-size: 0.98rem; color: rgba(255,255,255,0.7); margin-bottom: 2.2rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+    .cta-buttons { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn-white { background: #fff; color: var(--slate); border: none; border-radius: 8px; padding: 0.9rem 2.2rem; font-size: 0.97rem; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.22s; }
+    .btn-white:hover { background: var(--amber-pale); transform: translateY(-2px); }
+    .cta-trust { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .trust-item { font-size: 0.79rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 0.4rem; }
+
+    /* ── FOOTER ── */
+    .footer-note { background: #090A0C; color: #4A5060; text-align: center; padding: 1.2rem 5%; font-size: 0.77rem; line-height: 1.65; }
+    .footer-note a { color: var(--amber); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) { .types-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .types-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .types-grid { grid-template-columns: 1fr 1fr; }
+      .outcomes-row { gap: 1rem; }
+      .warning-box { flex-direction: column; gap: 1rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner > * { animation: fadeUp 0.55s ease both; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.18s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.26s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.34s; }
   </style>
 </head>
-
-<body class="bg-base text-main font-body antialiased overflow-x-hidden">
-  
-  <header id="header" class="fixed top-0 z-50 w-full transition-all duration-300 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
+<body style="font-family:'Inter',sans-serif; background:var(--cream); color:var(--text-dark); overflow-x:hidden;">
+<header id="header" class="fixed top-0 z-50 w-full transition-all duration-300 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
       <a href="index.html" class="flex items-center gap-3">
         <img src="images/logo.png" alt="Miracle Wealth" class="h-16 w-auto md:h-20 lg:h-24" />
@@ -72,14 +314,14 @@
         <a href="about.html" class="nav-link font-['Inter']">About</a>
         <div class="relative group">
           <button class="nav-link flex items-center gap-1 cursor-pointer font-['Inter']">Services <ion-icon name="chevron-down-outline"></ion-icon></button>
-          <div class="absolute left-0 top-full hidden w-64 flex-col rounded-xl border border-zinc-800 bg-zinc-900 p-2 pt-2 shadow-xl group-hover:flex">
-            <a href="wealth-management.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Wealth Management</a>
-            <a href="retirement-planning.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Retirement Planning</a>
-            <a href="lamf.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Loan Against Mutual Funds</a>
-            <a href="maternity-insurance-service.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Maternity Health Insurance</a>
-            <a href="comprehensive-health-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Comprehensive Health Insurance</a>
-            <a href="term-insurance.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Term Insurance</a>
-            <a href="claim-settlement.html" class="block rounded-lg px-4 py-2 hover:bg-zinc-800 transition-colors font-['Inter']">Claim Settlement Assistance</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">Wealth Management</a>
+            <a href="retirement-planning.html" class="dropdown-link">Retirement Planning</a>
+            <a href="lamf.html" class="dropdown-link">Loan Against Mutual Funds</a>
+            <a href="maternity-insurance-service.html" class="dropdown-link">Maternity Health Insurance</a>
+            <a href="comprehensive-health-insurance.html" class="dropdown-link">Comprehensive Health Insurance</a>
+            <a href="term-insurance.html" class="dropdown-link">Term Insurance</a>
+            <a href="claim-settlement.html" class="dropdown-link">Claim Settlement Assistance</a>
           </div>
         </div>
         <a href="calculators.html" class="nav-link font-['Inter']">Calculators</a>
@@ -129,342 +371,605 @@
       </nav>
     </div>
   </header>
+<main>
+<!-- BREADCRUMB -->
+<div class="breadcrumb" style="display: none;">
+  <a href="index.html">Home</a> › <a href="services.html">Services</a> › Claim Settlement Assistance
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div style="display: block; clear: both; width: 100%; margin-bottom: 1rem;">
+      <span class="hero-eyebrow" style="margin: 0 !important; display: inline-flex !important; position: static !important; transform: none !important;">⚖️ We Fight for What's Rightfully Yours</span>
+    </div>
+    <div style="display: block; clear: both; width: 100%;">
+      <h1 style="margin-top: 0 !important;">Your Claim Was<br><span class="amber italic">Rejected.</span><br>That's Not the End.</h1>
+    </div>
+    <p class="hero-sub">Most policyholders accept 'No' because they don't know they have a right to challenge it. We do — and we fight until you get every rupee you deserve.</p>
+    <div class="hero-note">✅ No Resolution = No Fee. We work for your outcome.</div>
+    <div class="hero-actions">
+      <a href="contact.html#enquiry" class="btn-amber" target="_blank">📞 Request Callback</a>
+      <a href="https://wa.me/917972053045" class="btn-wa" target="_blank">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM — 3 TYPES -->
+<section>
+  <div class="section-eyebrow">The Problem</div>
+  <h2 class="section-title">Three Ways Policyholders <span class="accent">Lose Money</span> Every Day</h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">Insurers are businesses. Their incentive is to minimise payouts. Without an expert in your corner, you're negotiating alone — against a team of lawyers.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card red">
+      <div class="problem-num">01</div>
+      <span class="problem-tag">Complete Rejection</span>
+      <h4>Your Claim Was Denied Outright</h4>
+      <p>The insurer rejected your claim citing exclusions, policy violations, non-disclosure, or procedural reasons — many of which can be legally challenged and overturned with the right approach.</p>
+    </div>
+    <div class="problem-card orange">
+      <div class="problem-num">02</div>
+      <span class="problem-tag">Short Settlement</span>
+      <h4>You Received Far Less Than You Were Owed</h4>
+      <p>Sub-limits, proportionate deductions, depreciation clauses, co-payments — insurers use these to settle claims at a fraction of the actual loss. You deserved more. We get it for you.</p>
+    </div>
+    <div class="problem-card slate">
+      <div class="problem-num">03</div>
+      <span class="problem-tag">Mis-Sold Policy</span>
+      <h4>The Policy Didn't Cover What You Were Told It Would</h4>
+      <p>An agent sold you a policy with verbal promises that weren't in writing. At claim time, those promises vanished. This is mis-selling — and it's actionable. We help you recover your dues.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE TYPES WE COVER -->
+<section class="alt">
+  <div class="section-eyebrow">Scope of Service</div>
+  <h2 class="section-title">Every Type of Insurance. <span class="accent">Every Type of Claim.</span></h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">Whether your claim involves health, life, vehicle, transit, or property — we have the expertise to challenge, escalate, and resolve.</p>
+
+  <div class="types-grid">
+    <div class="type-card">
+      <span class="type-icon">🏥</span>
+      <h4>Health Insurance</h4>
+      <p>Cashless denials, reimbursement rejections, partial settlements</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🛡️</span>
+      <h4>Term / Life Insurance</h4>
+      <p>Death claim rejections, non-disclosure disputes, nominee claim assistance</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🚢</span>
+      <h4>Transit Insurance</h4>
+      <p>Goods-in-transit damage or loss claims rejected or underpaid by cargo insurers</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🔥</span>
+      <h4>Fire Insurance</h4>
+      <p>Property damage claims denied, under-assessed, or delayed unreasonably</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🚗</span>
+      <h4>Vehicle Insurance</h4>
+      <p>Accident, theft, or total-loss claims rejected or settled below market value</p>
+    </div>
+  </div>
+
+  <!-- Warning box -->
+  <div class="warning-box" style="margin-top:2.5rem;">
+    <div class="w-icon">⏰</div>
+    <div>
+      <h4>Act Before the Window Closes</h4>
+      <p>There is a strict time limit to challenge a claim rejection — typically 1 year from the date of rejection for an Insurance Ombudsman complaint, and 2 years for Consumer Court. Every day of delay weakens your case. If your claim was recently rejected, contact us immediately.</p>
+    </div>
+    <a href="contact.html#enquiry" class="btn-amber" style="white-space:nowrap; flex-shrink:0;">Act Now →</a>
+  </div>
+</section>
+
+<!-- HOW WE FIGHT FOR YOU -->
+<section>
+  <div class="section-eyebrow">Our Process</div>
+  <h2 class="section-title">How We <span class="accent">Fight for You</span> — Step by Step</h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">We don't just file complaints. We build a watertight case, pursue every escalation channel, and don't stop until your claim is resolved.</p>
+
+  <div class="process-timeline">
+    <div class="proc-item">
+      <div class="proc-num">1</div>
+      <div class="proc-content">
+        <h4>Free Case Review</h4>
+        <p>We review your policy documents, rejection letter, and claim history to assess the strength of your case — completely free of charge, with no obligation.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">2</div>
+      <div class="proc-content">
+        <h4>Root Cause Analysis</h4>
+        <p>We identify exactly why your claim was rejected or underpaid — whether it's a policy interpretation error, procedural flaw, or outright bad faith by the insurer.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">3</div>
+      <div class="proc-content">
+        <h4>Build Your Case</h4>
+        <p>We compile supporting documentation, gather evidence, reference relevant IRDAI circulars and Consumer Court precedents, and draft a strong, legally-informed grievance.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">4</div>
+      <div class="proc-content">
+        <h4>Escalate Through Every Channel</h4>
+        <p>We escalate systematically — first to the insurer's internal grievance team, then to IRDAI's Bima Bharosa portal, then to the Insurance Ombudsman, and if needed, to the Consumer Court or NCDRC.</p>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">5</div>
+      <div class="proc-content">
+        <h4>Resolution & Settlement</h4>
+        <p>We negotiate, represent, and follow through until your claim is resolved — whether through a direct insurer reversal, mediated settlement, or formal ruling in your favour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHEN DO WE CHARGE -->
+<section class="amber-soft">
+  <div class="section-eyebrow">Transparent Pricing</div>
+  <h2 class="section-title">When Do <span class="accent">We Charge?</span></h2>
+  <div class="amber-rule"></div>
+
+  <div style="max-width:780px;">
+    <div style="background:var(--card-bg); border-radius:20px; border:2px solid var(--amber); padding:2.5rem; position:relative; overflow:hidden;">
+      <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg, var(--burg), var(--amber));"></div>
+      <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+        <div style="font-size:3rem; flex-shrink:0;">🤝</div>
+        <div>
+          <h3 style="font-family:'Inter',serif; font-size:1.45rem; font-weight:800; color:var(--text-dark); margin-bottom:0.75rem; line-height:1.2;">Only When Your Claim Gets Settled. Not Before.</h3>
+          <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.8; margin-bottom:1.2rem;">We — including our partners, if any — charge a <strong>claim success fee</strong> calculated as a percentage of the claim amount that gets successfully settled. If your claim doesn't get resolved, you owe us nothing.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.85rem;">
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">No upfront fee</span>
+            </div>
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">No hidden charges</span>
+            </div>
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">Fee only on success</span>
+            </div>
+            <div style="background:var(--warm-bg); border:1px solid var(--border); border-radius:10px; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem;">
+              <span style="color:#16803C; font-size:1.1rem;">✅</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-dark);">Free initial case review</span>
+            </div>
+          </div>
+          <p style="font-size:0.82rem; color:var(--text-soft); margin-top:1rem; font-style:italic;">Success fee percentage is discussed and agreed transparently before we begin working on your case.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section class="burg-section">
+  <div class="section-eyebrow lt">Our Track Record</div>
+  <h2 class="section-title" style="color:#fff;">Numbers That <span style="color:var(--amber-lt); font-style:italic;">Speak for Themselves</span></h2>
+  <div style="width:52px; height:3px; background:linear-gradient(90deg,var(--amber),rgba(255,255,255,0.4)); border-radius:2px; margin-bottom:2rem;"></div>
+
+  <div class="outcomes-row">
+    <div class="outcome-card">
+      <span class="outcome-num">₹5 Cr+</span>
+      <span class="outcome-label">Total Claim Amount Settled for Clients</span>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-num">99%</span>
+      <span class="outcome-label">Claims Satisfaction Rate Across All Cases</span>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-num">5 ★</span>
+      <span class="outcome-label">Google Rating from PAN India Clients</span>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-num">5+</span>
+      <span class="outcome-label">Years as Insurance Industry Insider</span>
+    </div>
+  </div>
+
+  <div style="margin-top:2.5rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:1.8rem 2rem;">
+    <p style="font-family:'Inter',serif; font-size:1.2rem; font-weight:700; color:var(--amber-lt); margin-bottom:0.6rem;">"We have successfully reversed decisions that clients had completely given up on."</p>
+    <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); line-height:1.75;">Whether your claim was rejected 6 months ago or 6 days ago — if the legal window is open, there is a path forward. We've challenged insurers, appeared before the Ombudsman, and escalated to consumer courts — and we've won. Bring us your case. Let us tell you what's possible.</p>
+  </div>
+</section>
+
+<!-- WHY MIRACLE WEALTH FOR CLAIMS -->
+<section class="alt">
+  <div class="section-eyebrow">Why Us</div>
+  <h2 class="section-title">Why Miracle Wealth for <span class="accent">Claim Disputes?</span></h2>
+  <div class="amber-rule"></div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🏛️</span>
+      <h4>Industry Insider Advantage</h4>
+      <p>As Ex-Partner Advisory Board Member of Magma General Insurance Ltd, we understand exactly how insurers evaluate, approve, and reject claims — and how to challenge those decisions from the inside out.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">⚖️</span>
+      <h4>Every Legal Channel, Exhausted</h4>
+      <p>IRDAI grievance · Bima Bharosa portal · Insurance Ombudsman · Consumer Forum · NCDRC. We know which channel works fastest for which case type — and we pursue all of them relentlessly.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📋</span>
+      <h4>Watertight Documentation</h4>
+      <p>Most grievances fail due to poor documentation. We build complete, legally-referenced case files that leave insurers with no room to delay or dismiss.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🔄</span>
+      <h4>Post-Rejection Specialists</h4>
+      <p>We don't just help before claims — we specialise in post-rejection recovery. If you've already been turned down, that's exactly where we begin.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤝</span>
+      <h4>We Work for Your Outcome</h4>
+      <p>We are outcome-driven. We don't charge for effort — we work toward your resolution. Your satisfaction is the only metric that matters to us.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📞</span>
+      <h4>Available at Every Step</h4>
+      <p>From the first case review to the final settlement — we are beside you. You'll never be left wondering what's happening with your case.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section>
+  <div class="section-eyebrow">Real Case. Real Win.</div>
+  <h2 class="section-title">When the Insurer Said No — <span class="accent">We Said Yes.</span></h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">This was one of our first cases to go to the Ombudsman, and we're most proud of it — not because of the claim amount, but because of what it represents: relentless pursuit of justice for a genuine, justified claim.</p>
+
+  <div style="max-width:900px;">
+    <!-- Case File Card -->
+    <div style="background:var(--card-bg); border-radius:20px; border:1px solid var(--border); overflow:hidden; box-shadow:0 8px 36px rgba(0,0,0,0.08);">
+
+      <!-- Header bar -->
+      <div style="background:linear-gradient(135deg, var(--slate), var(--slate-mid)); padding:1.4rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div style="font-size:0.7rem; color:rgba(255,255,255,0.5); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Case Study</div>
+          <div style="font-family:'Inter',serif; font-size:1.3rem; font-weight:800; color:#fff;">Health Insurance · Reimbursement Claim</div>
+        </div>
+        <div style="background:rgba(22,128,60,0.25); border:1px solid rgba(110,231,160,0.4); border-radius:8px; padding:0.5rem 1.1rem; display:flex; align-items:center; gap:0.5rem;">
+          <span style="color:#6EE7A0; font-size:1rem;">⚖️</span>
+          <span style="color:#6EE7A0; font-size:0.82rem; font-weight:800;">OMBUDSMAN AWARD — IN OUR FAVOUR</span>
+        </div>
+      </div>
+
+      <!-- Details grid -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-bottom:1px solid var(--border);">
+        <div style="padding:1.2rem 1.6rem; border-right:1px solid var(--border);">
+          <div style="font-size:0.71rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-soft); margin-bottom:0.3rem;">Patient</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text-dark);">Mr. Neer Asati</div>
+          <div style="font-size:0.8rem; color:var(--text-soft);">Jabalpur, Madhya Pradesh</div>
+        </div>
+        <div style="padding:1.2rem 1.6rem; border-right:1px solid var(--border);">
+          <div style="font-size:0.71rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-soft); margin-bottom:0.3rem;">Admission → Discharge</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text-dark);">10 Sep 2024 → 18 Sep 2024</div>
+          <div style="font-size:0.8rem; color:var(--text-soft);">8-day hospitalisation</div>
+        </div>
+        <div style="padding:1.2rem 1.6rem;">
+          <div style="font-size:0.71rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-soft); margin-bottom:0.3rem;">Diagnosis</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text-dark); line-height:1.35;">Dengue NS-1 Positive / Pancytopenia Hepatitis</div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div style="padding:2rem 2rem 1.2rem;">
+        <div style="display:flex; flex-direction:column; gap:0; position:relative;">
+          <!-- Vertical line -->
+          <div style="position:absolute; left:18px; top:24px; bottom:24px; width:2px; background:linear-gradient(180deg, #EF4444, var(--amber), #16803C); border-radius:2px;"></div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start; padding-bottom:1.5rem;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#FEE2E2; border:2px solid #EF4444; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">❌</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#B91C1C; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">14 November 2024 — Insurer Decision</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem;">Claim Rejected</div>
+              <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:0.7rem 1rem; font-size:0.83rem; color:#7F1D1D; line-height:1.65; font-style:italic;">"Permanent exclusion. Admission primarily for Investigation &amp; Evaluation purpose only. Could have been managed on OPD basis. Code Excl 04."</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start; padding-bottom:1.5rem;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#FEF9C3; border:2px solid var(--amber); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">🔄</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#A04000; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">30 December 2024 — Internal Grievance</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.2rem;">Also Rejected</div>
+              <div style="font-size:0.84rem; color:var(--text-mid); line-height:1.6;">Insurer's internal grievance team upheld the rejection. We were not deterred. We were 100% confident the claim was genuine and justified.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start; padding-bottom:1.5rem;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#EFF6FF; border:2px solid #3B82F6; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">⚖️</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#1D4ED8; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">04 January 2025</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.2rem;">Filed with Insurance Ombudsman</div>
+              <div style="font-size:0.84rem; color:var(--text-mid); line-height:1.6;">We filed a comprehensive case with supporting medical evidence, documentation, and legal precedents. Multiple rounds of hearings and documentation followed over the next several months.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1.4rem; align-items:flex-start;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#DCFCE7; border:2px solid #16803C; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; z-index:1;">🏆</div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#15803D; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.2rem;">29 September 2025 — Award in Our Favour</div>
+              <div style="font-size:0.93rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem;">Ombudsman Ruled for the Policyholder. ₹38,000 Awarded.</div>
+              <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:0.7rem 1rem; font-size:0.83rem; color:#14532D; line-height:1.65; font-style:italic; margin-bottom:0.6rem;">"The Forum observed that medical emergencies cannot be ruled out and that the treating doctor is best placed to determine the necessity of admission. In view of the above, the Forum held that repudiation on the ground of admission being only for investigation is not sustainable."</div>
+              <div style="font-size:0.83rem; color:var(--text-mid);">— Insurance Ombudsman Award</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Moral of the story -->
+        <div style="margin-top:2rem; background:linear-gradient(135deg, var(--burg), var(--burg-mid)); border-radius:14px; padding:1.5rem 1.8rem; color:#fff;">
+          <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber-lt); margin-bottom:0.5rem;">Why We Did It</div>
+          <p style="font-family:'Inter',serif; font-size:1.1rem; font-weight:700; line-height:1.5; margin-bottom:0.5rem;">The claim amount didn't matter. The intent did.</p>
+          <p style="font-size:0.86rem; color:rgba(255,255,255,0.75); line-height:1.75;">₹38,000 is not a large number. But a wrongful rejection is a wrongful rejection — regardless of the amount. We worked with our whole heart because our client deserved justice. Nine months of persistence, documentation, and hearings. Client satisfaction is paramount for us — and always will be.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.4rem; text-align:center;">
+      <a href="contact.html#enquiry" class="btn-burg" style="display:inline-block;">📞 Share Your Case With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="amber-soft">
+  <div class="section-eyebrow">Quick Answers</div>
+  <h2 class="section-title">Your Questions <span class="accent">Answered</span></h2>
+  <div class="amber-rule"></div>
+  <p class="section-sub">Common questions from clients who were told their claim was rejected — and didn't know what to do next.</p>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>My claim was rejected months ago. Is it too late to challenge it?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Not necessarily. You typically have up to 1 year from the date of rejection to file a complaint with the Insurance Ombudsman, and up to 2 years to approach the Consumer Court. However, time is critical — the sooner you contact us, the stronger your case. Share your rejection letter with us and we'll immediately assess whether the window is still open.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>The insurer settled my claim but paid much less than I expected. Can I still challenge it?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Yes. Partial or short settlements are among the most common — and most successfully challenged — claim disputes. If the insurer applied sub-limits, depreciation, or deductions that weren't clearly disclosed to you, or that contradict the policy terms, you have a strong case. We review the settlement calculations and, where applicable, file for the difference.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>My agent told me something was covered but it wasn't in the policy. What can I do?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>This is mis-selling — and it is both an IRDAI violation and actionable before the Consumer Court. If you have any communication with the agent (messages, emails, call recordings), it strengthens your case significantly. Even without direct proof, mis-selling complaints can succeed if the policy terms were clearly misrepresented. Share the details with us and we'll assess your options.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How long does the claim dispute process take?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>It depends on the channel. An internal insurer grievance typically takes 15–30 days. An Insurance Ombudsman complaint is usually resolved within 12 months. Consumer Court proceedings can take up to 24 months depending on complexity. We always begin with the fastest available route and escalate if needed — keeping you informed at every stage.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>What documents do I need to start the process?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>To begin, share your policy document, the claim rejection letter, any supporting bills or reports you had submitted, and any communication with the insurer or agent. Don't worry if you don't have everything — we'll guide you on what's available, what to request from the insurer, and what we can reconstruct from records.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-  <main>
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero-dark relative overflow-hidden px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-52">
-      <div class="hero-grid"></div>
-      <div class="hero-orb hero-orb-1 opacity-20"></div>
+    <!-- REVIEWS — Trustindex-style Google Widget -->
+    <section class="px-6 py-20 lg:px-8 border-t border-zinc-200" style="background:#f0ebe3;">
       <div class="mx-auto max-w-7xl" data-reveal>
-        <div class="flex flex-wrap items-center gap-4 mb-6 text-xs font-black tracking-[0.2em] uppercase">
-          <span class="why-tag border-purple-500/30 text-purple-400">⚖️ We Fight for What's Rightfully Yours</span>
-          <span class="why-tag border-zinc-800 text-zinc-500">Trusted Advisor</span>
-        </div>
-        <h1 class="font-heading text-5xl leading-tight md:text-6xl lg:text-7xl underline decoration-purple-600/20">Your Claim Was<br><span class="gold-gradient-text italic">Rejected.</span><br>That's Not the End.</h1>
-        <p class="mt-8 max-w-2xl text-lg text-zinc-300 leading-relaxed">
-          Most policyholders accept 'No' because they don't know they have a right to challenge it. We do — and we fight until you get every rupee you deserve.
-        </p>
-        <div class="mt-8 mb-10 inline-flex items-center gap-2 px-6 py-2 bg-green-950/20 rounded-xl border border-green-500/20 text-green-400 font-bold text-sm">
-          <span>✅ No Resolution = No Fee. We work for your outcome.</span>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          <a href="contact.html" class="btn-primary bg-gold border-gold text-white font-black px-10">📞 Request Free Review</a>
-          <a href="https://wa.me/+917972053045" class="btn-secondary px-8 font-bold" target="_blank">💬 WhatsApp Experts</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- THE PROBLEM -->
-    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl" data-reveal>
-          <span class="text-yellow-700 font-semibold tracking-widest uppercase text-sm">The Reality</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-zinc-900">Three Ways Policyholders <span class="text-purple-600 italic">Lose Money</span> Every Day</h2>
-          <div class="mt-6 w-20 h-1 bg-yellow-600 rounded-full"></div>
+                <!-- Section Heading -->
+        <div class="text-center mb-10">
+          <p class="section-eyebrow" style="display:inline-block; margin-bottom:1rem; color:var(--gold, #C8922A);">TRUSTED NATIONWIDE</p>
+          <h2 class="section-title" style="text-align:center; font-family:'Inter',sans-serif; margin-bottom:1rem;">Real Families. <span class="accent" style="color:var(--gold, #C8922A);">Genuine Trust.</span></h2>
+          <p class="section-sub" style="margin:0 auto; text-align:center; max-width:600px;">Rated 5.0 ★ on Google by families who secured their financial future with Miracle Wealth.</p>
         </div>
 
-        <div class="mt-16 grid gap-6 md:grid-cols-3">
-          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-3xl group border-l-4 border-l-red-500 transition-all hover:shadow-md relative overflow-hidden" data-reveal>
-            <span class="text-zinc-100 font-black text-4xl absolute top-6 right-8 select-none group-hover:text-red-50 transition-all z-0">01</span>
-            <div class="relative z-10 px-3 py-1 bg-red-50 text-red-700 text-[10px] font-black uppercase tracking-widest border border-red-200 rounded-md inline-block mb-4">Complete Rejection</div>
-            <h4 class="relative z-10 font-heading text-2xl text-zinc-900 mb-4">Your Claim Was Denied Outright</h4>
-            <p class="relative z-10 text-zinc-600 text-sm leading-relaxed">The insurer rejected your claim citing exclusions, policy violations, or non-disclosure — many of which can be legally challenged and overturned.</p>
-          </div>
+        <!-- Carousel wrapper -->
+        <div class="relative">
+          <!-- Left Arrow -->
+          <button onclick="document.getElementById('reviewTrackTI').scrollBy({left:-320,behavior:'smooth'})"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition-colors hidden md:flex">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
 
-          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-3xl group border-l-4 border-l-orange-500 transition-all hover:shadow-md relative overflow-hidden" data-reveal>
-            <span class="text-zinc-100 font-black text-4xl absolute top-6 right-8 select-none group-hover:text-orange-50 transition-all z-0">02</span>
-            <div class="relative z-10 px-3 py-1 bg-orange-50 text-orange-700 text-[10px] font-black uppercase tracking-widest border border-orange-200 rounded-md inline-block mb-4">Short Settlement</div>
-            <h4 class="relative z-10 font-heading text-2xl text-zinc-900 mb-4">You Received Far Less Than Owed</h4>
-            <p class="relative z-10 text-zinc-600 text-sm leading-relaxed">Sub-limits, deductions, and co-payments are used to settle claims at a fraction of the actual loss. You deserved more — we get it for you.</p>
-          </div>
+          <!-- Review Cards Track -->
+          <div id="reviewTrackTI" class="flex gap-5 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory" style="scrollbar-width:none;-ms-overflow-style:none;">
+            <style>#reviewTrackTI::-webkit-scrollbar{display:none;}</style>
 
-          <div class="bg-white border border-zinc-200 shadow-sm p-8 rounded-3xl group border-l-4 border-l-purple-500 transition-all hover:shadow-md relative overflow-hidden" data-reveal>
-            <span class="text-zinc-100 font-black text-4xl absolute top-6 right-8 select-none group-hover:text-purple-50 transition-all z-0">03</span>
-            <div class="relative z-10 px-3 py-1 bg-purple-50 text-purple-700 text-[10px] font-black uppercase tracking-widest border border-purple-200 rounded-md inline-block mb-4">Mis-Sold Policy</div>
-            <h4 class="relative z-10 font-heading text-2xl text-zinc-900 mb-4">Policy Didn't Match Promises</h4>
-            <p class="relative z-10 text-zinc-600 text-sm leading-relaxed">Verbal promises that weren't in writing often vanish at claim time. This is mis-selling — and it's actionable. We help you recover dues.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVERY TYPE COVERED -->
-    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
-      <div class="mx-auto max-w-7xl">
-        <div class="text-center mb-16" data-reveal>
-          <span class="why-tag mb-4">Scope of Service</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-white italic">Every Type of Insurance. <span class="gold-gradient-text not-italic font-bold underline decoration-gold/20">Every Type of Claim.</span></h2>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          <div class="glass-card p-6 rounded-2xl text-center hover:border-gold/30 transition-all group flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4 group-hover:scale-110 transition-transform">🏥</div>
-            <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Health</h4>
-            <p class="text-zinc-400 text-[10px] leading-relaxed mb-4 flex-grow">Accident or theft claims rejected below market value.</p>
-            <a href="comprehensive-health-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-[10px] uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit mx-auto">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="glass-card p-6 rounded-2xl text-center hover:border-gold/30 transition-all group flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4 group-hover:scale-110 transition-transform">🛡️</div>
-            <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Life / Term</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed mb-4 flex-grow">Death claim rejections & non-disclosure disputes.</p>
-            <a href="term-insurance.html" class="inline-flex items-center gap-2 text-gold font-bold text-[10px] uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit mx-auto">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="glass-card p-6 rounded-2xl text-center hover:border-gold/30 transition-all group flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4 group-hover:scale-110 transition-transform">🚢</div>
-            <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Transit</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed mb-4 flex-grow">Goods damage or loss claims underpaid by cargo insurers.</p>
-            <a href="wealth-management.html" class="inline-flex items-center gap-2 text-gold font-bold text-[10px] uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit mx-auto">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="glass-card p-6 rounded-2xl text-center hover:border-gold/30 transition-all group flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4 group-hover:scale-110 transition-transform">🔥</div>
-            <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Fire / Property</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed mb-4 flex-grow">Under-assessed or unreasonably delayed damage claims.</p>
-            <a href="wealth-management.html" class="inline-flex items-center gap-2 text-gold font-bold text-[10px] uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit mx-auto">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="glass-card p-6 rounded-2xl text-center hover:border-gold/30 transition-all group flex flex-col h-full" data-reveal>
-            <div class="text-3xl mb-4 group-hover:scale-110 transition-transform">🚗</div>
-            <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Vehicle</h4>
-            <p class="text-zinc-500 text-[10px] leading-relaxed mb-4 flex-grow">Accident or theft claims rejected below market value.</p>
-            <a href="wealth-management.html" class="inline-flex items-center gap-2 text-gold font-bold text-[10px] uppercase tracking-widest hover:text-gold-600 transition-colors mt-auto w-fit mx-auto">Explore <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-        </div>
-
-        <div class="mt-12 glass-card p-10 rounded-3xl border border-gold/20 bg-gold/5 flex flex-wrap items-center justify-between gap-10" data-reveal>
-          <div class="max-w-2xl">
-            <h4 class="font-heading text-2xl text-white mb-3">Act Before the Window Closes ⏰</h4>
-            <p class="text-zinc-400 text-sm leading-relaxed">There is a strict limit to challenge a claim rejection — typically 1 year for Ombudsman and 2 years for Consumer Court. Every day of delay weakens your case.</p>
-          </div>
-          <a href="contact.html" class="btn-primary bg-gold border-gold text-white font-black px-12 py-4 shadow-gold/20">ACT NOW →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUR FIGHT PROCESS -->
-    <section class="bg-slate-50 px-6 py-20 lg:px-8 border-y border-zinc-200">
-      <div class="mx-auto max-w-7xl">
-        <div class="text-center mb-16" data-reveal>
-            <span class="text-purple-600 font-semibold tracking-widest uppercase text-sm">Strategic Process</span>
-            <h2 class="mt-4 font-heading text-4xl md:text-5xl text-zinc-900 underline decoration-purple-100 italic">How We <span class="purple-gradient-text italic">Fight for You</span></h2>
-            <p class="mt-6 text-zinc-600">A systematic, multi-tiered approach to overturning rejections.</p>
-        </div>
-
-        <div class="grid gap-4 max-w-4xl mx-auto border-l border-zinc-200 ml-4 md:ml-auto">
-          <div class="relative pl-12 pb-12 group" data-reveal>
-            <div class="absolute left-[-16px] top-0 w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-900 font-bold group-hover:bg-purple-600 group-hover:text-white transition-all shadow-sm">1</div>
-            <h4 class="font-heading text-2xl text-zinc-900 mb-2">Free Case Review</h4>
-            <p class="text-zinc-500 text-sm leading-relaxed">We review your policy docs, rejection letter, and claim history to assess strength — completely free with no obligation.</p>
-          </div>
-          <div class="relative pl-12 pb-12 group" data-reveal>
-            <div class="absolute left-[-16px] top-0 w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-900 font-bold group-hover:bg-purple-600 group-hover:text-white transition-all shadow-sm">2</div>
-            <h4 class="font-heading text-2xl text-zinc-900 mb-2">Root Cause Analysis</h4>
-            <p class="text-zinc-500 text-sm leading-relaxed">We identify the exact reason for rejection — interpretation error, procedural flaw, or bad faith by the insurer.</p>
-          </div>
-          <div class="relative pl-12 pb-12 group" data-reveal>
-            <div class="absolute left-[-16px] top-0 w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-900 font-bold group-hover:bg-purple-600 group-hover:text-white transition-all shadow-sm">3</div>
-            <h4 class="font-heading text-2xl text-zinc-900 mb-2">Build Your Case</h4>
-            <p class="text-zinc-500 text-sm leading-relaxed">Compiling medical evidence and legal precedents (IRDAI circulars & court rulings) to draft a watertight grievance.</p>
-          </div>
-          <div class="relative pl-12 pb-12 group" data-reveal>
-            <div class="absolute left-[-16px] top-0 w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-900 font-bold group-hover:bg-purple-600 group-hover:text-white transition-all shadow-sm">4</div>
-            <h4 class="font-heading text-2xl text-zinc-900 mb-2">Multi-Level Escalation</h4>
-            <p class="text-zinc-500 text-sm leading-relaxed">Grievance Team → Bima Bharosa → Ombudsman → Consumer Court. We pursue every possible regulated channel.</p>
-          </div>
-          <div class="relative pl-12 group" data-reveal>
-            <div class="absolute left-[-16px] top-0 w-8 h-8 rounded-full bg-gold flex items-center justify-center text-black font-bold shadow-gold/10 shadow-lg">5</div>
-            <h4 class="font-heading text-2xl text-gold mb-2">Resolution & Settlement</h4>
-            <p class="text-zinc-500 text-sm leading-relaxed">We negotiate and represent until your claim is resolved — through reversal, mediated settlement, or formal ruling.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRANSPARENT PRICING -->
-    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
-      <div class="mx-auto max-w-7xl">
-        <div class="glass-card p-10 md:p-16 rounded-[3rem] border-2 border-gold/20 relative overflow-hidden bg-gold/5" data-reveal>
-          <div class="absolute top-0 right-0 p-8 text-7xl opacity-10">🤝</div>
-          <span class="text-gold font-black text-xs uppercase tracking-widest mb-6 block">Transparent Pricing</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-white mb-8 underline decoration-gold/20 italic font-medium">Only When Your Claim Gets <span class="text-gold not-italic">Settled.</span> Not Before.</h2>
-          
-          <div class="grid md:grid-cols-2 gap-10">
-            <div>
-              <p class="text-zinc-300 text-lg leading-relaxed mb-8">
-                We — including our partners, if any — charge a <strong>claim success fee</strong> only as a percentage of the amount successfully settled. If your claim doesn't get resolved, <strong>you owe us nothing.</strong>
-              </p>
-              <p class="text-zinc-500 text-xs italic">Fee percentage is discussed and agreed transparently before we begin working on your case.</p>
-            </div>
-            <div class="grid gap-4 self-center">
-              <div class="flex items-center gap-4 text-zinc-200 font-bold text-sm bg-zinc-950 p-4 rounded-xl border border-zinc-800">
-                <span class="text-green-400">✓</span> No upfront fee
-              </div>
-              <div class="flex items-center gap-4 text-zinc-200 font-bold text-sm bg-zinc-950 p-4 rounded-xl border border-zinc-800">
-                <span class="text-green-400">✓</span> No hidden charges
-              </div>
-              <div class="flex items-center gap-4 text-zinc-200 font-bold text-sm bg-zinc-950 p-4 rounded-xl border border-zinc-800">
-                <span class="text-green-400">✓</span> Fee only on success
-              </div>
-              <div class="flex items-center gap-4 text-zinc-200 font-bold text-sm bg-zinc-950 p-4 rounded-xl border border-zinc-800">
-                <span class="text-green-400">✓</span> Free initial case review
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASE STUDY SECTION -->
-    <section class="bg-dark-section px-6 py-20 lg:px-8 border-t border-zinc-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl mb-16" data-reveal>
-          <span class="text-gold font-semibold tracking-widest uppercase text-sm">Real Win</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white underline decoration-zinc-800">When They Said No — <br><span class="text-gold italic">We Said Yes.</span></h2>
-          <p class="mt-6 text-zinc-400 text-lg">Detailed analysis of a successful Ombudsman challenge. Relentless pursuit of justice for our client.</p>
-        </div>
-
-        <div class="glass-card rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl" data-reveal>
-          <!-- Header Bar -->
-          <div class="bg-gradient-to-r from-zinc-900 via-zinc-950 to-zinc-900 p-8 flex flex-wrap justify-between items-center gap-6 border-b border-zinc-800">
-            <div>
-              <p class="text-zinc-500 text-[10px] font-black uppercase tracking-[0.2em] mb-2 text-center md:text-left">Case Study: Jabalpur, MP</p>
-              <h4 class="font-heading text-2xl text-white text-center md:text-left">Health Insurance · Reimbursement Claim</h4>
-            </div>
-            <div class="bg-green-950/30 border border-green-500/30 px-6 py-3 rounded-xl">
-              <span class="text-green-400 font-black text-xs uppercase tracking-widest">⚖️ OMBUDSMAN AWARD — IN OUR FAVOUR</span>
-            </div>
-          </div>
-
-          <!-- Quick Stats -->
-          <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-800 border-b border-zinc-800">
-            <div class="p-6">
-              <p class="text-zinc-600 text-[9px] uppercase font-black mb-1">Patient</p>
-              <p class="text-white font-bold text-sm">Mr. Neer Asati</p>
-            </div>
-            <div class="p-6">
-              <p class="text-zinc-600 text-[9px] uppercase font-black mb-1">Stay Duration</p>
-              <p class="text-white font-bold text-sm">10 Sep → 18 Sep 2024 (8 Days)</p>
-            </div>
-            <div class="p-6">
-              <p class="text-zinc-600 text-[9px] uppercase font-black mb-1">Diagnosis</p>
-              <p class="text-white font-bold text-sm italic">Dengue NS-1 Positive / Hepatitis</p>
-            </div>
-          </div>
-
-          <!-- Timeline Content -->
-          <div class="p-10 relative">
-            <div class="case-line hidden md:block"></div>
-            
-            <div class="space-y-12">
-              <div class="relative pl-12 group">
-                <div class="absolute left-[-6px] top-6 w-10 h-10 rounded-full bg-red-950 border border-red-500/50 flex items-center justify-center text-red-500 z-10 transition-transform group-hover:scale-110">❌</div>
-                <div class="text-red-500 font-bold text-[10px] tracking-widest uppercase mb-2">14 Nov 2024 — Insurer Decision</div>
-                <h5 class="text-white font-bold mb-3">Claim Rejected</h5>
-                <div class="bg-red-950/20 border border-red-500/10 p-4 rounded-2xl italic text-red-400 text-xs leading-relaxed max-w-2xl">
-                  "Permanent exclusion. Admission primarily for Investigation & Evaluation purpose only. Could have been managed on OPD basis. Code Excl 04."
+            <!-- Card 1: Prince Asati -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">PA</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Prince Asati</p>
+                    <p class="text-zinc-500 text-xs">2 months ago</p>
+                  </div>
                 </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
               </div>
-
-              <div class="relative pl-12 group">
-                <div class="absolute left-[-6px] top-4 w-10 h-10 rounded-full bg-orange-950 border border-orange-500/50 flex items-center justify-center text-orange-500 z-10">🔄</div>
-                <div class="text-orange-500 font-bold text-[10px] tracking-widest uppercase mb-2">Dec 2024 — Grievance</div>
-                <h5 class="text-white font-bold mb-2 uppercase text-xs">Internal Rejection Upheld</h5>
-                <p class="text-zinc-500 text-xs leading-relaxed max-w-xl">Insurer's internal team stood their ground. We were 100% confident the claim was genuine and justified.</p>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">I had a wonderful and seamless experience with miracle wealth for my health insurance. I was looking to port to a better plan and Swapnil and team helped us achieving the same. Thanks for being a valuable advisor.</p>
+            </div>
 
-              <div class="relative pl-12 group">
-                <div class="absolute left-[-6px] top-4 w-10 h-10 rounded-full bg-blue-950 border border-blue-500/50 flex items-center justify-center text-blue-400 z-10">⚖️</div>
-                <div class="text-blue-400 font-bold text-[10px] tracking-widest uppercase mb-2">Jan 2025 — Escalation</div>
-                <h5 class="text-white font-bold mb-2 uppercase text-xs">Escalated to Insurance Ombudsman</h5>
-                <p class="text-zinc-500 text-xs leading-relaxed max-w-xl">Building a watertight medical file and referencing IRDAI precedents. Multiple rounds of documentation followed.</p>
-              </div>
-
-              <div class="relative pl-12 group">
-                <div class="absolute left-[-6px] top-4 w-10 h-10 rounded-full bg-green-500 border border-green-600 flex items-center justify-center text-black z-10 shadow-green-500/20 shadow-xl">🏆</div>
-                <div class="text-green-400 font-bold text-[10px] tracking-widest uppercase mb-1">29 Sep 2025 — Final Verdict</div>
-                <h5 class="text-white font-bold mb-3">Award in Our Favour. ₹38,000 Payout.</h5>
-                <div class="bg-green-950/30 border border-green-500/10 p-6 rounded-3xl text-sm text-green-100 font-serif leading-relaxed line-clamp-4 lg:line-clamp-none">
-                  "The Forum observed that medical emergencies cannot be ruled out and that the treating doctor is best placed to determine necessity of admission. Repudiation on ground of investigation is <strong>not sustainable.</strong>"
-                  <span class="block mt-4 text-[9px] uppercase tracking-widest text-green-500">— OFFICIAL OMBUDSMAN RULING</span>
+            <!-- Card 2: Shiksha Lilhare -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-rose-600 flex items-center justify-center text-white font-bold text-sm">SL</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Shiksha Lilhare</p>
+                    <p class="text-zinc-500 text-xs">1 month ago</p>
+                  </div>
                 </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
               </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">Had a great experience with Miracle Wealth. The entire process was smooth, with clear and well structured guidance at every step. Everything was explained in detail, making the experience stress-free and reliable. Highly recommended.</p>
             </div>
 
-            <!-- Footer Message -->
-            <div class="mt-16 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-[2rem] p-10 border border-zinc-800 text-center" data-reveal>
-                <h4 class="font-heading text-2xl text-white mb-6 italic">"The amount didn't matter. The justice did."</h4>
-                <p class="text-zinc-300 text-sm leading-relaxed max-w-3xl mx-auto">
-                    ₹38,000 is not a large number. But a wrongful rejection is a wrongful rejection. We worked for nine months because our client deserved justice. Client satisfaction is our only metric.
-                </p>
-                <a href="contact.html" class="mt-8 btn-primary bg-zinc-800 text-white border-zinc-700 font-black px-12 inline-block">SHARE YOUR CASE WITH US</a>
+            <!-- Card 3: Kevin Chawla -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center text-white font-bold text-sm">KC</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Kevin Chawla</p>
+                    <p class="text-zinc-500 text-xs">2 months ago</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">I've had a very positive experience with this health insurance provider. Their plans are well-structured, reasonably priced, and easy to understand, which made enrollment and ongoing use straightforward. Customer support has been responsive and knowledgeable...</p>
+              <a href="https://www.google.com/search?q=Miracle+Wealth+Reviews" target="_blank" class="text-blue-600 text-sm font-semibold mt-2 hover:underline">Read more</a>
             </div>
+
+            <!-- Card 4: Shivam Gupta -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-zinc-500 flex items-center justify-center text-white font-bold text-sm">S</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Shivam Gupta</p>
+                    <p class="text-zinc-500 text-xs">12 Jan 2026</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">My complete experience from start to end was wonderful. It was a seamless experience. Thanks to Swapnil and the team for the support throughout the process.</p>
+            </div>
+
+            <!-- Card 5: Chiraag Punjabi -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm">C</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Chiraag Punjabi</p>
+                    <p class="text-zinc-500 text-xs">11 Jan 2026</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">I took health insurance from Miracle wealth, and the process was seamless from application to getting the policy in place. Swapnil has been an amazing guy, very much approachable. Kudos to the team and their efforts.</p>
+            </div>
+
+            <!-- Card 6: Shreyash Asati -->
+            <div class="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-white rounded-2xl p-6 shadow-sm border border-zinc-200 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">SA</div>
+                  <div>
+                    <p class="text-zinc-900 font-bold text-sm leading-tight">Shreyash Asati</p>
+                    <p class="text-zinc-500 text-xs">24 Jan 2026</p>
+                  </div>
+                </div>
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="w-6 h-6" alt="Google">
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
+                <span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span><span class="text-amber-400 text-sm">★</span>
+                <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-zinc-700 text-sm leading-relaxed flex-grow">It's it overwhelming the recommendations and the help he provided is excellent I have been connected with him for over 2 years now and the advice he gives always worked for me so yeah highly recommended</p>
+            </div>
+
           </div>
+
+          <!-- Right Arrow -->
+          <button onclick="document.getElementById('reviewTrackTI').scrollBy({left:320,behavior:'smooth'})"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition-colors hidden md:flex">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <!-- Trustindex-style Rating Footer -->
+        <div class="mt-10 text-center">
+          <p class="text-zinc-600 text-sm">
+            <span class="font-bold text-zinc-800">Google</span> rating score:
+            <span class="font-bold text-zinc-900">5.0</span> of 5.
+            <a href="https://www.google.com/search?sca_esv=b6c66537db370904&sxsrf=ANbL-n5JOqoC8frhbQGDIkiQd-1YaOW_gQ:1769176800595&kgmid=/g/11ywq0bkdj&q=Miracle+Wealth&shem=bdsle,ptotple,shrtsdl&shndl=30&source=sh/x/loc/uni/m1/1&kgs=c6baea763d23229e&utm_source=bdsle,ptotple,shrtsdl,sh/x/loc/uni/m1/1" target="_blank" class="ml-1 font-bold text-blue-600 underline hover:text-blue-700">Read Google Reviews</a>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- FAQS -->
-    <section class="why-dark px-6 py-20 lg:px-8 border-t border-zinc-800">
-      <div class="mx-auto max-w-7xl">
-        <div class="text-center mb-16" data-reveal>
-          <span class="why-tag">Common Enquiries</span>
-          <h2 class="mt-4 font-heading text-4xl md:text-5xl text-white underline decoration-zinc-800">Your Questions Answered</h2>
-        </div>
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Don't Accept <span class="hl">'No'</span><br>for an Answer.</h2>
+  <p>Your policy was a promise. If that promise was broken — through rejection, underpayment, or mis-selling — you have rights. Let us exercise them for you.</p>
+  <div class="cta-buttons">
+    <a href="contact.html#enquiry" class="btn-white">📞 Request a Free Case Review</a>
+    <a href="https://wa.me/917972053045" class="btn-wa" target="_blank">💬 WhatsApp Us</a>
+  </div>
+  <div class="cta-trust">
+    <span class="trust-item">✦ Free Initial Review</span>
+    <span class="trust-item">✦ No Spam. No Pressure.</span>
+    <span class="trust-item">✦ IRDAI Registered Advisor</span>
+    <span class="trust-item">✦ 5-Star Google Rated</span>
+  </div>
+</section>
 
-        <div class="grid gap-4 max-w-4xl mx-auto" data-reveal>
-          <details class="glass-card rounded-xl overflow-hidden group transition-all">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              Rejected months ago. Still have a chance?
-              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10">
-              Yes. Typically you have 1 year for Ombudsman and 2 years for Consumer Court. Share your rejection letter; we'll check the window instantly.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group transition-all">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              Short settlement — can I fight for the balance?
-              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10">
-              Absolutely. Partial settlements are very successfully challenged. If sub-limits or deductions were unfair, we file for the difference.
-            </div>
-          </details>
-          <details class="glass-card rounded-xl overflow-hidden group transition-all">
-            <summary class="flex justify-between items-center p-6 text-zinc-200 font-bold text-sm cursor-pointer list-none hover:bg-zinc-900 transition-colors">
-              Agent lied about coverage. What now?
-              <ion-icon name="chevron-down-outline" class="text-gold group-open:rotate-180 transition-transform"></ion-icon>
-            </summary>
-            <div class="p-6 pt-0 text-zinc-300 text-xs leading-relaxed border-t border-zinc-900 border-opacity-10">
-              That's mis-selling. It's an IRDAI violation. We help you gather evidence and file for recovery of dues through Consumer Forum.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
 
-    <!-- FINAL CTA -->
-    <section class="relative overflow-hidden px-6 py-24 lg:px-8 bg-[#050505]">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-900/10 blur-[120px] rounded-full"></div>
-      <div class="mx-auto max-w-4xl text-center relative z-10" data-reveal>
-        <h2 class="font-heading text-5xl md:text-6xl text-white mb-8 underline decoration-purple-600/30">Don't Accept <span class="gold-gradient-text italic">'No'</span><br>for an Answer.</h2>
-        <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-12 leading-relaxed italic">
-          Your policy was a promise. If that promise was broken through rejection or underpayment — you have rights. Let us exercise them for you.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="contact.html" class="btn-primary bg-gold border-gold px-12 py-5 text-lg text-white font-black" target="_blank">📞 Free Case Review</a>
-          <a href="https://wa.me/+917972053045" class="btn-secondary px-12 py-5 text-lg" target="_blank">💬 WhatsApp Experts</a>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- FOOTER -->
-  
-  <footer class="footer-dark border-t border-zinc-800 px-6 py-12 lg:px-8 bg-zinc-900" style="margin-top:0;">
+</main>
+<footer class="footer-dark border-t border-zinc-800 px-6 py-12 lg:px-8 bg-zinc-900" style="margin-top:0;">
     <div class="mx-auto max-w-7xl rounded-2xl border border-zinc-800 footer-shell p-6 md:p-8 bg-zinc-950">
       <div class="grid gap-10 md:grid-cols-12">
-        <div class="md:col-span-6 lg:col-span-5 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <img src="images/logo.png" alt="Miracle Wealth" class="h-24 md:h-32 w-auto" />
+        <div class="md:col-span-6 lg:col-span-5 flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
+          <img src="images/logo.png" alt="Miracle Wealth" class="h-32 md:h-44 w-auto object-contain flex-shrink-0" />
           <div class="flex flex-col gap-3 font-['Inter']">
             <a href="tel:+917972053045" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2"><ion-icon name="call-outline"></ion-icon>+91 7972053045</a>
             <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
@@ -495,11 +1000,13 @@
         </div>
       </div>
 
-      <div class="mt-8 grid gap-4 border-t border-zinc-800 pt-5 md:grid-cols-12 md:items-center font-['Inter']">
-        <p class="md:col-span-9 text-xs leading-relaxed text-zinc-300">
+      <div class="mt-10 border-t border-zinc-800 pt-8 flex flex-col items-center gap-6 font-['Inter']">
+        <p class="text-xs leading-relaxed text-zinc-400 text-center max-w-6xl">
           Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) &amp; an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms &amp; conditions carefully before concluding a sale. | Claim Settlement Assistance: We do not guarantee 100% case success. We leverage our expertise and pursue every available channel to the best of our ability, but outcomes are subject to the facts of each case, applicable regulations, and the decision of the relevant authority. Success is not guaranteed.
         </p>
-        <p class="md:col-span-3 text-xs text-zinc-500 md:text-right">© 2026 Miracle Wealth. All rights reserved.</p>
+        <div class="w-full pt-2 text-center pb-2">
+          <p class="text-xs text-zinc-500 tracking-wide">&copy; 2026 Miracle Wealth. All rights reserved.</p>
+        </div>
       </div>
     </div>
   </footer>
@@ -510,6 +1017,12 @@
   </a>
 
   <script>
+    function toggleFaq(btn) {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    }
     const header = document.getElementById("header");
 
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
