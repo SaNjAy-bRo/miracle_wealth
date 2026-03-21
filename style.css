@@ -1172,3 +1172,10 @@ h6 {
 .dropdown-link:hover::before {
   height: 50%;
 }
+
+.nav-link ion-icon[name="chevron-down-outline"] {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .nav-link ion-icon[name="chevron-down-outline"] {
+  transform: rotate(-180deg);
+}
