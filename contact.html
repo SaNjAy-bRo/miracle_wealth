@@ -147,15 +147,20 @@
             <form id="contactForm" class="mt-6 grid gap-4 md:grid-cols-2" onsubmit="event.preventDefault(); window.location.href='thank-you.html';">
               <div>
                 <label class="mb-1 block text-sm text-zinc-300" for="name">Full Name</label>
-                <input id="name" name="name" type="text" required pattern="^[A-Za-z\s\-\']+$" title="Please enter a valid name without numbers or special symbols."
+                <input id="name" name="name" type="text" required pattern="^[A-Za-z\s\-']+$" title="Please enter a valid name without numbers or special symbols."
                   class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500 focus:bg-zinc-50 transition-colors"
-                  placeholder="Enter your name" />
+                  placeholder="Enter your name" maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z\s\-']/g, '')" />
               </div>
               <div>
                 <label class="mb-1 block text-sm text-zinc-300" for="phone">Phone Number</label>
-                <input id="phone" name="phone" type="tel" required pattern="^\+[1-9]\d{1,3}\s?\d{7,14}$" title="Please include your country code starting with '+' (e.g. +91 9876543210)"
-                  class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500 focus:bg-zinc-50 transition-colors"
-                  placeholder="e.g. +91 9876543210" value="+91 " />
+                <div class="flex">
+                  <span class="inline-flex items-center rounded-l-xl border border-r-0 border-zinc-300 bg-zinc-100 px-3 text-sm text-zinc-600">
+                    +91
+                  </span>
+                  <input id="phone" name="phone" type="tel" required pattern="^[0-9]{10}$" title="Please enter exactly 10 digits without spaces or special characters"
+                    class="w-full rounded-r-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500 focus:bg-zinc-50 transition-colors"
+                    placeholder="9876543210" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                </div>
               </div>
               <div>
                 <label class="mb-1 block text-sm text-zinc-300" for="email">Email</label>
@@ -165,9 +170,9 @@
               </div>
               <div>
                 <label class="mb-1 block text-sm text-zinc-300" for="city">City</label>
-                <input id="city" name="city" type="text" required pattern="^[A-Za-z\s\-\']+$" title="City name should not contain numbers."
+                <input id="city" name="city" type="text" required pattern="^[A-Za-z\s\-']+$" title="City name should not contain numbers."
                   class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500 focus:bg-zinc-50 transition-colors"
-                  placeholder="Enter your city" />
+                  placeholder="Enter your city" maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z\s\-']/g, '')" />
               </div>
               <div class="md:col-span-2">
                 <label class="mb-1 block text-sm text-zinc-300" for="service">Interested Service</label>
@@ -240,11 +245,8 @@
         <p class="text-xs leading-relaxed text-zinc-400 text-center max-w-6xl">
           We are not a SEBI-registered investment advisor. We facilitate mutual funds (as per AMFI guidelines) &amp;
           insurance distribution services (as per IRDAI guidelines). Investments in mutual funds are subject to market
-          risks, please read all scheme related documents carefully before investing.
+          risks, please read all scheme related documents carefully before investing. <span class="text-zinc-500">| &copy; 2026 Miracle Wealth. All rights reserved.</span>
         </p>
-        <div class="w-full pt-2 text-center pb-2">
-          <p class="text-xs text-zinc-500 tracking-wide">&copy; 2026 Miracle Wealth. All rights reserved.</p>
-        </div>
       </div>
     </div>
   </footer>

@@ -1,0 +1,145 @@
+﻿Website Corrections: 13.03.2026
+Home Tab
+Update phone number to +91 7972053045. Add +91 before wherever number is mentioned throughout the pages / sections.
+
+Instead of writing long ‘Strategic Wealth Management for Doctors & High-Income Professionals’, change hero section headline to ‘Wealth Management for Doctors, HNIs & Retirees’
+
+Remove ‘5 Star Rated’ from home page highlighting pic.
+
+Delete ‘Explore Services’ button just right to ‘Schedule a Strategy Call’ & bring ‘Schedule a Strategy Call’ button at the centre.
+
+All ‘Schedule a Strategy Call’ or ‘Book a Call’ buttons on this complete home page goes no-where. Attach this link to book calls for this home page dedicated to wealth management.
+TidyCal API Token (for your reference): eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmFiMGVhYzZiMzA2MzNkMWExOGZhMDIzYjgwM2UyYTEwY2UzMDZiMTI0ODJjNTIzNTc4MjZlZTM4YjQ4NWVjZmQxYWRjYWQ0NTk3YTc1ZDUiLCJpYXQiOjE3NzI5MzU3MjkuOTIwNTYxLCJuYmYiOjE3NzI5MzU3MjkuOTIwNTYyLCJleHAiOjQ5Mjg2MDkzMjkuOTEwOTE4LCJzdWIiOiIzOTA0MDMiLCJzY29wZXMiOltdfQ.DO94bgcgNzBI9YhU_Lm1VhBEs37zi9h9xlu6qj8gyg1vZ4rEoXHYLECa9Q4UHa9RFVYfJ0gFBlqNwmJIdPuM0daNMtQc8CRbWd5rxjyIFiF922WpPLbEA7KwT9LJwHeIIiFFUXkiB1nE8UizDKay6u0-PfUPvTcN0u0TcXt7N2sxNaxiQc6cqWwKxIbO13xR3SmC_Y8Hn3YbnmoGqSTeXnKl3ZyRsox3wie3HWwgaJedm-UEpYDj1a84CXMJb6M2GiEX3mYjLzfxnRRRlekNPsTDoB3c2vQD1fAUPTWsuGlXFf785g9s8vdi3Ghb5YEPbngLGfM__xPVMqsFN0RNkypkFJOnpaDFHaleC5azC0nKfLI0bR1eDbK8e4xgZ07d9IZex1YHkdIIzX5qE17icMH1MVm3xsLOHDcWoQienK1HitSJ0daTnsj2bpQBtrR2RS5WQElY78jzKZGaS3uuvi4UjwmPzxVX0Hfw5rnaOttvey8BoTQKsNpTGc3TKwS1RwNqeIg_O0zlQa63kL4Vd2pFnstTB5r__6v6rh5L34cf87vUhkcXRcebI85uFAsqsSE12KttqifaK362ty7KTO7wQzKsyCUMM7XoBl71maPm6984Bh2Dsaj9Mloz3I4ejt2uNXIG1f8KS70EJXRzSNbTCPwrECM7XlYMU5Idgm0\
+
+TidyCal Embed Code (for your reference): 
+<div class="tidycal-embed" data-path="miraclewealthin/investmentadvisory"></div><script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+
+Completely remove the ‘Services’ section designed under the home page (not from tab) as I’ve anyways made dedicated pages for all services under ‘Services’ tab (will discuss below).
+
+Under ‘What Makes Us Different’ – ‘Domain Expertise’ – write ‘Deep experience across investment management, portfolio structuring & risk protection planning’.
+
+Instead of writing ‘Case Study 1’, write ‘A Simple Case Study’ 
+
+‘Meet our founder’ section – Qualifications – Instead of ‘NISM Certified Research Analyst’, mention ‘Ex-NISM Research Analyst’.
+
+‘Meet our founder’ section - Shift this section under ‘About’ tab below the section of ‘Who We Are?’ & fix the image broken.
+
+Instead of ‘How We Build Your Wealth’, write ‘How We Help You Build Wealth’.
+
+Bring ‘The Wealth Vital Signs Framework’ just below the ‘How We Help You Build Wealth’ in home page. It is currently placed above it.
+
+Under ‘The Learning Centre’, instead of writing ‘From Simplify With Swapnil’, write ‘From Mr. Swapnil Asati’.
+
+Under ‘The Learning Centre’, keep tabs in following sequence ‘Youtube’, ‘Instagram’, ‘LinkedIn’.
+Pls make arrangement that whenever I upload any long form video on youtube, it should automatically get updated here. Just like we did for Instagram. Keep Instagram reels shown as it is.
+
+Under ‘Your Next Life Changing Step’, provide sub-heading as ‘Book your 1:1 Investment Discovery Call’ & attach this link to ‘Book a Call’.
+
+Pls add few more logos under ‘Our Mutual Fund Partners’. Logos are attached under ‘1. Wealth Management’ folder.
+
+Enlarge the logo given at the footer (bottom of the home page) so that it should be sufficiently visible. Place the contact no. & ‘Book a Call’ one above another just beside the enlarged logo. Reference given below;
+
+
+Under the ‘Connect’ section at the page footer, kindly place YouTube tab at 1st place, Instagram on 2nd & LinkedIn on 3rd place. 
+
+  Under the ‘Quick Links’ at the page footer, kindly remove ‘Process’.
+
+
+About Tab:
+
+Instead of ‘Book a Call’, write ‘Schedule a Strategy Call’. 
+
+Delete ‘Explore Services’ button just right to ‘Schedule a Strategy Call’ & bring ‘Schedule a Strategy Call’ button at the centre.
+
+Under this ‘Who We Are?’ section, don’t mention these 4 things ‘5 star rated, 1000+ families advised, 99% claims satisfaction & 5Cr+ claim amount settled’ as we are already including all these under insurance pages which we’re going to discuss below.
+
+Move ‘Meet Our Founder’ section (from home tab) under ‘About’ tab. Place it below the section of ‘Who We Are?’. Fix the broken image. 
+
+Remove the section of ‘What People Say’ from this tab as we’ve already added this section under ‘Home’ tab.
+
+Under ‘Your Next Life Changing Step’, write ‘Book your ‘1:1 Investment Discovery Call’ with us.
+
+All ‘Schedule a Strategy Call’ or ‘Book a Call’ buttons on this complete ‘About’ page goes no-where. Attach this link to book calls for this page.
+TidyCal API Token (for your reference): eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmFiMGVhYzZiMzA2MzNkMWExOGZhMDIzYjgwM2UyYTEwY2UzMDZiMTI0ODJjNTIzNTc4MjZlZTM4YjQ4NWVjZmQxYWRjYWQ0NTk3YTc1ZDUiLCJpYXQiOjE3NzI5MzU3MjkuOTIwNTYxLCJuYmYiOjE3NzI5MzU3MjkuOTIwNTYyLCJleHAiOjQ5Mjg2MDkzMjkuOTEwOTE4LCJzdWIiOiIzOTA0MDMiLCJzY29wZXMiOltdfQ.DO94bgcgNzBI9YhU_Lm1VhBEs37zi9h9xlu6qj8gyg1vZ4rEoXHYLECa9Q4UHa9RFVYfJ0gFBlqNwmJIdPuM0daNMtQc8CRbWd5rxjyIFiF922WpPLbEA7KwT9LJwHeIIiFFUXkiB1nE8UizDKay6u0-PfUPvTcN0u0TcXt7N2sxNaxiQc6cqWwKxIbO13xR3SmC_Y8Hn3YbnmoGqSTeXnKl3ZyRsox3wie3HWwgaJedm-UEpYDj1a84CXMJb6M2GiEX3mYjLzfxnRRRlekNPsTDoB3c2vQD1fAUPTWsuGlXFf785g9s8vdi3Ghb5YEPbngLGfM__xPVMqsFN0RNkypkFJOnpaDFHaleC5azC0nKfLI0bR1eDbK8e4xgZ07d9IZex1YHkdIIzX5qE17icMH1MVm3xsLOHDcWoQienK1HitSJ0daTnsj2bpQBtrR2RS5WQElY78jzKZGaS3uuvi4UjwmPzxVX0Hfw5rnaOttvey8BoTQKsNpTGc3TKwS1RwNqeIg_O0zlQa63kL4Vd2pFnstTB5r__6v6rh5L34cf87vUhkcXRcebI85uFAsqsSE12KttqifaK362ty7KTO7wQzKsyCUMM7XoBl71maPm6984Bh2Dsaj9Mloz3I4ejt2uNXIG1f8KS70EJXRzSNbTCPwrECM7XlYMU5Idgm0\
+
+TidyCal Embed Code (for your reference): 
+<div class="tidycal-embed" data-path="miraclewealthin/investmentadvisory"></div><script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+
+Keep the footer of all the tabs (Home, About, Services, Calculators & Contact) consistent as per corrections given under ‘Home’ tab for footer. Only disclaimer shall get revised for each page under ‘services’ tab which are individually given below.
+
+Services Tab:
+
+This ‘Services’ tab when clicked, shall show a dropdown of all services pages in the below sequence & shall open when clicked;
+Wealth Management
+Retirement Planning 
+Loan Against Mutual Funds
+Maternity Health Insurance
+Comprehensive Health Insurance
+Term Insurance
+Claim Settlement Assistance
+
+I’ve attached chrome HTML files (under folder name ‘services’) of all services with full copy-writing. Just copy the content & its structure as it is & show it in your way matching our website theme (or if you think colour combination in HTML files are good then don’t change & you can use exactly same colours as well). All the links & CTAs shall also be as per HTML files;
+
+Wealth Management: 
+When clicked, should bring back to home page directly as we’ve designed the home page for wealth management only. 
+Disclaimer Line (at the bottom of the page) should be: Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Investments in mutual funds are subject to market risks. Please read all scheme-related documents carefully before investing. | © 2026 Miracle Wealth. All rights reserved
+No changes in ‘Privacy policy’. Keep it as per last version we updated.
+
+Retirement Planning
+Disclaimer Line (at the bottom of the page) should be: Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Investments in mutual funds are subject to market risks. Please read all scheme-related documents carefully before investing. | © 2026 Miracle Wealth. All rights reserved.
+No changes in ‘Privacy policy’. Keep it as per last version we updated.
+
+Loan Against Mutual Funds: 
+Add ‘Our Exclusive Partners’ section as the last section of this page (just above the page footer) & show all the logos (attached in folder 3. LAMF).
+In the CTA section of HTML file at the bottom of page under ‘💬 WhatsApp Miracle Wealth’, kindly rename it to ‘💬WhatsApp Us’
+No changes in ‘Privacy policy’. Keep it as per last version we updated.
+
+Maternity Health Insurance
+Make a review section like ‘Comprehensive Health Insurance’, with name ‘What Our Clients Say’ - ‘Real Families. Real Reviews.’ & place it below the section ‘Your Questions Answered’. Directly attach the reviews from my google business profile (Link) like this reference website (link). 
+The Disclaimer Line (at the bottom of the page) should be: Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms & conditions carefully before concluding a sale. | © 2026 Miracle Wealth. All rights reserved. | Privacy Policy.
+No changes in ‘Privacy policy’. Keep it as per last version we updated.
+
+Comprehensive Health Insurance:
+Under ‘What Our Clients Say’ - ‘Real Families. Real Reviews.’ section, directly attach reviews from my google business profile (Link) like this reference website (link). Delete the existing reviews shown.
+The Disclaimer Line (at the bottom of the page) should be: Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms & conditions carefully before concluding a sale. | © 2026 Miracle Wealth. All rights reserved. | Privacy Policy.
+No changes in ‘Privacy policy’. Keep it as per last version we updated.
+‘Request callback’ when clicked, should redirect to the ‘Enquiry Form’ under the ‘Contact’ tab.
+Attach the logos under ‘Our Insurance Partners’ section as given in ‘5. Comprehensive Health Insurance’ folder.
+
+Term Insurance
+Under ‘What Our Clients Say’ - ‘Real Families. Real Reviews.’ section, directly attach reviews from my google business profile (Link) like this reference website (link). Delete the existing reviews shown.
+The Disclaimer Line (at the bottom of the page) should be: Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms & conditions carefully before concluding a sale. | © 2026 Miracle Wealth. All rights reserved. | Privacy Policy.
+No changes in ‘Privacy policy’. Keep it as per last version we updated.
+‘Request callback’ or ‘Get a Free Recommendation →’ or ‘📞 Request a Free Callback’ when clicked, should redirect to the ‘Enquiry Form’ under the ‘Contact’ tab.
+Attach the logos under ‘Our Insurance Partners’ section as given in ‘6. Term Insurance’ folder.
+
+Claim Settlement Assistance
+The Disclaimer Line (at the bottom of the page) should be: Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the terms & conditions carefully before concluding a sale. | Claim Settlement Assistance: We do not guarantee 100% case success. We leverage our expertise and pursue every available channel to the best of our ability, but outcomes are subject to the facts of each case, applicable regulations, and the decision of the relevant authority. Success is not guaranteed. | © 2026 Miracle Wealth. All rights reserved.
+No changes in ‘Privacy policy’. Keep it as per last version we updated.
+‘Request Callback, Act Now →, Share Your Case With Us, 📞 Request a Free Case Review’ CTA buttons when clicked, should land on ‘Contact’ tab - Enquiry Form
+
+Where would all enquiries go if any enquiry is requested under ‘Contact’ – ‘Enquiry Form’? I’ve a CRM, pls bring these enquiries under CRM directly, attaching you the link, user id & password. Take what all details you need to implement.
+Link: https://app.wetroo.com/
+ID: miraclewealth.in@gmail.com
+Pass: Access*1234
+
+
+ Calculators Tab
+Follow the footer style / content / disclaimer as per what is given for home page.
+
+Contact
+If you click on ‘Contact’, link opens as ‘Conact.html’ & not ‘Contact.html’. Add ‘T’.
+
+Update phone number to +91 7972053045. Add +91 before wherever number is mentioned throughout the pages / sections.
+
+Update Email ID to miraclewealth.in@gmail.com under ‘Reach Us’.
+
+Update location to ‘Nagpur, India’ under ‘Reach Us’.
+
+Office Hrs: Monday – Saturday: 10:00 am to 6:00 pm. Keep ‘Sunday: By prior appointment’ as it is.
+
+Follow the footer style / content / disclaimer as per what is given for home page.
+
+
+General
+Website should go with ‘www.miraclewealth.in’ & should not show privacy warning while opening. 
