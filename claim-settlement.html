@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,28 +15,27 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold: #C8922A;
-      --gold-light: #E2B64D;
-      --gold-dark: #A67921;
-      --purple: #7b5ac8;
-      --purple-light: #9b7ae0;
-      --cream: #FFFAF3;
-      --warm-bg: #FFF5E6;
-      --card-bg: #FFFFFF;
-      --border: #E8DCC8;
-      --text-dark: #1A1A2E;
-      --text-mid: #4A4A68;
-      --text-soft: #8A8AA0;
-      --green-ok: #16803C;
-      /* Legacy aliases for sections that still reference old vars */
-      --burg: var(--purple);
-      --burg-mid: #6248a8;
-      --burg-light: var(--purple-light);
-      --amber: var(--gold);
-      --amber-lt: var(--gold-light);
-      --amber-pale: var(--warm-bg);
-      --slate: #0a0b10;
-      --slate-mid: #131420;
+      --burg:        #0D1B4A;
+      --burg-mid:    #152363;
+      --burg-light:  #1E3A8A;
+      --amber:       #F05A28;
+      --amber-lt:    #FF7340;
+      --amber-pale:  #EEF3FF;
+      --slate:       #0B1426;
+      --slate-mid:   #172040;
+      --cream:       #F7F9FF;
+      --warm-bg:     #EEF3FF;
+      --card-bg:     #FFFFFF;
+      --border:      #C8D8FF;
+      --text-dark:   #0A1035;
+      --text-mid:    #2C3E6A;
+      --text-soft:   #6B80B8;
+      --green-ok:    #16803C;
+      /* Keep the original global vars so tailwind / global elements dont break */
+      --gold: var(--amber);
+      --gold-light: var(--amber-lt);
+      --purple: var(--burg);
+      --purple-light: var(--burg-light);
     }
 
     html { scroll-behavior: smooth; }
@@ -50,13 +49,12 @@
 
     /* ── HERO ── */
     .hero {
-      background: #0a0b10 !important;
-      background-image: radial-gradient(circle at right center, rgba(167, 139, 250, 0.12) 0%, rgba(214, 74, 154, 0.08) 40%, #0a0b10 70%) !important;
+      background: var(--slate) !important;
       padding: 10.5rem 5% 7rem; position: relative; overflow: hidden; color: #fff;
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at right center, rgba(167, 139, 250, 0.12) 0%, rgba(214, 74, 154, 0.08) 40%, transparent 70%);
+      background: linear-gradient(135deg, rgba(13,27,74,0.95) 0%, rgba(11,20,38,0.85) 55%, rgba(30,58,138,0.75) 100%);
     }
     /* Diagonal stripe accent */
     .hero::after {
@@ -65,20 +63,20 @@
       background: repeating-linear-gradient(
         -55deg,
         transparent 0px, transparent 18px,
-        rgba(200,146,42,0.04) 18px, rgba(200,146,42,0.04) 20px
+        rgba(240,90,40,0.05) 18px, rgba(240,90,40,0.05) 20px
       );
     }
     /* Radial glow on top-right */
     .hero-glow {
       position: absolute; top: -80px; right: -80px; width: 520px; height: 520px;
-      background: radial-gradient(circle, rgba(123,90,200,0.35) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(30,58,138,0.55) 0%, transparent 70%);
       pointer-events: none; z-index: 1;
     }
     .hero-inner { max-width: 900px; position: relative; z-index: 1; text-align: left; }
     .hero-eyebrow {
       display: inline-flex !important; align-items: center; gap: 0.5rem;
-      background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.35);
-      color: var(--gold-light); border-radius: 4px; padding: 0.3rem 0.9rem;
+      background: rgba(240,90,40,0.18); border: 1px solid rgba(240,90,40,0.40);
+      color: var(--amber-lt); border-radius: 4px; padding: 0.3rem 0.9rem;
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; margin-bottom: 1.6rem;
       position: relative !important; z-index: 2;
@@ -88,7 +86,7 @@
       font-size: clamp(2.5rem, 4.5vw, 4rem);
       font-weight: 700; line-height: 1.15; color: #ffffff; margin-bottom: 1.2rem; letter-spacing: -0.02em;
     }
-    .hero h1 .amber { color: var(--gold-light); }
+    .hero h1 .amber { color: var(--amber-lt); }
     .hero h1 .italic { font-style: italic; }
     .hero-sub { font-size: 1.02rem; color: rgba(255,255,255,0.74); margin-bottom: 0.9rem; max-width: 580px; line-height: 1.8; }
     .hero-note {
@@ -253,17 +251,17 @@
 
     /* ── CTA ── */
     .cta-section {
-      background: linear-gradient(135deg, #120925 0%, #2A1648 100%);
+      background: var(--slate);
       padding: 5rem 5%; text-align: center; color: #fff; position: relative; overflow: hidden;
     }
     .cta-section::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(200, 146, 42, 0.25) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(13,27,74,0.65) 0%, transparent 65%);
       pointer-events: none;
     }
     .cta-section::after {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, #120925, #C8922A, #120925);
+      background: linear-gradient(90deg, var(--amber), var(--burg-light), var(--amber));
     }
     .cta-section > * { position: relative; z-index: 1; }
     .cta-section h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.9rem, 3.8vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
@@ -330,7 +328,7 @@
 
       <div class="hidden items-center gap-3 lg:flex">
         <a href="tel:+917972053045" class="btn-secondary rounded-lg px-4 py-2 border border-zinc-700 font-['Inter']">+91 7972053045</a>
-        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="btn-primary rounded-lg px-4 py-2 bg-purple-600 text-white font-['Inter']" target="_blank">Book a Call</a>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery" class="btn-primary rounded-lg px-4 py-2 bg-purple-600 text-white font-['Inter']" target="_blank">Book a Call</a>
       </div>
 
       <button id="mobileMenuBtn"
@@ -366,7 +364,7 @@
         <a href="contact.html" class="mobile-link block font-medium font-['Inter'] text-zinc-100">Contact</a>
         <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6 font-['Inter']">
           <a href="tel:+917972053045" class="btn-secondary text-center rounded-lg px-4 py-2 border border-zinc-700 text-zinc-100">+91 7972053045</a>
-          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="btn-primary text-center rounded-lg px-4 py-2 bg-purple-600 text-white" target="_blank">Book a Call</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery" class="btn-primary text-center rounded-lg px-4 py-2 bg-purple-600 text-white" target="_blank">Book a Call</a>
         </div>
       </nav>
     </div>
@@ -391,7 +389,7 @@
     <div class="hero-note">✅ No Resolution = No Fee. We work for your outcome.</div>
     <div class="hero-actions">
       <a href="contact.html#enquiry" class="btn-amber" target="_blank">📞 Request Callback</a>
-      <a href="https://wa.me/917972053045" class="btn-wa" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://wa.me/917972053045" class="btn-wa" target="_blank"><ion-icon name="logo-whatsapp" class="text-xl mr-1 align-text-bottom"></ion-icon> WhatsApp Us</a>
     </div>
   </div>
 </section>
@@ -952,7 +950,7 @@
   <p>Your policy was a promise. If that promise was broken — through rejection, underpayment, or mis-selling — you have rights. Let us exercise them for you.</p>
   <div class="cta-buttons">
     <a href="contact.html#enquiry" class="btn-white">📞 Request a Free Case Review</a>
-    <a href="https://wa.me/917972053045" class="btn-wa" target="_blank">💬 WhatsApp Us</a>
+    <a href="https://wa.me/917972053045" class="btn-wa" target="_blank"><ion-icon name="logo-whatsapp" class="text-xl mr-1 align-text-bottom"></ion-icon> WhatsApp Us</a>
   </div>
   <div class="cta-trust">
     <span class="trust-item">✦ Free Initial Review</span>
@@ -972,7 +970,7 @@
           <img src="images/logo.png" alt="Miracle Wealth" class="h-32 md:h-44 w-auto object-contain flex-shrink-0" />
           <div class="flex flex-col gap-3 font-['Inter']">
             <a href="tel:+917972053045" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2"><ion-icon name="call-outline"></ion-icon>+91 7972053045</a>
-            <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
+            <a href="https://tidycal.com/miraclewealthin/investmentdiscovery" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
           </div>
         </div>
 

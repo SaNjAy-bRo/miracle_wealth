@@ -56,7 +56,7 @@
 
       <div class="hidden items-center gap-3 lg:flex">
         <a href="tel:+917972053045" class="btn-secondary rounded-lg px-4 py-2 border border-zinc-700 font-['Inter']">+91 7972053045</a>
-        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="btn-primary rounded-lg px-4 py-2 bg-purple-600 text-white font-['Inter']" target="_blank">Book a Call</a>
+        <a href="https://tidycal.com/miraclewealthin/investmentdiscovery" class="btn-primary rounded-lg px-4 py-2 bg-purple-600 text-white font-['Inter']" target="_blank">Book a Call</a>
       </div>
 
       <button id="mobileMenuBtn"
@@ -92,7 +92,7 @@
         <a href="contact.html" class="mobile-link block font-medium font-['Inter'] text-zinc-100">Contact</a>
         <div class="mt-2 flex flex-col gap-3 border-t border-zinc-800 pt-6 font-['Inter']">
           <a href="tel:+917972053045" class="btn-secondary text-center rounded-lg px-4 py-2 border border-zinc-700 text-zinc-100">+91 7972053045</a>
-          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="btn-primary text-center rounded-lg px-4 py-2 bg-purple-600 text-white" target="_blank">Book a Call</a>
+          <a href="https://tidycal.com/miraclewealthin/investmentdiscovery" class="btn-primary text-center rounded-lg px-4 py-2 bg-purple-600 text-white" target="_blank">Book a Call</a>
         </div>
       </nav>
     </div>
@@ -105,8 +105,7 @@
       <div class="hero-orb hero-orb-1"></div>
       <div class="mx-auto max-w-7xl" data-reveal>
         <span class="why-tag">Contact</span>
-        <h1 class="mt-6 max-w-4xl font-heading text-4xl leading-tight md:text-5xl lg:text-6xl">Let’s Build Your
-          Financial Plan With Clarity</h1>
+        <h1 class="font-heading text-4xl leading-tight md:text-5xl lg:text-6xl text-white">Let’s Fix Your Finances, Today!</h1>
         <p class="mt-6 max-w-3xl text-lg text-zinc-300">
           Share your priorities and we will help you take the right next step with structured support and clear
           communication.
@@ -134,7 +133,7 @@
 
           <div class="mt-5 rounded-2xl border border-zinc-800 bg-card p-6">
             <h3 class="font-heading text-xl">Office Hours</h3>
-            <p class="mt-3 text-zinc-300">Monday - Saturday: 10:00 AM to 7:00 PM</p>
+            <p class="mt-3 text-zinc-300">Monday - Saturday: 10:00 am to 6:00 pm</p>
             <p class="text-zinc-300">Sunday: By prior appointment</p>
           </div>
         </div>
@@ -144,7 +143,7 @@
             <h2 class="font-heading text-2xl md:text-3xl">Enquiry Form</h2>
             <p class="mt-2 text-zinc-300">Fill this form and we will connect with you shortly.</p>
 
-            <form id="contactForm" class="mt-6 grid gap-4 md:grid-cols-2" onsubmit="event.preventDefault(); window.location.href='thank-you.html';">
+            <form id="contactForm" class="mt-6 grid gap-4 md:grid-cols-2" action="submit.php" method="POST">
               <div>
                 <label class="mb-1 block text-sm text-zinc-300" for="name">Full Name</label>
                 <input id="name" name="name" type="text" required pattern="^[A-Za-z\s\-']+$" title="Please enter a valid name without numbers or special symbols."
@@ -178,15 +177,15 @@
                 <label class="mb-1 block text-sm text-zinc-300" for="service">Interested Service</label>
                 <select id="service" name="service" required
                   class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none focus:border-zinc-500 focus:bg-zinc-50 transition-colors invalid:text-zinc-400">
-                  <option value="" disabled selected>Select a Service</option>
-                  <option value="Wealth Management for Doctors & HNIs">Wealth Management for Doctors &amp; HNIs</option>
-                  <option value="Retirement Planning">Retirement Planning</option>
-                  <option value="Loan Against Mutual Funds">Loan Against Mutual Funds</option>
-                  <option value="Maternity Health Insurance">Maternity Health Insurance</option>
-                  <option value="Comprehensive Health Insurance">Comprehensive Health Insurance</option>
-                  <option value="Term Insurance">Term Insurance</option>
-                  <option value="Claim Settlement Assistance">Claim Settlement Assistance</option>
-                  <option value="Others">Others</option>
+                  <option value="" disabled selected class="text-black bg-white">Select a Service</option>
+                  <option value="Wealth Management for Doctors & HNIs" class="text-black bg-white">Wealth Management for Doctors &amp; HNIs</option>
+                  <option value="Retirement Planning" class="text-black bg-white">Retirement Planning</option>
+                  <option value="Loan Against Mutual Funds" class="text-black bg-white">Loan Against Mutual Funds</option>
+                  <option value="Maternity Health Insurance" class="text-black bg-white">Maternity Health Insurance</option>
+                  <option value="Comprehensive Health Insurance" class="text-black bg-white">Comprehensive Health Insurance</option>
+                  <option value="Term Insurance" class="text-black bg-white">Term Insurance</option>
+                  <option value="Claim Settlement Assistance" class="text-black bg-white">Claim Settlement Assistance</option>
+                  <option value="Others" class="text-black bg-white">Others</option>
                 </select>
               </div>
               <div class="md:col-span-2">
@@ -213,7 +212,7 @@
           <img src="images/logo.png" alt="Miracle Wealth" class="h-32 md:h-44 w-auto object-contain flex-shrink-0" />
           <div class="flex flex-col gap-3 font-['Inter']">
             <a href="tel:+917972053045" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2"><ion-icon name="call-outline"></ion-icon>+91 7972053045</a>
-            <a href="https://tidycal.com/miraclewealthin/investmentdiscovery-3qd7z0g" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
+            <a href="https://tidycal.com/miraclewealthin/investmentdiscovery" class="social-pill w-fit pr-6 bg-zinc-800/50 rounded-full px-4 py-2 text-zinc-200 border border-zinc-700 flex items-center gap-2" target="_blank"><ion-icon name="calendar-outline"></ion-icon>Book a Call</a>
           </div>
         </div>
 
@@ -243,9 +242,7 @@
 
       <div class="mt-10 border-t border-zinc-800 pt-8 flex flex-col items-center gap-6 font-['Inter']">
         <p class="text-xs leading-relaxed text-zinc-400 text-center max-w-6xl">
-          We are not a SEBI-registered investment advisor. We facilitate mutual funds (as per AMFI guidelines) &amp;
-          insurance distribution services (as per IRDAI guidelines). Investments in mutual funds are subject to market
-          risks, please read all scheme related documents carefully before investing. <span class="text-zinc-500">| &copy; 2026 Miracle Wealth. All rights reserved.</span>
+          Mr. Swapnil Asati (founder of Miracle Wealth) is an AMFI-registered mutual fund distributor (ARN-255671) & an IRDAI-registered insurance intermediary. Investments in mutual funds are subject to market risks. Please read all scheme-related documents carefully before investing. | © 2026 Miracle Wealth. All rights reserved
         </p>
       </div>
     </div>
